@@ -1,0 +1,166 @@
+
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-5 col-md-8 mx-auto">
+            <div class="square square-7" id="square7"></div>
+            <div class="square square-8" id="square8"></div>
+            <div class="card card-register">
+              <div class="card-header">
+                <img class="card-img" src="../assets/img/square-purple-1.png" alt="Card image">
+
+                <h3 class="card-title">Register</h3>
+              </div>
+              <div class="card-body">
+                <form class="form">
+                  <div
+                  class="input-group"
+                  [ngClass]="{ 'input-group-focus': focus1 === true }"
+                >
+                  <div class="input-group-prepend">
+                    <div class="input-group-text">
+                      <i class="fa fa-address-card" aria-hidden="true"></i>
+
+                    </div>
+                  </div>
+                  <input
+                    class="form-control"
+                    placeholder="Username"
+                    [(ngModel)]="user.username" name="username"
+                    type="text"
+                    (focus)="focus1 = true"
+                    (blur)="focus1 = false"
+                    required
+                    minlength="5"
+                  />
+                </div>
+
+                  <div
+                    class="input-group"
+                    [ngClass]="{ 'input-group-focus': focus === true }"
+                  >
+                    <div class="input-group-prepend">
+                      <div class="input-group-text">
+                        <i class="tim-icons icon-single-02"> </i>
+                      </div>
+                    </div>
+                    <input
+                      class="form-control"
+                      placeholder="First Name"
+                      [(ngModel)]="user.firstName" name="firstname"
+                      required
+                      minlength="5"
+                      type="text"
+                      (focus)="focus = true"
+                      (blur)="focus = false"
+                    />
+                  </div>
+
+                  <div
+                    class="input-group"
+                    [ngClass]="{ 'input-group-focus': focus1 === true }"
+                  >
+                    <div class="input-group-prepend">
+                      <div class="input-group-text">
+                        <i class="tim-icons icon-single-02"> </i>
+                      </div>
+                    </div>
+                    <input
+                      class="form-control"
+                      placeholder="Last name"
+                      [(ngModel)]="user.lastName" name="lastname"
+                      type="text"
+                      required
+                      minlength="5"
+                      (focus)="focus1 = true"
+                      (blur)="focus1 = false"
+                    />
+                  </div>
+
+                  <div
+                    class="input-group"
+                    [ngClass]="{ 'input-group-focus': focus1 === true }"
+                  >
+                    <div class="input-group-prepend">
+                      <div class="input-group-text">
+                        <i class="tim-icons icon-email-85"> </i>
+                      </div>
+                    </div>
+                    <input
+                      class="form-control"
+                      placeholder="Email"
+                      required
+                      type="text"
+                      (focus)="focus1 = true"
+                      [(ngModel)]="user.email" name="email"
+
+                      (blur)="focus1 = false"
+                    />
+                  </div>
+
+                  <div
+                    class="input-group"
+                    [ngClass]="{ 'input-group-focus': focus1 === true }"
+                  >
+                    <div class="input-group-prepend">
+                      <div class="input-group-text">
+                        <i class="fa fa-phone" aria-hidden="true"></i>
+                      </div>
+                    </div>
+                    <input
+                      class="form-control"
+                      placeholder="Phone number"
+                      required
+                      minlength="8"
+                      maxlength="8"
+                      type="text"
+                      [(ngModel)]="user.phone"
+                       name="phone"
+                      (focus)="focus1 = true"
+                      (blur)="focus1 = false"
+                    />
+                  </div>
+
+                  <div
+                    class="input-group"
+                    [ngClass]="{ 'input-group-focus': focus2 === true }"
+                  >
+                    <div class="input-group-prepend">
+                      <div class="input-group-text">
+                        <i class="tim-icons icon-lock-circle"> </i>
+                      </div>
+                    </div>
+                    <input
+                      class="form-control"
+                      placeholder="Password"
+                      [(ngModel)]="user.password"
+                      name="password"
+                      required
+                      minlength="5"
+                      type="password"
+                      (focus)="focus2 = true"
+                      (blur)="focus2 = false"
+                    />
+                  </div>
+                  <div class="card-footer">
+                    <button
+                    [disabled]="disableButton"
+                    id="registerButton"
+                    class="btn btn-primary btn-round btn-lg btn-block"
+                      href="javascript:void(0)"
+                      (click)="AddUser()"
+                    >
+                     Register
+                  </button>
+<br>
+                      <div style="display:flex;justify-content:center;width: 100%">
+                          <a href="no-javascript1.html" title="Forgot Password" id="link-sign up"   [routerLink]="['/login']"
+                          >Allready have an account ? sign in.</a>
+                      </div>
+                  </div>
+                </form>
+              </div>
+
+            </div>
+          </div>
+        </div>
+

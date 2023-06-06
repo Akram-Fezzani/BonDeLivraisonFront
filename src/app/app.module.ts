@@ -8,6 +8,8 @@ import { LoginComponent } from './components/login/login.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
+import { CommonModule } from '@angular/common';
+import { RegisterpageComponent } from './components/registerpage/registerpage.component';
 
 
 @NgModule({
@@ -15,6 +17,7 @@ import { FormsModule } from '@angular/forms';
     AppComponent,
     NavbarComponent,
     FooterComponent,
+    RegisterpageComponent,
     LoginComponent
 
   ],
@@ -22,12 +25,14 @@ import { FormsModule } from '@angular/forms';
     BrowserModule,
     AppRoutingModule,
     FormsModule,
+    CommonModule ,
     HttpClientModule
   ],
   providers: [],
   exports: [   
     NavbarComponent,
     LoginComponent,
+    RegisterpageComponent,
     FooterComponent
   ],
 
