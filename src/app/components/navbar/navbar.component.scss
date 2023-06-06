@@ -1,0 +1,11 @@
+.niceBar{
+  color: white !important;
+}
+.profileDiv{
+  margin-top: -6px;background: rgb(77, 5, 23); border-radius: 200px;width: 30px;height: 30px;display: flex;justify-content: center;padding-top: 8px
+}
+
+.profileDiv:hover{
+  background: rgba(139, 15, 53, 0.7) !important;
+  cursor: pointer;
+}
