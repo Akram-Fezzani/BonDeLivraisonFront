@@ -1,5 +1,6 @@
 
 import {Roles} from "./Roles";
+
 export class User {
     id!: number;
     username!: string;
@@ -8,11 +9,12 @@ export class User {
     firstName!:string;
     lastName!:string;
     phone!:number;
-    rate!:number;
     state!:boolean;
     roles!:string;
     roleId!:string;
-  
+    CentreId!:string;
+    Centre!:string;
+
 
 
 }

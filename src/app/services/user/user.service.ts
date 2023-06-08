@@ -9,6 +9,9 @@ import {Observable} from "rxjs";
 export class UserService {
 
   private baseUrl = '/https://localhost:44317/api/User/';
+  private chefcentersurl = 'https://localhost:44317/api/ChefCenter/GetChefs';
+  private getCenterUrl =  ';https://localhost:44357/api/Center'
+
 
   constructor(private http: HttpClient) { }
 
@@ -21,17 +24,45 @@ export class UserService {
     return this.http.get(this.baseUrl + 'getUserByusername/'+username);
   }
 
+  chefcenters(): Observable<any> { 
+    return this.http.get(this.chefcentersurl );
+  }
 
   getnumberofusers(): Observable<any> { 
-    return this.http.get(this.baseUrl + 'numberofusers');
+    return this.http.get( 'https://localhost:44317/api/User/GetNumberOfUsers');
   }
 
   getnumberofactiveusers(): Observable<any> { 
-    return this.http.get(this.baseUrl + 'numberofactiveusers');
+    return this.http.get( 'https://localhost:44317/api/User/GetNumberOfActiveUsers');
   }
+
+  getnumberofchefs(): Observable<any> { 
+    return this.http.get( 'https://localhost:44317/api/ChefCenter/GetNumberOfChefCenters');
+  }
+
+  getnumberofadmins(): Observable<any> { 
+    return this.http.get( 'https://localhost:44317/api/User/GetNumberOfAdmins');
+  }
+  getCenter(CenterId:string): Observable<any> { 
+    return this.http.get(this.getCenterUrl+'/GetCentre?Id=' +CenterId);
+  }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
   getUserPostStats(): Observable<any> {
     return this.http.get(this.baseUrl + 'displayChart');
   }
-
 }
