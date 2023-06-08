@@ -17,13 +17,14 @@ export class RegisterpageComponent implements OnInit, OnDestroy {
   user: User=new User();
   disableButton: boolean = false;
 
-  constructor(private router:Router,private rs:RegisterService, private _router:Router) { }
+  constructor(private router:Router,private us:RegisterService, private _router:Router) { }
   
 
 
   AddUser(){
+    this.user.roleId ="3fa85f64-5717-4562-b3fc-2c963f66afa6";
     this.disableButton = true;
-    this.rs.AddUser(this.user).subscribe( (data:any) =>{
+    this.us.AddUser(this.user).subscribe( (data:any) =>{
       console.log(data);
         if(data.message == "success") {
           this.disableButton = false;
@@ -39,90 +40,12 @@ export class RegisterpageComponent implements OnInit, OnDestroy {
 
 
 
-  @HostListener("document:mousemove", ["$event"])
-  onMouseMove(e:any) {
-    var squares1 = document.getElementById("square1");
-    var squares2 = document.getElementById("square2");
-    var squares3 = document.getElementById("square3");
-    var squares4 = document.getElementById("square4");
-    var squares5 = document.getElementById("square5");
-    var squares6 = document.getElementById("square6");
-    var squares7 = document.getElementById("square7");
-    var squares8 = document.getElementById("square8");
 
-    var posX = e.clientX - window.innerWidth / 2;
-    var posY = e.clientY - window.innerWidth / 6;
-
-    // @ts-ignore
-    squares1.style.transform =
-      "perspective(500px) rotateY(" +
-      posX * 0.05 +
-      "deg) rotateX(" +
-      posY * -0.05 +
-      "deg)";
-          // @ts-ignore
-
-    squares2.style.transform =
-      "perspective(500px) rotateY(" +
-      posX * 0.05 +
-      "deg) rotateX(" +
-      posY * -0.05 +
-      "deg)";
-          // @ts-ignore
-
-    squares3.style.transform =
-      "perspective(500px) rotateY(" +
-      posX * 0.05 +
-      "deg) rotateX(" +
-      posY * -0.05 +
-      "deg)";
-          // @ts-ignore
-
-    squares4.style.transform =
-      "perspective(500px) rotateY(" +
-      posX * 0.05 +
-      "deg) rotateX(" +
-      posY * -0.05 +
-      "deg)";
-          // @ts-ignore
-
-    squares5.style.transform =
-      "perspective(500px) rotateY(" +
-      posX * 0.05 +
-      "deg) rotateX(" +
-      posY * -0.05 +
-      "deg)";
-          // @ts-ignore
-
-    squares6.style.transform =
-      "perspective(500px) rotateY(" +
-      posX * 0.05 +
-      "deg) rotateX(" +
-      posY * -0.05 +
-      "deg)";
-          // @ts-ignore
-
-    squares7.style.transform =
-      "perspective(500px) rotateY(" +
-      posX * 0.02 +
-      "deg) rotateX(" +
-      posY * -0.02 +
-      "deg)";
-          // @ts-ignore
-
-    squares8.style.transform =
-      "perspective(500px) rotateY(" +
-      posX * 0.02 +
-      "deg) rotateX(" +
-      posY * -0.02 +
-      "deg)";
-  }
 
   ngOnInit() {
     var body = document.getElementsByTagName("body")[0];
     body.classList.add("register-page");
 
-    this.onMouseMove(event);
   }
   ngOnDestroy() {
     var body = document.getElementsByTagName("body")[0];

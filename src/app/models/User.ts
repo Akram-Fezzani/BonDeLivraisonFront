@@ -10,8 +10,9 @@ export class User {
     phone!:number;
     rate!:number;
     state!:boolean;
- 
-    roles!:Roles[];
-    reputationLevel!:string
-    savedPosts!:number[];
+    roles!:string;
+    roleId!:string;
+  
+
+
 }

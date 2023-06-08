@@ -10,6 +10,10 @@ import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { RegisterpageComponent } from './components/registerpage/registerpage.component';
+import { BackofficeFooterComponent } from './backoffice/backoffice-footer/backoffice-footer.component';
+import { BackofficeSidebarComponent } from './backoffice/backoffice-sidebar/backoffice-sidebar.component';
+import { AdminindexComponent } from './backoffice/adminindex/adminindex.component';
+import { BackofficeNavComponent } from './backoffice/backoffice-nav/backoffice-nav.component';
 
 
 @NgModule({
@@ -18,6 +22,10 @@ import { RegisterpageComponent } from './components/registerpage/registerpage.co
     NavbarComponent,
     FooterComponent,
     RegisterpageComponent,
+    BackofficeSidebarComponent,
+    AdminindexComponent,
+    BackofficeNavComponent,
+    BackofficeFooterComponent,
     LoginComponent
 
   ],
@@ -33,6 +41,11 @@ import { RegisterpageComponent } from './components/registerpage/registerpage.co
     NavbarComponent,
     LoginComponent,
     RegisterpageComponent,
+    BackofficeFooterComponent,
+    BackofficeSidebarComponent,
+    AdminindexComponent,
+    BackofficeNavComponent,
+    BackofficeFooterComponent,
     FooterComponent
   ],
 

@@ -10,12 +10,12 @@ import { User } from 'src/app/models/User';
 })
 export class RegisterService {
 
-  private baseURL = "http://localhost:8085/api/auth";
+  private baseURL = "https://localhost:44317/api/User/AjoutUser";
 
   constructor(private _http:HttpClient) { }
 
   AddUser(user: User){
-    return this._http.post<User>(`${this.baseURL}/${"signup"}`,user);
+    return this._http.post<User>(this.baseURL,user);
 
   }
 
