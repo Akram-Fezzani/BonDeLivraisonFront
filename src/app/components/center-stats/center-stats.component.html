@@ -1,0 +1,228 @@
+<div class="row">
+  <div class="col-xl-3 col-md-6">
+    <div class="card card-stats">
+      <div class="card-body">
+        <div class="row">
+          <div class="col">
+            <h5 class="card-title text-uppercase text-muted mb-0">
+              Rotation Actuelle
+            </h5>
+            <span class="h2 font-weight-bold mb-0">
+              {{ rotationActuelle }}
+            </span>
+          </div>
+
+          <div class="col-auto">
+            <div
+              class="icon icon-shape bg-gradient-red text-white rounded-circle shadow"
+            >
+              <i class="ni ni-active-40"></i>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-xl-3 col-md-6">
+    <div class="card card-stats">
+      <div class="card-body">
+        <div class="row">
+          <div class="col">
+            <h5 class="card-title text-uppercase text-muted mb-0">
+              Useful Surface
+            </h5>
+            <span class="h2 font-weight-bold mb-0">
+              {{ usefulSurface }}
+            </span>
+          </div>
+          <div class="col-auto">
+            <div
+              class="icon icon-shape bg-gradient-orange text-white rounded-circle shadow"
+            >
+              <i class="ni ni-chart-pie-35"></i>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-xl-3 col-md-6">
+    <div class="card card-stats">
+      <div class="card-body">
+        <div class="row">
+          <div class="col">
+            <h5 class="card-title text-uppercase text-muted mb-0">
+              Collectors
+            </h5>
+            <span class="h2 font-weight-bold mb-0">
+              {{ nbrActiveUsers }}
+            </span>
+          </div>
+          <div class="col-auto">
+            <div
+              class="icon icon-shape bg-gradient-green text-white rounded-circle shadow"
+            >
+              <i class="ni ni-money-coins"></i>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-xl-3 col-md-6">
+    <div class="card card-stats">
+      <div class="card-body">
+        <div class="row">
+          <div class="col">
+            <h5 class="card-title text-uppercase text-muted mb-0">Antenne</h5>
+            <span class="h2 font-weight-bold mb-0">
+              {{ antennaLabel }}
+            </span>
+          </div>
+          <div class="col-auto">
+            <div
+              class="icon icon-shape bg-gradient-info text-white rounded-circle shadow"
+            >
+              <i class="ni ni-chart-bar-32"></i>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-lg-4">
+    <div class="card card-chart">
+      <div class="card-header">
+        <h5 class="card-category"></h5>
+        <h3 class="card-title">
+          <i class="tim-icons icon-bell-55 text-primary"></i> Articles by Center
+        </h3>
+      </div>
+      <div class="card-body">
+        <div class="chart-area">
+          <div class="chartjs-size-monitor">
+            <div class="chartjs-size-monitor-expand">
+              <div class=""></div>
+            </div>
+            <div class="chartjs-size-monitor-shrink">
+              <div class=""></div>
+            </div>
+          </div>
+          <canvas
+            id="chartLineRed"
+            style="display: block; height: 220px; width: 268px"
+            width="335"
+            height="275"
+            class="chartjs-render-monitor"
+          >
+          </canvas>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-lg-4">
+    <div class="card card-chart">
+      <div class="card-header">
+        <h5 class="card-category"></h5>
+        <h3 class="card-title">
+          <i class="tim-icons icon-delivery-fast text-info"></i>Article by type
+        </h3>
+      </div>
+      <div class="card-body">
+        <div class="chart-area">
+          <div class="chartjs-size-monitor">
+            <div class="chartjs-size-monitor-expand">
+              <div class=""></div>
+            </div>
+            <div class="chartjs-size-monitor-shrink">
+              <div class=""></div>
+            </div>
+          </div>
+          <canvas
+            id="CountryChart"
+            width="335"
+            height="275"
+            style="display: block; height: 220px; width: 268px"
+            class="chartjs-render-monitor"
+          >
+          </canvas>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-lg-4">
+    <div class="card card-chart">
+      <div class="card-header">
+        <h5 class="card-category"></h5>
+        <h3 class="card-title">
+          <i class="tim-icons icon-send text-success"> </i>
+          Commands
+        </h3>
+      </div>
+      <div class="card-body">
+        <div class="chart-area">
+          <div class="chartjs-size-monitor">
+            <div class="chartjs-size-monitor-expand">
+              <div class=""></div>
+            </div>
+            <div class="chartjs-size-monitor-shrink">
+              <div class=""></div>
+            </div>
+          </div>
+          <canvas
+            id="chartLineGreen"
+            width="335"
+            height="275"
+            style="display: block; height: 220px; width: 268px"
+            class="chartjs-render-monitor"
+          >
+          </canvas>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div style="margin-left: -15px; width: 100%">
+  <div class="col-12">
+    <div style="border-radius: 10px" class="card">
+      <div class="card-header">
+        <h5 class="card-title">Collecteurs Disponible</h5>
+      </div>
+      <div class="card-body">
+        <table
+          id="datatables-buttons"
+          class="table table-striped"
+          style="width: 100%"
+        >
+          <thead>
+            <tr>
+              <th>Nom</th>
+              <th>Prenom</th>
+              <th>Phone</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let c of collectors">
+              <td>{{ c.nom }}</td>
+
+              <td>{{ c.prenom }}</td>
+              <td>{{ c.telephone }}</td>
+              <td>
+                <button style="margin-left: 20px" class="btn btn-success">
+                  rendre disponible
+                </button>
+                <button style="margin-left: 20px" class="btn btn-danger">
+                  rendre indisponible
+                </button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>

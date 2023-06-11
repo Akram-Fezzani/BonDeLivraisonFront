@@ -14,7 +14,8 @@ import { BackofficeFooterComponent } from './backoffice/backoffice-footer/backof
 import { BackofficeSidebarComponent } from './backoffice/backoffice-sidebar/backoffice-sidebar.component';
 import { AdminindexComponent } from './backoffice/adminindex/adminindex.component';
 import { BackofficeNavComponent } from './backoffice/backoffice-nav/backoffice-nav.component';
-import { UserStatsComponent } from './user-stats/user-stats.component';
+import { UserStatsComponent } from './components/user-stats/user-stats.component';
+import { CenterStatsComponent } from './components/center-stats/center-stats.component';
 
 
 @NgModule({
@@ -28,7 +29,8 @@ import { UserStatsComponent } from './user-stats/user-stats.component';
     BackofficeNavComponent,
     UserStatsComponent,
     BackofficeFooterComponent,
-    LoginComponent
+    LoginComponent,
+    CenterStatsComponent
 
   ],
   imports: [

@@ -1,21 +1,18 @@
-<span *ngIf="!gettingUser">
-  <span *ngIf="currentUser == null || currentUser.roles[0].name == 'ROLE_USER'">
-    <app-navbar></app-navbar>
+<app-navbar></app-navbar>
 
-    <div class="wrapper">
-      <div class="page-header header-filter">
-        <div class="squares square1"></div>
-        <div class="squares square2"></div>
-        <div class="squares square3"></div>
-        <div class="squares square5"></div>
-        <div class="squares square10"></div>
-      </div>
-      <div class="main">
-        <router-outlet></router-outlet>
-      </div>
-    </div>
-  </span>
-</span>
+<div class="wrapper">
+  <div class="page-header header-filter">
+    <div class="squares square1"></div>
+    <div class="squares square2"></div>
+    <div class="squares square3"></div>
+    <div class="squares square5"></div>
+    <div class="squares square10"></div>
+  </div>
+  <div class="main">
+    <router-outlet></router-outlet>
+  </div>
+</div>
+
 <span *ngIf="currentUser != null && currentUser.roles == 'ADMIN'">
   <router-outlet></router-outlet>
 </span>

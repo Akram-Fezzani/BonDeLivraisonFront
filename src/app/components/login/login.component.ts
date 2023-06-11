@@ -33,6 +33,7 @@ login(){
 this.authService.getcurrentuser(id).subscribe((data:any) =>{
     this.currentUser = data;
 AppComponent.instance.setCurrentUser(this.currentUser)
+console.log(this.currentUser)
 console.log(this.form.username)
   this.router.navigate(['/']);
 },

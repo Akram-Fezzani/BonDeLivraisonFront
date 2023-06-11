@@ -12,7 +12,7 @@ export class User {
     state!:boolean;
     roles!:string;
     roleId!:string;
-    CentreId!:string;
+    centreId!:string;
     Centre!:string;
 
 
