@@ -5,6 +5,8 @@ import { UserService } from '../../services/user/user.service';
 import { AuthService } from 'src/app/services/authservice/auth.service';
 import { TokenStorageService } from 'src/app/services/tokenstorageservice/token-storage.service';
 import { User } from 'src/app/models/User';
+import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
+import { AddCollectorComponent } from '../add-collector/add-collector.component';
 
 @Component({
   selector: 'app-center-stats',
@@ -35,7 +37,7 @@ export class CenterStatsComponent implements OnInit {
   public clicked: boolean = true;
   public clicked1: boolean = false;
   public clicked2: boolean = false;
-  constructor(private us:UserService, private _router:Router,private authService: AuthService,private cs:CenterServiceService,private ts:TokenStorageService) { }
+  constructor(private us:UserService, private dialog: MatDialog,private _router:Router,private authService: AuthService,private cs:CenterServiceService,private ts:TokenStorageService) { }
 
 
 
@@ -78,7 +80,16 @@ export class CenterStatsComponent implements OnInit {
     }
 
 
- 
+ opendialog(){
+  const dialogConfig = new MatDialogConfig();
+
+  dialogConfig.disableClose = true;
+  dialogConfig.autoFocus = true;
+
+  this.dialog.open(AddCollectorComponent
+    ,{height: '4000px',
+  width: '6000px',});
+ }
 
 
     getnumberofcollectors(id :string){
@@ -460,6 +471,10 @@ gradientStroke.addColorStop(0, 'rgba(66,134,121,0)'); //green colors
 
 }
 function UserPostStats(response: any, UserPostStats: any) {
+  throw new Error('Function not implemented.');
+}
+
+function CourseDialogComponent(CourseDialogComponent: any, dialogConfig: MatDialogConfig<any>) {
   throw new Error('Function not implemented.');
 }
 

@@ -4,9 +4,7 @@
       <div class="card-body">
         <div class="row">
           <div class="col">
-            <h5 class="card-title text-uppercase text-muted mb-0">
-              Rotation Actuelle
-            </h5>
+            <h3 class="card-title">Rotation Actuelle</h3>
             <span class="h2 font-weight-bold mb-0">
               {{ rotationActuelle }}
             </span>
@@ -28,9 +26,7 @@
       <div class="card-body">
         <div class="row">
           <div class="col">
-            <h5 class="card-title text-uppercase text-muted mb-0">
-              Useful Surface
-            </h5>
+            <h3 class="card-title">Useful Surface</h3>
             <span class="h2 font-weight-bold mb-0">
               {{ usefulSurface }}
             </span>
@@ -51,9 +47,7 @@
       <div class="card-body">
         <div class="row">
           <div class="col">
-            <h5 class="card-title text-uppercase text-muted mb-0">
-              Collectors
-            </h5>
+            <h3 class="card-title">Collectors</h3>
             <span class="h2 font-weight-bold mb-0">
               {{ nbrActiveUsers }}
             </span>
@@ -74,7 +68,7 @@
       <div class="card-body">
         <div class="row">
           <div class="col">
-            <h5 class="card-title text-uppercase text-muted mb-0">Antenne</h5>
+            <h3 class="card-title">ANTENNE</h3>
             <span class="h2 font-weight-bold mb-0">
               {{ antennaLabel }}
             </span>
@@ -190,7 +184,14 @@
   <div class="col-12">
     <div style="border-radius: 10px" class="card">
       <div class="card-header">
-        <h5 class="card-title">Collecteurs Disponible</h5>
+        <h3 class="card-title">Collecteurs Disponible</h3>
+        <a
+          class="btn btn-danger btn-round btn-lg"
+          href="javascript:void(0) "
+          (click)="opendialog()"
+        >
+          Login
+        </a>
       </div>
       <div class="card-body">
         <table
