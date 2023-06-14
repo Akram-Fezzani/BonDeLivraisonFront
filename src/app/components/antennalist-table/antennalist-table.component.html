@@ -1,0 +1,44 @@
+<div class="card-header">
+    <h3 class="card-title">Antennes</h3>
+    <br />
+
+    <a
+      href="javascript:void(0) "
+      class="text-success"
+      (click)="opendialog()"
+    >
+      Ajouter un antenne
+    </a>
+  </div>
+  <br />
+  <br />
+
+  <br />
+
+  <table
+    matSort
+    (matSortChange)="sortData($event)"
+    id="datatables-buttons"
+    class="table table-striped"
+    style="width: 100%"
+  >
+    <thead>
+      <tr>
+        <th mat-sort-header="AntennaCode">Code Antenne</th>
+        <th mat-sort-header="AntennaLabel">Label antenne</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let c of antennas">
+        <td>{{ c.antennaCode }}</td>
+
+        <td>{{ c.antennaLabel }}</td>
+      </tr>
+    </tbody>
+  </table>
+  <mat-paginator
+    [length]="200"
+    [pageSizeOptions]="[5, 10, 20]"
+    aria-label="Select page"
+  >
+  </mat-paginator>

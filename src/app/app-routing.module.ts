@@ -13,6 +13,7 @@ const routes: Routes = [
   { path: "centerstats", component: CenterStatsComponent },
 
   
+  
   { path: 'admin', component: AdminindexComponent ,
 
     children: [

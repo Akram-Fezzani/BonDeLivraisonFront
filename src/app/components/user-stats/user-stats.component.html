@@ -4,9 +4,7 @@
       <div class="card-body">
         <div class="row">
           <div class="col">
-            <h5 class="card-title text-uppercase text-muted mb-0">
-              Total Users
-            </h5>
+            <h3 class="card-title text-uppercase text-success">Total Users</h3>
             <span class="h2 font-weight-bold mb-0"> {{ nbrUsers }} </span>
           </div>
 
@@ -26,9 +24,7 @@
       <div class="card-body">
         <div class="row">
           <div class="col">
-            <h5 class="card-title text-uppercase text-muted mb-0">
-              Active Users
-            </h5>
+            <h3 class="card-title text-uppercase text-success">Active Users</h3>
             <span class="h2 font-weight-bold mb-0">
               {{ nbrActiveUsers }}
             </span>
@@ -49,9 +45,7 @@
       <div class="card-body">
         <div class="row">
           <div class="col">
-            <h5 class="card-title text-uppercase text-muted mb-0">
-              Chef Centers
-            </h5>
+            <h3 class="card-title text-uppercase text-success">Chef Centers</h3>
             <span class="h2 font-weight-bold mb-0">
               {{ nbrchefs }}
             </span>
@@ -72,7 +66,7 @@
       <div class="card-body">
         <div class="row">
           <div class="col">
-            <h5 class="card-title text-uppercase text-muted mb-0">Admins</h5>
+            <h3 class="card-title text-uppercase text-success">Admins</h3>
             <span class="h2 font-weight-bold mb-0"> {{ nbradmins }} </span>
           </div>
           <div class="col-auto">
@@ -152,7 +146,6 @@
   <div class="col-lg-4">
     <div class="card card-chart">
       <div class="card-header">
-        <h5 class="card-category"></h5>
         <h3 class="card-title">
           <i class="tim-icons icon-send text-success"> </i>
           Commands
@@ -185,42 +178,23 @@
 <div style="margin-left: -15px; width: 100%">
   <div class="col-12">
     <div style="border-radius: 10px" class="card">
-      <div class="card-header">
-        <h5 class="card-title">Chef Centers</h5>
-      </div>
       <div class="card-body">
-        <table
-          id="datatables-buttons"
-          class="table table-striped"
-          style="width: 100%"
+        <mat-tab-group
+          animationDuration="2000ms"
+          [backgroundColor]="'primary'"
+          [color]="'warn'"
         >
-          <thead>
-            <tr>
-              <th>Nom</th>
-              <th>Centre</th>
-              <th>Email</th>
-              <th>Phone</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr *ngFor="let c of users">
-              <td>{{ c.firstName }} {{ c.lastName }}</td>
+          <mat-tab label="Chef Centers">
+            <app-chefcentre-table></app-chefcentre-table>
+          </mat-tab>
+          <mat-tab label="Centres">
+            <app-centres-table></app-centres-table>
+          </mat-tab>
 
-              <td>{{ c.centreId }}</td>
-
-              <td>{{ c.email }}</td>
-              <td>{{ c.phone }}</td>
-              <td>
-                <button style="margin-left: 20px" class="btn btn-success">
-                  Approve
-                </button>
-                <button style="margin-left: 20px" class="btn btn-danger">
-                  Decline
-                </button>
-              </td>
-            </tr>
-          </tbody>
-        </table>
+          <mat-tab label="Antennes">
+            <app-antennalist-table></app-antennalist-table>
+          </mat-tab>
+        </mat-tab-group>
       </div>
     </div>
   </div>

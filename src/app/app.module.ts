@@ -19,6 +19,18 @@ import { UserStatsComponent } from './components/user-stats/user-stats.component
 import { CenterStatsComponent } from './components/center-stats/center-stats.component';
 import {MatDialogModule} from '@angular/material/dialog';
 import { AddCollectorComponent } from './components/add-collector/add-collector.component';
+import {MatTabsModule} from '@angular/material/tabs';
+import {MatButtonToggleModule} from '@angular/material/button-toggle';
+import {MatSortModule} from '@angular/material/sort';
+import {MatPaginatorModule} from '@angular/material/paginator';
+import {MatTableModule} from '@angular/material/table';
+import {MatInputModule} from '@angular/material/input';
+import { AddAntennaComponent } from './components/add-antenna/add-antenna.component';
+import { AddCenterComponent } from './components/add-center/add-center.component';
+import { ChefcentreTableComponent } from './components/chefcentre-table/chefcentre-table.component';
+import { CentresTableComponent } from './components/centres-table/centres-table.component';
+import { AntennalistTableComponent } from './components/antennalist-table/antennalist-table.component';
+import { AddChefcenterComponent } from './components/add-chefcenter/add-chefcenter.component';
 
 
 @NgModule({
@@ -35,17 +47,29 @@ import { AddCollectorComponent } from './components/add-collector/add-collector.
     LoginComponent,
     CenterStatsComponent,
     
-    AddCollectorComponent
+    AddCollectorComponent,
+         AddAntennaComponent,
+         AddCenterComponent,
+         ChefcentreTableComponent,
+         CentresTableComponent,
+         AntennalistTableComponent,
+         AddChefcenterComponent,
 
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
+    MatTableModule,
+    MatPaginatorModule,
+    MatInputModule,
+    MatButtonToggleModule,
     MatDialogModule,
     BrowserAnimationsModule,
     ReactiveFormsModule,
     CommonModule ,
+    MatTabsModule,
+    MatSortModule,
     HttpClientModule
   ],
   providers: [],
@@ -55,15 +79,27 @@ import { AddCollectorComponent } from './components/add-collector/add-collector.
     RegisterpageComponent,
     BackofficeFooterComponent,
     BackofficeSidebarComponent,
+    MatPaginatorModule,
     AdminindexComponent,
     BackofficeNavComponent,
+    MatButtonToggleModule,
+    MatTableModule,
+    MatPaginatorModule,
+
     BackofficeFooterComponent,
+    MatTabsModule,
+    MatSortModule,
     MatDialogModule,
     FooterComponent
   ],
 
   bootstrap: [AppComponent],
-  entryComponents: [AddCollectorComponent]
+  entryComponents: [
+    AddCollectorComponent,
+    AddChefcenterComponent,
+    AddCenterComponent,
+    AddAntennaComponent
+  ]
 
 })
 export class AppModule { }

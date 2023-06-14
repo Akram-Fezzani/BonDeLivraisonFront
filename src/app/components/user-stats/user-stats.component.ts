@@ -1,9 +1,14 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
+import { Sort } from '@angular/material/sort';
 import { Router } from '@angular/router';
 import { dateFormat } from 'highcharts';
 //import Chart from 'chart.js';
 
 import { UserService } from 'src/app/services/user/user.service';
+import { AddCollectorComponent } from '../add-collector/add-collector.component';
+import {MatPaginator, MatPaginatorModule} from '@angular/material/paginator';
+import { CenterServiceService } from 'src/app/services/CenterService/center-service.service';
 
 @Component({
   selector: 'app-user-stats',
@@ -18,6 +23,9 @@ export class UserStatsComponent implements OnInit {
   nbradmins!:number;
   nbrUsers!:number;
   users:any;
+  centers:any;
+  antennas:any;
+  sortedData:any;
   public canvas1 : any;
   public ctx1:any;
   public canvas2 : any;
@@ -29,7 +37,7 @@ export class UserStatsComponent implements OnInit {
   public clicked: boolean = true;
   public clicked1: boolean = false;
   public clicked2: boolean = false;
-  constructor(private us:UserService, private _router:Router) { }
+  constructor(private us:UserService, private cs:CenterServiceService,private dialog: MatDialog,private _router:Router) { }
 
 
  getnumberofusers(){
@@ -46,20 +54,20 @@ export class UserStatsComponent implements OnInit {
        },
       (error:any) => console.log(error));  }
 
-      getnumberofchefs(){
+  getnumberofchefs(){
         this.us.getnumberofchefs().subscribe( (data:any) =>{
           this.nbrchefs = data;
            },
           (error:any) => console.log(error));  }
     
-          getnumberoadmins(){
+  getnumberoadmins(){
             this.us.getnumberofadmins().subscribe( (data:any) =>{
               this.nbradmins = data;
                },
               (error:any) => console.log(error));  }
         
 
-      getcenter(id :string){
+  getcenter(id :string){
         
         this.us.getCenter(id).subscribe( (data:any) =>{
 
@@ -68,31 +76,27 @@ export class UserStatsComponent implements OnInit {
           },
           (error:any) => console.log(error));  }
      
-
-      chefcenters(){
-        
-        this.us.chefcenters().subscribe( (data:any) =>{
-          this.users=data;
-          console.log(this.Contributors);
-
-          },
-          (error:any) => console.log(error));  }
-
-
-
   
 
+
+
+ 
+
+
+
+ 
+
+
+
+  ngAfterViewInit(){
+          }
   ngOnInit(): void {
 
-
-this.chefcenters();
 
     this.getnumberofusers();
     this.getnumberofactiveusers();
     this.getnumberofchefs();
     this.getnumberoadmins();
-
-
 
 
     this.canvas1 = document.getElementById("chartLineRed");

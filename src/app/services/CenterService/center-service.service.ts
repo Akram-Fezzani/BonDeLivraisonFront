@@ -31,4 +31,11 @@ export class CenterServiceService {
   antenna(antennaId:string): Observable<any> { 
     return this.http.get('https://localhost:44357/api/Antenna/GetAntenna?Id='+antennaId );
   }
+
+  allcenters(): Observable<any> { 
+    return this.http.get('https://localhost:44357/api/Center/GetCentres' );
+  }
+  allantenna(): Observable<any> { 
+    return this.http.get('https://localhost:44357/api/Antenna/Get Antennas' );
+  }
 }
