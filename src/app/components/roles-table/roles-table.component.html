@@ -1,0 +1,40 @@
+<div class="card-header">
+  <h3 class="card-title">Centres</h3>
+  <br />
+  <div style="width: 250px; margin-left: 85%; margin-top: -3%">
+    <input class="form-control" placeholder="Chercher" type="text" />
+  </div>
+  <a href="javascript:void(0) " class="text-success" (click)="opendialog()">
+    Ajouter un Role
+  </a>
+</div>
+<br />
+<br />
+
+<br />
+
+<table
+  matSort
+  (matSortChange)="sortData($event)"
+  id="datatables-buttons"
+  class="table table-striped"
+  style="width: 100%"
+>
+  <thead>
+    <tr>
+      <th mat-sort-header="Role">Role</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let c of roles">
+      <td>{{ c.role }}</td>
+    </tr>
+  </tbody>
+</table>
+<app-pagination
+  #pagination
+  [collectionSize]="4"
+  [pageSize]="5"
+  [firstLastButtons]="true"
+  [maxSize]="2"
+></app-pagination>

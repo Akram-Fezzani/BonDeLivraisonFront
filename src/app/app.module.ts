@@ -33,6 +33,9 @@ import { AntennalistTableComponent } from './components/antennalist-table/antenn
 import { AddChefcenterComponent } from './components/add-chefcenter/add-chefcenter.component';
 import { AntennaStatsComponent } from './components/antenna-stats/antenna-stats.component';
 import { PaginationComponent } from './components/pagination/pagination.component';
+import { AddRoleComponent } from './components/add-role/add-role.component';
+import { RolesTableComponent } from './components/roles-table/roles-table.component';
+
 
 
 @NgModule({
@@ -58,6 +61,8 @@ import { PaginationComponent } from './components/pagination/pagination.componen
          AddChefcenterComponent,
          AntennaStatsComponent,
          PaginationComponent,
+         RolesTableComponent,
+         AddRoleComponent,
 
   ],
   imports: [
@@ -102,7 +107,8 @@ import { PaginationComponent } from './components/pagination/pagination.componen
     AddCollectorComponent,
     AddChefcenterComponent,
     AddCenterComponent,
-    AddAntennaComponent
+    AddAntennaComponent,
+    AddRoleComponent
   ]
 
 })

@@ -96,5 +96,7 @@ getcurrentuser(id: string):Observable<any>{
     return this.http.post( 'http://localhost:8085/user/updateUser/'+id,user);
 
   }
+  
+ 
 }
 
