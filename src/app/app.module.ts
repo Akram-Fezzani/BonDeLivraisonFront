@@ -31,6 +31,8 @@ import { ChefcentreTableComponent } from './components/chefcentre-table/chefcent
 import { CentresTableComponent } from './components/centres-table/centres-table.component';
 import { AntennalistTableComponent } from './components/antennalist-table/antennalist-table.component';
 import { AddChefcenterComponent } from './components/add-chefcenter/add-chefcenter.component';
+import { AntennaStatsComponent } from './components/antenna-stats/antenna-stats.component';
+import { PaginationComponent } from './components/pagination/pagination.component';
 
 
 @NgModule({
@@ -54,6 +56,8 @@ import { AddChefcenterComponent } from './components/add-chefcenter/add-chefcent
          CentresTableComponent,
          AntennalistTableComponent,
          AddChefcenterComponent,
+         AntennaStatsComponent,
+         PaginationComponent,
 
   ],
   imports: [

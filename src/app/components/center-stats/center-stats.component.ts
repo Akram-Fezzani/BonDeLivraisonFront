@@ -37,6 +37,7 @@ export class CenterStatsComponent implements OnInit {
   public clicked: boolean = true;
   public clicked1: boolean = false;
   public clicked2: boolean = false;
+  
   constructor(private us:UserService, private dialog: MatDialog,private _router:Router,private authService: AuthService,private cs:CenterServiceService,private ts:TokenStorageService) { }
 
 

@@ -24,6 +24,11 @@ export class AntennalistTableComponent implements OnInit {
 
       },
       (error:any) => console.log(error));  }
+
+
+
+
+      
   opendialog(){
     const dialogConfig = new MatDialogConfig();
   
