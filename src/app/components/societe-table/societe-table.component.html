@@ -1,0 +1,53 @@
+<div class="card-header">
+  <h3 class="card-title">Centres</h3>
+  <br />
+  <div style="width: 250px; margin-left: 85%; margin-top: -3%">
+    <input class="form-control" placeholder="Chercher" type="text" />
+  </div>
+  <a href="javascript:void(0) " class="text-success" (click)="opendialog()">
+    Ajouter une société
+  </a>
+</div>
+<br />
+<br />
+
+<br />
+
+<table
+  matSort
+  (matSortChange)="sortData($event)"
+  id="datatables-buttons"
+  class="table table-striped"
+  style="width: 100%"
+>
+  <thead>
+    <tr>
+      <th mat-sort-header="Code Sociétés">Code Sociétés</th>
+      <th mat-sort-header="Adresse">Adresse</th>
+
+      <th mat-sort-header="capital Social">capital Social</th>
+
+      <th mat-sort-header="Raison Social">Raison Social</th>
+
+      <th mat-sort-header=" Téléphone">Téléphone</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let c of societes">
+      <td>{{ c.codeSocietes }}</td>
+      <td>{{ c.adresse }}</td>
+
+      <td>{{ c.capitalSocial }}</td>
+
+      <td>{{ c.raisonSocial }}</td>
+      <td>{{ c.tel }}</td>
+    </tr>
+  </tbody>
+</table>
+<app-pagination
+  #pagination
+  [collectionSize]="4"
+  [pageSize]="5"
+  [firstLastButtons]="true"
+  [maxSize]="2"
+></app-pagination>

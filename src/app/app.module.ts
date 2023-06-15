@@ -35,6 +35,8 @@ import { AntennaStatsComponent } from './components/antenna-stats/antenna-stats.
 import { PaginationComponent } from './components/pagination/pagination.component';
 import { AddRoleComponent } from './components/add-role/add-role.component';
 import { RolesTableComponent } from './components/roles-table/roles-table.component';
+import { SocieteTableComponent } from './components/societe-table/societe-table.component';
+import { AddSocieteComponent } from './components/add-societe/add-societe.component';
 
 
 
@@ -63,6 +65,8 @@ import { RolesTableComponent } from './components/roles-table/roles-table.compon
          PaginationComponent,
          RolesTableComponent,
          AddRoleComponent,
+         SocieteTableComponent,
+         AddSocieteComponent,
 
   ],
   imports: [
@@ -108,7 +112,8 @@ import { RolesTableComponent } from './components/roles-table/roles-table.compon
     AddChefcenterComponent,
     AddCenterComponent,
     AddAntennaComponent,
-    AddRoleComponent
+    AddRoleComponent,
+    AddSocieteComponent
   ]
 
 })

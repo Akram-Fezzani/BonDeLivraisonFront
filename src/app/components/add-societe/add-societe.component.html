@@ -1,0 +1,150 @@
+<div class="container">
+    <div class="row">
+      <div class="col-lg-5 col-md-8 mx-auto">
+        <div class="card">
+            <div >
+              <a
+                href="javascript:void(0)"
+                class="text-danger "
+                (click)="closeDialog()"
+              >
+                <i class="fa fa-times icon-display" aria-hidden="true"></i>
+              </a>
+            </div>
+          <div class="card-header">
+         
+            <h1 class="card-title">Ajouter une Société</h1>
+          </div>
+         
+          <div class="card-body">
+            <form class="form">
+              <div class="input-group">
+                <div class="input-group-prepend">
+                  <div class="input-group-text"></div>
+                </div>
+                <input
+                  class="form-control"
+                  placeholder="codeSociétés"
+                  [(ngModel)]="societe.codeSocietes"
+                  name="codeSociétés"
+                  type="text"
+                  required
+                  minlength="5"
+                />
+              </div>
+  
+              <div
+                class="input-group"
+                [ngClass]="{ 'input-group-focus': focus === true }"
+              >
+                <div class="input-group-prepend">
+                  <div class="input-group-text">
+                    <i class="tim-icons icon-single-02"> </i>
+                  </div>
+                </div>
+                <input
+                  class="form-control"
+                  placeholder="Adresse"
+                  [(ngModel)]="societe.Adresse"
+                  name="adresse"
+                  required
+                  minlength="5"
+                  type="text"
+                  
+                />
+              </div>
+  
+              <div
+                class="input-group"
+                [ngClass]="{ 'input-group-focus': focus1 === true }"
+              >
+                <div class="input-group-prepend">
+                  <div class="input-group-text">
+                    <i class="tim-icons icon-single-02"> </i>
+                  </div>
+                </div>
+                <input
+                  class="form-control"
+                  placeholder="Capital Social"
+                  [(ngModel)]="societe.CapitalSocial"
+                  name="capitalSocial"
+                  type="text"
+                  required
+                  minlength="5"
+                  (focus)="focus1 = true"
+                  (blur)="focus1 = false"
+                />
+              </div>
+  
+          
+  
+              <div
+                class="input-group"
+                [ngClass]="{ 'input-group-focus': focus1 === true }"
+              >
+                <div class="input-group-prepend">
+                  <div class="input-group-text">
+                  </div>
+                </div>
+                <input
+                  class="form-control"
+                  placeholder="Raison Social"
+                  required
+                  minlength="8"
+                  maxlength="8"
+                  type="text"
+                  [(ngModel)]="societe.RaisonSocial"
+                  name="RaisonSocial"
+                  (focus)="focus1 = true"
+                  (blur)="focus1 = false"
+                />
+              </div>
+  
+              <div
+                class="input-group"
+                [ngClass]="{ 'input-group-focus': focus2 === true }"
+              >
+                <div class="input-group-prepend">
+                  <div class="input-group-text">
+                    <i class="tim-icons icon-lock-circle"> </i>
+                  </div>
+                </div>
+                <input
+                  class="form-control"
+                  placeholder="Telephone"
+                  [(ngModel)]="societe.tel"
+                  name="tel"
+                  required
+                  minlength="5"
+                  type="text"
+                  (focus)="focus2 = true"
+                  (blur)="focus2 = false"
+                />
+              </div>
+              <div class="card-footer">
+                <button
+                  [disabled]="disableButton"
+                  id="registerButton"
+                  class="btn btn-danger btn-lg btn-lg btn-block"
+                  href="javascript:void(0)"
+                  (click)="AddUser()"
+                >
+                  Ajouter
+                </button>
+                <br />
+                <div class=>
+                  <a
+                    class="text-danger "
+                    (click)="closeDialog()"
+                  >
+                    <i class="fa fa-times icon-display" aria-hidden="true"></i>
+                  </a>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
