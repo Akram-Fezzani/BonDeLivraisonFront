@@ -1,5 +1,4 @@
 
-import {Roles} from "./Roles";
 
 export class User {
     UserId!: String;

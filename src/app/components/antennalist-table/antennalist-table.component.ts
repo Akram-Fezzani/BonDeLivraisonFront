@@ -5,6 +5,8 @@ import { UserService } from 'src/app/services/user/user.service';
 import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 import { Sort } from '@angular/material/sort';
 import { AddAntennaComponent } from '../add-antenna/add-antenna.component';
+import { ToastrService } from 'ngx-toastr';
+import { AntenneService } from 'src/app/services/AntennaService/antenne.service';
 @Component({
   selector: 'app-antennalist-table',
   templateUrl: './antennalist-table.component.html',
@@ -14,11 +16,11 @@ export class AntennalistTableComponent implements OnInit {
   antennas:any;
   sortedData:any;
   searchtext='';
-  constructor(private us:UserService, private cs:CenterServiceService,private dialog: MatDialog,private _router:Router) { }
+  constructor(private us:UserService,private toastr: ToastrService, private AntennaService:AntenneService,private dialog: MatDialog,private _router:Router) { }
 
   getallantennas(){
         
-    this.cs.allantenna().subscribe( (data:any) =>{
+    this.AntennaService.allantenna().subscribe( (data:any) =>{
 
       this.antennas=data;
       console.log(this.antennas)
@@ -51,6 +53,11 @@ export class AntennalistTableComponent implements OnInit {
   }
 
 
+  Delete(antennaId:string) {
+    this.AntennaService.deleteAntenna(antennaId).subscribe( (data:any) =>{
+      this.toastr.error("Un Antenne a été effacer");
+    },
+    (error:any) => console.log(error));  }
 
   ngOnInit(): void {
     this.getallantennas();

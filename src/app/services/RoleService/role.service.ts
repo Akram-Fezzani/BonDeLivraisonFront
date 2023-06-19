@@ -20,4 +20,8 @@ export class RoleService {
     return this._http.post<Role>('https://localhost:44317/api/Role/AjoutRole',role);
 
   }
+
+  deleteRole(RoleId:string): Observable<any> {
+    return this.http.delete( 'https://localhost:44317/api/Role/DeleteRole?Id='+RoleId);
+  }
 }

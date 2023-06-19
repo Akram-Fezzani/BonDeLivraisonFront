@@ -9,6 +9,7 @@ import { AddRoleComponent } from '../add-role/add-role.component';
 import { RoleService } from 'src/app/services/RoleService/role.service';
 import { SocieteServiceService } from 'src/app/services/SocieteService/societe-service.service';
 import { AddSocieteComponent } from '../add-societe/add-societe.component';
+import { ToastrService } from 'ngx-toastr';
 
 
 @Component({
@@ -22,11 +23,11 @@ export class SocieteTableComponent implements OnInit {
   searchtext='';
 
 
-  constructor(private ss:SocieteServiceService,private dialog: MatDialog,private _router:Router) { }
+  constructor(private SocieteService:SocieteServiceService,private toastr: ToastrService,private dialog: MatDialog,private _router:Router) { }
 
   getAllSocietes(){
         
-    this.ss.getSocietes().subscribe( (data:any) =>{
+    this.SocieteService.getSocietes().subscribe( (data:any) =>{
 
       this.societes=data;
       console.log(this.societes)
@@ -53,6 +54,13 @@ export class SocieteTableComponent implements OnInit {
           return;
         }
       }
+
+
+      Delete(societeId:string) {
+        this.SocieteService.deleteSociete(societeId).subscribe( (data:any) =>{
+          this.toastr.error("Une société a été effacer");
+        },
+        (error:any) => console.log(error));  }
   ngOnInit(): void {
     this.getAllSocietes();
   }

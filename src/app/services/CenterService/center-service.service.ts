@@ -29,19 +29,19 @@ export class CenterServiceService {
     return this.http.get('https://localhost:44357/api/Collector/GetCollecteurs' );
   }
 
-  antenna(antennaId:string): Observable<any> { 
-    return this.http.get('https://localhost:44357/api/Antenna/GetAntenna?Id='+antennaId );
-  }
+
 
   allcenters(): Observable<any> { 
     return this.http.get('https://localhost:44357/api/Center/GetCentres' );
   }
-  allantenna(): Observable<any> { 
-    return this.http.get('https://localhost:44357/api/Antenna/Get Antennas' );
-  }
+ 
 
   AddCenter(center: Center){
     return this.http.post<Center>('https://localhost:44357/api/Center/AjoutCentre',center);
 
+  }
+
+  deleteCenter(CenterId:string): Observable<any> {
+    return this.http.delete( 'https://localhost:44357/api/Center/DeleteCentre?Id='+CenterId);
   }
 }

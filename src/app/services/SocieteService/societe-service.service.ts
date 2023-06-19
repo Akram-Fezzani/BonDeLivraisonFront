@@ -20,4 +20,9 @@ export class SocieteServiceService {
     return this._http.post<Societe>('https://localhost:44357/api/Society/AjoutSociete',societe);
 
   }
+
+
+  deleteSociete(SocieteId:string): Observable<any> {
+    return this.http.delete( 'https://localhost:44357/api/Society/DeleteSociete?Id='+SocieteId);
+  }
 }

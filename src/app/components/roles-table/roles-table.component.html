@@ -33,11 +33,13 @@
   <tbody>
     <tr *ngFor="let c of roles | filter : searchtext">
       <td>{{ c.role }}</td>
-      <td class="text-danger">
-        <i class="fa fa-trash" aria-hidden="true"></i>
+      <td>
+        <button class="btn btn-success" (click)="Delete(c.roleId)">
+          Delete
+        </button>
       </td>
-      <td class="text-success">
-        <i class="fa fa-refresh" aria-hidden="true"></i>
+      <td>
+        <button class="btn btn-danger">Update</button>
       </td>
     </tr>
   </tbody>

@@ -7,6 +7,7 @@ import { TokenStorageService } from 'src/app/services/tokenstorageservice/token-
 import { User } from 'src/app/models/User';
 import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 import { AddCollectorComponent } from '../add-collector/add-collector.component';
+import { AntenneService } from 'src/app/services/AntennaService/antenne.service';
 
 @Component({
   selector: 'app-center-stats',
@@ -38,7 +39,7 @@ export class CenterStatsComponent implements OnInit {
   public clicked1: boolean = false;
   public clicked2: boolean = false;
   
-  constructor(private us:UserService, private dialog: MatDialog,private _router:Router,private authService: AuthService,private cs:CenterServiceService,private ts:TokenStorageService) { }
+  constructor(private us:UserService, private dialog: MatDialog,private _router:Router,private AntennaService:AntenneService,private authService: AuthService,private cs:CenterServiceService,private ts:TokenStorageService) { }
 
 
 
@@ -64,7 +65,7 @@ export class CenterStatsComponent implements OnInit {
           this.collectors=data;
           console.log(this.collectors);
 
-          this.cs.antenna(r.centreId).subscribe( (data:any) =>{
+          this.AntennaService.antenna(r.centreId).subscribe( (data:any) =>{
 
             this.antenna=data;
             this.antennaLabel=data.antennaLabel; 

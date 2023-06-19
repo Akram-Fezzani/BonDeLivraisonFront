@@ -2,7 +2,11 @@
   <h3 class="card-title">Centres</h3>
   <br />
   <div style="width: 200px; margin-left: 85%; margin-top: -3%">
-    <input class="form-control" placeholder="Chercher" type="text"       [(ngModel)]="searchtext"
+    <input
+      class="form-control"
+      placeholder="Chercher"
+      type="text"
+      [(ngModel)]="searchtext"
     />
   </div>
   <a href="javascript:void(0) " class="text-success" (click)="opendialog()">
@@ -42,6 +46,14 @@
 
       <td>{{ c.raisonSocial }}</td>
       <td>{{ c.tel }}</td>
+      <td>
+        <button class="btn btn-success" (click)="Delete(c.societyId)">
+          Delete
+        </button>
+      </td>
+      <td>
+        <button class="btn btn-danger">Update</button>
+      </td>
     </tr>
   </tbody>
 </table>
