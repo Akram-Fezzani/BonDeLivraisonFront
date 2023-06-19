@@ -8,6 +8,7 @@ export class Center {
     usefulSurface!:number;
     BuildingNumber!:number;
     CenterCode!:number;
+    blPrefixNumber!:number;
    
 
 

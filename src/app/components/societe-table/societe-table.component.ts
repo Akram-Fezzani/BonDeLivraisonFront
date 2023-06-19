@@ -19,6 +19,7 @@ import { AddSocieteComponent } from '../add-societe/add-societe.component';
 export class SocieteTableComponent implements OnInit {
   societes:any;
   sortedData:any;
+  searchtext='';
 
 
   constructor(private ss:SocieteServiceService,private dialog: MatDialog,private _router:Router) { }

@@ -39,7 +39,7 @@ export class UserStatsComponent implements OnInit {
   public clicked2: boolean = false;
   constructor(private us:UserService, private cs:CenterServiceService,private dialog: MatDialog,private _router:Router) { }
 
-
+message = "ekhdmi";
  getnumberofusers(){
     this.us.getnumberofusers().subscribe( (data:any) =>{
       this.nbrUsers = data;
@@ -67,14 +67,14 @@ export class UserStatsComponent implements OnInit {
               (error:any) => console.log(error));  }
         
 
-  getcenter(id :string){
+ /* getcenter(id :string){
         
         this.us.getCenter(id).subscribe( (data:any) =>{
 
           this.users=data;
 
           },
-          (error:any) => console.log(error));  }
+          (error:any) => console.log(error));  }*/
      
   
 

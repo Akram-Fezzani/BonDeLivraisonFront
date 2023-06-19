@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { MatDialogRef } from '@angular/material/dialog';
 import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 import { collector } from 'src/app/models/collector';
 import { UserService } from 'src/app/services/user/user.service';
 
@@ -16,7 +18,7 @@ export class AddCollectorComponent implements OnInit {
   collector: collector=new collector();
   disableButton: boolean = false;
 
-  constructor(private router:Router,private us:UserService, private _router:Router) { }
+  constructor(private router:Router,private toastr: ToastrService,private us:UserService, private _router:Router,private dialogRef: MatDialogRef<AddCollectorComponent>) { }
   
 
 
@@ -27,13 +29,9 @@ export class AddCollectorComponent implements OnInit {
       data.state=true;
       //data.centreId=
       //data.center=  
-        if(data.message == "success") {
-          this.disableButton = false;
-          this.router.navigate(['/login'])
-      .then(() => {
-        window.location.reload();
-      });
-        }
+      this.closeDialog();
+      this.toastr.success("Un Collecteur a été Ajouter");
+
 
       },
       (error:any) => console.log(error));  }
@@ -41,7 +39,9 @@ export class AddCollectorComponent implements OnInit {
 
 
 
-
+      closeDialog(){
+        this.dialogRef.close();
+      }
 
   ngOnInit() {
     var body = document.getElementsByTagName("body")[0];

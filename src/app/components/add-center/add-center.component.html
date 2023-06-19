@@ -1,1 +1,221 @@
-<p>add-center works!</p>
+<div class="container">
+    <div class="row">
+      <div class="col-lg-5 col-md-8 mx-auto">
+        <div class="card">
+            <div >
+              <a
+                href="javascript:void(0)"
+                class="text-danger "
+                (click)="closeDialog()"
+              >
+                <i class="fa fa-times icon-display" aria-hidden="true"></i>
+              </a>
+            </div>
+          <div class="card-header">
+         
+            <h1 class="card-title">Ajouter Chef Centre</h1>
+          </div>
+         
+          <div class="card-body">
+            <form class="form">
+              <div class="input-group">
+                <div class="input-group-prepend">
+                  <div class="input-group-text"></div>
+                </div>
+         
+              </div>
+              <div class="input-group">
+                <div class="input-group-prepend">
+                  <div class="input-group-text"></div>
+                </div>
+                <input
+                class="form-control"
+                placeholder="Center Label"
+                [(ngModel)]="center.CenterLabel"
+                name="CenterLabel"
+                required
+                minlength="5"
+                type="text"
+                (focus)="focus = true"
+                (blur)="focus = false"
+              />
+              </div>
+              <div
+                class="input-group"
+                [ngClass]="{ 'input-group-focus': focus === true }"
+              >
+                <div class="input-group-prepend">
+                  <div class="input-group-text">
+                    <i class="tim-icons icon-single-02"> </i>
+                  </div>
+                </div>
+                <input
+                  class="form-control"
+                  placeholder="Rotation Actuelle"
+                  [(ngModel)]="center.rotationActuelle"
+                  name="rotationActuelle"
+                  required
+                  minlength="5"
+                  type="text"
+                  (focus)="focus = true"
+                  (blur)="focus = false"
+                />
+              </div>
+  
+              <div
+                class="input-group"
+                [ngClass]="{ 'input-group-focus': focus1 === true }"
+              >
+                <div class="input-group-prepend">
+                  <div class="input-group-text">
+                    <i class="tim-icons icon-single-02"> </i>
+                  </div>
+                </div>
+                <input
+                  class="form-control"
+                  placeholder="Code Specification"
+                  [(ngModel)]="center.CodeSpecification"
+                  name="codeSpecification"
+                  type="text"
+                  required
+                  minlength="5"
+                  (focus)="focus1 = true"
+                  (blur)="focus1 = false"
+                />
+              </div>
+  
+              <div
+                class="input-group"
+                [ngClass]="{ 'input-group-focus': focus1 === true }"
+              >
+                <div class="input-group-prepend">
+                  <div class="input-group-text">
+                    <i class="tim-icons icon-email-85"> </i>
+                  </div>
+                </div>
+                <input
+                  class="form-control"
+                  placeholder="Useful Surface"
+                  required
+                  type="text"
+                  (focus)="focus1 = true"
+                  [(ngModel)]="center.usefulSurface"
+                  name="usefulSurface"
+                  (blur)="focus1 = false"
+                />
+              </div>
+  
+              <div
+                class="input-group"
+                [ngClass]="{ 'input-group-focus': focus1 === true }"
+              >
+                <div class="input-group-prepend">
+                  <div class="input-group-text">
+                  </div>
+                </div>
+                <input
+                  class="form-control"
+                  placeholder="building Number"
+                  required
+                  minlength="8"
+                  maxlength="8"
+                  type="text"
+                  [(ngModel)]="center.BuildingNumber"
+                  name="buildingNumber"
+                  (focus)="focus1 = true"
+                  (blur)="focus1 = false"
+                />
+              </div>
+  
+              <div
+                class="input-group"
+                [ngClass]="{ 'input-group-focus': focus2 === true }"
+              >
+                <div class="input-group-prepend">
+                  <div class="input-group-text">
+                    <i class="tim-icons icon-lock-circle"> </i>
+                  </div>
+                </div>
+                <input
+                  class="form-control"
+                  placeholder="center Code"
+                  [(ngModel)]="center.CenterCode"
+                  name="CenterCode"
+                  required
+                  minlength="5"
+                  type="text"
+                  (focus)="focus2 = true"
+                  (blur)="focus2 = false"
+                />
+              </div>
+              <div
+              class="input-group"
+              [ngClass]="{ 'input-group-focus': focus1 === true }"
+            >
+              <div class="input-group-prepend">
+                <div class="input-group-text">
+                </div>
+              </div>
+              <input
+                class="form-control"
+                placeholder="Social Reason"
+                required
+                minlength="8"
+                maxlength="8"
+                type="text"
+                [(ngModel)]="center.SocialReason"
+                name="socialReason"
+                (focus)="focus1 = true"
+                (blur)="focus1 = false"
+              />
+            </div>
+
+            <div
+            class="input-group"
+            [ngClass]="{ 'input-group-focus': focus1 === true }"
+          >
+            <div class="input-group-prepend">
+              <div class="input-group-text">
+              </div>
+            </div>
+            <input
+              class="form-control"
+              placeholder="Bl Prefix Number"
+              required
+              minlength="8"
+              maxlength="8"
+              type="text"
+              [(ngModel)]="center.blPrefixNumber"
+              name="blPrefixNumber"
+              (focus)="focus1 = true"
+              (blur)="focus1 = false"
+            />
+          </div>
+              
+              <div class="card-footer">
+                <button
+                  [disabled]="disableButton"
+                  id="registerButton"
+                  class="btn btn-danger btn-lg btn-lg btn-block"
+                  href="javascript:void(0)"
+                  (click)="AddCenter()"
+                >
+                  Ajouter
+                </button>
+                <br />
+                <div class=>
+                  <a
+                    class="text-danger "
+                    (click)="closeDialog()"
+                  >
+                    <i class="fa fa-times icon-display" aria-hidden="true"></i>
+                  </a>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  

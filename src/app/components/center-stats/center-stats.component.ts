@@ -58,7 +58,6 @@ export class CenterStatsComponent implements OnInit {
       this.usefulSurface=this.currentcenter.usefulSurface;
 
       this.cs.getnumberofcollectors(r.centreId).subscribe( (data:any) =>{
-        this.nbrActiveUsers = data;
         this.nbrcollectors=data;
         console.log(data);
         this.cs.collectors().subscribe( (data:any) =>{

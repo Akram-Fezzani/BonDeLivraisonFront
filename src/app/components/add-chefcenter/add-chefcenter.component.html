@@ -22,17 +22,24 @@
                 <div class="input-group-prepend">
                   <div class="input-group-text"></div>
                 </div>
-                <input
-                  class="form-control"
-                  placeholder="Username"
-                  [(ngModel)]="user.username"
-                  name="username"
-                  type="text"
-                  required
-                  minlength="5"
-                />
+         
               </div>
-  
+              <div class="input-group">
+                <div class="input-group-prepend">
+                  <div class="input-group-text"></div>
+                </div>
+                <input
+                class="form-control"
+                placeholder="username"
+                [(ngModel)]="user.username"
+                name="username"
+                required
+                minlength="5"
+                type="text"
+                (focus)="focus = true"
+                (blur)="focus = false"
+              />
+              </div>
               <div
                 class="input-group"
                 [ngClass]="{ 'input-group-focus': focus === true }"
@@ -148,6 +155,7 @@
                   class="btn btn-danger btn-lg btn-lg btn-block"
                   href="javascript:void(0)"
                   (click)="AddUser()"
+                  (click)="closeDialog()"
                 >
                   Ajouter
                 </button>

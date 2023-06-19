@@ -13,6 +13,7 @@ import { AddAntennaComponent } from '../add-antenna/add-antenna.component';
 export class AntennalistTableComponent implements OnInit {
   antennas:any;
   sortedData:any;
+  searchtext='';
   constructor(private us:UserService, private cs:CenterServiceService,private dialog: MatDialog,private _router:Router) { }
 
   getallantennas(){

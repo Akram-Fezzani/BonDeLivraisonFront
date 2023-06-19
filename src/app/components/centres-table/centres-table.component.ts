@@ -14,6 +14,7 @@ import { AddCenterComponent } from '../add-center/add-center.component';
 export class CentresTableComponent implements OnInit {
   centers:any;
   sortedData:any;
+  searchtext='';
 
 
   constructor(private us:UserService, private cs:CenterServiceService,private dialog: MatDialog,private _router:Router) { }

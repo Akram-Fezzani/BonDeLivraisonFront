@@ -3,7 +3,8 @@ import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 import { Sort } from '@angular/material/sort';
 import { Router } from '@angular/router';
 import { AddChefcenterComponent } from 'src/app/components/add-chefcenter/add-chefcenter.component';
-import { CenterServiceService } from 'src/app/services/CenterService/center-service.service';
+import {ToastrService} from "ngx-toastr";
+import { ChefcenterService } from 'src/app/services/ChefCenterService/chefcenter.service';
 import { UserService } from 'src/app/services/user/user.service';
 
 @Component({
@@ -14,8 +15,10 @@ import { UserService } from 'src/app/services/user/user.service';
 export class ChefcentreTableComponent implements OnInit {
   users:any;
   sortedData:any;
+  UserId!:string;
+  searchtext='';
 
-  constructor(private us:UserService, private cs:CenterServiceService,private dialog: MatDialog,private _router:Router) { }
+  constructor(private us:UserService,private toastr: ToastrService, private ChefCenterService:ChefcenterService,private dialog: MatDialog,private _router:Router) { }
 
 
   chefcenters(){
@@ -46,6 +49,12 @@ export class ChefcentreTableComponent implements OnInit {
           return;
         }
       }
+
+      Delete(UserId:string) {
+        this.ChefCenterService.deleteChefCenter(UserId).subscribe( (data:any) =>{
+          this.toastr.error("Un Chef Centre a été effacer");
+        },
+        (error:any) => console.log(error));  }
 
   ngOnInit(): void {
     this.chefcenters();

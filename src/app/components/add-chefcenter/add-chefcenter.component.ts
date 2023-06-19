@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialogRef } from '@angular/material/dialog';
 import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 import { User } from 'src/app/models/User';
+import { ChefcenterService } from 'src/app/services/ChefCenterService/chefcenter.service';
 import { RegisterService } from 'src/app/services/registerservice/register.service';
 
 @Component({
@@ -19,22 +21,21 @@ export class AddChefcenterComponent implements OnInit {
   user: User=new User();
   disableButton: boolean = false;
 
-  constructor(private router:Router,private us:RegisterService, private _router:Router,private dialogRef: MatDialogRef<AddChefcenterComponent>) { }
+  constructor(private router:Router,private ChefCenterService:ChefcenterService, private toastr: ToastrService,private _router:Router,private dialogRef: MatDialogRef<AddChefcenterComponent>) { }
   
 
 
   AddUser(){
+
     this.user.roleId ="3fa85f64-5717-4562-b3fc-2c963f66afa6";
+    console.log(this.user);
+
     this.disableButton = true;
-    this.us.AddUser(this.user).subscribe( (data:any) =>{
+    this.ChefCenterService.AddChefCenter(this.user).subscribe( (data:any) =>{
       console.log(data);
-        if(data.message == "success") {
-          this.disableButton = false;
-          this.router.navigate(['/login'])
-      .then(() => {
-        window.location.reload();
-      });
-        }
+      this.closeDialog();
+      this.toastr.error("Un Chef Centre a été Ajouter");
+
 
       },
       (error:any) => console.log(error));  }

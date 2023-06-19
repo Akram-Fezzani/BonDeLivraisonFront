@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import {HttpClient} from "@angular/common/http";
 import { Observable } from 'rxjs';
+import { Center } from 'src/app/models/Center';
 
 @Injectable({
   providedIn: 'root'
@@ -37,5 +38,10 @@ export class CenterServiceService {
   }
   allantenna(): Observable<any> { 
     return this.http.get('https://localhost:44357/api/Antenna/Get Antennas' );
+  }
+
+  AddCenter(center: Center){
+    return this.http.post<Center>('https://localhost:44357/api/Center/AjoutCentre',center);
+
   }
 }

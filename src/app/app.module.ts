@@ -37,6 +37,10 @@ import { AddRoleComponent } from './components/add-role/add-role.component';
 import { RolesTableComponent } from './components/roles-table/roles-table.component';
 import { SocieteTableComponent } from './components/societe-table/societe-table.component';
 import { AddSocieteComponent } from './components/add-societe/add-societe.component';
+import { BuildingsTableComponent } from './components/buildings-table/buildings-table.component';
+import { CollectorsTableComponent } from './components/collectors-table/collectors-table.component';
+import { ToastrModule } from 'ngx-toastr';
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
 
 
 
@@ -53,7 +57,6 @@ import { AddSocieteComponent } from './components/add-societe/add-societe.compon
     BackofficeFooterComponent,
     LoginComponent,
     CenterStatsComponent,
-    
     AddCollectorComponent,
          AddAntennaComponent,
          AddCenterComponent,
@@ -67,11 +70,14 @@ import { AddSocieteComponent } from './components/add-societe/add-societe.compon
          AddRoleComponent,
          SocieteTableComponent,
          AddSocieteComponent,
+         BuildingsTableComponent,
+         CollectorsTableComponent,
 
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
+    Ng2SearchPipeModule,
     FormsModule,
     MatTableModule,
     MatPaginatorModule,
@@ -83,6 +89,9 @@ import { AddSocieteComponent } from './components/add-societe/add-societe.compon
     CommonModule ,
     MatTabsModule,
     MatSortModule,
+    ToastrModule.forRoot({
+      positionClass :'toast-bottom-right'
+    }),
     HttpClientModule
   ],
   providers: [],

@@ -27,15 +27,16 @@ export class RegisterpageComponent implements OnInit, OnDestroy {
     this.us.AddUser(this.user).subscribe( (data:any) =>{
       console.log(data);
         if(data.message == "success") {
-          this.disableButton = false;
-          this.router.navigate(['/login'])
+          this.router.navigate(['login'])
       .then(() => {
         window.location.reload();
       });
         }
 
       },
-      (error:any) => console.log(error));  }
+      (error:any) => console.log(error)
+      
+      );  }
 
 
 

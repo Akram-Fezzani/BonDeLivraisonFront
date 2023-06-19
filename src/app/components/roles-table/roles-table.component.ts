@@ -16,6 +16,7 @@ import { RoleService } from 'src/app/services/RoleService/role.service';
 export class RolesTableComponent implements OnInit {
   roles:any;
   sortedData:any;
+  searchtext='';
 
 
   constructor(private us:UserService,private rs:RoleService, private cs:CenterServiceService,private dialog: MatDialog,private _router:Router) { }

@@ -1,8 +1,13 @@
 <div class="card-header">
   <h3 class="card-title">Antennes</h3>
   <br />
-  <div style="width: 250px; margin-left: 85%; margin-top: -3%">
-    <input class="form-control" placeholder="Chercher" type="text" />
+  <div style="width: 200px; margin-left: 85%; margin-top: -3%">
+    <input
+      class="form-control"
+      placeholder="Chercher"
+      type="text"
+      [(ngModel)]="searchtext"
+    />
   </div>
   <a href="javascript:void(0) " class="text-success" (click)="opendialog()">
     Ajouter un antenne
@@ -27,7 +32,7 @@
     </tr>
   </thead>
   <tbody>
-    <tr *ngFor="let c of antennas">
+    <tr *ngFor="let c of antennas | filter : searchtext">
       <td>{{ c.antennaCode }}</td>
 
       <td>{{ c.antennaLabel }}</td>
