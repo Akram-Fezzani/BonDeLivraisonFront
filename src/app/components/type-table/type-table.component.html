@@ -1,5 +1,5 @@
 <div class="card-header">
-  <h3 class="card-title">Roles</h3>
+  <h3 class="card-title">Types</h3>
   <br />
   <div style="width: 200px; margin-left: 85%; margin-top: -3%">
     <input
@@ -10,7 +10,7 @@
     />
   </div>
   <a href="javascript:void(0) " class="text-success" (click)="opendialog()">
-    Ajouter un Role
+    Ajouter un Type
   </a>
 </div>
 <br />
@@ -27,14 +27,18 @@
 >
   <thead>
     <tr>
-      <th mat-sort-header="Role">Role</th>
+      <th mat-sort-header="codeSouche">Code Souche</th>
+      <th mat-sort-header="libSouche">Lib Souche</th>
     </tr>
   </thead>
   <tbody>
-    <tr *ngFor="let c of roles | filter : searchtext">
-      <td>{{ c.role }}</td>
+    <tr *ngFor="let c of type | filter : searchtext">
+      <td>{{ c.codeSouche }}</td>
+
+      <td>{{ c.libSouche }}</td>
+
       <td>
-        <button class="btn btn-success" (click)="Delete(c.roleId)">
+        <button class="btn btn-success" (click)="Delete(c.typeId)">
           Delete
         </button>
       </td>

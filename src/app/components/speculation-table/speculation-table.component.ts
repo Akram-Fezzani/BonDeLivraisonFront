@@ -5,28 +5,29 @@ import { UserService } from 'src/app/services/user/user.service';
 import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 import { Sort } from '@angular/material/sort';
 import { AddRoleComponent } from '../add-role/add-role.component';
-import { RoleService } from 'src/app/services/RoleService/role.service';
+import { SpeculationService } from 'src/app/services/SpeculationService/speculation.service';
 import { ToastrService } from 'ngx-toastr';
 
 @Component({
-  selector: 'app-roles-table',
-  templateUrl: './roles-table.component.html',
-  styleUrls: ['./roles-table.component.scss']
+  selector: 'app-speculation-table',
+  templateUrl: './speculation-table.component.html',
+  styleUrls: ['./speculation-table.component.scss']
 })
-export class RolesTableComponent implements OnInit {
-  roles:any;
+export class SpeculationTableComponent implements OnInit {
+
+  speculation:any;
   sortedData:any;
   searchtext='';
 
 
-  constructor(private us:UserService,private RoleService:RoleService,private toastr: ToastrService, private cs:CenterServiceService,private dialog: MatDialog,private _router:Router) { }
+  constructor(private us:UserService,private SpeculationService:SpeculationService,private toastr: ToastrService, private cs:CenterServiceService,private dialog: MatDialog,private _router:Router) { }
 
   getAllRoles(){
         
-    this.RoleService.getRoles().subscribe( (data:any) =>{
+    this.SpeculationService.getSpeculations().subscribe( (data:any) =>{
 
-      this.roles=data;
-      console.log(this.roles)
+      this.speculation=data;
+      console.log(this.speculation)
 
       },
       (error:any) => console.log(error));  }
@@ -44,15 +45,15 @@ export class RolesTableComponent implements OnInit {
        }
 
        sortData(sort: Sort) {
-        const data = this.roles();
+        const data = this.speculation();
         if (!sort.active || sort.direction === '') {
           this.sortedData = data;
           return;
         }
       }
-      Delete(RoleId:string) {
-        this.RoleService.deleteRole(RoleId).subscribe( (data:any) =>{
-          this.toastr.error("Un Role a été effacer");
+      Delete(SpeculationId:string) {
+        this.SpeculationService.deleteSpeculation(SpeculationId).subscribe( (data:any) =>{
+          this.toastr.error("Une Speculation a été effacer");
         },
         (error:any) => console.log(error));  }
 

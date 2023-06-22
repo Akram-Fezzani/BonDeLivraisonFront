@@ -1,5 +1,5 @@
 <div class="card-header">
-  <h3 class="card-title">Roles</h3>
+  <h3 class="card-title">Domaines</h3>
   <br />
   <div style="width: 200px; margin-left: 85%; margin-top: -3%">
     <input
@@ -10,7 +10,7 @@
     />
   </div>
   <a href="javascript:void(0) " class="text-success" (click)="opendialog()">
-    Ajouter un Role
+    Ajouter un Domaine
   </a>
 </div>
 <br />
@@ -27,14 +27,18 @@
 >
   <thead>
     <tr>
-      <th mat-sort-header="Role">Role</th>
+      <th mat-sort-header="domaineName">Nom domaine</th>
+      <th mat-sort-header="raisonSocial">Raison Social</th>
     </tr>
   </thead>
   <tbody>
-    <tr *ngFor="let c of roles | filter : searchtext">
-      <td>{{ c.role }}</td>
+    <tr *ngFor="let c of Domain | filter : searchtext">
+      <td>{{ c.domaineName }}</td>
+
+      <td>{{ c.raisonSocial }}</td>
+
       <td>
-        <button class="btn btn-success" (click)="Delete(c.roleId)">
+        <button class="btn btn-success" (click)="Delete(c.domaineId)">
           Delete
         </button>
       </td>

@@ -41,7 +41,16 @@ import { BuildingsTableComponent } from './components/buildings-table/buildings-
 import { CollectorsTableComponent } from './components/collectors-table/collectors-table.component';
 import { ToastrModule } from 'ngx-toastr';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
+import { AddSpeculationComponent } from './components/add-speculation/add-speculation.component';
+import { SpeculationTableComponent } from './components/speculation-table/speculation-table.component';
+import { DomainTableComponent } from './components/domain-table/domain-table.component';
+import { TypeTableComponent } from './components/type-table/type-table.component';
+import { AddDomainComponent } from './components/add-domain/add-domain.component';
+import { AddTypeComponent } from './components/add-type/add-type.component';
 
+import {MatIconModule} from '@angular/material/icon';
+import {MatButtonModule} from '@angular/material/button';
+import {MatTreeModule} from '@angular/material/tree';
 
 
 @NgModule({
@@ -72,6 +81,12 @@ import { Ng2SearchPipeModule } from 'ng2-search-filter';
          AddSocieteComponent,
          BuildingsTableComponent,
          CollectorsTableComponent,
+         SpeculationTableComponent,
+         AddSpeculationComponent,
+         DomainTableComponent,
+         TypeTableComponent,
+         AddDomainComponent,
+         AddTypeComponent,
 
   ],
   imports: [
@@ -81,9 +96,12 @@ import { Ng2SearchPipeModule } from 'ng2-search-filter';
     FormsModule,
     MatTableModule,
     MatPaginatorModule,
+    MatIconModule,
     MatInputModule,
+    MatButtonModule,
     MatButtonToggleModule,
     MatDialogModule,
+    MatTreeModule,
     BrowserAnimationsModule,
     ReactiveFormsModule,
     CommonModule ,

@@ -5,28 +5,31 @@ import { UserService } from 'src/app/services/user/user.service';
 import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 import { Sort } from '@angular/material/sort';
 import { AddRoleComponent } from '../add-role/add-role.component';
-import { RoleService } from 'src/app/services/RoleService/role.service';
+import { TypeService } from 'src/app/services/TypeService/type.service';
 import { ToastrService } from 'ngx-toastr';
 
+
 @Component({
-  selector: 'app-roles-table',
-  templateUrl: './roles-table.component.html',
-  styleUrls: ['./roles-table.component.scss']
+  selector: 'app-type-table',
+  templateUrl: './type-table.component.html',
+  styleUrls: ['./type-table.component.scss']
 })
-export class RolesTableComponent implements OnInit {
-  roles:any;
+export class TypeTableComponent implements OnInit {
+
+
+  type:any;
   sortedData:any;
   searchtext='';
 
 
-  constructor(private us:UserService,private RoleService:RoleService,private toastr: ToastrService, private cs:CenterServiceService,private dialog: MatDialog,private _router:Router) { }
+  constructor(private us:UserService,private TypeService:TypeService,private toastr: ToastrService, private cs:CenterServiceService,private dialog: MatDialog,private _router:Router) { }
 
   getAllRoles(){
         
-    this.RoleService.getRoles().subscribe( (data:any) =>{
+    this.TypeService.getTypes().subscribe( (data:any) =>{
 
-      this.roles=data;
-      console.log(this.roles)
+      this.type=data;
+      console.log(this.type)
 
       },
       (error:any) => console.log(error));  }
@@ -44,15 +47,15 @@ export class RolesTableComponent implements OnInit {
        }
 
        sortData(sort: Sort) {
-        const data = this.roles();
+        const data = this.type();
         if (!sort.active || sort.direction === '') {
           this.sortedData = data;
           return;
         }
       }
-      Delete(RoleId:string) {
-        this.RoleService.deleteRole(RoleId).subscribe( (data:any) =>{
-          this.toastr.error("Un Role a été effacer");
+      Delete(SpeculationId:string) {
+        this.TypeService.deleteType(SpeculationId).subscribe( (data:any) =>{
+          this.toastr.error("Un type a été effacer");
         },
         (error:any) => console.log(error));  }
 
