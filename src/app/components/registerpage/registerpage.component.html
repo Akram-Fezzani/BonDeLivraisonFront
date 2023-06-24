@@ -1,10 +1,14 @@
 <div class="container">
   <div class="row">
     <div class="col-lg-5 col-md-8 mx-auto">
-      <div class="square square-7" id="square7"></div>
-      <div class="square square-8" id="square8"></div>
       <div class="card card-register">
         <div class="card-header">
+          <img
+            alt="Card image"
+            class="card-img"
+            src="assets/img/square1-red.png"
+          />
+
           <h3 class="card-title">Register</h3>
         </div>
         <div class="card-body">
@@ -14,9 +18,7 @@
               [ngClass]="{ 'input-group-focus': focus1 === true }"
             >
               <div class="input-group-prepend">
-                <div class="input-group-text">
-                  <i class="fa fa-address-card" aria-hidden="true"></i>
-                </div>
+                <div class="input-group-text"></div>
               </div>
               <input
                 class="form-control"
@@ -101,9 +103,7 @@
               [ngClass]="{ 'input-group-focus': focus1 === true }"
             >
               <div class="input-group-prepend">
-                <div class="input-group-text">
-                  <i class="fa fa-phone" aria-hidden="true"></i>
-                </div>
+                <div class="input-group-text"></div>
               </div>
               <input
                 class="form-control"
@@ -141,15 +141,17 @@
               />
             </div>
             <div class="card-footer">
-              <button
-                [disabled]="disableButton"
-                id="registerButton"
-                class="btn btn-primary btn-round btn-lg btn-block"
-                href="javascript:void(0)"
-                (click)="AddUser()"
-              >
-                Register
-              </button>
+              <div style="margin-left: 30%">
+                <button
+                  [disabled]="disableButton"
+                  id="registerButton"
+                  class="btn btn-danger btn-round btn-lg"
+                  href="javascript:void(0)"
+                  (click)="AddUser()"
+                >
+                  Register
+                </button>
+              </div>
               <br />
               <div style="display: flex; justify-content: center; width: 100%">
                 <a

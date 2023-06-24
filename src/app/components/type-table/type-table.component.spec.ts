@@ -1,4 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import '@types/jest';
 
 import { TypeTableComponent } from './type-table.component';
 

@@ -7,8 +7,6 @@
 <div class="container">
   <div class="row">
     <div class="col-lg-5 col-md-6 offset-lg-0 offset-md-3">
-      <div class="square square-7" id="square7"></div>
-      <div class="square square-8" id="square8"></div>
       <div class="card card-register">
         <div class="card-header">
           <img
@@ -19,13 +17,13 @@
 
           <h3 class="card-title">Login</h3>
         </div>
+        <br />
+        <br />
         <div class="card-body">
           <form class="form">
             <div class="input-group">
               <div class="input-group-prepend">
-                <div class="input-group-text">
-                  <i class="fa fa-address-card" aria-hidden="true"></i>
-                </div>
+                <div class="input-group-text"></div>
               </div>
               <input
                 class="form-control"
@@ -54,30 +52,22 @@
                 min="5"
               />
             </div>
-            <div style="align-content: center">
-              <a
-                class="btn btn-danger btn-round btn-lg"
-                href="javascript:void(0)"
-                (click)="login()"
-              >
-                Login
-              </a>
-            </div>
 
             <div class="card-footer">
-              <span class="forgot-password">
-                <div style="align-content: center">
-                  <a
-                    href="no-javascript1.html"
-                    title="Forgot Password"
-                    id="link-reset"
-                    >Forgot Password?</a
-                  >
-                </div>
-              </span>
+              <div style="margin-left: 30%">
+                <a
+                  class="btn btn-danger btn-round btn-lg"
+                  href="javascript:void(0)"
+                  (click)="login()"
+                >
+                  Login
+                </a>
+              </div>
               <br />
               <span class="forgot-password">
-                <div style="align-content: center">
+                <div
+                  style="display: flex; justify-content: center; width: 100%"
+                >
                   <a
                     href="no-javascript1.html"
                     title="Forgot Password"

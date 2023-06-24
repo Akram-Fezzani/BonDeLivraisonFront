@@ -60,10 +60,7 @@ export class NavbarComponent implements OnInit, OnDestroy {
         }
         this.notifs = r;
       },error => console.log(error));
-      this.websocketService._connectForum(this.currentUser.id);
-      this.websocketService.navBarComp.subscribe((message:ChatMessage) => {
-        this.reloadFromWebSocket(message);
-      });
+     
     }
   }
   ngOnDestroy() {
@@ -72,11 +69,12 @@ export class NavbarComponent implements OnInit, OnDestroy {
   }
 
   signOut() {
+  
     this.websocketService._disconnectForum();
     this.goToHome();
-    this.tokenStorage.clearLocalStorage();
+    this.router.navigate(['/login'])
 
-  }
+    this.tokenStorage.clearLocalStorage();  }
 
   getUserByusername(){
 this.us.getUserByusername(this.form.search).subscribe((r:any)=>{
