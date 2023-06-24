@@ -1,1 +1,56 @@
-<p>add-speculation works!</p>
+<div class="container">
+    <div class="row">
+      <div class="col-lg-5 col-md-8 mx-auto">
+        <div class="square square-7" id="square7"></div>
+        <div class="square square-8" id="square8"></div>
+        <div class="card">
+          <div class="card-header">
+            <h1 class="card-title">Ajouter un Role</h1>
+          </div>
+          <div class="card-body">
+            <form class="form">
+              <div
+                class="input-group"
+                [ngClass]="{ 'input-group-focus': focus === true }"
+              >
+                <div class="input-group-prepend">
+                  <div class="input-group-text">
+                    <i class="tim-icons icon-single-02"> </i>
+                  </div>
+                </div>
+                <input
+                  class="form-control"
+                  placeholder="Neauveau Role"
+                  [(ngModel)]="role.role"
+                  name="role"
+                  required
+                  minlength="5"
+                  type="text"
+                  (focus)="focus = true"
+                  (blur)="focus = false"
+                />
+              </div>
+  
+              <div
+                class="input-group"
+                [ngClass]="{ 'input-group-focus': focus2 === true }"
+              ></div>
+              <div class="card-footer">
+                <button
+                  [disabled]="disableButton"
+                  id="registerButton"
+                  class="btn btn-danger btn-round btn-lg btn-block"
+                  href="javascript:void(0)"
+                  (click)="AddRole()"
+                >
+                  Ajouter
+                </button>
+                <br />
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  

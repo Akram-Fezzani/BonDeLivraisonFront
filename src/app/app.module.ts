@@ -47,10 +47,11 @@ import { DomainTableComponent } from './components/domain-table/domain-table.com
 import { TypeTableComponent } from './components/type-table/type-table.component';
 import { AddDomainComponent } from './components/add-domain/add-domain.component';
 import { AddTypeComponent } from './components/add-type/add-type.component';
-
+import {MatBadgeModule} from "@angular/material/badge";
 import {MatIconModule} from '@angular/material/icon';
 import {MatButtonModule} from '@angular/material/button';
 import {MatTreeModule} from '@angular/material/tree';
+import {CollapseModule} from "ngx-bootstrap/collapse";
 
 
 @NgModule({
@@ -92,6 +93,8 @@ import {MatTreeModule} from '@angular/material/tree';
   imports: [
     BrowserModule,
     AppRoutingModule,
+    CollapseModule,
+    MatBadgeModule,
     Ng2SearchPipeModule,
     FormsModule,
     MatTableModule,

@@ -55,11 +55,14 @@ export class AppComponent implements OnInit {
   }
   setCurrentUser(user:User){
     this.currentUser = user;
- 
+    if(NavbarComponent.instance != null) {
+    NavbarComponent.instance.setCurrentUser(this.currentUser);
+
+    }
     if(HomeComponent.instance != null) {
       HomeComponent.instance.currentUser = this.currentUser
-    }
-    
+    }(error: any) => {console.log(error)};
+
   }
   ngOnInit() {
     this.gettingUser = true;
