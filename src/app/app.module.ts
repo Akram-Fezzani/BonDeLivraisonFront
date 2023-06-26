@@ -52,6 +52,9 @@ import {MatIconModule} from '@angular/material/icon';
 import {MatButtonModule} from '@angular/material/button';
 import {MatTreeModule} from '@angular/material/tree';
 import {CollapseModule} from "ngx-bootstrap/collapse";
+import { UpdateprofileComponent } from './components/updateprofile/updateprofile.component';
+import { ProfilepageComponent } from './components/profilepage/profilepage.component';
+import { ChangepasswordComponent } from './components/changepassword/changepassword.component';
 
 
 @NgModule({
@@ -66,8 +69,10 @@ import {CollapseModule} from "ngx-bootstrap/collapse";
     UserStatsComponent,
     BackofficeFooterComponent,
     LoginComponent,
+    UpdateprofileComponent,
     CenterStatsComponent,
     AddCollectorComponent,
+    ChangepasswordComponent,
          AddAntennaComponent,
          AddCenterComponent,
          ChefcentreTableComponent,
@@ -88,6 +93,7 @@ import {CollapseModule} from "ngx-bootstrap/collapse";
          TypeTableComponent,
          AddDomainComponent,
          AddTypeComponent,
+         ProfilepageComponent,
 
   ],
   imports: [
@@ -128,9 +134,10 @@ import {CollapseModule} from "ngx-bootstrap/collapse";
     MatButtonToggleModule,
     MatTableModule,
     MatPaginatorModule,
-
+    UpdateprofileComponent,
     BackofficeFooterComponent,
     MatTabsModule,
+    ChangepasswordComponent,
     MatSortModule,
     MatDialogModule,
     FooterComponent
@@ -143,6 +150,7 @@ import {CollapseModule} from "ngx-bootstrap/collapse";
     AddCenterComponent,
     AddAntennaComponent,
     AddRoleComponent,
+    AddSpeculationComponent,
     AddSocieteComponent
   ]
 

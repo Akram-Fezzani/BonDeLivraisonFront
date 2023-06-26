@@ -1,7 +1,12 @@
 <div class="card-header">
   <h3 class="card-title">Chef Centers</h3>
   <div style="width: 200px; margin-left: 85%; margin-top: -3%">
-    <input class="form-control" placeholder="Chercher" type="text"   [(ngModel)]="searchtext"/>
+    <input
+      class="form-control idle"
+      placeholder="Chercher"
+      type="text"
+      [(ngModel)]="searchtext"
+    />
   </div>
   <a href="javascript:void(0) " class="text-success" (click)="opendialog()">
     Ajouter un Chef Centre
@@ -9,9 +14,7 @@
 </div>
 <br />
 <br />
-
 <br />
-
 <table
   matSort
   (matSortChange)="sortData($event)"
@@ -40,10 +43,8 @@
           Delete
         </button>
       </td>
-      <td >
-        <button class="btn btn-danger">
-          Update
-        </button>
+      <td>
+        <button class="btn btn-danger">Update</button>
       </td>
     </tr>
   </tbody>

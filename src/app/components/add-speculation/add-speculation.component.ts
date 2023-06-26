@@ -28,13 +28,13 @@ export class AddSpeculationComponent implements OnInit {
   
 
 
-  AddRole(){
+  AddSpeculation(){
     this.disableButton = true;
     this.rs.AddRole(this.role).subscribe( (data:any) =>{
       console.log(data);
       data.state=true;
       this.closeDialog();
-      this.toastr.success("Un Role a été ajouter");
+      this.toastr.success("Une Speculation a été ajouter");
 
       },
       (error:any) => console.log(error));  }

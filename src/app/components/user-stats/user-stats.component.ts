@@ -2,7 +2,6 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 import { Sort } from '@angular/material/sort';
 import { Router } from '@angular/router';
-import { dateFormat } from 'highcharts';
 //import Chart from 'chart.js';
 
 import { UserService } from 'src/app/services/user/user.service';
@@ -14,6 +13,7 @@ import { CenterServiceService } from 'src/app/services/CenterService/center-serv
   selector: 'app-user-stats',
   templateUrl: './user-stats.component.html',
   styleUrls: ['./user-stats.component.scss']
+
 })
 export class UserStatsComponent implements OnInit {
   Trainers:any;

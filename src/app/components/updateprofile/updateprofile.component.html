@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="76x76"
+      href="../assets/img/apple-icon.png"
+    />
+    <link rel="icon" type="image/png" href="../assets/img/favicon.png" />
+  </head>
+  <body class="account-settings">
+    <noscript>
+      <iframe
+        src="https://www.googletagmanager.com/ns.html?id=GTM-NKDMSK6"
+        height="0"
+        width="0"
+        style="display: none; visibility: hidden"
+      ></iframe>
+    </noscript>
+
+    <div class="wrapper">
+      <div class="section">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-3">
+              <div class="section">
+                <section>
+                  <br />
+                  <ul class="nav flex-column" role="tablist">
+                    <li class="nav-item">
+                      <a
+                        class="nav-link active idle"
+                        data-toggle="tab"
+                        href="#link1"
+                        role="tablist"
+                      >
+                        General
+                      </a>
+                    </li>
+                    <hr class="hr.new4" />
+                    <li class="nav-item">
+                      <a
+                        [routerLink]="['/Changepassword']"
+                        class="nav-link idle"
+                        data-toggle="tab"
+                        href="#link3"
+                        role="tablist"
+                      >
+                        Security
+                      </a>
+                    </li>
+                  </ul>
+                </section>
+              </div>
+            </div>
+            <div class="col-md-8 ml-auto">
+              <div class="section">
+                <div class="tab-content">
+                  <div class="tab-pane active" id="link1">
+                    <div>
+                      <header>
+                        <h2 class="text-uppercase idle">General information</h2>
+                      </header>
+                      <hr class="line-primary" />
+                      <div class="row">
+                        <div class="col-md-3 align-self-center">
+                          <label class="labels" for="#location"
+                            >User Name</label
+                          >
+                        </div>
+                        <div class="col-md-9 align-self-center">
+                          <div class="form-group">
+                            <input
+                              id="username"
+                              readonly
+                              name="username"
+                              [(ngModel)]="user.username"
+                              name="username"
+                              class="form-control"
+                              type="text"
+                              required="required"
+                            />
+                          </div>
+                        </div>
+                      </div>
+
+                      <div class="row">
+                        <div class="col-md-3 align-self-center">
+                          <label class="labels" for="#firstName"
+                            >First Name</label
+                          >
+                        </div>
+                        <div class="col-md-9 align-self-center">
+                          <div class="form-group">
+                            <input
+                              id="firstName"
+                              [(ngModel)]="user.firstName"
+                              name="firstName"
+                              class="form-control"
+                              type="text"
+                              required="required"
+                              minlength="5"
+                            />
+                          </div>
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="col-md-3 align-self-center">
+                          <label class="labels" for="#lastName"
+                            >Last Name</label
+                          >
+                        </div>
+                        <div class="col-md-9 align-self-center">
+                          <div class="form-group">
+                            <input
+                              id="lastName"
+                              [(ngModel)]="user.lastName"
+                              name="lastName"
+                              class="form-control"
+                              type="text"
+                              required="required"
+                              minlength="5"
+                            />
+                          </div>
+                        </div>
+                      </div>
+
+                      <div class="row">
+                        <div class="col-md-3 align-self-center">
+                          <label class="labels" for="#email">Email</label>
+                        </div>
+                        <div class="col-md-9 align-self-center">
+                          <div class="form-group">
+                            <input
+                              id="email"
+                              [(ngModel)]="user.email"
+                              name="email"
+                              class="form-control"
+                              type="email"
+                              required="required"
+                            />
+                          </div>
+                        </div>
+                      </div>
+
+                      <div class="row">
+                        <div class="col-md-3 align-self-center">
+                          <label class="labels" for="#phone"
+                            >Phone Number</label
+                          >
+                        </div>
+                        <div class="col-md-4 align-self-center">
+                          <div class="form-group">
+                            <input
+                              id="phone"
+                              [(ngModel)]="user.phone"
+                              name="phone"
+                              class="form-control"
+                              type="tel"
+                              required="required"
+                            />
+                          </div>
+                        </div>
+                      </div>
+
+                      <div class="row mt-4">
+                        <div class="col-md-6">
+                          <button
+                            class="btn btn-danger"
+                            type="submit"
+                            (click)="updateuser()"
+                          >
+                            Save Changes
+                          </button>
+                          <button
+                            class="btn btn-danger btn-simple"
+                            (click)="cancelUpdate()"
+                            type="reset"
+                          >
+                            Cancel
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

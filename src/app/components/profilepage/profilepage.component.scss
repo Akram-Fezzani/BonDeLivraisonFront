@@ -1,0 +1,30 @@
+
+.profileContainer {
+    margin-bottom: 20px !important;
+    //background: rgba(29,35,83,0.1);
+    background: rgba(36, 37, 38, 0.8);
+    box-shadow: 0 1px 20px 0 rgb(0 0 0 / 80%)!important;
+    width: 500px;
+    border-radius: 20px!important;
+    padding: 40px!important;
+    display: flex;
+    justify-content: center!important;
+  }
+  .empty {
+    color: white;
+    background: rgba(29,35,83,0.1);
+  width: 800px;
+  }
+  .marginedDiv {
+    margin: 5px;
+  }
+  
+  .itemProfile {
+    width: 100%;justify-content: center;display: flex;margin-bottom: -10px;
+    margin-left: 100px;
+  }
+  
+
+  .idle {
+    color: #f33d46;
+}

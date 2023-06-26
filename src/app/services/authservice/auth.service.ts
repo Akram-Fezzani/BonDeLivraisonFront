@@ -91,9 +91,9 @@ getcurrentuser(id: string):Observable<any>{
 
   }
 
-  updateuser(user: User,id:String):Observable<any>{
+  updateuser(user: User):Observable<any>{
 
-    return this.http.post( 'http://localhost:8085/user/updateUser/'+id,user);
+    return this.http.put( 'https://localhost:44317/api/User/UpdateUser',user);
 
   }
   

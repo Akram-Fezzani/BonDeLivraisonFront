@@ -38,9 +38,7 @@
               [ngClass]="{ 'input-group-focus': focus === true }"
             >
               <div class="input-group-prepend">
-                <div class="input-group-text">
-                  <i class="tim-icons icon-single-02"> </i>
-                </div>
+                <div class="input-group-text"></div>
               </div>
               <input
                 class="form-control"
@@ -60,9 +58,7 @@
               [ngClass]="{ 'input-group-focus': focus1 === true }"
             >
               <div class="input-group-prepend">
-                <div class="input-group-text">
-                  <i class="tim-icons icon-single-02"> </i>
-                </div>
+                <div class="input-group-text"></div>
               </div>
               <input
                 class="form-control"
@@ -82,9 +78,7 @@
               [ngClass]="{ 'input-group-focus': focus1 === true }"
             >
               <div class="input-group-prepend">
-                <div class="input-group-text">
-                  <i class="tim-icons icon-email-85"> </i>
-                </div>
+                <div class="input-group-text"></div>
               </div>
               <input
                 class="form-control"
@@ -124,9 +118,7 @@
               [ngClass]="{ 'input-group-focus': focus2 === true }"
             >
               <div class="input-group-prepend">
-                <div class="input-group-text">
-                  <i class="tim-icons icon-lock-circle"> </i>
-                </div>
+                <div class="input-group-text"></div>
               </div>
               <input
                 class="form-control"
@@ -153,10 +145,13 @@
                 </button>
               </div>
               <br />
-              <div style="display: flex; justify-content: center; width: 100%">
+              <div
+                style="display: flex; justify-content: center; width: 100% busy"
+              >
                 <a
                   href="no-javascript1.html"
                   title="Forgot Password"
+                  class="busy"
                   id="link-sign up"
                   [routerLink]="['/login']"
                   >Allready have an account ? sign in.</a

@@ -7,6 +7,7 @@ import { Sort } from '@angular/material/sort';
 import { AddRoleComponent } from '../add-role/add-role.component';
 import { TypeService } from 'src/app/services/TypeService/type.service';
 import { ToastrService } from 'ngx-toastr';
+import { AddTypeComponent } from '../add-type/add-type.component';
 
 
 @Component({
@@ -40,7 +41,7 @@ export class TypeTableComponent implements OnInit {
         dialogConfig.disableClose = true;
         dialogConfig.autoFocus = true;
       
-        this.dialog.open(AddRoleComponent
+        this.dialog.open(AddTypeComponent
           ,{
             height: '4000px',
         width: '6000px',});

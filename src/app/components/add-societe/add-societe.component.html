@@ -122,24 +122,30 @@
                 />
               </div>
               <div class="card-footer">
-                <button
-                  [disabled]="disableButton"
-                  id="registerButton"
-                  class="btn btn-danger btn-lg btn-lg btn-block"
-                  href="javascript:void(0)"
-                  (click)="AddSociete()"
-                >
-                  Ajouter
-                </button>
-                <br />
-                <div class=>
+                <div style="margin-left: 30%">
                   <a
-                    class="text-danger "
-                    (click)="closeDialog()"
+                    class="btn btn-danger btn-round btn-lg"
+                    href="javascript:void(0)"
+                    (click)="AddSociete()"
                   >
-                    <i class="fa fa-times icon-display" aria-hidden="true"></i>
+                    Ajouter
                   </a>
                 </div>
+                <br />
+                <span class="forgot-password">
+                  <div
+                    style="display: flex; justify-content: center; width: 100%"
+                  >
+                    <a
+                      class="idle"
+                      title="Annuler"
+                      (click)="closeDialog()"
+                      id="Annuler"
+                      >Annuler</a
+                    >
+                  </div>
+                </span>
+                <br />
               </div>
             </form>
           </div>

@@ -1,36 +1,36 @@
 <div class="container">
-    <div class="row">
-      <div class="col-lg-5 col-md-8 mx-auto">
-        <div class="square square-7" id="square7"></div>
-        <div class="square square-8" id="square8"></div>
-        <div class="card">
-          <div class="card-header">
-            <h1 class="card-title">Ajouter un Antenne</h1>
-          </div>
-          <div class="card-body">
-            <form class="form">
-              <div
-                class="input-group"
-                [ngClass]="{ 'input-group-focus': focus === true }"
-              >
-                <div class="input-group-prepend">
-                  <div class="input-group-text">
-                    <i class="tim-icons icon-single-02"> </i>
-                  </div>
+  <div class="row">
+    <div class="col-lg-5 col-md-8 mx-auto">
+      <div class="square square-7" id="square7"></div>
+      <div class="square square-8" id="square8"></div>
+      <div class="card">
+        <div class="card-header">
+          <h1 class="card-title">Ajouter un Antenne</h1>
+        </div>
+        <div class="card-body">
+          <form class="form">
+            <div
+              class="input-group"
+              [ngClass]="{ 'input-group-focus': focus === true }"
+            >
+              <div class="input-group-prepend">
+                <div class="input-group-text">
+                  <i class="tim-icons icon-single-02"> </i>
                 </div>
-                <input
-                  class="form-control"
-                  placeholder="Code Antenne"
-                  [(ngModel)]="antenne.antennaCode"
-                  name="antennaCode"
-                  required
-                  minlength="5"
-                  type="text"
-                  (focus)="focus = true"
-                  (blur)="focus = false"
-                />
               </div>
-              <div
+              <input
+                class="form-control"
+                placeholder="Code Antenne"
+                [(ngModel)]="antenne.antennaCode"
+                name="antennaCode"
+                required
+                minlength="5"
+                type="text"
+                (focus)="focus = true"
+                (blur)="focus = false"
+              />
+            </div>
+            <div
               class="input-group"
               [ngClass]="{ 'input-group-focus': focus === true }"
             >
@@ -51,26 +51,39 @@
                 (blur)="focus = false"
               />
             </div>
-              <div
-                class="input-group"
-                [ngClass]="{ 'input-group-focus': focus2 === true }"
-              ></div>
-              <div class="card-footer">
-                <button
-                  [disabled]="disableButton"
-                  id="registerButton"
-                  class="btn btn-danger btn-round btn-lg btn-block"
+            <div
+              class="input-group"
+              [ngClass]="{ 'input-group-focus': focus2 === true }"
+            ></div>
+            <div class="card-footer">
+              <div style="margin-left: 30%">
+                <a
+                  class="btn btn-danger btn-round btn-lg"
                   href="javascript:void(0)"
                   (click)="AddRole()"
                 >
                   Ajouter
-                </button>
-                <br />
+                </a>
               </div>
-            </form>
-          </div>
+              <br />
+              <span class="forgot-password">
+                <div
+                  style="display: flex; justify-content: center; width: 100%"
+                >
+                  <a
+                    class="idle"
+                    title="Annuler"
+                    (click)="closeDialog()"
+                    id="Annuler"
+                    >Annuler</a
+                  >
+                </div>
+              </span>
+              <br />
+            </div>
+          </form>
         </div>
       </div>
     </div>
   </div>
-  
+</div>

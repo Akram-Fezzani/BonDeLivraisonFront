@@ -11,14 +11,14 @@ export class UserService {
 
   private baseUrl = '/https://localhost:44317/api/User/';
   private chefcentersurl = 'https://localhost:44317/api/ChefCenter/GetChefs';
-  private getCenterUrl =  ';https://localhost:44357/api/Center'
+  private getCenterUrl =  'https://localhost:44357/api/Center'
 
 
   constructor(private http: HttpClient, private _http:HttpClient) { }
 
 
   getUserById(userId:string): Observable<any> { 
-    return this.http.get(this.baseUrl + 'getUserById/'+userId);
+    return this.http.get( 'https://localhost:44317/api/User/getUserById?Id='+userId);
   }
 
   getUserByusername(username:string): Observable<any> { 

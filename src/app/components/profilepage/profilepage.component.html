@@ -1,0 +1,50 @@
+<div>
+  <div class="container d-flex justify-content-center">
+    <div class="card p-3 py-4">
+      <div class="text-center">
+        <img
+          src="../../../assets/img/ryan.jpg"
+          width="100"
+          class="rounded-circle"
+        />
+
+        <h3 class="mt-2">{{ currentUser.username }}</h3>
+        <span class="mt-1 clearfix">
+          {{ currentUser.firstName }} {{ currentUser.lastName }}
+        </span>
+        <span class="mt-1 clearfix">
+          {{ currentUser.roles }}
+        </span>
+        <div class="row mt-4 mb-4">
+          <div class="col-md-4">
+            <h5>Telephone</h5>
+            <span class="num">{{ currentUser.phone }}</span>
+          </div>
+          <div class="col-md-4">
+            <h5>Email</h5>
+            <span class="num">{{ currentUser.email }}</span>
+          </div>
+          <div class="col-md-4">
+            <h5>aaaaa</h5>
+            <span class="num">bbbbb</span>
+          </div>
+        </div>
+        <br />
+
+        <a
+          *ngIf="currentUser.id == loggedUser.UserId"
+          style="cursor: pointer"
+          (click)="showUpdateProfile = true"
+          class="idle"
+          href="javascript:void(0)"
+        >
+          update profile
+        </a>
+      </div>
+    </div>
+  </div>
+  <br />
+  <app-updateprofile *ngIf="showUpdateProfile"></app-updateprofile>
+  <br />
+  <br />
+</div>

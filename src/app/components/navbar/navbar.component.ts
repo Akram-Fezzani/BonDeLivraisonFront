@@ -70,7 +70,6 @@ export class NavbarComponent implements OnInit, OnDestroy {
 
   signOut() {
   
-    this.websocketService._disconnectForum();
     this.goToHome();
     this.router.navigate(['/login'])
 

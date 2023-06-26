@@ -7,6 +7,7 @@ import { Sort } from '@angular/material/sort';
 import { AddRoleComponent } from '../add-role/add-role.component';
 import { SpeculationService } from 'src/app/services/SpeculationService/speculation.service';
 import { ToastrService } from 'ngx-toastr';
+import { AddSpeculationComponent } from '../add-speculation/add-speculation.component';
 
 @Component({
   selector: 'app-speculation-table',
@@ -38,7 +39,7 @@ export class SpeculationTableComponent implements OnInit {
         dialogConfig.disableClose = true;
         dialogConfig.autoFocus = true;
       
-        this.dialog.open(AddRoleComponent
+        this.dialog.open(AddSpeculationComponent
           ,{
             height: '4000px',
         width: '6000px',});

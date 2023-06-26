@@ -4,7 +4,7 @@
       <div class="card-body">
         <div class="row">
           <div class="col">
-            <h3 class="card-title text-uppercase text-success">Total Users</h3>
+            <h3 class="idle text-uppercase">utilisateurs</h3>
             <span class="h2 font-weight-bold mb-0 text-white">
               {{ nbrUsers }}
             </span>
@@ -26,7 +26,7 @@
       <div class="card-body">
         <div class="row">
           <div class="col">
-            <h3 class="card-title text-uppercase text-success">Active Users</h3>
+            <h3 class="idle text-uppercase">utilisateurs Actif</h3>
             <span class="h2 font-weight-bold mb-0 text-white">
               {{ nbrActiveUsers }}
             </span>
@@ -47,7 +47,7 @@
       <div class="card-body">
         <div class="row">
           <div class="col">
-            <h3 class="card-title text-uppercase text-success">Chef Centers</h3>
+            <h3 class="idle text-uppercase">Chef Centres</h3>
             <span class="h2 font-weight-bold mb-0 text-white">
               {{ nbrchefs }}
             </span>
@@ -68,7 +68,7 @@
       <div class="card-body">
         <div class="row">
           <div class="col">
-            <h3 class="card-title text-uppercase text-success">Admins</h3>
+            <h3 class="idle text-uppercase">administrateurs</h3>
             <span class="h2 font-weight-bold mb-0 text-white">
               {{ nbradmins }}
             </span>
@@ -182,12 +182,8 @@
 <div style="margin-left: -15px; width: 100%">
   <div class="col-12">
     <div style="border-radius: 10px" class="card">
-      <div class="card-body">
-        <mat-tab-group
-          animationDuration="2000ms"
-          [backgroundColor]="'primary'"
-          [color]="'warn'"
-        >
+      <div class="card-body idle">
+        <mat-tab-group animationDuration="2000ms" [backgroundColor]="'primary'">
           <mat-tab label="Chef Centers">
             <app-chefcentre-table></app-chefcentre-table>
           </mat-tab>
@@ -218,4 +214,3 @@
     </div>
   </div>
 </div>
-
