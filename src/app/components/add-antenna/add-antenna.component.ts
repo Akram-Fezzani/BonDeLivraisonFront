@@ -19,7 +19,6 @@ export class AddAntennaComponent implements OnInit {
   isCollapsed = true;
   focus!:any;
   focus1!:any;
-  focus2!:any;
   collector: collector=new collector();
   antenne: Antenne=new Antenne();
 

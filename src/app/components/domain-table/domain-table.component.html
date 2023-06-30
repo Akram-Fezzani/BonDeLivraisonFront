@@ -32,26 +32,29 @@
     </tr>
   </thead>
   <tbody>
-    <tr *ngFor="let c of Domain | filter : searchtext">
+    <tr *ngFor="let c of returnedArray | filter : searchtext">
       <td>{{ c.domaineName }}</td>
 
       <td>{{ c.raisonSocial }}</td>
 
       <td>
-        <button class="btn btn-success" (click)="Delete(c.domaineId)">
+        <button class="btn btn-delete" (click)="Delete(c.domaineId)">
           Delete
         </button>
       </td>
       <td>
-        <button class="btn btn-danger">Update</button>
+        <button class="btn btn-success">Update</button>
       </td>
     </tr>
   </tbody>
 </table>
-<app-pagination
-  #pagination
-  [collectionSize]="4"
-  [pageSize]="5"
-  [firstLastButtons]="true"
-  [maxSize]="2"
-></app-pagination>
+<pagination
+  class="pagination-danger"
+  [totalItems]="Domain.length"
+  [itemsPerPage]="5"
+  (pageChanged)="pageChanged($event)"
+  previousText="&lsaquo;"
+  nextText="&rsaquo;"
+  firstText="&laquo;"
+  lastText="&raquo;"
+></pagination>

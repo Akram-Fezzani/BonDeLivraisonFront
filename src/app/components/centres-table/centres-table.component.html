@@ -41,7 +41,7 @@
     </tr>
   </thead>
   <tbody>
-    <tr *ngFor="let c of centers | filter : searchtext">
+    <tr *ngFor="let c of returnedArray | filter : searchtext">
       <td>{{ c.centerLabel }}</td>
 
       <td>{{ c.rotationActuelle }}</td>
@@ -54,20 +54,23 @@
       <td>{{ c.socialReason }}</td>
       <td>{{ c.blPrefixNumber }}</td>
       <td>
-        <button class="btn btn-success" (click)="Delete(c.centerId)">
+        <button class="btn btn-danger" (click)="Delete(c.centerId)">
           Delete
         </button>
       </td>
       <td>
-        <button class="btn btn-danger">Update</button>
+        <button class="btn btn-success">Update</button>
       </td>
     </tr>
   </tbody>
 </table>
-<app-pagination
-  #pagination
-  [collectionSize]="4"
-  [pageSize]="5"
-  [firstLastButtons]="true"
-  [maxSize]="2"
-></app-pagination>
+<pagination
+  class="pagination-danger"
+  [totalItems]="centers.length"
+  [itemsPerPage]="5"
+  (pageChanged)="pageChanged($event)"
+  previousText="&lsaquo;"
+  nextText="&rsaquo;"
+  firstText="&laquo;"
+  lastText="&raquo;"
+></pagination>

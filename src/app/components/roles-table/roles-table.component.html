@@ -31,23 +31,26 @@
     </tr>
   </thead>
   <tbody>
-    <tr *ngFor="let c of roles | filter : searchtext">
+    <tr *ngFor="let c of returnedArray | filter : searchtext">
       <td>{{ c.role }}</td>
       <td>
-        <button class="btn btn-success" (click)="Delete(c.roleId)">
+        <button class="btn btn-danger" (click)="Delete(c.roleId)">
           Delete
         </button>
       </td>
       <td>
-        <button class="btn btn-danger">Update</button>
+        <button class="btn btn-success">Update</button>
       </td>
     </tr>
   </tbody>
 </table>
-<app-pagination
-  #pagination
-  [collectionSize]="4"
-  [pageSize]="5"
-  [firstLastButtons]="true"
-  [maxSize]="2"
-></app-pagination>
+<pagination
+  class="pagination-danger"
+  [totalItems]="roles.length"
+  [itemsPerPage]="5"
+  (pageChanged)="pageChanged($event)"
+  previousText="&lsaquo;"
+  nextText="&rsaquo;"
+  firstText="&laquo;"
+  lastText="&raquo;"
+></pagination>

@@ -20,6 +20,12 @@ export class AddCenterComponent implements OnInit {
   focus!:any;
   focus1!:any;
   focus2!:any;
+  focus3!:any;
+  focus4!:any;
+  focus5!:any;
+  focus6!:any;
+  focus7!:any;
+
   collector: collector=new collector();
   center: Center=new Center();
 

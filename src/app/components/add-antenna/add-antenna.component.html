@@ -1,12 +1,12 @@
 <div class="container">
   <div class="row">
     <div class="col-lg-5 col-md-8 mx-auto">
-      <div class="square square-7" id="square7"></div>
-      <div class="square square-8" id="square8"></div>
       <div class="card">
         <div class="card-header">
           <h1 class="card-title">Ajouter un Antenne</h1>
         </div>
+        <br />
+        <br />
         <div class="card-body">
           <form class="form">
             <div
@@ -30,9 +30,10 @@
                 (blur)="focus = false"
               />
             </div>
+            <br />
             <div
               class="input-group"
-              [ngClass]="{ 'input-group-focus': focus === true }"
+              [ngClass]="{ 'input-group-focus': focus1 === true }"
             >
               <div class="input-group-prepend">
                 <div class="input-group-text">
@@ -47,14 +48,11 @@
                 required
                 minlength="5"
                 type="text"
-                (focus)="focus = true"
-                (blur)="focus = false"
+                (focus)="focus1 = true"
+                (blur)="focus1 = false"
               />
             </div>
-            <div
-              class="input-group"
-              [ngClass]="{ 'input-group-focus': focus2 === true }"
-            ></div>
+            <br />
             <div class="card-footer">
               <div style="margin-left: 30%">
                 <a

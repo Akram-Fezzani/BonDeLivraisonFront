@@ -18,6 +18,9 @@ export class AddChefcenterComponent implements OnInit {
   focus!:any;
   focus1!:any;
   focus2!:any;
+  focus3!:any;
+  focus4!:any;
+  focus5!:any;
   user: User=new User();
   disableButton: boolean = false;
 

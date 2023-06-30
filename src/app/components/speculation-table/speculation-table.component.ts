@@ -8,6 +8,7 @@ import { AddRoleComponent } from '../add-role/add-role.component';
 import { SpeculationService } from 'src/app/services/SpeculationService/speculation.service';
 import { ToastrService } from 'ngx-toastr';
 import { AddSpeculationComponent } from '../add-speculation/add-speculation.component';
+import { PageChangedEvent } from 'ngx-bootstrap/pagination';
 
 @Component({
   selector: 'app-speculation-table',
@@ -19,20 +20,29 @@ export class SpeculationTableComponent implements OnInit {
   speculation:any;
   sortedData:any;
   searchtext='';
+  returnedArray!: string[];
 
 
   constructor(private us:UserService,private SpeculationService:SpeculationService,private toastr: ToastrService, private cs:CenterServiceService,private dialog: MatDialog,private _router:Router) { }
 
-  getAllRoles(){
+      getAllRoles(){
+            
+        this.SpeculationService.getSpeculations().subscribe( (data:any) =>{
+
+          this.speculation=data;
+          console.log(this.speculation)
+
+          },
+          (error:any) => console.log(error));  }
+
+
+          pageChanged(event: PageChangedEvent): void {
+            const startItem = (event.page - 1) * event.itemsPerPage;
+            const endItem = event.page * event.itemsPerPage;
+            this.returnedArray = this.speculation.slice(startItem, endItem);
+        }    
+
         
-    this.SpeculationService.getSpeculations().subscribe( (data:any) =>{
-
-      this.speculation=data;
-      console.log(this.speculation)
-
-      },
-      (error:any) => console.log(error));  }
-
       opendialog(){
         const dialogConfig = new MatDialogConfig();
       
@@ -61,6 +71,8 @@ export class SpeculationTableComponent implements OnInit {
 
   ngOnInit(): void {
     this.getAllRoles();
+    this.returnedArray = this.speculation.slice(0, 5);
+
   }
 
 }

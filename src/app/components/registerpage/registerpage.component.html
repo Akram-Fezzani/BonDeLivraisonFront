@@ -15,7 +15,7 @@
           <form class="form">
             <div
               class="input-group"
-              [ngClass]="{ 'input-group-focus': focus1 === true }"
+              [ngClass]="{ 'input-group-focus ': focus1 === true }"
             >
               <div class="input-group-prepend">
                 <div class="input-group-text"></div>
@@ -35,7 +35,7 @@
 
             <div
               class="input-group"
-              [ngClass]="{ 'input-group-focus': focus === true }"
+              [ngClass]="{ 'input-group-focus': focus2 === true }"
             >
               <div class="input-group-prepend">
                 <div class="input-group-text"></div>
@@ -48,14 +48,14 @@
                 required
                 minlength="5"
                 type="text"
-                (focus)="focus = true"
-                (blur)="focus = false"
+                (focus)="focus2 = true"
+                (blur)="focus2 = false"
               />
             </div>
 
             <div
               class="input-group"
-              [ngClass]="{ 'input-group-focus': focus1 === true }"
+              [ngClass]="{ 'input-group-focus': focus3 === true }"
             >
               <div class="input-group-prepend">
                 <div class="input-group-text"></div>
@@ -68,14 +68,14 @@
                 type="text"
                 required
                 minlength="5"
-                (focus)="focus1 = true"
-                (blur)="focus1 = false"
+                (focus)="focus3 = true"
+                (blur)="focus3 = false"
               />
             </div>
 
             <div
               class="input-group"
-              [ngClass]="{ 'input-group-focus': focus1 === true }"
+              [ngClass]="{ 'input-group-focus': focus4 === true }"
             >
               <div class="input-group-prepend">
                 <div class="input-group-text"></div>
@@ -85,16 +85,16 @@
                 placeholder="Email"
                 required
                 type="text"
-                (focus)="focus1 = true"
+                (focus)="focus4 = true"
                 [(ngModel)]="user.email"
                 name="email"
-                (blur)="focus1 = false"
+                (blur)="focus4 = false"
               />
             </div>
 
             <div
               class="input-group"
-              [ngClass]="{ 'input-group-focus': focus1 === true }"
+              [ngClass]="{ 'input-group-focus': focus5 === true }"
             >
               <div class="input-group-prepend">
                 <div class="input-group-text"></div>
@@ -108,14 +108,14 @@
                 type="text"
                 [(ngModel)]="user.phone"
                 name="phone"
-                (focus)="focus1 = true"
-                (blur)="focus1 = false"
+                (focus)="focus5 = true"
+                (blur)="focus5 = false"
               />
             </div>
 
             <div
               class="input-group"
-              [ngClass]="{ 'input-group-focus': focus2 === true }"
+              [ngClass]="{ 'input-group-focus': focus6 === true }"
             >
               <div class="input-group-prepend">
                 <div class="input-group-text"></div>
@@ -128,8 +128,8 @@
                 required
                 minlength="5"
                 type="password"
-                (focus)="focus2 = true"
-                (blur)="focus2 = false"
+                (focus)="focus6 = true"
+                (blur)="focus6 = false"
               />
             </div>
             <div class="card-footer">

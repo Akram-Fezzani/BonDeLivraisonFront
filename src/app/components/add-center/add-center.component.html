@@ -13,8 +13,10 @@
                 <div class="input-group-text"></div>
               </div>
             </div>
-            <div class="input-group">
-              <div class="input-group-prepend">
+            <div
+            class="input-group"
+            [ngClass]="{ 'input-group-focus': focus === true }"
+          >              <div class="input-group-prepend">
                 <div class="input-group-text"></div>
               </div>
               <input
@@ -31,11 +33,10 @@
             </div>
             <div
               class="input-group"
-              [ngClass]="{ 'input-group-focus': focus === true }"
+              [ngClass]="{ 'input-group-focus': focus7 === true }"
             >
               <div class="input-group-prepend">
                 <div class="input-group-text">
-                  <i class="tim-icons icon-single-02"> </i>
                 </div>
               </div>
               <input
@@ -46,8 +47,8 @@
                 required
                 minlength="5"
                 type="text"
-                (focus)="focus = true"
-                (blur)="focus = false"
+                (focus)="focus7 = true"
+                (blur)="focus7 = false"
               />
             </div>
 
@@ -57,7 +58,6 @@
             >
               <div class="input-group-prepend">
                 <div class="input-group-text">
-                  <i class="tim-icons icon-single-02"> </i>
                 </div>
               </div>
               <input
@@ -75,11 +75,10 @@
 
             <div
               class="input-group"
-              [ngClass]="{ 'input-group-focus': focus1 === true }"
+              [ngClass]="{ 'input-group-focus': focus2 === true }"
             >
               <div class="input-group-prepend">
                 <div class="input-group-text">
-                  <i class="tim-icons icon-email-85"> </i>
                 </div>
               </div>
               <input
@@ -87,16 +86,16 @@
                 placeholder="Useful Surface"
                 required
                 type="text"
-                (focus)="focus1 = true"
+                (focus)="focus2 = true"
                 [(ngModel)]="center.usefulSurface"
                 name="usefulSurface"
-                (blur)="focus1 = false"
+                (blur)="focus2 = false"
               />
             </div>
 
             <div
               class="input-group"
-              [ngClass]="{ 'input-group-focus': focus1 === true }"
+              [ngClass]="{ 'input-group-focus': focus3 === true }"
             >
               <div class="input-group-prepend">
                 <div class="input-group-text"></div>
@@ -105,23 +104,21 @@
                 class="form-control"
                 placeholder="building Number"
                 required
-                minlength="8"
-                maxlength="8"
+               
                 type="text"
                 [(ngModel)]="center.BuildingNumber"
                 name="buildingNumber"
-                (focus)="focus1 = true"
-                (blur)="focus1 = false"
+                (focus)="focus3 = true"
+                (blur)="focus3 = false"
               />
             </div>
 
             <div
               class="input-group"
-              [ngClass]="{ 'input-group-focus': focus2 === true }"
+              [ngClass]="{ 'input-group-focus': focus4 === true }"
             >
               <div class="input-group-prepend">
                 <div class="input-group-text">
-                  <i class="tim-icons icon-lock-circle"> </i>
                 </div>
               </div>
               <input
@@ -132,13 +129,13 @@
                 required
                 minlength="5"
                 type="text"
-                (focus)="focus2 = true"
-                (blur)="focus2 = false"
+                (focus)="focus4 = true"
+                (blur)="focus4 = false"
               />
             </div>
             <div
               class="input-group"
-              [ngClass]="{ 'input-group-focus': focus1 === true }"
+              [ngClass]="{ 'input-group-focus': focus5 === true }"
             >
               <div class="input-group-prepend">
                 <div class="input-group-text"></div>
@@ -147,19 +144,18 @@
                 class="form-control"
                 placeholder="Social Reason"
                 required
-                minlength="8"
-                maxlength="8"
+                
                 type="text"
                 [(ngModel)]="center.SocialReason"
                 name="socialReason"
-                (focus)="focus1 = true"
-                (blur)="focus1 = false"
+                (focus)="focus5 = true"
+                (blur)="focus5 = false"
               />
             </div>
 
             <div
               class="input-group"
-              [ngClass]="{ 'input-group-focus': focus1 === true }"
+              [ngClass]="{ 'input-group-focus': focus6 === true }"
             >
               <div class="input-group-prepend">
                 <div class="input-group-text"></div>
@@ -173,8 +169,8 @@
                 type="text"
                 [(ngModel)]="center.blPrefixNumber"
                 name="blPrefixNumber"
-                (focus)="focus1 = true"
-                (blur)="focus1 = false"
+                (focus)="focus6 = true"
+                (blur)="focus6 = false"
               />
             </div>
 

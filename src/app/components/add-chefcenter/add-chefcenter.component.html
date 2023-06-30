@@ -1,36 +1,28 @@
 <div class="container">
-    <div class="row">
-      <div class="col-lg-5 col-md-8 mx-auto">
-        <div class="card">
-            <div >
-              <a
-                href="javascript:void(0)"
-                class="text-danger "
-                (click)="closeDialog()"
-              >
-                <i class="fa fa-times icon-display" aria-hidden="true"></i>
-              </a>
-            </div>
-          <div class="card-header">
-         
-            <h1 class="card-title">Ajouter Chef Centre</h1>
-          </div>
-         
-          <div class="card-body">
-            <form class="form">
-              <div class="input-group">
-                <div class="input-group-prepend">
-                  <div class="input-group-text"></div>
-                </div>
-         
+  <div class="row">
+    <div class="col-lg-5 col-md-8 mx-auto">
+      <div class="card">
+        <div class="card-header">
+          <h1 class="card-title">Ajouter Chef Centre</h1>
+        </div>
+
+        <div class="card-body">
+          <form class="form">
+            <div class="input-group">
+              <div class="input-group-prepend">
+                <div class="input-group-text"></div>
               </div>
-              <div class="input-group">
-                <div class="input-group-prepend">
-                  <div class="input-group-text"></div>
-                </div>
-                <input
-                class="form-control"
-                placeholder="username"
+            </div>
+            <div
+              class="input-group"
+              [ngClass]="{ 'input-group-focus': focus === true }"
+            >
+              <div class="input-group-prepend">
+                <div class="input-group-text"></div>
+              </div>
+              <input
+              class="form-control form-control-danger"
+              placeholder="username"
                 [(ngModel)]="user.username"
                 name="username"
                 required
@@ -39,145 +31,135 @@
                 (focus)="focus = true"
                 (blur)="focus = false"
               />
+            </div>
+            <div
+              class="input-group"
+              [ngClass]="{ 'input-group-focus': focus1 === true }"
+            >
+              <div class="input-group-prepend">
+                <div class="input-group-text"></div>
               </div>
-              <div
-                class="input-group"
-                [ngClass]="{ 'input-group-focus': focus === true }"
-              >
-                <div class="input-group-prepend">
-                  <div class="input-group-text">
-                    <i class="tim-icons icon-single-02"> </i>
-                  </div>
-                </div>
-                <input
-                  class="form-control"
-                  placeholder="First Name"
-                  [(ngModel)]="user.firstName"
-                  name="firstname"
-                  required
-                  minlength="5"
-                  type="text"
-                  (focus)="focus = true"
-                  (blur)="focus = false"
-                />
+              <input
+              class="form-control form-control-danger"
+              placeholder="First Name"
+                [(ngModel)]="user.firstName"
+                name="firstname"
+                required
+                minlength="5"
+                type="text"
+                (focus)="focus1 = true"
+                (blur)="focus1 = false"
+              />
+            </div>
+
+            <div
+              class="input-group"
+              [ngClass]="{ 'input-group-focus': focus2 === true }"
+            >
+              <div class="input-group-prepend">
+                <div class="input-group-text"></div>
               </div>
-  
-              <div
-                class="input-group"
-                [ngClass]="{ 'input-group-focus': focus1 === true }"
-              >
-                <div class="input-group-prepend">
-                  <div class="input-group-text">
-                    <i class="tim-icons icon-single-02"> </i>
-                  </div>
-                </div>
-                <input
-                  class="form-control"
-                  placeholder="Last name"
-                  [(ngModel)]="user.lastName"
-                  name="lastname"
-                  type="text"
-                  required
-                  minlength="5"
-                  (focus)="focus1 = true"
-                  (blur)="focus1 = false"
-                />
+              <input
+                class="form-control"
+                placeholder="Last name"
+                [(ngModel)]="user.lastName"
+                name="lastname"
+                type="text"
+                required
+                minlength="5"
+                (focus)="focus2 = true"
+                (blur)="focus2 = false"
+              />
+            </div>
+
+            <div
+              class="input-group"
+              [ngClass]="{ 'input-group-focus': focus3 === true }"
+            >
+              <div class="input-group-prepend">
+                <div class="input-group-text"></div>
               </div>
-  
-              <div
-                class="input-group"
-                [ngClass]="{ 'input-group-focus': focus1 === true }"
-              >
-                <div class="input-group-prepend">
-                  <div class="input-group-text">
-                    <i class="tim-icons icon-email-85"> </i>
-                  </div>
-                </div>
-                <input
-                  class="form-control"
-                  placeholder="Email"
-                  required
-                  type="text"
-                  (focus)="focus1 = true"
-                  [(ngModel)]="user.email"
-                  name="email"
-                  (blur)="focus1 = false"
-                />
+              <input
+                class="form-control"
+                placeholder="Email"
+                required
+                type="text"
+                (focus)="focus3 = true"
+                [(ngModel)]="user.email"
+                name="email"
+                (blur)="focus3 = false"
+              />
+            </div>
+
+            <div
+              class="input-group"
+              [ngClass]="{ 'input-group-focus': focus4 === true }"
+            >
+              <div class="input-group-prepend">
+                <div class="input-group-text"></div>
               </div>
-  
-              <div
-                class="input-group"
-                [ngClass]="{ 'input-group-focus': focus1 === true }"
-              >
-                <div class="input-group-prepend">
-                  <div class="input-group-text">
-                  </div>
-                </div>
-                <input
-                  class="form-control"
-                  placeholder="Phone number"
-                  required
-                  minlength="8"
-                  maxlength="8"
-                  type="text"
-                  [(ngModel)]="user.phone"
-                  name="phone"
-                  (focus)="focus1 = true"
-                  (blur)="focus1 = false"
-                />
+              <input
+                class="form-control"
+                placeholder="Phone number"
+                required
+                minlength="8"
+                maxlength="8"
+                type="text"
+                [(ngModel)]="user.phone"
+                name="phone"
+                (focus)="focus4 = true"
+                (blur)="focus4 = false"
+              />
+            </div>
+
+            <div
+              class="input-group"
+              [ngClass]="{ 'input-group-focus': focus5 === true }"
+            >
+              <div class="input-group-prepend">
+                <div class="input-group-text"></div>
               </div>
-  
-              <div
-                class="input-group"
-                [ngClass]="{ 'input-group-focus': focus2 === true }"
-              >
-                <div class="input-group-prepend">
-                  <div class="input-group-text">
-                    <i class="tim-icons icon-lock-circle"> </i>
-                  </div>
-                </div>
-                <input
-                  class="form-control"
-                  placeholder="Password"
-                  [(ngModel)]="user.password"
-                  name="password"
-                  required
-                  minlength="5"
-                  type="password"
-                  (focus)="focus2 = true"
-                  (blur)="focus2 = false"
-                />
+              <input
+                class="form-control"
+                placeholder="Password"
+                [(ngModel)]="user.password"
+                name="password"
+                required
+                minlength="5"
+                type="password"
+                (focus)="focus5 = true"
+                (blur)="focus5 = false"
+              />
+            </div>
+            <div class="card-footer">
+              <div style="margin-left: 30%">
+                <a
+                  class="btn btn-danger btn-round btn-lg"
+                  href="javascript:void(0)"
+                  (click)="AddChef()"
+                >
+                  Ajouter
+                </a>
               </div>
-              <div class="card-footer">
-                <div style="margin-left: 30%">
+              <br />
+              <span class="forgot-password">
+                <div
+                  style="display: flex; justify-content: center; width: 100%"
+                >
                   <a
-                    class="btn btn-danger btn-round btn-lg"
-                    href="javascript:void(0)"
-                    (click)="AddChef()"
+                    class="idle"
+                    title="Annuler"
+                    (click)="closeDialog()"
+                    id="Annuler"
+                    >Annuler</a
                   >
-                    Ajouter
-                  </a>
                 </div>
-                <br />
-                <span class="forgot-password">
-                  <div
-                    style="display: flex; justify-content: center; width: 100%"
-                  >
-                    <a
-                      class="idle"
-                      title="Annuler"
-                      (click)="closeDialog()"
-                      id="Annuler"
-                      >Annuler</a
-                    >
-                  </div>
-                </span>
-                <br />
-              </div>
-            </form>
-          </div>
+              </span>
+              <br />
+            </div>
+          </form>
         </div>
       </div>
     </div>
   </div>
-  
+</div>

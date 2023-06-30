@@ -8,6 +8,7 @@ import { AddRoleComponent } from '../add-role/add-role.component';
 import { TypeService } from 'src/app/services/TypeService/type.service';
 import { ToastrService } from 'ngx-toastr';
 import { AddTypeComponent } from '../add-type/add-type.component';
+import { PageChangedEvent } from 'ngx-bootstrap/pagination';
 
 
 @Component({
@@ -21,19 +22,29 @@ export class TypeTableComponent implements OnInit {
   type:any;
   sortedData:any;
   searchtext='';
+  returnedArray!: string[];
 
 
   constructor(private us:UserService,private TypeService:TypeService,private toastr: ToastrService, private cs:CenterServiceService,private dialog: MatDialog,private _router:Router) { }
 
-  getAllRoles(){
-        
-    this.TypeService.getTypes().subscribe( (data:any) =>{
+      getAllRoles(){
+            
+        this.TypeService.getTypes().subscribe( (data:any) =>{
 
-      this.type=data;
-      console.log(this.type)
+          this.type=data;
+          console.log(this.type)
 
-      },
-      (error:any) => console.log(error));  }
+          },
+          (error:any) => console.log(error));  }
+
+
+          pageChanged(event: PageChangedEvent): void {
+            const startItem = (event.page - 1) * event.itemsPerPage;
+            const endItem = event.page * event.itemsPerPage;
+            this.returnedArray = this.type.slice(startItem, endItem);
+        }    
+
+
 
       opendialog(){
         const dialogConfig = new MatDialogConfig();
@@ -63,6 +74,8 @@ export class TypeTableComponent implements OnInit {
 
   ngOnInit(): void {
     this.getAllRoles();
+    this.returnedArray = this.type.slice(0, 5);
+
   }
 
 }

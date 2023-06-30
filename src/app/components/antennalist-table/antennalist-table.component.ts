@@ -7,6 +7,7 @@ import { Sort } from '@angular/material/sort';
 import { AddAntennaComponent } from '../add-antenna/add-antenna.component';
 import { ToastrService } from 'ngx-toastr';
 import { AntenneService } from 'src/app/services/AntennaService/antenne.service';
+import { PageChangedEvent } from 'ngx-bootstrap/pagination';
 @Component({
   selector: 'app-antennalist-table',
   templateUrl: './antennalist-table.component.html',
@@ -16,6 +17,8 @@ export class AntennalistTableComponent implements OnInit {
   antennas:any;
   sortedData:any;
   searchtext='';
+  returnedArray!: string[];
+
   constructor(private us:UserService,private toastr: ToastrService, private AntennaService:AntenneService,private dialog: MatDialog,private _router:Router) { }
 
   getallantennas(){
@@ -29,7 +32,11 @@ export class AntennalistTableComponent implements OnInit {
       (error:any) => console.log(error));  }
 
 
-
+      pageChanged(event: PageChangedEvent): void {
+        const startItem = (event.page - 1) * event.itemsPerPage;
+        const endItem = event.page * event.itemsPerPage;
+        this.returnedArray = this.antennas.slice(startItem, endItem);
+     }
 
       
   opendialog(){
@@ -61,6 +68,8 @@ export class AntennalistTableComponent implements OnInit {
 
   ngOnInit(): void {
     this.getallantennas();
+    this.returnedArray = this.antennas.slice(0, 5);
+
   }
 
 }

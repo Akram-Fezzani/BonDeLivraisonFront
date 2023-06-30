@@ -19,6 +19,8 @@ export class AddSocieteComponent implements OnInit {
   focus!:any;
   focus1!:any;
   focus2!:any;
+  focus3!:any;
+  focus4!:any;
   societe: Societe=new Societe();
   disableButton: boolean = false;
 

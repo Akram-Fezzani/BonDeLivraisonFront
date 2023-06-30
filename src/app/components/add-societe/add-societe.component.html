@@ -2,15 +2,7 @@
     <div class="row">
       <div class="col-lg-5 col-md-8 mx-auto">
         <div class="card">
-            <div >
-              <a
-                href="javascript:void(0)"
-                class="text-danger "
-                (click)="closeDialog()"
-              >
-                <i class="fa fa-times icon-display" aria-hidden="true"></i>
-              </a>
-            </div>
+       
           <div class="card-header">
          
             <h1 class="card-title">Ajouter une Société</h1>
@@ -18,8 +10,10 @@
          
           <div class="card-body">
             <form class="form">
-              <div class="input-group">
-                <div class="input-group-prepend">
+              <div
+              class="input-group"
+              [ngClass]="{ 'input-group-focus': focus === true }"
+            >                <div class="input-group-prepend">
                   <div class="input-group-text"></div>
                 </div>
                 <input
@@ -30,16 +24,17 @@
                   type="text"
                   required
                   minlength="5"
+                  (focus)="focus = true"
+                  (blur)="focus = false"
                 />
               </div>
   
               <div
                 class="input-group"
-                [ngClass]="{ 'input-group-focus': focus === true }"
+                [ngClass]="{ 'input-group-focus': focus1 === true }"
               >
                 <div class="input-group-prepend">
                   <div class="input-group-text">
-                    <i class="tim-icons icon-single-02"> </i>
                   </div>
                 </div>
                 <input
@@ -50,17 +45,18 @@
                   required
                   minlength="5"
                   type="text"
+                  (focus)="focus1 = true"
+                  (blur)="focus1 = false"
                   
                 />
               </div>
   
               <div
                 class="input-group"
-                [ngClass]="{ 'input-group-focus': focus1 === true }"
+                [ngClass]="{ 'input-group-focus': focus2 === true }"
               >
                 <div class="input-group-prepend">
                   <div class="input-group-text">
-                    <i class="tim-icons icon-single-02"> </i>
                   </div>
                 </div>
                 <input
@@ -71,8 +67,8 @@
                   type="text"
                   required
                   minlength="5"
-                  (focus)="focus1 = true"
-                  (blur)="focus1 = false"
+                  (focus)="focus2 = true"
+                  (blur)="focus2 = false"
                 />
               </div>
   
@@ -80,7 +76,7 @@
   
               <div
                 class="input-group"
-                [ngClass]="{ 'input-group-focus': focus1 === true }"
+                [ngClass]="{ 'input-group-focus': focus3 === true }"
               >
                 <div class="input-group-prepend">
                   <div class="input-group-text">
@@ -95,18 +91,17 @@
                   type="text"
                   [(ngModel)]="societe.RaisonSocial"
                   name="RaisonSocial"
-                  (focus)="focus1 = true"
-                  (blur)="focus1 = false"
+                  (focus)="focus3 = true"
+                  (blur)="focus3 = false"
                 />
               </div>
   
               <div
                 class="input-group"
-                [ngClass]="{ 'input-group-focus': focus2 === true }"
+                [ngClass]="{ 'input-group-focus': focus4 === true }"
               >
                 <div class="input-group-prepend">
                   <div class="input-group-text">
-                    <i class="tim-icons icon-lock-circle"> </i>
                   </div>
                 </div>
                 <input
@@ -117,8 +112,8 @@
                   required
                   minlength="5"
                   type="text"
-                  (focus)="focus2 = true"
-                  (blur)="focus2 = false"
+                  (focus)="focus4 = true"
+                  (blur)="focus4 = false"
                 />
               </div>
               <div class="card-footer">

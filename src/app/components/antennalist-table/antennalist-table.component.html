@@ -32,27 +32,28 @@
     </tr>
   </thead>
   <tbody>
-    <tr *ngFor="let c of antennas | filter : searchtext">
+    <tr *ngFor="let c of returnedArray | filter : searchtext">
       <td>{{ c.antennaCode }}</td>
 
       <td>{{ c.antennaLabel }}</td>
       <td>
-        <button class="btn btn-success" (click)="Delete(c.antennaId)">
+        <button class="btn btn-danger" (click)="Delete(c.antennaId)">
           Delete
         </button>
       </td>
-      <td >
-        <button class="btn btn-danger">
-          Update
-        </button>
+      <td>
+        <button class="btn btn-success">Update</button>
       </td>
     </tr>
   </tbody>
 </table>
-<app-pagination
-  #pagination
-  [collectionSize]="4"
-  [pageSize]="5"
-  [firstLastButtons]="true"
-  [maxSize]="2"
-></app-pagination>
+<pagination
+  class="pagination-danger"
+  [totalItems]="antennas.length"
+  [itemsPerPage]="5"
+  (pageChanged)="pageChanged($event)"
+  previousText="&lsaquo;"
+  nextText="&rsaquo;"
+  firstText="&laquo;"
+  lastText="&raquo;"
+></pagination>

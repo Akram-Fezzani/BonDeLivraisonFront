@@ -55,6 +55,7 @@ import {CollapseModule} from "ngx-bootstrap/collapse";
 import { UpdateprofileComponent } from './components/updateprofile/updateprofile.component';
 import { ProfilepageComponent } from './components/profilepage/profilepage.component';
 import { ChangepasswordComponent } from './components/changepassword/changepassword.component';
+import { PaginationModule } from "ngx-bootstrap/pagination";
 
 
 @NgModule({
@@ -106,6 +107,7 @@ import { ChangepasswordComponent } from './components/changepassword/changepassw
     MatTableModule,
     MatPaginatorModule,
     MatIconModule,
+    PaginationModule,
     MatInputModule,
     MatButtonModule,
     MatButtonToggleModule,

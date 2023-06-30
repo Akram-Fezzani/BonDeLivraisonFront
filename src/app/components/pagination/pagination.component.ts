@@ -1,66 +1,27 @@
-import { Component, Input, OnInit, SimpleChanges } from '@angular/core';
-
+import { Component, OnInit } from '@angular/core';
+import { BsModalService } from 'ngx-bootstrap/modal';
+import { PageChangedEvent } from 'ngx-bootstrap/pagination';
 @Component({
   selector: 'app-pagination',
   templateUrl: './pagination.component.html',
   styleUrls: ['./pagination.component.scss']
 })
 export class PaginationComponent implements OnInit {
+  contentArray: string[] = new Array(50).fill('');
+  returnedArray!: string[];
+  showBoundaryLinks: boolean = true;
+  showDirectionLinks: boolean = true;
+  constructor() {}
 
- /** The total number of records */
- @Input()
- collectionSize = 0;
-
- /** The number of records to display */
- @Input()
- pageSize = 5;
-
- /** Current page */
- @Input()
- currentPage = 1;
-
- /** The number of buttons to show either side of the current page */
- @Input()
- maxSize = 2;
-
- /** Display the First/Last buttons */
- @Input()
- firstLastButtons = false;
-
- /** Display the Next/Previous buttons */
- @Input()
- nextPreviousButtons = true;
-
- /** Display small pagination buttons */
- @Input()
- small = false;
-
- totalPages: any[] = [];
-
- constructor() {}
-
- ngOnInit(): void {
-   this.totalPages = new Array(Math.ceil(this.collectionSize / this.pageSize));
- }
-
- ngOnChanges(changes: SimpleChanges) {
-   this.totalPages = new Array(Math.ceil(this.collectionSize / this.pageSize));
- }
-
- /** Set page number */
- selectPageNumber(pageNumber: number) {
-   this.currentPage = pageNumber;
- }
-
- /** Set next page number */
- next() {
-   const nextPage = this.currentPage + 1;
-   nextPage <= this.totalPages.length && this.selectPageNumber(nextPage);
- }
-
- /** Set previous page number */
- previous() {
-   const previousPage = this.currentPage - 1;
-   previousPage >= 1 && this.selectPageNumber(previousPage);
- }
+  pageChanged(event: PageChangedEvent): void {
+     const startItem = (event.page - 1) * event.itemsPerPage;
+     const endItem = event.page * event.itemsPerPage;
+     this.returnedArray = this.contentArray.slice(startItem, endItem);
+  }
+  ngOnInit(): void {
+     this.contentArray = this.contentArray.map((v: string, i: number) => {
+        return 'Line '+ (i + 1);
+     });
+     this.returnedArray = this.contentArray.slice(0, 5);
+  }
 }

@@ -10,6 +10,7 @@ import { RoleService } from 'src/app/services/RoleService/role.service';
 import { SocieteServiceService } from 'src/app/services/SocieteService/societe-service.service';
 import { AddSocieteComponent } from '../add-societe/add-societe.component';
 import { ToastrService } from 'ngx-toastr';
+import { PageChangedEvent } from 'ngx-bootstrap/pagination';
 
 
 @Component({
@@ -21,19 +22,28 @@ export class SocieteTableComponent implements OnInit {
   societes:any;
   sortedData:any;
   searchtext='';
+  returnedArray!: string[];
 
 
   constructor(private SocieteService:SocieteServiceService,private toastr: ToastrService,private dialog: MatDialog,private _router:Router) { }
 
-  getAllSocietes(){
-        
-    this.SocieteService.getSocietes().subscribe( (data:any) =>{
+      getAllSocietes(){
+            
+        this.SocieteService.getSocietes().subscribe( (data:any) =>{
 
-      this.societes=data;
-      console.log(this.societes)
+          this.societes=data;
+          console.log(this.societes)
 
-      },
-      (error:any) => console.log(error));  }
+          },
+          (error:any) => console.log(error));  }
+
+
+          pageChanged(event: PageChangedEvent): void {
+            const startItem = (event.page - 1) * event.itemsPerPage;
+            const endItem = event.page * event.itemsPerPage;
+            this.returnedArray = this.societes.slice(startItem, endItem);
+        }    
+
 
       opendialog(){
         const dialogConfig = new MatDialogConfig();
@@ -63,6 +73,8 @@ export class SocieteTableComponent implements OnInit {
         (error:any) => console.log(error));  }
   ngOnInit(): void {
     this.getAllSocietes();
+    this.returnedArray = this.societes.slice(0, 5);
+
   }
 
 }

@@ -6,6 +6,7 @@ import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 import { Sort } from '@angular/material/sort';
 import { AddCenterComponent } from '../add-center/add-center.component';
 import { ToastrService } from 'ngx-toastr';
+import { PageChangedEvent } from 'ngx-bootstrap/pagination';
 
 @Component({
   selector: 'app-centres-table',
@@ -16,6 +17,7 @@ export class CentresTableComponent implements OnInit {
   centers:any;
   sortedData:any;
   searchtext='';
+  returnedArray!: string[];
 
 
   constructor(private us:UserService,private toastr: ToastrService, private cs:CenterServiceService,private dialog: MatDialog,private _router:Router) { }
@@ -29,6 +31,12 @@ export class CentresTableComponent implements OnInit {
 
       },
       (error:any) => console.log(error));  }
+
+      pageChanged(event: PageChangedEvent): void {
+        const startItem = (event.page - 1) * event.itemsPerPage;
+        const endItem = event.page * event.itemsPerPage;
+        this.returnedArray = this.centers.slice(startItem, endItem);
+     }
 
       opendialog(){
         const dialogConfig = new MatDialogConfig();
@@ -59,6 +67,8 @@ export class CentresTableComponent implements OnInit {
 
   ngOnInit(): void {
     this.getallcenters();
+    this.returnedArray = this.centers.slice(0, 5);
+
   }
 
 }

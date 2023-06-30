@@ -6,6 +6,7 @@ import { AddChefcenterComponent } from 'src/app/components/add-chefcenter/add-ch
 import {ToastrService} from "ngx-toastr";
 import { ChefcenterService } from 'src/app/services/ChefCenterService/chefcenter.service';
 import { UserService } from 'src/app/services/user/user.service';
+import { PageChangedEvent } from 'ngx-bootstrap/pagination';
 
 @Component({
   selector: 'app-chefcentre-table',
@@ -17,10 +18,15 @@ export class ChefcentreTableComponent implements OnInit {
   sortedData:any;
   UserId!:string;
   searchtext='';
-
+  returnedArray!: string[];
+  
   constructor(private us:UserService,private toastr: ToastrService, private ChefCenterService:ChefcenterService,private dialog: MatDialog,private _router:Router) { }
 
-
+  pageChanged(event: PageChangedEvent): void {
+    const startItem = (event.page - 1) * event.itemsPerPage;
+    const endItem = event.page * event.itemsPerPage;
+    this.returnedArray = this.users.slice(startItem, endItem);
+ }
   chefcenters(){
         
     this.us.chefcenters().subscribe( (data:any) =>{
@@ -58,6 +64,8 @@ export class ChefcentreTableComponent implements OnInit {
 
   ngOnInit(): void {
     this.chefcenters();
+    this.returnedArray = this.users.slice(0, 5);
+
   }
 
 }

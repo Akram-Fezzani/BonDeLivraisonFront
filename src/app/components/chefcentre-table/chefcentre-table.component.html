@@ -31,7 +31,7 @@
     </tr>
   </thead>
   <tbody>
-    <tr *ngFor="let c of users | filter : searchtext">
+    <tr *ngFor="let c of returnedArray | filter : searchtext">
       <td>{{ c.firstName }} {{ c.lastName }}</td>
 
       <td>{{ c.centreId }}</td>
@@ -50,10 +50,13 @@
   </tbody>
 </table>
 
-<app-pagination
-  #pagination
-  [collectionSize]="4"
-  [pageSize]="5"
-  [firstLastButtons]="true"
-  [maxSize]="2"
-></app-pagination>
+<pagination
+  class="pagination-danger"
+  [totalItems]="users.length"
+  [itemsPerPage]="5"
+  (pageChanged)="pageChanged($event)"
+  previousText="&lsaquo;"
+  nextText="&rsaquo;"
+  firstText="&laquo;"
+  lastText="&raquo;"
+></pagination>

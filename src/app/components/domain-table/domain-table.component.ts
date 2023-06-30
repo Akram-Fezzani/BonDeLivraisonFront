@@ -7,6 +7,7 @@ import { Sort } from '@angular/material/sort';
 import { AddRoleComponent } from '../add-role/add-role.component';
 import { DomainService } from 'src/app/services/DomainService/domain.service';
 import { ToastrService } from 'ngx-toastr';
+import { PageChangedEvent } from 'ngx-bootstrap/pagination';
 
 
 @Component({
@@ -19,19 +20,28 @@ export class DomainTableComponent implements OnInit {
   Domain:any;
   sortedData:any;
   searchtext='';
+  returnedArray!: string[];
 
 
   constructor(private us:UserService,private DomainService:DomainService,private toastr: ToastrService, private cs:CenterServiceService,private dialog: MatDialog,private _router:Router) { }
 
-  getAllRoles(){
-        
-    this.DomainService.getDomains().subscribe( (data:any) =>{
+      getAllRoles(){
+            
+        this.DomainService.getDomains().subscribe( (data:any) =>{
 
-      this.Domain=data;
-      console.log(this.Domain)
+          this.Domain=data;
+          console.log(this.Domain)
 
-      },
-      (error:any) => console.log(error));  }
+          },
+          (error:any) => console.log(error));  }
+
+
+      pageChanged(event: PageChangedEvent): void {
+        const startItem = (event.page - 1) * event.itemsPerPage;
+        const endItem = event.page * event.itemsPerPage;
+        this.returnedArray = this.Domain.slice(startItem, endItem);
+    }    
+
 
       opendialog(){
         const dialogConfig = new MatDialogConfig();
@@ -61,6 +71,8 @@ export class DomainTableComponent implements OnInit {
 
   ngOnInit(): void {
     this.getAllRoles();
+    this.returnedArray = this.Domain.slice(0, 5);
+
   }
 
 }

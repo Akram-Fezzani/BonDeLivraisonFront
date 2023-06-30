@@ -7,6 +7,7 @@ import { Sort } from '@angular/material/sort';
 import { AddRoleComponent } from '../add-role/add-role.component';
 import { RoleService } from 'src/app/services/RoleService/role.service';
 import { ToastrService } from 'ngx-toastr';
+import { PageChangedEvent } from 'ngx-bootstrap/pagination';
 
 @Component({
   selector: 'app-roles-table',
@@ -17,6 +18,7 @@ export class RolesTableComponent implements OnInit {
   roles:any;
   sortedData:any;
   searchtext='';
+  returnedArray!: string[];
 
 
   constructor(private us:UserService,private RoleService:RoleService,private toastr: ToastrService, private cs:CenterServiceService,private dialog: MatDialog,private _router:Router) { }
@@ -30,6 +32,12 @@ export class RolesTableComponent implements OnInit {
 
       },
       (error:any) => console.log(error));  }
+
+      pageChanged(event: PageChangedEvent): void {
+        const startItem = (event.page - 1) * event.itemsPerPage;
+        const endItem = event.page * event.itemsPerPage;
+        this.returnedArray = this.roles.slice(startItem, endItem);
+     }    
 
       opendialog(){
         const dialogConfig = new MatDialogConfig();
@@ -59,6 +67,8 @@ export class RolesTableComponent implements OnInit {
 
   ngOnInit(): void {
     this.getAllRoles();
+    this.returnedArray = this.roles.slice(0, 5);
+
   }
 
 }
