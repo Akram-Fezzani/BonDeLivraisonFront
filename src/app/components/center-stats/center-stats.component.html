@@ -183,46 +183,16 @@
 <div style="margin-left: -15px; width: 100%">
   <div class="col-12">
     <div style="border-radius: 10px" class="card">
-      <div class="card-header">
-        <h3 class="card-title">Collecteurs Disponible</h3>
-        <a
-          class="btn btn-danger btn-round btn-lg"
-          href="javascript:void(0) "
-          (click)="opendialog()"
-        >
-          Login
-        </a>
-      </div>
-      <div class="card-body">
-        <table
-          id="datatables-buttons"
-          class="table table-striped"
-          style="width: 100%"
-        >
-          <thead>
-            <tr>
-              <th>Nom</th>
-              <th>Prenom</th>
-              <th>Phone</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr *ngFor="let c of collectors">
-              <td>{{ c.nom }}</td>
+      <div class="card-body idle">
+        <mat-tab-group animationDuration="2000ms" [backgroundColor]="'primary'">
+          <mat-tab label="Collectors">
+            <app-collectors-table></app-collectors-table>
+          </mat-tab>
 
-              <td>{{ c.prenom }}</td>
-              <td>{{ c.telephone }}</td>
-              <td>
-                <button style="margin-left: 20px" class="btn btn-success">
-                  rendre disponible
-                </button>
-                <button style="margin-left: 20px" class="btn btn-danger">
-                  rendre indisponible
-                </button>
-              </td>
-            </tr>
-          </tbody>
-        </table>
+          <mat-tab label="Bons De Livraison">
+            <app-bl-table></app-bl-table>
+          </mat-tab>
+        </mat-tab-group>
       </div>
     </div>
   </div>

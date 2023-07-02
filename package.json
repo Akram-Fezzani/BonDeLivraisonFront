@@ -88,6 +88,7 @@
     "stompjs": "^2.3.3",
     "tlib": "^1.0.0",
     "tslib": "^2.3.0",
+    "websocket": "^1.0.34",
     "zone.js": "~0.11.4"
   },
   "devDependencies": {

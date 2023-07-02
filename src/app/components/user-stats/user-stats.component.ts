@@ -5,7 +5,6 @@ import { Router } from '@angular/router';
 //import Chart from 'chart.js';
 
 import { UserService } from 'src/app/services/user/user.service';
-import { AddCollectorComponent } from '../add-collector/add-collector.component';
 import {MatPaginator, MatPaginatorModule} from '@angular/material/paginator';
 import { CenterServiceService } from 'src/app/services/CenterService/center-service.service';
 

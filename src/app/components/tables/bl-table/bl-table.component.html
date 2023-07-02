@@ -1,0 +1,65 @@
+<div class="card-header">
+  <h2 class="text-uppercase idle">Liste des bons de livraison</h2>
+
+  <a
+    class="btn btn-success btn-simple"
+    href="javascript:void(0) "
+    (click)="opendialog()"
+  >
+    Ajouter un bon de livraison
+  </a>
+</div>
+<div class="card-body">
+  <table
+    id="datatables-buttons"
+    class="table table-striped"
+    style="width: 100%"
+  >
+    <thead>
+      <tr>
+        <th>type</th>
+
+        <th>numBE</th>
+        <th>numBL</th>
+        <th>Date de livraison</th>
+        <th>chauffeur</th>
+        <th>numPlombage</th>
+        <th>dateBE</th>
+        <th>status</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let c of BLs">
+        <td>{{ c.typeBL }}</td>
+
+        <td>{{ c.numBE }}</td>
+        <td>{{ c.numBL }}</td>
+        <td>{{ c.dateLivraison }}</td>
+
+        <td>{{ c.chauffeur }}</td>
+        <td>{{ c.numPlombage }}</td>
+
+        <td>{{ c.status }}</td>
+
+        <td>
+          <button class="btn btn-danger" (click)="Delete(c.centerId)">
+            Delete
+          </button>
+        </td>
+        <td>
+          <button class="btn btn-success">Update</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <pagination
+    class="pagination-danger"
+    [totalItems]="BLs.length"
+    [itemsPerPage]="5"
+    (pageChanged)="pageChanged($event)"
+    previousText="&lsaquo;"
+    nextText="&rsaquo;"
+    firstText="&laquo;"
+    lastText="&raquo;"
+  ></pagination>
+</div>

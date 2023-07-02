@@ -19,4 +19,10 @@ export class ChefcenterService {
   deleteChefCenter(ChefCenterId:string): Observable<any> {
     return this._http.delete( 'https://localhost:44317/api/ChefCenter/DeleteChef?Id='+ChefCenterId);
   }
+
+  getcurrentuser(id: string):Observable<any>{
+
+    return this._http.get( 'https://localhost:44317/api/ChefCenter/GetChef?Id='+id);
+
+  }
 }

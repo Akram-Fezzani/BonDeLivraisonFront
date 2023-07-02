@@ -1,5 +1,5 @@
 <div class="card-header">
-  <h2 class="text-uppercase idle">Liste des Centres</h2>
+  <h2 class="text-uppercase idle">Liste des Roles</h2>
 
   <br />
   <div style="width: 200px; margin-left: 85%; margin-top: -3%">
@@ -15,7 +15,7 @@
     class="btn btn-success btn-simple"
     (click)="opendialog()"
   >
-    Ajouter une société
+    Ajouter un Role
   </a>
 </div>
 <br />
@@ -32,27 +32,14 @@
 >
   <thead>
     <tr>
-      <th mat-sort-header="Code Sociétés">Code Sociétés</th>
-      <th mat-sort-header="Adresse">Adresse</th>
-
-      <th mat-sort-header="capital Social">capital Social</th>
-
-      <th mat-sort-header="Raison Social">Raison Social</th>
-
-      <th mat-sort-header=" Téléphone">Téléphone</th>
+      <th mat-sort-header="Role">Role</th>
     </tr>
   </thead>
   <tbody>
     <tr *ngFor="let c of returnedArray | filter : searchtext">
-      <td>{{ c.codeSocietes }}</td>
-      <td>{{ c.adresse }}</td>
-
-      <td>{{ c.capitalSocial }}</td>
-
-      <td>{{ c.raisonSocial }}</td>
-      <td>{{ c.tel }}</td>
+      <td>{{ c.role }}</td>
       <td>
-        <button class="btn btn-danger" (click)="Delete(c.societyId)">
+        <button class="btn btn-danger" (click)="Delete(c.roleId)">
           Delete
         </button>
       </td>
@@ -64,7 +51,7 @@
 </table>
 <pagination
   class="pagination-danger"
-  [totalItems]="societes.length"
+  [totalItems]="roles.length"
   [itemsPerPage]="5"
   (pageChanged)="pageChanged($event)"
   previousText="&lsaquo;"

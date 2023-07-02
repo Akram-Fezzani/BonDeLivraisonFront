@@ -3,11 +3,14 @@ import { Router } from '@angular/router';
 import { CenterServiceService } from 'src/app/services/CenterService/center-service.service';
 import { UserService } from '../../services/user/user.service';
 import { AuthService } from 'src/app/services/authservice/auth.service';
+
+
 import { TokenStorageService } from 'src/app/services/tokenstorageservice/token-storage.service';
 import { User } from 'src/app/models/User';
 import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
-import { AddCollectorComponent } from '../add-collector/add-collector.component';
 import { AntenneService } from 'src/app/services/AntennaService/antenne.service';
+import { AddCollectorComponent } from '../dialogs/add-collector/add-collector.component';
+import { ChefcenterService } from 'src/app/services/ChefCenterService/chefcenter.service';
 
 @Component({
   selector: 'app-center-stats',
@@ -39,9 +42,11 @@ export class CenterStatsComponent implements OnInit {
   public clicked1: boolean = false;
   public clicked2: boolean = false;
   
-  constructor(private us:UserService, private dialog: MatDialog,private _router:Router,private AntennaService:AntenneService,private authService: AuthService,private cs:CenterServiceService,private ts:TokenStorageService) { }
+  constructor(private us:UserService, private dialog: MatDialog,private _router:Router,private AntennaService:AntenneService,private authService: AuthService,private cs:CenterServiceService,private ts:TokenStorageService, private ChefService:ChefcenterService) { }
 
 
+
+ 
 
   getcurrentuser(){
     const id=this.ts.getId()+"";
@@ -79,6 +84,7 @@ export class CenterStatsComponent implements OnInit {
     },(error:any) => console.log(error));
     
     }
+
 
 
  opendialog(){
@@ -129,7 +135,6 @@ export class CenterStatsComponent implements OnInit {
 
   ngOnInit(): void {
     this.getcurrentuser();
-    console.log(this.currentcenter.rotationActuelle);
 
     //console.log(this.currentcenter);
     //this.chefcenters();

@@ -4,34 +4,35 @@ import { CenterServiceService } from 'src/app/services/CenterService/center-serv
 import { UserService } from 'src/app/services/user/user.service';
 import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 import { Sort } from '@angular/material/sort';
-import { AddRoleComponent } from '../dialogs/add-role/add-role.component';
-import { RoleService } from 'src/app/services/RoleService/role.service';
-import { SocieteServiceService } from 'src/app/services/SocieteService/societe-service.service';
-import { AddSocieteComponent } from '../dialogs/add-societe/add-societe.component';
+import { AddRoleComponent } from '../../dialogs/add-role/add-role.component';
+import { TypeService } from 'src/app/services/TypeService/type.service';
 import { ToastrService } from 'ngx-toastr';
+import { AddTypeComponent } from '../../dialogs/add-antenna/add-type/add-type.component';
 import { PageChangedEvent } from 'ngx-bootstrap/pagination';
 
 
 @Component({
-  selector: 'app-societe-table',
-  templateUrl: './societe-table.component.html',
-  styleUrls: ['./societe-table.component.scss']
+  selector: 'app-type-table',
+  templateUrl: './type-table.component.html',
+  styleUrls: ['./type-table.component.scss']
 })
-export class SocieteTableComponent implements OnInit {
-  societes:any;
+export class TypeTableComponent implements OnInit {
+
+
+  type:any;
   sortedData:any;
   searchtext='';
   returnedArray!: string[];
 
 
-  constructor(private SocieteService:SocieteServiceService,private toastr: ToastrService,private dialog: MatDialog,private _router:Router) { }
+  constructor(private us:UserService,private TypeService:TypeService,private toastr: ToastrService, private cs:CenterServiceService,private dialog: MatDialog,private _router:Router) { }
 
-      getAllSocietes(){
+      getAllRoles(){
             
-        this.SocieteService.getSocietes().subscribe( (data:any) =>{
+        this.TypeService.getTypes().subscribe( (data:any) =>{
 
-          this.societes=data;
-          console.log(this.societes)
+          this.type=data;
+          console.log(this.type)
 
           },
           (error:any) => console.log(error));  }
@@ -40,8 +41,9 @@ export class SocieteTableComponent implements OnInit {
           pageChanged(event: PageChangedEvent): void {
             const startItem = (event.page - 1) * event.itemsPerPage;
             const endItem = event.page * event.itemsPerPage;
-            this.returnedArray = this.societes.slice(startItem, endItem);
+            this.returnedArray = this.type.slice(startItem, endItem);
         }    
+
 
 
       opendialog(){
@@ -50,29 +52,29 @@ export class SocieteTableComponent implements OnInit {
         dialogConfig.disableClose = true;
         dialogConfig.autoFocus = true;
       
-        this.dialog.open(AddSocieteComponent
+        this.dialog.open(AddTypeComponent
           ,{
             height: '4000px',
         width: '6000px',});
        }
 
        sortData(sort: Sort) {
-        const data = this.societes();
+        const data = this.type();
         if (!sort.active || sort.direction === '') {
           this.sortedData = data;
           return;
         }
       }
-
-
-      Delete(societeId:string) {
-        this.SocieteService.deleteSociete(societeId).subscribe( (data:any) =>{
-          this.toastr.error("Une société a été effacer");
+      Delete(SpeculationId:string) {
+        this.TypeService.deleteType(SpeculationId).subscribe( (data:any) =>{
+          this.toastr.error("Un type a été effacer");
         },
         (error:any) => console.log(error));  }
+
+
   ngOnInit(): void {
-    this.getAllSocietes();
-    this.returnedArray = this.societes.slice(0, 5);
+    this.getAllRoles();
+    this.returnedArray = this.type.slice(0, 5);
 
   }
 

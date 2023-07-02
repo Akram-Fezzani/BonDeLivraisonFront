@@ -1,0 +1,64 @@
+<div class="card-header">
+  <h2 class="text-uppercase idle">Liste des Chef Centers</h2>
+
+  <div style="width: 200px; margin-left: 85%; margin-top: -3%">
+    <input
+      class="form-control idle"
+      placeholder="Chercher"
+      type="text"
+      [(ngModel)]="searchtext"
+    />
+  </div>
+  <a href="javascript:void(0) "     class="btn btn-success btn-simple"
+  (click)="opendialog()">
+    Ajouter un Chef Centre
+  </a>
+</div>
+<br />
+<br />
+<br />
+<table
+  matSort
+  (matSortChange)="sortData($event)"
+  id="datatables-buttons"
+  class="table table-striped"
+  style="width: 100%"
+>
+  <thead>
+    <tr>
+      <th mat-sort-header="Nom">Nom</th>
+      <th mat-sort-header="Centre">Centre</th>
+      <th mat-sort-header="Email">Email</th>
+      <th mat-sort-header="Phone">Phone</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let c of returnedArray | filter : searchtext">
+      <td>{{ c.firstName }} {{ c.lastName }}</td>
+
+      <td>{{ c.centreId }}</td>
+
+      <td>{{ c.email }}</td>
+      <td>{{ c.phone }}</td>
+      <td>
+        <button class="btn btn-success" (click)="Delete(c.userId)">
+          Delete
+        </button>
+      </td>
+      <td>
+        <button class="btn btn-danger">Update</button>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<pagination
+  class="pagination-danger"
+  [totalItems]="users.length"
+  [itemsPerPage]="5"
+  (pageChanged)="pageChanged($event)"
+  previousText="&lsaquo;"
+  nextText="&rsaquo;"
+  firstText="&laquo;"
+  lastText="&raquo;"
+></pagination>

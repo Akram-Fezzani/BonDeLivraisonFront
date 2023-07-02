@@ -4,6 +4,7 @@ import { AdminindexComponent } from './backoffice/adminindex/adminindex.componen
 import { AntennaStatsComponent } from './components/antenna-stats/antenna-stats.component';
 import { CenterStatsComponent } from './components/center-stats/center-stats.component';
 import { ChangepasswordComponent } from './components/changepassword/changepassword.component';
+import { AddCommandComponent } from './components/dialogs/add-command/add-command.component';
 import { LoginComponent } from './components/login/login.component';
 import { ProfilepageComponent } from './components/profilepage/profilepage.component';
 import { RegisterpageComponent } from './components/registerpage/registerpage.component';
@@ -20,6 +21,7 @@ const routes: Routes = [
   { path: "profile", component: ProfilepageComponent },
   { path: "updateprofile", component: UpdateprofileComponent },
   { path: "Changepassword", component: ChangepasswordComponent },
+  { path: "command", component: AddCommandComponent },
 
   { path: 'admin', component: AdminindexComponent ,
 
