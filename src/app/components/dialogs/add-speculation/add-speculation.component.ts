@@ -1,12 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
 import { MatDialogRef } from '@angular/material/dialog';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
-import { collector } from 'src/app/models/collector';
-import { Role } from 'src/app/models/Role';
-import { RoleService } from 'src/app/services/RoleService/role.service';
-import { UserService } from 'src/app/services/user/user.service';
+import { Speculation } from 'src/app/models/Speculation';
+import { SpeculationService } from 'src/app/services/SpeculationService/speculation.service';
 
 @Component({
   selector: 'app-add-speculation',
@@ -19,18 +16,17 @@ export class AddSpeculationComponent implements OnInit {
   focus!:any;
   focus1!:any;
   focus2!:any;
-  collector: collector=new collector();
-  role: Role=new Role();
+  speculation: Speculation=new Speculation();
 
   disableButton: boolean = false;
 
-  constructor(private router:Router,private rs:RoleService,private dialogRef: MatDialogRef<AddSpeculationComponent>,private toastr: ToastrService,private us:UserService, private _router:Router) { }
+  constructor(private router:Router,private SpeculationService:SpeculationService,private dialogRef: MatDialogRef<AddSpeculationComponent>,private toastr: ToastrService, private _router:Router) { }
   
 
 
   AddSpeculation(){
     this.disableButton = true;
-    this.rs.AddRole(this.role).subscribe( (data:any) =>{
+    this.SpeculationService.AddSpeculation(this.speculation).subscribe( (data:any) =>{
       console.log(data);
       data.state=true;
       this.closeDialog();

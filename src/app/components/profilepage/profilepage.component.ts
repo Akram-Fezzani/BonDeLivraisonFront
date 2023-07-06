@@ -39,10 +39,10 @@ export class ProfilepageComponent implements OnInit {
       });
     }
   setUser() {
-    this.loading = true;
-    const id=this.ts.getId()+"";
-console.log(id)
-    this.userService.getUserById(id).subscribe((r:User) => {
+      this.loading = true;
+      const id=this.ts.getId()+"";
+      console.log(id)
+      this.userService.getUserById(id).subscribe((r:User) => {
       this.currentUser = r ;
       console.log(this.currentUser)
       var body = document.getElementsByTagName("body")[0];
@@ -55,10 +55,20 @@ console.log(id)
     body.classList.remove("profile-page");
   }
 
-  logout() {
-    this.authService.logout();
-    this.router.navigate(['/login']);
-}
+  signOut() {
+  
+    this.goToHome();
+    this.router.navigate(['/login'])
+
+    this.ts.clearLocalStorage();  }
+
+    goToHome() {
+      this.router.navigate(['/'])
+        .then(() => {
+          window.location.reload();
+        });
+    }
+ 
 
 
 }

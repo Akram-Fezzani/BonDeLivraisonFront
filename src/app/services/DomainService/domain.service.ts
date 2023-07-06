@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import {HttpClient} from "@angular/common/http";
 import {Observable} from "rxjs";
-import { Speculation } from 'src/app/models/Speculation';
+import { Domain } from 'src/app/models/Domain';
 @Injectable({
   providedIn: 'root'
 })
@@ -15,8 +15,8 @@ export class DomainService {
 
   }
 
-  AddRole(role: Speculation){
-    return this._http.post<Speculation>('https://localhost:44317/api/Role/AjoutRole',role);
+  AddDomain(Domain: Domain){
+    return this._http.post<Domain>('https://localhost:44357/api/Domaine/AjoutDomaine',Domain);
 
   }
 

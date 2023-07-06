@@ -3,8 +3,10 @@
     <div class="col-lg-5 col-md-8 mx-auto">
       <div class="card">
         <div class="card-header">
-          <h1 class="card-title">Ajouter Collecteur</h1>
+          <h1 class="card-title">Ajouter un Type</h1>
         </div>
+        <br />
+        <br />
         <div class="card-body">
           <form class="form">
             <div
@@ -18,9 +20,9 @@
               </div>
               <input
                 class="form-control"
-                placeholder="Nom"
-                [(ngModel)]="collector.Nom"
-                name="Nom"
+                placeholder="Label Souche"
+                [(ngModel)]="type.LibSouche"
+                name="LibSouche"
                 required
                 minlength="5"
                 type="text"
@@ -28,7 +30,7 @@
                 (blur)="focus = false"
               />
             </div>
-
+            <br />
             <div
               class="input-group"
               [ngClass]="{ 'input-group-focus': focus1 === true }"
@@ -40,61 +42,34 @@
               </div>
               <input
                 class="form-control"
-                placeholder="Prenom"
-                [(ngModel)]="collector.Prenom"
-                name="Prenom"
+                placeholder="Code Souche"
+                [(ngModel)]="type.CodeSouche"
+                name="CodeSouche"
                 type="text"
-                required
-                minlength="5"
                 (focus)="focus1 = true"
                 (blur)="focus1 = false"
               />
             </div>
-
-            <div
-              class="input-group"
-              [ngClass]="{ 'input-group-focus': focus1 === true }"
-            >
-              <div class="input-group-prepend">
-                <div class="input-group-text">
-                  <i class="fa fa-phone" aria-hidden="true"></i>
-                </div>
-              </div>
-              <input
-                class="form-control"
-                placeholder="Telephone"
-                required
-                minlength="8"
-                maxlength="8"
-                type="text"
-                [(ngModel)]="collector.Telephone"
-                name="Telephone"
-                (focus)="focus1 = true"
-                (blur)="focus1 = false"
-              />
-            </div>
-
-            <div
-              class="input-group"
-              [ngClass]="{ 'input-group-focus': focus2 === true }"
-            ></div>
+            <br />
             <div class="card-footer">
               <div class="text-center">
                 <a
                   class="btn btn-danger"
                   href="javascript:void(0)"
-                  (click)="AddCollector()"
+                  (click)="AddType()"
                 >
                   Ajouter
                 </a>
-
+                <br />
                 <a
                   class="btn btn-danger btn-simple"
                   title="Annuler"
                   (click)="closeDialog()"
                   id="Annuler"
-                  >Annuler</a
-                >
+                  >Annuler
+                </a>
+
+                <br />
               </div>
             </div>
           </form>

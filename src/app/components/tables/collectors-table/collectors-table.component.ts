@@ -33,16 +33,13 @@ export class CollectorsTableComponent implements OnInit {
      this.currentUser=r;
      //console.log(r);
     this.Id=r.centreId;
-    console.log(this.Id);
 
     this.cs.getCenter(r.centreId).subscribe((x:any)=>{
       this.currentcenter=x;
-      console.log(this.currentcenter);
 
      
         this.cs.collectors().subscribe( (data:any) =>{
           this.collectors=data;
-          console.log(this.collectors);
 
           
     },(error:any) => console.log(error));  

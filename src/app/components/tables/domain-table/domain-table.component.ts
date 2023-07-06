@@ -4,10 +4,10 @@ import { CenterServiceService } from 'src/app/services/CenterService/center-serv
 import { UserService } from 'src/app/services/user/user.service';
 import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 import { Sort } from '@angular/material/sort';
-import { AddRoleComponent } from '../../dialogs/add-role/add-role.component';
 import { DomainService } from 'src/app/services/DomainService/domain.service';
 import { ToastrService } from 'ngx-toastr';
 import { PageChangedEvent } from 'ngx-bootstrap/pagination';
+import { AddDomainComponent } from '../../dialogs/add-domain/add-domain.component';
 
 
 @Component({
@@ -25,12 +25,11 @@ export class DomainTableComponent implements OnInit {
 
   constructor(private us:UserService,private DomainService:DomainService,private toastr: ToastrService, private cs:CenterServiceService,private dialog: MatDialog,private _router:Router) { }
 
-      getAllRoles(){
+  getDomains(){
             
         this.DomainService.getDomains().subscribe( (data:any) =>{
 
           this.Domain=data;
-          console.log(this.Domain)
 
           },
           (error:any) => console.log(error));  }
@@ -49,7 +48,7 @@ export class DomainTableComponent implements OnInit {
         dialogConfig.disableClose = true;
         dialogConfig.autoFocus = true;
       
-        this.dialog.open(AddRoleComponent
+        this.dialog.open(AddDomainComponent
           ,{
             height: '4000px',
         width: '6000px',});
@@ -70,7 +69,7 @@ export class DomainTableComponent implements OnInit {
 
 
   ngOnInit(): void {
-    this.getAllRoles();
+    this.getDomains();
     this.returnedArray = this.Domain.slice(0, 5);
 
   }

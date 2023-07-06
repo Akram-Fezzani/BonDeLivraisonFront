@@ -16,8 +16,8 @@ export class SpeculationService {
 
   }
 
-  AddRole(role: Speculation){
-    return this._http.post<Speculation>('https://localhost:44317/api/Role/AjoutRole',role);
+  AddSpeculation(Speculation: Speculation){
+    return this._http.post<Speculation>('https://localhost:44357/api/Speculation/AjoutSpeculation',Speculation);
 
   }
 

@@ -1,1 +1,120 @@
-<p>add-domain works!</p>
+<div class="container">
+  <div class="row">
+    <div class="col-lg-5 col-md-8 mx-auto">
+      <div class="card">
+        <div class="card-header">
+          <h1 class="card-title">Ajouter un Type</h1>
+        </div>
+        <br />
+        <br />
+        <div class="card-body">
+          <form class="form">
+            <div
+              class="input-group"
+              [ngClass]="{ 'input-group-focus': focus === true }"
+            >
+              <div class="input-group-prepend">
+                <div class="input-group-text">
+                  <i class="tim-icons icon-single-02"> </i>
+                </div>
+              </div>
+              <input
+                class="form-control"
+                placeholder="Nom Domaine"
+                [(ngModel)]="domain.DomaineName"
+                name="DomaineName"
+                required
+                minlength="5"
+                type="text"
+                (focus)="focus = true"
+                (blur)="focus = false"
+              />
+            </div>
+            <br />
+            <div
+              class="input-group"
+              [ngClass]="{ 'input-group-focus': focus1 === true }"
+            >
+              <div class="input-group-prepend">
+                <div class="input-group-text">
+                  <i class="tim-icons icon-single-02"> </i>
+                </div>
+              </div>
+              <input
+                class="form-control"
+                placeholder="Capital Social"
+                [(ngModel)]="domain.CapitalSocial"
+                name="CapitalSocial"
+                type="text"
+                (focus)="focus1 = true"
+                (blur)="focus1 = false"
+              />
+            </div>
+            <br />
+            <div
+              class="input-group"
+              [ngClass]="{ 'input-group-focus': focus1 === true }"
+            >
+              <div class="input-group-prepend">
+                <div class="input-group-text">
+                  <i class="tim-icons icon-single-02"> </i>
+                </div>
+              </div>
+              <input
+                class="form-control"
+                placeholder="Raison Social"
+                [(ngModel)]="domain.RaisonSocial"
+                name="RaisonSocial"
+                type="text"
+                (focus)="focus1 = true"
+                (blur)="focus1 = false"
+              />
+            </div>
+            <br />
+            <div
+              class="input-group"
+              [ngClass]="{ 'input-group-focus': focus1 === true }"
+            >
+              <div class="input-group-prepend">
+                <div class="input-group-text">
+                  <i class="tim-icons icon-single-02"> </i>
+                </div>
+              </div>
+              <input
+                class="form-control"
+                placeholder="Code Domaine"
+                [(ngModel)]="domain.Code"
+                name="Code"
+                type="text"
+                (focus)="focus1 = true"
+                (blur)="focus1 = false"
+              />
+            </div>
+            <br />
+            <div class="card-footer">
+              <div class="text-center">
+                <a
+                  class="btn btn-danger"
+                  href="javascript:void(0)"
+                  (click)="AddDomain()"
+                >
+                  Ajouter
+                </a>
+                <br />
+                <a
+                  class="btn btn-danger btn-simple"
+                  title="Annuler"
+                  (click)="closeDialog()"
+                  id="Annuler"
+                  >Annuler
+                </a>
+
+                <br />
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

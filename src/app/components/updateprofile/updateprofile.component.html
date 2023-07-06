@@ -22,6 +22,7 @@
         style="display: none; visibility: hidden"
       ></iframe>
     </noscript>
+    <app-navbar></app-navbar>
 
     <div class="wrapper">
       <div class="section">
@@ -42,7 +43,6 @@
                         General
                       </a>
                     </li>
-                    <hr class="hr.new4" />
                     <li class="nav-item">
                       <a
                         [routerLink]="['/Changepassword']"
@@ -66,7 +66,6 @@
                       <header>
                         <h2 class="text-uppercase idle">General information</h2>
                       </header>
-                      <hr class="line-primary" />
                       <div class="row">
                         <div class="col-md-3 align-self-center">
                           <label class="labels" for="#location"
@@ -175,14 +174,14 @@
                             type="submit"
                             (click)="updateuser()"
                           >
-                            Save Changes
+                            Modifier
                           </button>
                           <button
                             class="btn btn-danger btn-simple"
                             (click)="cancelUpdate()"
                             type="reset"
                           >
-                            Cancel
+                            Annuler
                           </button>
                         </div>
                       </div>

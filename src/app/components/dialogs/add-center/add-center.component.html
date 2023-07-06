@@ -8,15 +8,11 @@
 
         <div class="card-body">
           <form class="form">
-            <div class="input-group">
-              <div class="input-group-prepend">
-                <div class="input-group-text"></div>
-              </div>
-            </div>
             <div
-            class="input-group"
-            [ngClass]="{ 'input-group-focus': focus === true }"
-          >              <div class="input-group-prepend">
+              class="input-group"
+              [ngClass]="{ 'input-group-focus': focus === true }"
+            >
+              <div class="input-group-prepend">
                 <div class="input-group-text"></div>
               </div>
               <input
@@ -36,8 +32,7 @@
               [ngClass]="{ 'input-group-focus': focus7 === true }"
             >
               <div class="input-group-prepend">
-                <div class="input-group-text">
-                </div>
+                <div class="input-group-text"></div>
               </div>
               <input
                 class="form-control"
@@ -57,8 +52,7 @@
               [ngClass]="{ 'input-group-focus': focus1 === true }"
             >
               <div class="input-group-prepend">
-                <div class="input-group-text">
-                </div>
+                <div class="input-group-text"></div>
               </div>
               <input
                 class="form-control"
@@ -78,8 +72,7 @@
               [ngClass]="{ 'input-group-focus': focus2 === true }"
             >
               <div class="input-group-prepend">
-                <div class="input-group-text">
-                </div>
+                <div class="input-group-text"></div>
               </div>
               <input
                 class="form-control"
@@ -104,7 +97,6 @@
                 class="form-control"
                 placeholder="building Number"
                 required
-               
                 type="text"
                 [(ngModel)]="center.BuildingNumber"
                 name="buildingNumber"
@@ -118,8 +110,7 @@
               [ngClass]="{ 'input-group-focus': focus4 === true }"
             >
               <div class="input-group-prepend">
-                <div class="input-group-text">
-                </div>
+                <div class="input-group-text"></div>
               </div>
               <input
                 class="form-control"
@@ -144,7 +135,6 @@
                 class="form-control"
                 placeholder="Social Reason"
                 required
-                
                 type="text"
                 [(ngModel)]="center.SocialReason"
                 name="socialReason"
@@ -175,30 +165,24 @@
             </div>
 
             <div class="card-footer">
-              <div style="margin-left: 30%">
+              <div class="text-center">
                 <a
-                  class="btn btn-danger btn-round btn-lg"
+                  class="btn btn-danger"
                   href="javascript:void(0)"
                   (click)="AddCenter()"
                 >
                   Ajouter
                 </a>
-              </div>
-              <br />
-              <span class="forgot-password">
-                <div
-                  style="display: flex; justify-content: center; width: 100%"
+<br>
+                <a
+                  class="btn btn-danger btn-simple"
+                  title="Annuler"
+                  (click)="closeDialog()"
+                  id="Annuler"
+                  >Annuler</a
                 >
-                  <a
-                    class="idle"
-                    title="Annuler"
-                    (click)="closeDialog()"
-                    id="Annuler"
-                    >Annuler</a
-                  >
-                </div>
-              </span>
-              <br />
+                <br />
+              </div>
             </div>
           </form>
         </div>

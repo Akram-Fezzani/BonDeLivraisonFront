@@ -1,0 +1,66 @@
+<div class="card-header">
+  <h2 class="text-uppercase idle">Liste des bons d'expedition</h2>
+
+  <a
+    class="btn btn-success btn-simple"
+    href="javascript:void(0) "
+    (click)="opendialog()"
+  >
+    Ajouter un bon d'expedition
+  </a>
+</div>
+<div class="card-body">
+  <table
+    id="datatables-buttons"
+    class="table table-striped"
+    style="width: 100%"
+  >
+    <thead>
+      <tr>
+        <th>type</th>
+        <th>numBE</th>
+        <th>Matricule Vehicule</th>
+        <th>chauffeur</th>
+        <th>numPlombage</th>
+        <th>dateBE</th>
+        <th>status</th>
+        <th>client</th>
+        <th>articles</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let c of Bes">
+        <td>{{ c.typeBE }}</td>
+        <td>{{ c.numBE }}</td>
+        <td>{{ c.matriculeVehicule }}</td>
+        <td>{{ c.chauffeur }}</td>
+        <td>{{ c.numPlombage }}</td>
+        <td>{{ c.dateBe }}</td>
+
+        <td>{{ c.status }}</td>
+        <td>{{ c.client }}</td>
+        <td>{{ c.articles }}</td>
+        <td>{{ c.articles }}</td>
+
+        <td>
+          <button class="btn btn-danger" (click)="Delete(c.beId)">
+            Delete
+          </button>
+        </td>
+        <td>
+          <button class="btn btn-success">Update</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <pagination
+    class="pagination-danger"
+    [totalItems]="Bes.length"
+    [itemsPerPage]="5"
+    (pageChanged)="pageChanged($event)"
+    previousText="&lsaquo;"
+    nextText="&rsaquo;"
+    firstText="&laquo;"
+    lastText="&raquo;"
+  ></pagination>
+</div>

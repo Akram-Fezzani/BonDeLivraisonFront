@@ -29,7 +29,7 @@ import { AntennaStatsComponent } from './components/antenna-stats/antenna-stats.
 import { PaginationComponent } from './components/pagination/pagination.component';
 import { AddRoleComponent } from './components/dialogs/add-role/add-role.component';
 import { RolesTableComponent } from './components/tables/roles-table/roles-table.component';
-import { SocieteTableComponent } from './components/societe-table/societe-table.component';
+import { SocieteTableComponent } from './components/tables/societe-table/societe-table.component';
 import { AddSocieteComponent } from './components/dialogs/add-societe/add-societe.component';
 
 import { ToastrModule } from 'ngx-toastr';
@@ -38,7 +38,7 @@ import { AddSpeculationComponent } from './components/dialogs/add-speculation/ad
 import { SpeculationTableComponent } from './components/tables/speculation-table/speculation-table.component';
 import { DomainTableComponent } from './components/tables/domain-table/domain-table.component';
 import { TypeTableComponent } from './components/tables/type-table/type-table.component';
-import { AddTypeComponent } from './components/dialogs/add-antenna/add-type/add-type.component';
+import { AddTypeComponent } from './components/dialogs/add-type/add-type.component';
 import {MatBadgeModule} from "@angular/material/badge";
 import {MatIconModule} from '@angular/material/icon';
 import {MatButtonModule} from '@angular/material/button';
@@ -63,6 +63,8 @@ import { BlTableComponent } from './components/tables/bl-table/bl-table.componen
 import { AddBlComponent } from './components/dialogs/add-bl/add-bl.component';
 import { BsDatepickerModule } from "ngx-bootstrap/datepicker";
 import { JwBootstrapSwitchNg2Module } from "jw-bootstrap-switch-ng2";
+import { BeTableComponent } from './components/tables/be-table/be-table.component';
+import { AddBeComponent } from './components/dialogs/add-be/add-be.component';
 
 
 @NgModule({
@@ -105,6 +107,8 @@ import { JwBootstrapSwitchNg2Module } from "jw-bootstrap-switch-ng2";
          AddCommandComponent,
          BlTableComponent,
          AddBlComponent,
+         BeTableComponent,
+         AddBeComponent,
 
   ],
   imports: [

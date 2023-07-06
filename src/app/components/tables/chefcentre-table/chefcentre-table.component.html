@@ -9,8 +9,11 @@
       [(ngModel)]="searchtext"
     />
   </div>
-  <a href="javascript:void(0) "     class="btn btn-success btn-simple"
-  (click)="opendialog()">
+  <a
+    href="javascript:void(0) "
+    class="btn btn-success btn-simple"
+    (click)="opendialog()"
+  >
     Ajouter un Chef Centre
   </a>
 </div>
@@ -33,7 +36,7 @@
     </tr>
   </thead>
   <tbody>
-    <tr *ngFor="let c of returnedArray | filter : searchtext">
+    <tr *ngFor="let c of users | filter : searchtext">
       <td>{{ c.firstName }} {{ c.lastName }}</td>
 
       <td>{{ c.centreId }}</td>

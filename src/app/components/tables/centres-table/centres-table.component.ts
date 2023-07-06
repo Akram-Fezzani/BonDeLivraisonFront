@@ -27,7 +27,6 @@ export class CentresTableComponent implements OnInit {
     this.cs.allcenters().subscribe( (data:any) =>{
 
       this.centers=data;
-      console.log(this.centers)
 
       },
       (error:any) => console.log(error));  }

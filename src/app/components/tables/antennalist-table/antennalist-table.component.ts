@@ -26,7 +26,6 @@ export class AntennalistTableComponent implements OnInit {
     this.AntennaService.allantenna().subscribe( (data:any) =>{
 
       this.antennas=data;
-      console.log(this.antennas)
 
       },
       (error:any) => console.log(error));  }

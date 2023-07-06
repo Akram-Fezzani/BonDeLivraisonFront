@@ -26,7 +26,7 @@ export class UpdateprofileComponent implements OnInit {
         this.toastr.success("votre compte est bien modifié ");
 
       },(error:any) =>{ console.log(error)
-      this.toastr.error("Mise a jours ecouée");
+      this.toastr.error("Modification échouée");
 
       });
   }

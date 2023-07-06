@@ -4,32 +4,34 @@ import { Sort } from '@angular/material/sort';
 import { Router } from '@angular/router';
 import { PageChangedEvent } from 'ngx-bootstrap/pagination';
 import { ToastrService } from 'ngx-toastr';
-import { BLService } from 'src/app/services/BLService/bl.service';
+import { BEService } from 'src/app/services/BEService/be.service';
 import { UserService } from 'src/app/services/user/user.service';
+import { AddBeComponent } from '../../dialogs/add-be/add-be.component';
 import { AddBlComponent } from '../../dialogs/add-bl/add-bl.component';
 
 @Component({
-  selector: 'app-bl-table',
-  templateUrl: './bl-table.component.html',
-  styleUrls: ['./bl-table.component.scss']
+  selector: 'app-be-table',
+  templateUrl: './be-table.component.html',
+  styleUrls: ['./be-table.component.scss']
 })
-export class BlTableComponent implements OnInit {
+export class BeTableComponent implements OnInit {
 
  
  
-  BLs:any;
+  Bes:any;
   sortedData:any;
   searchtext='';
   returnedArray!: any;
 
 
-  constructor(private us:UserService,private toastr: ToastrService, private BLService:BLService,private dialog: MatDialog,private _router:Router) { }
+  constructor(private us:UserService,private toastr: ToastrService, private BEService:BEService,private dialog: MatDialog,private _router:Router) { }
 
   getallcenters(){
         
-    this.BLService.allBLs().subscribe( (data:any) =>{
+    this.BEService.allBes().subscribe( (data:any) =>{
 
-      this.BLs=data;
+      this.Bes=data;
+      console.log(data)
 
       },
       (error:any) => console.log(error));  }
@@ -37,7 +39,7 @@ export class BlTableComponent implements OnInit {
       pageChanged(event: PageChangedEvent): void {
         const startItem = (event.page - 1) * event.itemsPerPage;
         const endItem = event.page * event.itemsPerPage;
-        this.returnedArray = this.BLs.slice(startItem, endItem);
+        this.returnedArray = this.Bes.slice(startItem, endItem);
      }
 
       opendialog(){
@@ -46,14 +48,14 @@ export class BlTableComponent implements OnInit {
         dialogConfig.disableClose = true;
         dialogConfig.autoFocus = true;
       
-        this.dialog.open(AddBlComponent
+        this.dialog.open(AddBeComponent
           ,{
             height: '4000px',
         width: '6000px',});
        }
 
        sortData(sort: Sort) {
-        const data = this.BLs();
+        const data = this.Bes();
         if (!sort.active || sort.direction === '') {
           this.sortedData = data;
           return;
@@ -61,7 +63,7 @@ export class BlTableComponent implements OnInit {
       }
 
       Delete(CenterId:string) {
-        this.BLs.deleteCenter(CenterId).subscribe( (data:any) =>{
+        this.BEService.deleteBE(CenterId).subscribe( (data:any) =>{
           this.toastr.error("Un bon de livraison a été effacer");
         },
         (error:any) => console.log(error));  }
@@ -69,7 +71,7 @@ export class BlTableComponent implements OnInit {
 
   ngOnInit(): void {
     this.getallcenters();
-    this.returnedArray = this.BLs.slice(0, 5);
+    this.returnedArray = this.Bes.slice(0, 5);
 
   }
 

@@ -27,17 +27,26 @@ login(){
     .subscribe(
 
           (data:any) =>{
-            console.log(this.form.username)
-            console.log(this.form.password)
+          
             this.isLoginFailed = false;
             const id=this.ts.getId()+"";
           this.authService.getcurrentuser(id).subscribe((data:any) =>{
               this.currentUser = data;
           AppComponent.instance.setCurrentUser(this.currentUser)
           console.log(this.currentUser)
-          console.log(this.form.username)
             this.router.navigate(['/']);
             this.toastr.success("welcome");
+if( this.authService.getRoles() == "ADMIN")
+{
+  this.router.navigate(['/userstats']);
+
+}
+else 
+if( this.authService.getRoles() == "CHEF_CENTER")
+{
+  this.router.navigate(['/centerstats']);
+
+}
 
           },
           (error:any) => {

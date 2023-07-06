@@ -4,10 +4,10 @@ import { CenterServiceService } from 'src/app/services/CenterService/center-serv
 import { UserService } from 'src/app/services/user/user.service';
 import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 import { Sort } from '@angular/material/sort';
-import { AddRoleComponent } from '../dialogs/add-role/add-role.component';
+import { AddRoleComponent } from '../../dialogs/add-role/add-role.component';
 import { RoleService } from 'src/app/services/RoleService/role.service';
 import { SocieteServiceService } from 'src/app/services/SocieteService/societe-service.service';
-import { AddSocieteComponent } from '../dialogs/add-societe/add-societe.component';
+import { AddSocieteComponent } from '../../dialogs/add-societe/add-societe.component';
 import { ToastrService } from 'ngx-toastr';
 import { PageChangedEvent } from 'ngx-bootstrap/pagination';
 

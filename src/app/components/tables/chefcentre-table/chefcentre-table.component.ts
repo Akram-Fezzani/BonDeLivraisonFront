@@ -31,7 +31,6 @@ export class ChefcentreTableComponent implements OnInit {
         
     this.us.chefcenters().subscribe( (data:any) =>{
       this.users=data;
-      console.log(this.users);
 
       },
       (error:any) => console.log(error));  }

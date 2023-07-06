@@ -34,16 +34,18 @@
     <tr>
       <th mat-sort-header="domaineName">Nom domaine</th>
       <th mat-sort-header="raisonSocial">Raison Social</th>
+      <th mat-sort-header="Code">Code domaine</th>
+      <th mat-sort-header="CapitalSocial">Capital Social</th>
     </tr>
   </thead>
   <tbody>
-    <tr *ngFor="let c of returnedArray | filter : searchtext">
+    <tr *ngFor="let c of Domain | filter : searchtext">
       <td>{{ c.domaineName }}</td>
-
       <td>{{ c.raisonSocial }}</td>
-
+      <td>{{ c.code }}</td>
+      <td>{{ c.capitalSocial }}</td>
       <td>
-        <button class="btn btn-delete" (click)="Delete(c.domaineId)">
+        <button class="btn btn-danger" (click)="Delete(c.domaineId)">
           Delete
         </button>
       </td>

@@ -1,4 +1,5 @@
 export class Speculation {
-    SpeculationId!: number;
-    SpeculationCode!:string;
+    SpeculationId!: string;
+    SpeculationCode!:number;
+    SpeculationLabel!: string
 }

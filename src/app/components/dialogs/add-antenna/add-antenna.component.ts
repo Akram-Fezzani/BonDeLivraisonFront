@@ -28,7 +28,7 @@ export class AddAntennaComponent implements OnInit {
   
 
 
-  AddRole(){
+  AddAntenna(){
     this.disableButton = true;
     this.AntenneService.AddAntenne(this.antenne).subscribe( (data:any) =>{
       console.log(data);

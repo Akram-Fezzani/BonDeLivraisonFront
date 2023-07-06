@@ -37,7 +37,7 @@
     </tr>
   </thead>
   <tbody>
-    <tr *ngFor="let c of returnedArray | filter : searchtext">
+    <tr *ngFor="let c of type | filter : searchtext">
       <td>{{ c.codeSouche }}</td>
 
       <td>{{ c.libSouche }}</td>

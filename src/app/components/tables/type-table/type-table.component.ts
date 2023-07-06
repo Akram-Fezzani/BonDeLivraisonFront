@@ -7,7 +7,7 @@ import { Sort } from '@angular/material/sort';
 import { AddRoleComponent } from '../../dialogs/add-role/add-role.component';
 import { TypeService } from 'src/app/services/TypeService/type.service';
 import { ToastrService } from 'ngx-toastr';
-import { AddTypeComponent } from '../../dialogs/add-antenna/add-type/add-type.component';
+import { AddTypeComponent } from '../../dialogs/add-type/add-type.component';
 import { PageChangedEvent } from 'ngx-bootstrap/pagination';
 
 

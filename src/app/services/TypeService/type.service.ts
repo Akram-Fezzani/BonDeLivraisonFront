@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import {HttpClient} from "@angular/common/http";
 import {Observable} from "rxjs";
-import { Speculation } from 'src/app/models/Speculation';
+import { Type } from 'src/app/models/Type';
 
 @Injectable({
   providedIn: 'root'
@@ -16,8 +16,8 @@ export class TypeService {
 
   }
 
-  AddRole(role: Speculation){
-    return this._http.post<Speculation>('https://localhost:44317/api/Role/AjoutRole',role);
+  AddType(type: Type){
+    return this._http.post<Type>('https://localhost:44357/api/Type/AjoutType',type);
 
   }
 

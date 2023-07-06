@@ -1,151 +1,135 @@
 <div class="container">
-    <div class="row">
-      <div class="col-lg-5 col-md-8 mx-auto">
-        <div class="card">
-       
-          <div class="card-header">
-         
-            <h1 class="card-title">Ajouter une Société</h1>
-          </div>
-         
-          <div class="card-body">
-            <form class="form">
-              <div
+  <div class="row">
+    <div class="col-lg-5 col-md-8 mx-auto">
+      <div class="card">
+        <div class="card-header">
+          <h1 class="card-title">Ajouter une Société</h1>
+        </div>
+
+        <div class="card-body">
+          <form class="form">
+            <div
               class="input-group"
               [ngClass]="{ 'input-group-focus': focus === true }"
-            >                <div class="input-group-prepend">
-                  <div class="input-group-text"></div>
-                </div>
-                <input
-                  class="form-control"
-                  placeholder="codeSociétés"
-                  [(ngModel)]="societe.codeSocietes"
-                  name="codeSociétés"
-                  type="text"
-                  required
-                  minlength="5"
-                  (focus)="focus = true"
-                  (blur)="focus = false"
-                />
+            >
+              <div class="input-group-prepend">
+                <div class="input-group-text"></div>
               </div>
-  
-              <div
-                class="input-group"
-                [ngClass]="{ 'input-group-focus': focus1 === true }"
-              >
-                <div class="input-group-prepend">
-                  <div class="input-group-text">
-                  </div>
-                </div>
-                <input
-                  class="form-control"
-                  placeholder="Adresse"
-                  [(ngModel)]="societe.Adresse"
-                  name="adresse"
-                  required
-                  minlength="5"
-                  type="text"
-                  (focus)="focus1 = true"
-                  (blur)="focus1 = false"
-                  
-                />
+              <input
+                class="form-control"
+                placeholder="codeSociétés"
+                [(ngModel)]="societe.codeSocietes"
+                name="codeSociétés"
+                type="text"
+                required
+                minlength="5"
+                (focus)="focus = true"
+                (blur)="focus = false"
+              />
+            </div>
+
+            <div
+              class="input-group"
+              [ngClass]="{ 'input-group-focus': focus1 === true }"
+            >
+              <div class="input-group-prepend">
+                <div class="input-group-text"></div>
               </div>
-  
-              <div
-                class="input-group"
-                [ngClass]="{ 'input-group-focus': focus2 === true }"
-              >
-                <div class="input-group-prepend">
-                  <div class="input-group-text">
-                  </div>
-                </div>
-                <input
-                  class="form-control"
-                  placeholder="Capital Social"
-                  [(ngModel)]="societe.CapitalSocial"
-                  name="capitalSocial"
-                  type="text"
-                  required
-                  minlength="5"
-                  (focus)="focus2 = true"
-                  (blur)="focus2 = false"
-                />
+              <input
+                class="form-control"
+                placeholder="Adresse"
+                [(ngModel)]="societe.Adresse"
+                name="adresse"
+                required
+                minlength="5"
+                type="text"
+                (focus)="focus1 = true"
+                (blur)="focus1 = false"
+              />
+            </div>
+
+            <div
+              class="input-group"
+              [ngClass]="{ 'input-group-focus': focus2 === true }"
+            >
+              <div class="input-group-prepend">
+                <div class="input-group-text"></div>
               </div>
-  
-          
-  
-              <div
-                class="input-group"
-                [ngClass]="{ 'input-group-focus': focus3 === true }"
-              >
-                <div class="input-group-prepend">
-                  <div class="input-group-text">
-                  </div>
-                </div>
-                <input
-                  class="form-control"
-                  placeholder="Raison Social"
-                  required
-                  minlength="8"
-                  maxlength="8"
-                  type="text"
-                  [(ngModel)]="societe.RaisonSocial"
-                  name="RaisonSocial"
-                  (focus)="focus3 = true"
-                  (blur)="focus3 = false"
-                />
+              <input
+                class="form-control"
+                placeholder="Capital Social"
+                [(ngModel)]="societe.CapitalSocial"
+                name="capitalSocial"
+                type="text"
+                required
+                minlength="5"
+                (focus)="focus2 = true"
+                (blur)="focus2 = false"
+              />
+            </div>
+
+            <div
+              class="input-group"
+              [ngClass]="{ 'input-group-focus': focus3 === true }"
+            >
+              <div class="input-group-prepend">
+                <div class="input-group-text"></div>
               </div>
-  
-              <div
-                class="input-group"
-                [ngClass]="{ 'input-group-focus': focus4 === true }"
-              >
-                <div class="input-group-prepend">
-                  <div class="input-group-text">
-                  </div>
-                </div>
-                <input
-                  class="form-control"
-                  placeholder="Telephone"
-                  [(ngModel)]="societe.tel"
-                  name="tel"
-                  required
-                  minlength="5"
-                  type="text"
-                  (focus)="focus4 = true"
-                  (blur)="focus4 = false"
-                />
+              <input
+                class="form-control"
+                placeholder="Raison Social"
+                required
+                minlength="8"
+                maxlength="8"
+                type="text"
+                [(ngModel)]="societe.RaisonSocial"
+                name="RaisonSocial"
+                (focus)="focus3 = true"
+                (blur)="focus3 = false"
+              />
+            </div>
+
+            <div
+              class="input-group"
+              [ngClass]="{ 'input-group-focus': focus4 === true }"
+            >
+              <div class="input-group-prepend">
+                <div class="input-group-text"></div>
               </div>
-              <div class="card-footer">
-                <div style="margin-left: 30%">
-                  <a
-                    class="btn btn-danger btn-round btn-lg"
-                    href="javascript:void(0)"
-                    (click)="AddSociete()"
-                  >
-                    Ajouter
-                  </a>
-                </div>
+              <input
+                class="form-control"
+                placeholder="Telephone"
+                [(ngModel)]="societe.tel"
+                name="tel"
+                required
+                minlength="5"
+                type="text"
+                (focus)="focus4 = true"
+                (blur)="focus4 = false"
+              />
+            </div>
+            <div class="card-footer">
+              <div class="text-center">
+                <a
+                  class="btn btn-danger"
+                  href="javascript:void(0)"
+                  (click)="AddSociete()"
+                >
+                  Ajouter
+                </a>
                 <br />
-                <span class="forgot-password">
-                  <div
-                    style="display: flex; justify-content: center; width: 100%"
-                  >
-                    <a
-                      class="idle"
-                      title="Annuler"
-                      (click)="closeDialog()"
-                      id="Annuler"
-                      >Annuler</a
-                    >
-                  </div>
-                </span>
-                <br />
+                <a
+                  class="btn btn-danger btn-simple"
+                  title="Annuler"
+                  (click)="closeDialog()"
+                  id="Annuler"
+                  >Annuler
+                </a>
               </div>
-            </form>
-          </div>
+            </div>
+          </form>
         </div>
       </div>
     </div>
   </div>
-  
+</div>

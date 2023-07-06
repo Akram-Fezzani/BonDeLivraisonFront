@@ -31,15 +31,22 @@
         </div>
         <br />
 
-        <a
+        <button
+          class="btn btn-danger"
           *ngIf="currentUser.id == loggedUser.UserId"
           style="cursor: pointer"
           (click)="showUpdateProfile = true"
-          class="idle"
           href="javascript:void(0)"
         >
-          update profile
-        </a>
+          Modifier profile
+        </button>
+        <button
+          class="btn btn-danger btn-simple"
+          type="reset"
+          (click)="signOut()"
+        >
+          Se déconnecter
+        </button>
       </div>
     </div>
   </div>
