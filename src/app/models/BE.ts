@@ -1,14 +1,15 @@
-export class BL {
+export class BE {
     BLId!: String;
-    NumBL!: number;
     NumBE!: number;
     DateBE!:Date;
     Chauffeur!:string;
-    NumPlombage!:string;
-    TypeBL!:string;
+    MatriculeVehicule!: String;
     Status!:boolean;
+
+    NumPlombage!:string;
+    TypeBE!:string;
     DateLivraison!:Date;
-    BEId!:string;
+    ClientId!:string;
  
 
 

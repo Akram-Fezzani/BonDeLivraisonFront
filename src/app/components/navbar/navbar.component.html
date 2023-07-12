@@ -12,9 +12,9 @@
         (click)="goToHome()"
         tooltip="Designed and Coded by Creative Tim"
       >
-        <img src="../../../assets/images/Asset 3.png" width="40" />
+        <img src="../../../assets/images/Asset 3.png" width="100" />
 
-        <a class="niceBar">Bon De Livraison.</a>
+        <a class="niceBar idle">Bon De Livraison.</a>
       </a>
       <button
         aria-controls="navigation-index"
@@ -216,6 +216,21 @@
               <i class="fa fa-sign-out" aria-hidden="true"></i> Sign out
             </a>
           </div>
+        </li>
+        <li class="adjustments-line text-center color-change">
+          <button (click)="changeDashboardColor('white-content')">
+            LIGHT MODE
+          </button>
+          <button
+            [ngClass]="{ active: countsColor === 'green' }"
+            (click)="changecountsColor('green')"
+          >
+            table
+          </button>
+
+          <button (click)="changeDashboardColor('black-content')">
+            DARK MODE
+          </button>
         </li>
       </ul>
     </div>

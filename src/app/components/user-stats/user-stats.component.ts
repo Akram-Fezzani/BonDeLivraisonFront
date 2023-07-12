@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 import { Sort } from '@angular/material/sort';
 import { Router } from '@angular/router';
@@ -36,8 +36,12 @@ export class UserStatsComponent implements OnInit {
   public clicked: boolean = true;
   public clicked1: boolean = false;
   public clicked2: boolean = false;
-  constructor(private us:UserService, private cs:CenterServiceService,private dialog: MatDialog,private _router:Router) { }
+  constructor(private us:UserService,private elementRef: ElementRef, private cs:CenterServiceService,private dialog: MatDialog,private _router:Router) { }
 
+  ngAfterViewInit() {
+    //this.elementRef.nativeElement.ownerDocument
+       // .body.style.backgroundColor = '#fdfd96';
+}
 message = "ekhdmi";
  getnumberofusers(){
     this.us.getnumberofusers().subscribe( (data:any) =>{
@@ -87,8 +91,6 @@ message = "ekhdmi";
 
 
 
-  ngAfterViewInit(){
-          }
   ngOnInit(): void {
 
 

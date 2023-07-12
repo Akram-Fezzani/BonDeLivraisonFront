@@ -36,6 +36,8 @@ export class NavbarComponent implements OnInit, OnDestroy {
   notViewdNotifs: number = 0;
   openedNotif: boolean = false;
   notifs: NotificationForum [] = [];
+  public countsColor: string = "red";
+
   constructor(private us: UserService,private router: Router,private tokenStorage:TokenStorageService,private websocketService:WebsocketService, private notificationService:NotificationService) {}
   scrollToDownload(element: any) {
     element.scrollIntoView({ behavior: "smooth" });
@@ -129,6 +131,29 @@ this.us.getUserByusername(this.form.search).subscribe((r:any)=>{
       },error => console.log(error));
   }
 
+  changeDashboardColor(color: string){
+    var body = document.getElementsByTagName('body')[0];
+    if (body && color === 'white-content') {
+        body.classList.add(color);
+    }
+    else if(body.classList.contains('white-content')) {
+      body.classList.remove('white-content');
+    }
+  }
+
+  changecountsColor(color: string){
+    var counts = document.getElementsByClassName('counts')[0];
+    var mainPanel = document.getElementsByClassName('main-panel')[0];
+
+    this.countsColor = color;
+
+    if(counts != undefined){
+      counts.setAttribute('data',color);
+    }
+    if(mainPanel != undefined){
+        mainPanel.setAttribute('data',color);
+    }
+  }
 
 }
 

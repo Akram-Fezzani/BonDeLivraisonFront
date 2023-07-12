@@ -50,6 +50,7 @@ export class ProfilepageComponent implements OnInit {
     
     },error => console.log(error));
   }
+  
   ngOnDestroy() {
     var body = document.getElementsByTagName("body")[0];
     body.classList.remove("profile-page");

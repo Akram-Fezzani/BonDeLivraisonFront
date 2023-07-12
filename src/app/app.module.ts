@@ -65,6 +65,7 @@ import { BsDatepickerModule } from "ngx-bootstrap/datepicker";
 import { JwBootstrapSwitchNg2Module } from "jw-bootstrap-switch-ng2";
 import { BeTableComponent } from './components/tables/be-table/be-table.component';
 import { AddBeComponent } from './components/dialogs/add-be/add-be.component';
+import { CountsComponent } from './components/counts/counts.component';
 
 
 @NgModule({
@@ -109,6 +110,7 @@ import { AddBeComponent } from './components/dialogs/add-be/add-be.component';
          AddBlComponent,
          BeTableComponent,
          AddBeComponent,
+         CountsComponent,
 
   ],
   imports: [
