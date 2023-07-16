@@ -1,3 +1,14 @@
 .idle {
-    color: #f33d46;
+  color: #f33d46;
+}
+
+select {
+  padding: 5px;
+  color: white;
+}
+select option {
+  color: black;
+}
+select option:first-child {
+  color: black;
 }

@@ -3,6 +3,7 @@ import { MatDialogRef } from '@angular/material/dialog';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { User } from 'src/app/models/User';
+import { CenterServiceService } from 'src/app/services/CenterService/center-service.service';
 import { ChefcenterService } from 'src/app/services/ChefCenterService/chefcenter.service';
 import { RegisterService } from 'src/app/services/registerservice/register.service';
 
@@ -22,11 +23,19 @@ export class AddChefcenterComponent implements OnInit {
   focus4!:any;
   focus5!:any;
   user: User=new User();
+  centers:any;
   disableButton: boolean = false;
 
-  constructor(private router:Router,private ChefCenterService:ChefcenterService, private toastr: ToastrService,private _router:Router,private dialogRef: MatDialogRef<AddChefcenterComponent>) { }
+  constructor(private router:Router,private cs:CenterServiceService,private ChefCenterService:ChefcenterService, private toastr: ToastrService,private _router:Router,private dialogRef: MatDialogRef<AddChefcenterComponent>) { }
   
+  getallcenters(){
+        
+    this.cs.allcenters().subscribe( (data:any) =>{
 
+      this.centers=data;
+
+      },
+      (error:any) => console.log(error));  }
 
   AddChef(){
 
@@ -52,6 +61,6 @@ export class AddChefcenterComponent implements OnInit {
 
 
   ngOnInit() {
-  
+  this.getallcenters()
   }
 }

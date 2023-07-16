@@ -24,7 +24,7 @@ export class AddBeComponent implements OnInit {
       console.log(data);
       data.state=true;
       this.closeDialog()
-      this.toastr.success("Un BE a été Ajouter");
+      this.toastr.success("Un bon d'expedition a été Ajouter");
 
       },
       (error:any) => console.log(error));  }

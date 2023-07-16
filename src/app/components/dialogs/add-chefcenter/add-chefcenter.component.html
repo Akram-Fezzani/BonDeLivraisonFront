@@ -131,6 +131,13 @@
                 (blur)="focus5 = false"
               />
             </div>
+            <select [(ngModel)]="user.centreId" class="form-control">
+              <option value="default">Centres</option>
+              <option *ngFor="let center of centers" [value]="center">
+                {{ center.centerLabel }}
+              </option>
+            </select>
+
             <div class="card-footer">
               <div class="text-center">
                 <a

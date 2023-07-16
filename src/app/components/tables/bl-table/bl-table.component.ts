@@ -25,7 +25,7 @@ export class BlTableComponent implements OnInit {
 
   constructor(private us:UserService,private toastr: ToastrService, private BLService:BLService,private dialog: MatDialog,private _router:Router) { }
 
-  getallcenters(){
+  getallBLs(){
         
     this.BLService.allBLs().subscribe( (data:any) =>{
 
@@ -60,15 +60,15 @@ export class BlTableComponent implements OnInit {
         }
       }
 
-      Delete(CenterId:string) {
-        this.BLs.deleteCenter(CenterId).subscribe( (data:any) =>{
+      Delete(BLId:string) {
+        this.BLService.deleteBL(BLId).subscribe( (data:any) =>{
           this.toastr.error("Un bon de livraison a été effacer");
         },
         (error:any) => console.log(error));  }
 
 
   ngOnInit(): void {
-    this.getallcenters();
+    this.getallBLs();
     this.returnedArray = this.BLs.slice(0, 5);
 
   }
