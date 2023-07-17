@@ -66,6 +66,8 @@ import { JwBootstrapSwitchNg2Module } from "jw-bootstrap-switch-ng2";
 import { BeTableComponent } from './components/tables/be-table/be-table.component';
 import { AddBeComponent } from './components/dialogs/add-be/add-be.component';
 import { CountsComponent } from './components/counts/counts.component';
+import { ProductTableComponent } from './components/tables/product-table/product-table.component';
+import { AddProductComponent } from './components/dialogs/add-product/add-product.component';
 
 
 @NgModule({
@@ -111,6 +113,8 @@ import { CountsComponent } from './components/counts/counts.component';
          BeTableComponent,
          AddBeComponent,
          CountsComponent,
+         ProductTableComponent,
+         AddProductComponent,
 
   ],
   imports: [
@@ -172,6 +176,7 @@ import { CountsComponent } from './components/counts/counts.component';
     AddAntennaComponent,
     AddRoleComponent,
     AddSpeculationComponent,
+    AddProductComponent,
     AddSocieteComponent
   ]
 
