@@ -126,6 +126,7 @@ import { AddProductComponent } from './components/dialogs/add-product/add-produc
     FormsModule,
     MatTableModule,
     MatPaginatorModule,
+    BsDatepickerModule,
     MatIconModule,
     PaginationModule,
     MatInputModule,

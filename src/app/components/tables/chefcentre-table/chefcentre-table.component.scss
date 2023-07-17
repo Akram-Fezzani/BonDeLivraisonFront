@@ -7,3 +7,52 @@ search {
 .idle {
   color: #f33d46;
 }
+.margin-coins {
+  margin-top: 120px !important;
+}
+
+.marg-trainer {
+  margin-bottom: 40px !important;
+  margin-top: 30px !important;
+}
+
+.carhov {
+  cursor: pointer;
+  transition: transform .2s;
+  /* Animation */
+}
+
+.carhov:hover {
+  transform: scale(1.1);
+  /* (150% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
+}
+
+.rw-filtr {
+  border: 1px solid;
+  border-radius: 20px;
+  height: 100px;
+  display: flex;
+  align-items: center;
+  box-shadow: rgb(0 0 0 / 25%) 0px 54px 55px, rgb(0 0 0 / 12%) 0px -12px 30px, rgb(0 0 0 / 12%) 0px 4px 6px, rgb(0 0 0 / 17%) 0px 12px 13px, rgb(0 0 0 / 9%) 0px -3px 5px;
+}
+.btn-tst{
+    color: #fd5d93;
+    border-color: #fd5d93;
+    box-shadow:rgba(240, 46, 170, 0.3) 2px 2px;}
+.tr-stuy{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.crsit{
+  cursor: pointer;
+}
+
+.norslt{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 50px;
+  font-weight: bold;
+  font-size: 40px;
+}
