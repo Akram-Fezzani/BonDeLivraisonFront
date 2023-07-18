@@ -68,6 +68,10 @@ import { AddBeComponent } from './components/dialogs/add-be/add-be.component';
 import { CountsComponent } from './components/counts/counts.component';
 import { ProductTableComponent } from './components/tables/product-table/product-table.component';
 import { AddProductComponent } from './components/dialogs/add-product/add-product.component';
+import { AddChauffeurComponent } from './components/dialogs/add-chauffeur/add-chauffeur.component';
+import { ChauffeurTableComponent } from './components/tables/chauffeur-table/chauffeur-table.component';
+import { VehiculeTableComponent } from './components/tables/vehicule-table/vehicule-table.component';
+import { AddVehiculeComponent } from './components/dialogs/add-vehicule/add-vehicule.component';
 
 
 @NgModule({
@@ -115,6 +119,10 @@ import { AddProductComponent } from './components/dialogs/add-product/add-produc
          CountsComponent,
          ProductTableComponent,
          AddProductComponent,
+         ChauffeurTableComponent,
+         AddChauffeurComponent,
+         VehiculeTableComponent,
+         AddVehiculeComponent,
 
   ],
   imports: [

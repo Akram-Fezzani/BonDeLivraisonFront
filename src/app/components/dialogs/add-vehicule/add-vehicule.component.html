@@ -1,0 +1,119 @@
+<div class="container">
+  <div class="row">
+    <div class="col-lg-5 col-md-8 mx-auto">
+      <div class="card">
+        <div class="card-header">
+          <h1 class="card-title">Ajouter Collecteur</h1>
+        </div>
+        <div class="card-body">
+          <form class="form">
+            <label> Matricule </label>
+
+            <div
+              class="input-group"
+              [ngClass]="{ 'input-group-focus': focus === true }"
+            >
+              <div class="input-group-prepend">
+                <div class="input-group-text"></div>
+              </div>
+              <input
+                class="form-control"
+                placeholder="Matricule"
+                [(ngModel)]="Vehicule.Matricule"
+                name="Matricule"
+                required
+                minlength="5"
+                type="text"
+                (focus)="focus = true"
+                (blur)="focus = false"
+              />
+            </div>
+            <label> Proprietaire </label>
+
+            <div
+              class="input-group"
+              [ngClass]="{ 'input-group-focus': focus1 === true }"
+            >
+              <div class="input-group-prepend">
+                <div class="input-group-text"></div>
+              </div>
+
+              <input
+                class="form-control"
+                placeholder="Proprietaire"
+                [(ngModel)]="Vehicule.Proprietaire"
+                name="Proprietaire"
+                type="text"
+                required
+                minlength="5"
+                (focus)="focus1 = true"
+                (blur)="focus1 = false"
+              />
+            </div>
+            <label> capacite </label>
+
+            <div
+              class="input-group"
+              [ngClass]="{ 'input-group-focus': focus1 === true }"
+            >
+              <div class="input-group-prepend">
+                <div class="input-group-text"></div>
+              </div>
+
+              <input
+                class="form-control"
+                placeholder="capacite"
+                required
+                minlength="8"
+                maxlength="8"
+                type="text"
+                [(ngModel)]="Vehicule.capacite"
+                name="capacite"
+                (focus)="focus1 = true"
+                (blur)="focus1 = false"
+              />
+            </div>
+
+            <div class="form-group">
+              <label> Status </label>
+              <br />
+              <bSwitch
+                class="idle"
+                name="Status"
+                [(ngModel)]="Vehicule.State"
+                [switch-on-color]="'danger'"
+                [switch-off-color]="'danger'"
+                [switch-off-text]="'Non '"
+                [switch-on-text]="'Oui '"
+              >
+              </bSwitch>
+            </div>
+            <div
+              class="input-group"
+              [ngClass]="{ 'input-group-focus': focus2 === true }"
+            ></div>
+            <div class="card-footer">
+              <div class="text-center">
+                <a
+                  class="btn btn-danger"
+                  href="javascript:void(0)"
+                  (click)="AddVehicule()"
+                >
+                  Ajouter
+                </a>
+
+                <a
+                  class="btn btn-danger btn-simple"
+                  title="Annuler"
+                  (click)="closeDialog()"
+                  id="Annuler"
+                  >Annuler</a
+                >
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -2,8 +2,8 @@ import { BE } from "./BE";
 
 export class Client {
     ClientId!: String;
-    Nom!: number;
-    Prenom!:number;
+    Nom!: String;
+    Prenom!:String;
     Telephone!:string;
     BE!:BE[];
 }
