@@ -31,6 +31,7 @@ import { AddRoleComponent } from './components/dialogs/add-role/add-role.compone
 import { RolesTableComponent } from './components/tables/roles-table/roles-table.component';
 import { SocieteTableComponent } from './components/tables/societe-table/societe-table.component';
 import { AddSocieteComponent } from './components/dialogs/add-societe/add-societe.component';
+import { TabsModule } from "ngx-bootstrap/tabs";
 
 import { ToastrModule } from 'ngx-toastr';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
@@ -72,6 +73,7 @@ import { AddChauffeurComponent } from './components/dialogs/add-chauffeur/add-ch
 import { ChauffeurTableComponent } from './components/tables/chauffeur-table/chauffeur-table.component';
 import { VehiculeTableComponent } from './components/tables/vehicule-table/vehicule-table.component';
 import { AddVehiculeComponent } from './components/dialogs/add-vehicule/add-vehicule.component';
+import { AddBuildingComponent } from './components/dialogs/add-building/add-building.component';
 
 
 @NgModule({
@@ -123,6 +125,7 @@ import { AddVehiculeComponent } from './components/dialogs/add-vehicule/add-vehi
          AddChauffeurComponent,
          VehiculeTableComponent,
          AddVehiculeComponent,
+         AddBuildingComponent,
 
   ],
   imports: [
@@ -133,6 +136,7 @@ import { AddVehiculeComponent } from './components/dialogs/add-vehicule/add-vehi
     Ng2SearchPipeModule,
     FormsModule,
     MatTableModule,
+    TabsModule,
     MatPaginatorModule,
     BsDatepickerModule,
     MatIconModule,

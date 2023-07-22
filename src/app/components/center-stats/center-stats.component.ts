@@ -11,6 +11,7 @@ import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 import { AntenneService } from 'src/app/services/AntennaService/antenne.service';
 import { AddCollectorComponent } from '../dialogs/add-collector/add-collector.component';
 import { ChefcenterService } from 'src/app/services/ChefCenterService/chefcenter.service';
+import { AddDemandevetoComponent } from '../dialogs/add-demandeveto/add-demandeveto.component';
 
 @Component({
   selector: 'app-center-stats',
@@ -45,7 +46,17 @@ export class CenterStatsComponent implements OnInit {
   constructor(private us:UserService, private dialog: MatDialog,private _router:Router,private AntennaService:AntenneService,private authService: AuthService,private cs:CenterServiceService,private ts:TokenStorageService, private ChefService:ChefcenterService) { }
 
 
-
+  vet(){
+    const dialogConfig = new MatDialogConfig();
+  
+    dialogConfig.disableClose = true;
+    dialogConfig.autoFocus = true;
+  
+    this.dialog.open(AddDemandevetoComponent
+      ,{
+        height: '4000px',
+    width: '6000px',});
+   }
  
 
   getcurrentuser(){

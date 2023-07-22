@@ -1,0 +1,137 @@
+<div class="content">
+  <div class="row">
+    <div class="col-md-8">
+      <div class="card">
+        <br />
+        <div class="card-header">
+          <h5 class="title">Ajout d'un bon de livraison</h5>
+        </div>
+        <div class="card-body">
+          <form>
+            <div class="row">
+              <div class="col-md-3 px-md-1">
+                <div class="form-group">
+                  <label> BuildingCode </label>
+                  <input
+                    class="form-control"
+                    name="BuildingCode"
+                    [(ngModel)]="Building.BuildingCode"
+                    placeholder="BuildingCode "
+                    type="text"
+                  />
+                </div>
+              </div>
+              <div class="col-md-4 pl-md-1">
+                <div class="form-group">
+                  <label> BuildingLabel </label>
+                  <input
+                    class="form-control"
+                    name="BuildingLabel"
+                    [(ngModel)]="Building.BuildingLabel"
+                    placeholder="BuildingLabel"
+                    type="text"
+                  />
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-6 pr-md-1">
+                <div class="form-group">
+                  <label> BuildingArea </label>
+                  <input
+                    class="form-control"
+                    name="BuildingArea"
+                    placeholder="BuildingArea"
+                    type="text"
+                    [(ngModel)]="Building.BuildingArea"
+                  />
+                </div>
+              </div>
+              <div class="col-md-6 pl-md-1">
+                <div class="form-group">
+                  <label> BuildingAdress </label>
+                  <input
+                    class="form-control"
+                    name="BuildingAdress"
+                    [(ngModel)]="Building.BuildingAdress"
+                    placeholder="BuildingAdress"
+                    type="text"
+                  />
+                </div>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-md-4 pr-md-1">
+                <div class="form-group">
+                  <label> Couvoir </label>
+                  <input
+                    class="form-control"
+                    name="Couvoir"
+                    placeholder="Couvoir"
+                    type="text"
+                    [(ngModel)]="Building.Couvoir"
+                  />
+                </div>
+              </div>
+
+              <div class="col-md-4 pl-md-1">
+                <div class="form-group">
+                  <label> Souche </label>
+                  <input
+                    class="form-control"
+                    name="Souche"
+                    type="text"
+                    placeholder="Souche"
+                    [(ngModel)]="Building.Souche"
+                  />
+                </div>
+              </div>
+              <div class="col-md-4 px-md-1">
+                <div class="form-group">
+                  <label> Age </label>
+                  <br />
+                  <input
+                    class="form-control"
+                    name="Age"
+                    type="text"
+                    placeholder="Age"
+                    [(ngModel)]="Building.Age"
+                  />
+                </div>
+              </div>
+              <div class="col-md-4 px-md-1">
+                <div class="form-group">
+                  <label> rotation </label>
+                  <br />
+                  <input
+                    class="form-control"
+                    name="rotation"
+                    type="text"
+                    placeholder="rotation"
+                    [(ngModel)]="Building.rotation"
+                  />
+                </div>
+              </div>
+            </div>
+          </form>
+        </div>
+        <div class="card-footer">
+          <div style="margin-left: 37%">
+            <button class="btn btn-danger" (click)="AddBuilding()">
+              Ajouter
+            </button>
+
+            <a
+              class="btn btn-danger btn-simple"
+              title="Annuler"
+              (click)="closeDialog()"
+              id="Annuler"
+              >Annuler</a
+            >
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

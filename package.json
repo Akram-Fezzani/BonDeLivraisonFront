@@ -66,6 +66,7 @@
     "@ngneat/reactive-forms": "^5.0.2",
     "@stomp/stompjs": "^5.4.4",
     "@types/jest": "^29.5.2",
+    "angular-font-awesome": "^3.1.2",
     "angular-highcharts": "^13.0.1",
     "chart.js": "^2.9.4",
     "core-js": "3.8.2",

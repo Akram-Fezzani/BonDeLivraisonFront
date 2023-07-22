@@ -1,1 +1,65 @@
-<p>buildings-table works!</p>
+<div class="card-header">
+  <h2 class="text-uppercase idle">Liste des Batiments</h2>
+
+  <a
+    class="btn btn-success btn-simple"
+    href="javascript:void(0) "
+    (click)="opendialog()"
+  >
+    Ajouter un batiment
+  </a>
+</div>
+<div class="card-body">
+  <table
+    id="datatables-buttons"
+    class="table table-striped"
+    style="width: 100%"
+  >
+    <thead>
+      <tr>
+        <th>BuildingCode</th>
+        <th>BuildingLabel</th>
+        <th>BuildingArea</th>
+        <th>BuildingAdress</th>
+        <th>Couvoir</th>
+        <th>Souche</th>
+        <th>Age</th>
+        <th>rotation</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let c of Builgings">
+        <td>{{ c.buildingCode }}</td>
+
+        <td>{{ c.buildingLabel }}</td>
+        <td>{{ c.buildingArea }}</td>
+        <td>{{ c.buildingAdress }}</td>
+
+        <td>{{ c.couvoir }}</td>
+        <td>{{ c.souche }}</td>
+
+        <td>{{ c.age }}</td>
+        <td>{{ c.rotation }}</td>
+
+        <td>
+          <button class="btn btn-danger" (click)="Delete(c.buildingId)">
+            Delete
+          </button>
+        </td>
+        <td>
+          <button class="btn btn-success">Update</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <pagination
+    class="pagination-danger"
+    [totalItems]="Builgings.length"
+    [itemsPerPage]="5"
+    (pageChanged)="pageChanged($event)"
+    previousText="&lsaquo;"
+    nextText="&rsaquo;"
+    firstText="&laquo;"
+    lastText="&raquo;"
+  ></pagination>
+</div>

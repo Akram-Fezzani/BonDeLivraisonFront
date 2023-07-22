@@ -7,7 +7,9 @@ import { RegisterService } from "src/app/services/registerservice/register.servi
 
 @Component({
   selector: "app-registerpage",
-  templateUrl: "registerpage.component.html"
+  templateUrl: "registerpage.component.html",
+  styleUrls: ['./registerpage.component.scss']
+
 })
 export class RegisterpageComponent implements OnInit, OnDestroy {
   isCollapsed = true;

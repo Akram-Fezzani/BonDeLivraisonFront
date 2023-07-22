@@ -143,6 +143,10 @@
     </div>
   </div>
 </div>
+<button class="pill btn-danger" (click)="vet()">
+  <i class="fa-solid fa-truck-medical"></i>
+  Demander un véto
+</button>
 
 <div style="margin-left: -15px; width: 100%">
   <div class="col-12">
@@ -166,6 +170,10 @@
           </mat-tab>
           <mat-tab label="Vehicules">
             <app-vehicule-table></app-vehicule-table>
+          </mat-tab>
+          <mat-tab label="Buildings">
+
+          <app-buildings-table></app-buildings-table>
           </mat-tab>
         </mat-tab-group>
       </div>
