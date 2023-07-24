@@ -44,4 +44,9 @@ export class CenterServiceService {
   deleteCenter(CenterId:string): Observable<any> {
     return this.http.delete( 'https://localhost:44357/api/Center/DeleteCentre?Id='+CenterId);
   }
+
+
+  BuildingByCenter(): Observable<any> {
+    return this.http.get('https://localhost:44357/api/Building/GetBuildingsByCenter');
+  }
 }

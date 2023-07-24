@@ -57,6 +57,8 @@ export class UserService {
 
   
 
+  
+
 
 
 
@@ -68,6 +70,6 @@ export class UserService {
 
 
   getUserPostStats(): Observable<any> {
-    return this.http.get(this.baseUrl + 'displayChart');
+    return this.http.get('https://localhost:44317/api/User/GetUserStats');
   }
 }

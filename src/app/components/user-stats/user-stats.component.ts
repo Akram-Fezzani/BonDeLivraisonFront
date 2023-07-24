@@ -7,6 +7,9 @@ import { Router } from '@angular/router';
 import { UserService } from 'src/app/services/user/user.service';
 import {MatPaginator, MatPaginatorModule} from '@angular/material/paginator';
 import { CenterServiceService } from 'src/app/services/CenterService/center-service.service';
+import * as Chart from 'chart.js';
+import { UserStat } from 'src/app/models/UserStats';
+import { BuildingByCenter } from 'src/app/models/BuildingByCenter';
 
 @Component({
   selector: 'app-user-stats',
@@ -408,11 +411,65 @@ this.ctx3 = this.canvas3.getContext("2d");
     gradientStroke.addColorStop(1, 'rgba(233,32,16,0.2)');
     gradientStroke.addColorStop(0.4, 'rgba(233,32,16,0.0)');
     gradientStroke.addColorStop(0, 'rgba(233,32,16,0)'); //red colors
-   
+    this.us.getUserPostStats().subscribe((response:UserStat) =>{
+      console.log(response);
+
+    var data = {
+      labels: response.roles,
+      datasets: [{
+        label: "Users by role",
+        fill: true,
+        backgroundColor: gradientStroke,
+        borderColor: '#ec250d',
+        borderWidth: 2,
+        borderDash: [],
+        borderDashOffset: 0.0,
+        pointBackgroundColor: '#ec250d',
+        pointBorderColor: 'rgba(255,255,255,0)',
+        pointHoverBackgroundColor: '#ec250d',
+        pointBorderWidth: 5,
+        pointHoverRadius: 4,
+        pointHoverBorderWidth: 15,
+        pointRadius: 4,
+        data: response.users,
+      }]
+    };
 
 
- 
+    var myChart = new Chart(this.ctx1, {
+      type: 'line',
+      data: data,
+      options: gradientChartOptionsConfigurationWithTooltipRed
+    });
 
+
+
+  },error => console.log(error));
+
+
+  this.cs.BuildingByCenter().subscribe((response:BuildingByCenter) =>{
+    console.log(response);
+  var myChart = new Chart(this.ctx2, {
+    type: 'bar',
+
+    data: {
+      labels: response.centers,
+      datasets: [{
+        label: "Batiments Par Centre",
+        fill: true,
+        backgroundColor: gradientStroke,
+        hoverBackgroundColor: gradientStroke,
+        borderColor: '#1f8ef1',
+        borderWidth: 2,
+        borderDash: [],
+        borderDashOffset: 0.0,
+        data: response.buildings,
+      }]
+    },
+    options: gradientBarChartConfiguration
+  });
+
+},error => console.log(error));
 
 
 
@@ -422,9 +479,40 @@ gradientStroke.addColorStop(0.4, 'rgba(66,134,121,0.0)'); //green colors
 gradientStroke.addColorStop(0, 'rgba(66,134,121,0)'); //green colors
 
 
+this.us.getUserPostStats().subscribe((response:UserStat) =>{
+  console.log(response);
+
+var data = {
+  labels: response.roles,
+  datasets: [{
+    label: "My First dataset",
+    fill: true,
+    backgroundColor: gradientStroke,
+    borderColor: '#00d6b4',
+    borderWidth: 2,
+    borderDash: [],
+    borderDashOffset: 0.0,
+    pointBackgroundColor: '#00d6b4',
+    pointBorderColor: 'rgba(255,255,255,0)',
+    pointHoverBackgroundColor: '#00d6b4',
+    pointBorderWidth: 20,
+    pointHoverRadius: 4,
+    pointHoverBorderWidth: 15,
+    pointRadius: 4,
+    data: response.users,
+  }]
+};
+
+var myChart = new Chart(this.ctx3, {
+  type: 'line',
+  data: data,
+  options: gradientChartOptionsConfigurationWithTooltipGreen
+
+});
 
 
-
+var gradientStroke = this.ctx3.createLinearGradient(0, 230, 0, 50);
+},error => console.log(error));
 
 
 

@@ -12,6 +12,8 @@ import { AntenneService } from 'src/app/services/AntennaService/antenne.service'
 import { AddCollectorComponent } from '../dialogs/add-collector/add-collector.component';
 import { ChefcenterService } from 'src/app/services/ChefCenterService/chefcenter.service';
 import { AddDemandevetoComponent } from '../dialogs/add-demandeveto/add-demandeveto.component';
+import { UserStat } from 'src/app/models/UserStats';
+import * as Chart from 'chart.js';
 
 @Component({
   selector: 'app-center-stats',
@@ -463,10 +465,41 @@ this.ctx3 = this.canvas3.getContext("2d");
     gradientStroke.addColorStop(1, 'rgba(233,32,16,0.2)');
     gradientStroke.addColorStop(0.4, 'rgba(233,32,16,0.0)');
     gradientStroke.addColorStop(0, 'rgba(233,32,16,0)'); //red colors
-   
+    this.us.getUserPostStats().subscribe((response:UserStat) =>{
+      console.log(response);
+
+    var data = {
+      labels: response.roles,
+      datasets: [{
+        label: "Users by role",
+        fill: true,
+        backgroundColor: gradientStroke,
+        borderColor: '#ec250d',
+        borderWidth: 2,
+        borderDash: [],
+        borderDashOffset: 0.0,
+        pointBackgroundColor: '#ec250d',
+        pointBorderColor: 'rgba(255,255,255,0)',
+        pointHoverBackgroundColor: '#ec250d',
+        pointBorderWidth: 5,
+        pointHoverRadius: 4,
+        pointHoverBorderWidth: 15,
+        pointRadius: 4,
+        data: response.users,
+      }]
+    };
 
 
- 
+    var myChart = new Chart(this.ctx1, {
+      type: 'line',
+      data: data,
+      options: gradientChartOptionsConfigurationWithTooltipRed
+    });
+
+
+
+  },error => console.log(error));
+
 
 
 
@@ -480,18 +513,10 @@ gradientStroke.addColorStop(0, 'rgba(66,134,121,0)'); //green colors
 
 
 
-
-
-
-
   }
 
 }
 function UserPostStats(response: any, UserPostStats: any) {
-  throw new Error('Function not implemented.');
-}
-
-function CourseDialogComponent(CourseDialogComponent: any, dialogConfig: MatDialogConfig<any>) {
   throw new Error('Function not implemented.');
 }
 
