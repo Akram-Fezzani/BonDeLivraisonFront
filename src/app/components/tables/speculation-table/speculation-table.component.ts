@@ -51,7 +51,7 @@ export class SpeculationTableComponent implements OnInit {
       
         this.dialog.open(AddSpeculationComponent
           ,{
-            height: '4000px',
+            height: '-4000px',
         width: '6000px',});
        }
 

@@ -16,7 +16,7 @@ import { AddBuildingComponent } from '../../dialogs/add-building/add-building.co
 export class BuildingsTableComponent implements OnInit {
 
  
-  Builgings:any;
+  Buildings:any;
   sortedData:any;
   searchtext='';
   returnedArray!: any;
@@ -28,7 +28,7 @@ export class BuildingsTableComponent implements OnInit {
         
     this.BuildingService.allBuildings().subscribe( (data:any) =>{
 
-      this.Builgings=data;
+      this.Buildings=data;
 
       },
       (error:any) => console.log(error));  }
@@ -36,7 +36,7 @@ export class BuildingsTableComponent implements OnInit {
       pageChanged(event: PageChangedEvent): void {
         const startItem = (event.page - 1) * event.itemsPerPage;
         const endItem = event.page * event.itemsPerPage;
-        this.returnedArray = this.Builgings.slice(startItem, endItem);
+        this.returnedArray = this.Buildings.slice(startItem, endItem);
      }
 
       opendialog(){
@@ -47,12 +47,12 @@ export class BuildingsTableComponent implements OnInit {
       
         this.dialog.open(AddBuildingComponent
           ,{
-            height: '4000px',
+            height: '-4000px',
         width: '6000px',});
        }
 
        sortData(sort: Sort) {
-        const data = this.Builgings();
+        const data = this.Buildings();
         if (!sort.active || sort.direction === '') {
           this.sortedData = data;
           return;
@@ -68,7 +68,7 @@ export class BuildingsTableComponent implements OnInit {
 
   ngOnInit(): void {
     this.getallBuilgings();
-    this.returnedArray = this.Builgings.slice(0, 5);
+    this.returnedArray = this.Buildings.slice(0, 5);
 
   }
 

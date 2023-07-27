@@ -47,7 +47,7 @@ export class RolesTableComponent implements OnInit {
       
         this.dialog.open(AddRoleComponent
           ,{
-            height: '4000px',
+            height: '-4000px',
         width: '6000px',});
        }
 

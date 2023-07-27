@@ -42,7 +42,7 @@ export class ChauffeurTableComponent implements OnInit {
       
         this.dialog.open(AddChauffeurComponent
           ,{
-            height: '4000px',
+            height: '-4000px',
         width: '6000px',});
        }    
 

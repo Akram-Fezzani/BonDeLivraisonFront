@@ -4,31 +4,31 @@
       <div class="card">
         <br />
         <div class="card-header">
-          <h5 class="title">Ajout d'un bon de livraison</h5>
+          <h5 class="title">Ajout d'un Batiment</h5>
         </div>
         <div class="card-body">
           <form>
             <div class="row">
-              <div class="col-md-3 px-md-1">
+              <div class="col-md-6 pr-md-1">
                 <div class="form-group">
-                  <label> BuildingCode </label>
+                  <label> Code Batiment </label>
                   <input
                     class="form-control"
                     name="BuildingCode"
                     [(ngModel)]="Building.BuildingCode"
-                    placeholder="BuildingCode "
+                    placeholder="Code Batiment "
                     type="text"
                   />
                 </div>
               </div>
-              <div class="col-md-4 pl-md-1">
+              <div class="col-md-6 pl-md-1">
                 <div class="form-group">
-                  <label> BuildingLabel </label>
+                  <label> Label Batiment </label>
                   <input
                     class="form-control"
                     name="BuildingLabel"
                     [(ngModel)]="Building.BuildingLabel"
-                    placeholder="BuildingLabel"
+                    placeholder="Label Batiment"
                     type="text"
                   />
                 </div>
@@ -37,11 +37,11 @@
             <div class="row">
               <div class="col-md-6 pr-md-1">
                 <div class="form-group">
-                  <label> BuildingArea </label>
+                  <label> Region Batiment </label>
                   <input
                     class="form-control"
                     name="BuildingArea"
-                    placeholder="BuildingArea"
+                    placeholder="Region Batiment"
                     type="text"
                     [(ngModel)]="Building.BuildingArea"
                   />
@@ -49,12 +49,12 @@
               </div>
               <div class="col-md-6 pl-md-1">
                 <div class="form-group">
-                  <label> BuildingAdress </label>
+                  <label> Adress Batiment</label>
                   <input
                     class="form-control"
                     name="BuildingAdress"
                     [(ngModel)]="Building.BuildingAdress"
-                    placeholder="BuildingAdress"
+                    placeholder="Adress Batiment"
                     type="text"
                   />
                 </div>
@@ -64,11 +64,11 @@
             <div class="row">
               <div class="col-md-4 pr-md-1">
                 <div class="form-group">
-                  <label> Couvoir </label>
+                  <label> Nombre Des Couvoir </label>
                   <input
                     class="form-control"
                     name="Couvoir"
-                    placeholder="Couvoir"
+                    placeholder="Nombre Des Couvoir"
                     type="text"
                     [(ngModel)]="Building.Couvoir"
                   />
@@ -100,7 +100,7 @@
                   />
                 </div>
               </div>
-              <div class="col-md-4 px-md-1">
+              <div class="col-md-6 pr-md-1">
                 <div class="form-group">
                   <label> rotation </label>
                   <br />
@@ -113,9 +113,21 @@
                   />
                 </div>
               </div>
+              <div class="col-md-6 pl-md-1">
+                <div class="form-group">
+                  <label> Type </label>
+                  <select [(ngModel)]="Building.TypeId" class="form-control">
+                    <option value="default">Type</option>
+                    <option *ngFor="let type of types" [value]="type">
+                      {{ type.libSouche }}
+                    </option>
+                  </select>
+                </div>
+              </div>
             </div>
           </form>
         </div>
+
         <div class="card-footer">
           <div style="margin-left: 37%">
             <button class="btn btn-danger" (click)="AddBuilding()">

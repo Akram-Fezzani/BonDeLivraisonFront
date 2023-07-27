@@ -2,11 +2,14 @@ import { Component, OnInit } from '@angular/core';
 import { MatDialogRef } from '@angular/material/dialog';
 import { ToastrService } from 'ngx-toastr';
 import { Article } from 'src/app/models/Article';
-import { BE } from 'src/app/models/BE';
-import { BL } from 'src/app/models/BL';
+import { TokenStorageService } from 'src/app/services/tokenstorageservice/token-storage.service';
+import { Building } from 'src/app/models/Building';
+import { Center } from 'src/app/models/Center';
 import { Client } from 'src/app/models/Client';
-
-import { BLService } from 'src/app/services/BLService/bl.service';
+import { User } from 'src/app/models/User';
+import { AuthService } from 'src/app/services/authservice/auth.service';
+import { BuildingService } from 'src/app/services/BuildingService/building.service';
+import { CenterServiceService } from 'src/app/services/CenterService/center-service.service';
 
 @Component({
   selector: 'app-add-demandeveto',
@@ -14,34 +17,31 @@ import { BLService } from 'src/app/services/BLService/bl.service';
   styleUrls: ['./add-demandeveto.component.scss']
 })
 export class AddDemandevetoComponent implements OnInit {
-
-  date = new Date();
-  BL: BL=new BL();
-  BE: BE=new BE();
-  focus2!:any;
-  focus!:any;
-  focus1!:any;
-
-  Client:Client=new Client();
-  Article:Article=new Article();
+  Id:any;
+  types:any;
+  currentUser!: User;
+  currentcenter!:Center;
+  Building:Building=new Building();
+  Buildings:any;
   disableButton: boolean = false;
 
-  constructor(private dialogRef: MatDialogRef<AddDemandevetoComponent>,private toastr: ToastrService,private BLService:BLService) { }
 
-  AddBL(){
-    this.BE.BEId="3fa85f64-5717-4562-b3fc-2c963f66afa9"
-    this.Client.ClientId="3fa85f64-5717-4562-b3fc-2c963f66afa9"
-    this.BE.Client=this.Client
-    this.Article.ArticleId="3fa85f64-5717-4562-b3fc-2c963f66afa9"
-    this.BE.Article=this.Article
-    this.BL.BE=this.BE
-    this.BLService.AddBL(this.BL,).subscribe( (data:any) =>{
-      console.log(data);
-      data.state=true;
-      this.closeDialog()
-      this.toastr.success("Un bon de livraison a été Ajouter");
+  
 
+  constructor(private dialogRef: MatDialogRef<AddDemandevetoComponent>,private ts:TokenStorageService,private cs:CenterServiceService,private authService: AuthService,private toastr: ToastrService,private BuildingService:BuildingService) { }
+
+  GetBuldingsByCenterId(){
+    const id=this.ts.getId()+"";
+    this.authService.getcurrentuser(id,).subscribe((r:any)=>{
+    this.currentUser=r;
+    this.Id=r.centreId;
+    console.log(this.Id);
+    this.Building.CenterId=this.Id
+    this.BuildingService.GetBuldingsByCenterId(this.Id,).subscribe( (data:any) =>{
+    this.Buildings=data;
+    console.log(this.Buildings);
       },
+      (error:any) => console.log(error));  },
       (error:any) => console.log(error));  }
 
 
@@ -50,7 +50,7 @@ export class AddDemandevetoComponent implements OnInit {
 
         }
   ngOnInit(): void {
-    
+    this.GetBuldingsByCenterId()
   }
 
 }

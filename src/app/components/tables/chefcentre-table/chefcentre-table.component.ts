@@ -43,7 +43,7 @@ export class ChefcentreTableComponent implements OnInit {
       
         this.dialog.open(AddChefcenterComponent
           ,{
-            height: '4000px',
+            height: '-4000px',
         width: '6000px',});
        }    
 

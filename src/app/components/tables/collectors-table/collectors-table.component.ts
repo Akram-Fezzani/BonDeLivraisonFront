@@ -63,7 +63,7 @@ export class CollectorsTableComponent implements OnInit {
   dialogConfig.autoFocus = true;
 
   this.dialog.open(AddCollectorComponent
-    ,{height: '4000px',
+    ,{height: '-4000px',
   width: '6000px',});
  }
 

@@ -48,7 +48,7 @@ export class BlTableComponent implements OnInit {
       
         this.dialog.open(AddBlComponent
           ,{
-            height: '4000px',
+            height: '-4000px',
         width: '6000px',});
        }
 

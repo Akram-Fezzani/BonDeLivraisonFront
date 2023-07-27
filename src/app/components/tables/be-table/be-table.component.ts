@@ -50,7 +50,7 @@ export class BeTableComponent implements OnInit {
       
         this.dialog.open(AddBeComponent
           ,{
-            height: '4000px',
+            height: '-4000px',
         width: '6000px',});
        }
 

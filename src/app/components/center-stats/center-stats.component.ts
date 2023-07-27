@@ -56,7 +56,7 @@ export class CenterStatsComponent implements OnInit {
   
     this.dialog.open(AddDemandevetoComponent
       ,{
-        height: '4000px',
+        height: '-4000px',
     width: '6000px',});
    }
  

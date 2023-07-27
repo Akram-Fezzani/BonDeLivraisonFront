@@ -52,7 +52,7 @@ export class SocieteTableComponent implements OnInit {
       
         this.dialog.open(AddSocieteComponent
           ,{
-            height: '4000px',
+            height: '-4000px',
         width: '6000px',});
        }
 

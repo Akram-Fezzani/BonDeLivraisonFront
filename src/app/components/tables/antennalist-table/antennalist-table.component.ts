@@ -46,7 +46,7 @@ export class AntennalistTableComponent implements OnInit {
   
     this.dialog.open(AddAntennaComponent
       ,{
-        height: '4000px',
+        height: '-4000px',
     width: '6000px',});
    }
 

@@ -45,7 +45,7 @@ export class CentresTableComponent implements OnInit {
       
         this.dialog.open(AddCenterComponent
           ,{
-            height: '4000px',
+            height: '-4000px',
         width: '6000px',});
        }
 

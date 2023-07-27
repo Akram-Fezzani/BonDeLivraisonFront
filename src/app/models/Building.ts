@@ -10,5 +10,5 @@ export class Building {
     Age!:number;
     rotation!:number;
     CenterId!:String;
-
+    TypeId!:String;
 }

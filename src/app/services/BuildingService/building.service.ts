@@ -15,9 +15,16 @@ export class BuildingService {
 
   }
 
+  GetBuldingsByCenterId(CenterId:string):Observable<any>{
+
+    return this.http.get( 'https://localhost:44357/api/Building/GetBuldingsByCenterId?IdCenter='+CenterId);
+
+  }
+
   AddBuilding(Building:Building ){
     return this._http.post<Building>('https://localhost:44357/api/Building/AjoutBatiment',Building);
   }
+  
   deleteBuilding(BuildingId:string): Observable<any> {
     return this.http.delete( 'https://localhost:44357/api/Building/DeleteBatiment?Id='+BuildingId);
   }

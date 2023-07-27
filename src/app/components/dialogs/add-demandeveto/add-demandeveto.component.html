@@ -7,23 +7,16 @@
         </div>
         <div class="card-body">
           <form class="form">
-            <div class="input-group">
-              <div class="input-group-prepend">
-                <div class="input-group-text">
-                  <i class="tim-icons icon-single-02"> </i>
-                </div>
-              </div>
-              <input
-                class="form-control"
-                placeholder="Neauveau Role"
-                name="role"
-                required
-                minlength="5"
-                type="text"
-                (focus)="focus = true"
-                (blur)="focus = false"
-              />
+            <div class="form-group">
+              <label> Building </label>
+              <select class="form-control">
+                <option value="default">Building</option>
+                <option *ngFor="let Building of Buildings" [value]="Building">
+                  {{ Building.buildingArea }}
+                </option>
+              </select>
             </div>
+
             <br />
             <br />
 

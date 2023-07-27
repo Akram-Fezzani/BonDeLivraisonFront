@@ -28,7 +28,7 @@
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let c of Builgings">
+      <tr *ngFor="let c of Buildings">
         <td>{{ c.buildingCode }}</td>
 
         <td>{{ c.buildingLabel }}</td>
@@ -54,7 +54,7 @@
   </table>
   <pagination
     class="pagination-danger"
-    [totalItems]="Builgings.length"
+    [totalItems]="Buildings.length"
     [itemsPerPage]="5"
     (pageChanged)="pageChanged($event)"
     previousText="&lsaquo;"

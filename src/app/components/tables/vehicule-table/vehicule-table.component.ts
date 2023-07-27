@@ -42,7 +42,7 @@ export class VehiculeTableComponent implements OnInit {
       
         this.dialog.open(AddVehiculeComponent
           ,{
-            height: '4000px',
+            height: '-4000px',
         width: '6000px',});
        }    
 

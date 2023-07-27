@@ -50,7 +50,7 @@ export class DomainTableComponent implements OnInit {
       
         this.dialog.open(AddDomainComponent
           ,{
-            height: '4000px',
+            height: '-4000px',
         width: '6000px',});
        }
 
