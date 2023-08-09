@@ -1,0 +1,53 @@
+<div class="card-header">
+    <h2 class="text-uppercase idle">Liste des Batiments</h2>
+  
+    <a
+      class="btn btn-success btn-simple"
+      href="javascript:void(0) "
+    >
+      Ajouter un batiment
+    </a>
+  </div>
+  <div class="card-body">
+    <table
+      id="datatables-buttons"
+      class="table table-striped"
+      style="width: 100%"
+    >
+      <thead>
+        <tr>
+          <th>Sujet</th>
+          <th>age</th>
+          <th>rotation</th>
+          <th>buildingId</th>
+          <th>Souche</th>
+          <th>rotation</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let c of DemandeVeto">
+          <td>{{ c.sujet }}</td>
+  
+          <td>{{ c.age }}</td>
+          <td>{{ c.rotation }}</td>
+          <td>{{ c.buildingId }}</td>
+  
+          <td>{{ c.souche }}</td>
+          <td>{{ c.rotation }}</td>
+  
+          
+  
+          <td>
+            <button class="btn btn-danger" (click)="Delete(c.buildingId)">
+              Delete
+            </button>
+          </td>
+          <td>
+            <button class="btn btn-success">Update</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+  </div>
+  

@@ -21,7 +21,7 @@ import {MatDialogModule} from '@angular/material/dialog';
 import {MatTabsModule} from '@angular/material/tabs';
 import {MatButtonToggleModule} from '@angular/material/button-toggle';
 import {MatSortModule} from '@angular/material/sort';
-import {MatPaginatorModule} from '@angular/material/paginator';
+import { MatPaginatorModule} from '@angular/material/paginator';
 import {MatTableModule} from '@angular/material/table';
 import {MatInputModule} from '@angular/material/input';
 
@@ -74,6 +74,9 @@ import { ChauffeurTableComponent } from './components/tables/chauffeur-table/cha
 import { VehiculeTableComponent } from './components/tables/vehicule-table/vehicule-table.component';
 import { AddVehiculeComponent } from './components/dialogs/add-vehicule/add-vehicule.component';
 import { AddBuildingComponent } from './components/dialogs/add-building/add-building.component';
+import { DemandevetoTableComponent } from './components/tables/demandeveto-table/demandeveto-table.component';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import { DemandevetobycenterTableComponent } from './components/tables/demandevetobycenter-table/demandevetobycenter-table.component';
 
 
 @NgModule({
@@ -126,6 +129,8 @@ import { AddBuildingComponent } from './components/dialogs/add-building/add-buil
          VehiculeTableComponent,
          AddVehiculeComponent,
          AddBuildingComponent,
+         DemandevetoTableComponent,
+         DemandevetobycenterTableComponent,
 
   ],
   imports: [
@@ -144,6 +149,8 @@ import { AddBuildingComponent } from './components/dialogs/add-building/add-buil
     MatInputModule,
     BsDatepickerModule.forRoot(),
     MatButtonModule,
+    MatFormFieldModule,
+
     MatButtonToggleModule,
     MatDialogModule,
     MatTreeModule,

@@ -7,6 +7,9 @@ import { ToastrService } from 'ngx-toastr';
 import { BuildingService } from 'src/app/services/BuildingService/building.service';
 import { UserService } from 'src/app/services/user/user.service';
 import { AddBuildingComponent } from '../../dialogs/add-building/add-building.component';
+import { TokenStorageService } from 'src/app/services/tokenstorageservice/token-storage.service';
+import { User } from 'src/app/models/User';
+import { AuthService } from 'src/app/services/authservice/auth.service';
 
 @Component({
   selector: 'app-buildings-table',
@@ -20,18 +23,27 @@ export class BuildingsTableComponent implements OnInit {
   sortedData:any;
   searchtext='';
   returnedArray!: any;
+  currentUser!: User;
+  Id:any;
 
 
-  constructor(private us:UserService,private toastr: ToastrService, private BuildingService:BuildingService,private dialog: MatDialog,private _router:Router) { }
+  constructor(private ts:TokenStorageService,private authService: AuthService,private us:UserService,private toastr: ToastrService, private BuildingService:BuildingService,private dialog: MatDialog,private _router:Router) { }
 
   getallBuilgings(){
         
-    this.BuildingService.allBuildings().subscribe( (data:any) =>{
+    const id=this.ts.getId()+"";
+    this.authService.getcurrentuser(id,).subscribe((r:any)=>{
+        this.currentUser=r;
+        this.Id=r.centreId;
+        console.log(this.Id);
+    this.BuildingService.GetBuldingsByCenterId(this.Id).subscribe( (data:any) =>{
 
       this.Buildings=data;
 
-      },
-      (error:any) => console.log(error));  }
+    },
+    (error:any) => console.log(error));  
+}, (error:any) => console.log(error));  }
+
 
       pageChanged(event: PageChangedEvent): void {
         const startItem = (event.page - 1) * event.itemsPerPage;

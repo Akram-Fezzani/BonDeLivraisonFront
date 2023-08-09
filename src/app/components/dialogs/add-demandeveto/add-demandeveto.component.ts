@@ -37,11 +37,8 @@ export class AddDemandevetoComponent implements OnInit {
     this.Id=r.centreId;
     console.log(this.Id);
     this.Building.CenterId=this.Id
-    this.BuildingService.GetBuldingsByCenterId(this.Id,).subscribe( (data:any) =>{
-    this.Buildings=data;
-    console.log(this.Buildings);
-      },
-      (error:any) => console.log(error));  },
+    this.getAllBuildings()
+    },
       (error:any) => console.log(error));  }
 
 
@@ -52,5 +49,14 @@ export class AddDemandevetoComponent implements OnInit {
   ngOnInit(): void {
     this.GetBuldingsByCenterId()
   }
+
+
+  getAllBuildings(){      
+    this.BuildingService.GetBuldingsByCenterId(this.Id,).subscribe( (data:any) =>{
+      this.Buildings=data;
+      console.log(this.Buildings)
+    },
+  (error:any) => console.log(error));  }
+
 
 }

@@ -11,8 +11,8 @@
               <label> Building </label>
               <select class="form-control">
                 <option value="default">Building</option>
-                <option *ngFor="let Building of Buildings" [value]="Building">
-                  {{ Building.buildingArea }}
+                <option *ngFor="let Building of Buildings" [value]="Buildings">
+                  {{ Building.buildingId }}
                 </option>
               </select>
             </div>

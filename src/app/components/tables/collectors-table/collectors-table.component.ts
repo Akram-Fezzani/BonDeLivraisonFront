@@ -9,6 +9,8 @@ import { CenterServiceService } from 'src/app/services/CenterService/center-serv
 import { ChefcenterService } from 'src/app/services/ChefCenterService/chefcenter.service';
 import { TokenStorageService } from 'src/app/services/tokenstorageservice/token-storage.service';
 import { UserService } from 'src/app/services/user/user.service';
+
+
 import { AddCollectorComponent } from '../../dialogs/add-collector/add-collector.component';
 
 @Component({
@@ -24,7 +26,7 @@ export class CollectorsTableComponent implements OnInit {
   returnedArray!: any;
 
   
-  constructor(private us:UserService, private dialog: MatDialog,private _router:Router,private AntennaService:AntenneService,private authService: AuthService,private cs:CenterServiceService,private ts:TokenStorageService, private ChefService:ChefcenterService) { }
+  constructor(private us:UserService,private dialog: MatDialog,private _router:Router,private AntennaService:AntenneService,private authService: AuthService,private cs:CenterServiceService,private ts:TokenStorageService, private ChefService:ChefcenterService) { }
  
  
   getcurrentuser(){
@@ -34,17 +36,14 @@ export class CollectorsTableComponent implements OnInit {
      //console.log(r);
     this.Id=r.centreId;
 
-    this.cs.getCenter(r.centreId).subscribe((x:any)=>{
-      this.currentcenter=x;
 
      
-        this.cs.collectors().subscribe( (data:any) =>{
+        this.cs.getCollectorsByCenter(this.Id).subscribe( (data:any) =>{
           this.collectors=data;
 
           
     },(error:any) => console.log(error));  
        
-    },(error:any) => console.log(error));
     },(error:any) => console.log(error));
     
     }
