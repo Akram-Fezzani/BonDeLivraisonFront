@@ -1,0 +1,61 @@
+
+
+
+<div class="card-header">
+    <h2 class="text-uppercase idle">Liste des Batiments</h2>
+    <div style="width: 200px; margin-left: 85%; margin-top: -3%">
+
+      <input
+      class="form-control"
+      placeholder="Chercher"
+      type="text"
+      [(ngModel)]="searchtext"
+    />
+    </div>
+  </div>
+  <div class="card-body">
+    <table
+      id="datatables-buttons"
+      class="table table-striped"
+      style="width: 100%"
+    >
+      <thead>
+        <tr>
+          <th>BuildingCode</th>
+          <th>BuildingLabel</th>
+          <th>BuildingArea</th>
+          <th>BuildingAdress</th>
+          <th>Couvoir</th>
+          <th>Souche</th>
+          <th>Age</th>
+          <th>rotation</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let c of Buildings | filter : searchtext">
+          <td>{{ c.buildingCode }}</td>
+  
+          <td>{{ c.buildingLabel }}</td>
+          <td>{{ c.buildingArea }}</td>
+          <td>{{ c.buildingAdress }}</td>
+  
+          <td>{{ c.couvoir }}</td>
+          <td>{{ c.souche }}</td>
+  
+          <td>{{ c.age }}</td>
+          <td>{{ c.rotation }}</td>
+  
+          <td>
+            <button class="btn btn-danger" (click)="Delete(c.buildingId)">
+              Delete
+            </button>
+          </td>
+          <td>
+            <button class="btn btn-success">Update</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+   
+  </div>
+  

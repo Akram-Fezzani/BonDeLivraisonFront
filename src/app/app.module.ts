@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
+import {BsDropdownModule} from "ngx-bootstrap/dropdown";
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -77,6 +78,8 @@ import { AddBuildingComponent } from './components/dialogs/add-building/add-buil
 import { DemandevetoTableComponent } from './components/tables/demandeveto-table/demandeveto-table.component';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import { DemandevetobycenterTableComponent } from './components/tables/demandevetobycenter-table/demandevetobycenter-table.component';
+import { CentersbyantennaTableComponent } from './components/tables/centersbyantenna-table/centersbyantenna-table.component';
+import { BuildingByAntennaTableComponent } from './components/tables/building-by-antenna-table/building-by-antenna-table.component';
 
 
 @NgModule({
@@ -131,6 +134,8 @@ import { DemandevetobycenterTableComponent } from './components/tables/demandeve
          AddBuildingComponent,
          DemandevetoTableComponent,
          DemandevetobycenterTableComponent,
+         CentersbyantennaTableComponent,
+         BuildingByAntennaTableComponent,
 
   ],
   imports: [
@@ -144,6 +149,7 @@ import { DemandevetobycenterTableComponent } from './components/tables/demandeve
     TabsModule,
     MatPaginatorModule,
     BsDatepickerModule,
+    BsDropdownModule,
     MatIconModule,
     PaginationModule,
     MatInputModule,

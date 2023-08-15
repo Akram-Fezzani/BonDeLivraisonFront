@@ -54,4 +54,10 @@ export class CenterServiceService {
     return this.http.get( 'https://localhost:44357/api/Collector/GetCollectorsByCenterId?IdCenter='+CenterId);
 
   }
+
+  getCenterByAntenna(AntennaId:String):Observable<any>{
+
+    return this.http.get( 'https://localhost:44357/api/Antenna/GetCentersByAntennaId?IdAntenna='+AntennaId);
+
+  }
 }

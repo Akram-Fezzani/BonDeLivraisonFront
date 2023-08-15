@@ -19,4 +19,10 @@ export class DemandeVetoService {
     return this.http.get( 'https://localhost:44357/api/Center/GetDemandeVetoByCenterId?IdCenter='+CenterId);
 
   }
+
+  getDemandeVetoByAntenna(AntennaId:String):Observable<any>{
+
+    return this.http.get( 'https://localhost:44357/api/Antenna/GetDemandeVetoByAntennaId?IdAntenna='+AntennaId);
+
+  }
 }

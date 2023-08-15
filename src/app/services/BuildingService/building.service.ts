@@ -28,4 +28,10 @@ export class BuildingService {
   deleteBuilding(BuildingId:string): Observable<any> {
     return this.http.delete( 'https://localhost:44357/api/Building/DeleteBatiment?Id='+BuildingId);
   }
+
+  GetBuldingsByAntennaId(AntennaId:string):Observable<any>{
+
+    return this.http.get( 'https://localhost:44357/api/Antenna/GetBuildingsByAntennaId?IdAntenna='+AntennaId);
+
+  }
 }
