@@ -1,61 +1,66 @@
-
-
-
 <div class="card-header">
-    <h2 class="text-uppercase idle">Liste des Batiments</h2>
-    <div style="width: 200px; margin-left: 85%; margin-top: -3%">
+  <h2 class="text-uppercase idle">Liste des Batiments</h2>
 
-      <input
-      class="form-control"
-      placeholder="Chercher"
-      type="text"
-      [(ngModel)]="searchtext"
-    />
-    </div>
+  <br />
+<div class="example-header">
+  <div style="width: 200px; margin-left: 85%; margin-top: -3%">
+
+  <mat-form-field>
+      <input matInput (keyup)="applyFilter($event)" placeholder="Search columns" #input>
+ 
+  </mat-form-field>
   </div>
-  <div class="card-body">
-    <table
-      id="datatables-buttons"
-      class="table table-striped"
-      style="width: 100%"
-    >
-      <thead>
-        <tr>
-          <th>BuildingCode</th>
-          <th>BuildingLabel</th>
-          <th>BuildingArea</th>
-          <th>BuildingAdress</th>
-          <th>Couvoir</th>
-          <th>Souche</th>
-          <th>Age</th>
-          <th>rotation</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr *ngFor="let c of Buildings | filter : searchtext">
-          <td>{{ c.buildingCode }}</td>
-  
-          <td>{{ c.buildingLabel }}</td>
-          <td>{{ c.buildingArea }}</td>
-          <td>{{ c.buildingAdress }}</td>
-  
-          <td>{{ c.couvoir }}</td>
-          <td>{{ c.souche }}</td>
-  
-          <td>{{ c.age }}</td>
-          <td>{{ c.rotation }}</td>
-  
-          <td>
-            <button class="btn btn-danger" (click)="Delete(c.buildingId)">
-              Delete
-            </button>
-          </td>
-          <td>
-            <button class="btn btn-success">Update</button>
-          </td>
-        </tr>
-      </tbody>
-    </table>
-   
-  </div>
-  
+</div>
+
+<div class="example-container mat-elevation-z8">
+</div>
+  <mat-table [dataSource]="dataSource" matSort>
+
+    <ng-container matColumnDef="buildingCode"  >
+      <mat-header-cell *matHeaderCellDef [style.background-color]="color" mat-sort-header class="idle"> buildingCode </mat-header-cell>
+      <mat-cell *matCellDef="let row" [style.background-color]="color" class="text-white"> {{row.buildingCode}} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="buildingLabel"  >
+      <mat-header-cell *matHeaderCellDef [style.background-color]="color" mat-sort-header class="idle"> buildingLabel </mat-header-cell>
+      <mat-cell *matCellDef="let row" [style.background-color]="color" class="text-white"> {{row.buildingLabel}} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="buildingArea"  >
+      <mat-header-cell *matHeaderCellDef [style.background-color]="color" mat-sort-header class="idle"> buildingArea </mat-header-cell>
+      <mat-cell *matCellDef="let row" [style.background-color]="color" class="text-white"> {{row.buildingArea}} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="buildingAdress">
+      <mat-header-cell *matHeaderCellDef [style.background-color]="color" mat-sort-header class="idle"> buildingAdress </mat-header-cell>
+      <mat-cell *matCellDef="let row"[style.background-color]="color" class="text-white"> {{row.buildingAdress}} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="couvoir">
+      <mat-header-cell *matHeaderCellDef [style.background-color]="color" mat-sort-header class="idle"> couvoir </mat-header-cell>
+      <mat-cell *matCellDef="let row" [style.background-color]="color" class="text-white"> {{row.couvoir}} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="souche">
+      <mat-header-cell *matHeaderCellDef [style.background-color]="color" mat-sort-header class="idle"> souche </mat-header-cell>
+      <mat-cell *matCellDef="let row" [style.background-color]="color" class="text-white"> {{row.souche}} </mat-cell>
+    </ng-container>
+
+     <ng-container matColumnDef="age">
+      <mat-header-cell *matHeaderCellDef [style.background-color]="color" mat-sort-header class="idle"> age </mat-header-cell>
+      <mat-cell *matCellDef="let row" [style.background-color]="color" class="text-white"> {{row.age}} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="rotation">
+      <mat-header-cell *matHeaderCellDef [style.background-color]="color" mat-sort-header class="idle"> rotation </mat-header-cell>
+      <mat-cell *matCellDef="let row" [style.background-color]="color" class="text-white"> {{row.rotation}} </mat-cell>
+    </ng-container>
+
+    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: displayedColumns;">
+    </mat-row>
+  </mat-table>
+
+  <mat-paginator class="text-white" [pageSizeOptions]="[5, 10, 25, 100]"></mat-paginator>
+</div>
+

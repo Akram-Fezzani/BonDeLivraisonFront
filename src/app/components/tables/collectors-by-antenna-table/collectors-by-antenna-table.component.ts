@@ -9,16 +9,15 @@ import { CenterServiceService } from 'src/app/services/CenterService/center-serv
 import { ChefcenterService } from 'src/app/services/ChefCenterService/chefcenter.service';
 import { TokenStorageService } from 'src/app/services/tokenstorageservice/token-storage.service';
 import { UserService } from 'src/app/services/user/user.service';
-
-
 import { AddCollectorComponent } from '../../dialogs/add-collector/add-collector.component';
 
 @Component({
-  selector: 'app-collectors-table',
-  templateUrl: './collectors-table.component.html',
-  styleUrls: ['./collectors-table.component.scss']
+  selector: 'app-collectors-by-antenna-table',
+  templateUrl: './collectors-by-antenna-table.component.html',
+  styleUrls: ['./collectors-by-antenna-table.component.scss']
 })
-export class CollectorsTableComponent implements OnInit {
+export class CollectorsByAntennaTableComponent implements OnInit {
+
   currentUser!: User;
   Id:any;
   currentcenter:any;
@@ -26,18 +25,19 @@ export class CollectorsTableComponent implements OnInit {
   returnedArray!: any;
 
   
-  constructor(private us:UserService,private AntenneService:AntenneService,private dialog: MatDialog,private _router:Router,private AntennaService:AntenneService,private authService: AuthService,private cs:CenterServiceService,private ts:TokenStorageService, private ChefService:ChefcenterService) { }
+  constructor(private us:UserService,private dialog: MatDialog,private _router:Router,private AntennaService:AntenneService,private authService: AuthService,private cs:CenterServiceService,private ts:TokenStorageService, private ChefService:ChefcenterService) { }
  
  
   getcurrentuser(){
     const id=this.ts.getId()+"";
     this.authService.getcurrentuser(id,).subscribe((r:any)=>{
      this.currentUser=r;
+     //console.log(r);
     this.Id=r.centreId;
 
 
      
-        this.AntenneService.getCollectorsByAntenna(this.Id).subscribe( (data:any) =>{
+        this.cs.getCollectorsByCenter(this.Id).subscribe( (data:any) =>{
           this.collectors=data;
 
           

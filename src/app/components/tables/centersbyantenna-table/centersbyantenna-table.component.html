@@ -1,82 +1,71 @@
 <div class="card-header">
-    <h2 class="text-uppercase idle">Liste des Centres</h2>
-  
-    <br />
-    <div style="width: 200px; margin-left: 85%; margin-top: -3%">
-      <input
-        class="form-control"
-        placeholder="Chercher"
-        type="text"
-        [(ngModel)]="searchtext"
-      />
-    </div>
-    <a
-      href="javascript:void(0) "
-      class="btn btn-success btn-simple"
-      (click)="opendialog()"
-    >
-      Ajouter un Centre
-    </a>
+  <h2 class="text-uppercase idle">Liste des Batiments</h2>
+
+  <br />
+<div class="example-header">
+  <div style="width: 200px; margin-left: 85%; margin-top: -3%">
+
+  <mat-form-field>
+      <input matInput (keyup)="applyFilter($event)" placeholder="Search columns" #input>
+ 
+  </mat-form-field>
   </div>
-  <br />
-  <br />
-  
-  <br />
-  
-  <table
-    matSort
-    (matSortChange)="sortData($event)"
-    id="datatables-buttons"
-    class="table table-striped"
-    style="width: 100%"
-  >
-    <thead>
-      <tr>
-        <th mat-sort-header="CenterLabel">CenterLabel</th>
-        <th mat-sort-header="RotationActuelle">RotationActuelle</th>
-        <th mat-sort-header="CodeSpecification">CodeSpecification</th>
-        <th mat-sort-header="UsefulSurface">UsefulSurface</th>
-        <th mat-sort-header="BuildingNumber">BuildingNumber</th>
-  
-        <th mat-sort-header="IsActive">IsActive</th>
-        <th mat-sort-header="CenterCode">CenterCode</th>
-  
-        <th mat-sort-header="SocialReason">SocialReason</th>
-        <th mat-sort-header="BlPrefixNumber">BlPrefixNumber</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr *ngFor="let c of centers | filter : searchtext">
-        <td>{{ c.centerLabel }}</td>
-  
-        <td>{{ c.rotationActuelle }}</td>
-  
-        <td>{{ c.codeSpecification }}</td>
-        <td>{{ c.usefulSurface }}</td>
-        <td>{{ c.buildingNumber }}</td>
-        <td>{{ c.isActive }}</td>
-        <td>{{ c.centerCode }}</td>
-        <td>{{ c.socialReason }}</td>
-        <td>{{ c.blPrefixNumber }}</td>
-        <td>
-          <button class="btn btn-danger" (click)="Delete(c.centerId)">
-            Delete
-          </button>
-        </td>
-        <td>
-          <button class="btn btn-success">Update</button>
-        </td>
-      </tr>
-    </tbody>
-  </table>
-  <pagination
-    class="pagination-danger"
-    [totalItems]="centers.length"
-    [itemsPerPage]="5"
-    (pageChanged)="pageChanged($event)"
-    previousText="&lsaquo;"
-    nextText="&rsaquo;"
-    firstText="&laquo;"
-    lastText="&raquo;"
-  ></pagination>
-  
+</div>
+
+<div class="example-container mat-elevation-z8">
+</div>
+  <mat-table [dataSource]="dataSource" matSort>
+
+    <ng-container matColumnDef="centerLabel"  >
+      <mat-header-cell *matHeaderCellDef [style.background-color]="color" mat-sort-header class="idle"> centerLabel </mat-header-cell>
+      <mat-cell *matCellDef="let row" [style.background-color]="color" class="text-white"> {{row.centerLabel}} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="rotationActuelle"  >
+      <mat-header-cell *matHeaderCellDef [style.background-color]="color" mat-sort-header class="idle"> rotationActuelle </mat-header-cell>
+      <mat-cell *matCellDef="let row" [style.background-color]="color" class="text-white"> {{row.rotationActuelle}} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="codeSpecification"  >
+      <mat-header-cell *matHeaderCellDef [style.background-color]="color" mat-sort-header class="idle"> codeSpecification </mat-header-cell>
+      <mat-cell *matCellDef="let row" [style.background-color]="color" class="text-white"> {{row.codeSpecification}} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="usefulSurface">
+      <mat-header-cell *matHeaderCellDef [style.background-color]="color" mat-sort-header class="idle"> usefulSurface </mat-header-cell>
+      <mat-cell *matCellDef="let row"[style.background-color]="color" class="text-white"> {{row.usefulSurface}} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="buildingNumber">
+      <mat-header-cell *matHeaderCellDef [style.background-color]="color" mat-sort-header class="idle"> buildingNumber </mat-header-cell>
+      <mat-cell *matCellDef="let row" [style.background-color]="color" class="text-white"> {{row.buildingNumber}} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="isActive">
+      <mat-header-cell *matHeaderCellDef [style.background-color]="color" mat-sort-header class="idle"> isActive </mat-header-cell>
+      <mat-cell *matCellDef="let row" [style.background-color]="color" class="text-white"> {{row.isActive}} </mat-cell>
+    </ng-container>
+
+     <ng-container matColumnDef="centerCode">
+      <mat-header-cell *matHeaderCellDef [style.background-color]="color" mat-sort-header class="idle"> centerCode </mat-header-cell>
+      <mat-cell *matCellDef="let row" [style.background-color]="color" class="text-white"> {{row.centerCode}} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="socialReason">
+      <mat-header-cell *matHeaderCellDef [style.background-color]="color" mat-sort-header class="idle"> socialReason </mat-header-cell>
+      <mat-cell *matCellDef="let row" [style.background-color]="color" class="text-white"> {{row.socialReason}} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="blPrefixNumber">
+      <mat-header-cell *matHeaderCellDef [style.background-color]="color" mat-sort-header class="idle"> blPrefixNumber </mat-header-cell>
+      <mat-cell *matCellDef="let row" [style.background-color]="color" class="text-white"> {{row.blPrefixNumber}} </mat-cell>
+    </ng-container>
+
+    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: displayedColumns;">
+    </mat-row>
+  </mat-table>
+
+  <mat-paginator class="text-white" [pageSizeOptions]="[5, 10, 25, 100]"></mat-paginator>
+</div>
+

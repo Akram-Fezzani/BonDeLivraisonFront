@@ -1,0 +1,53 @@
+<div class="card-header">
+    <h2 class="text-uppercase idle">Liste des Collecteurs</h2>
+  
+    <a
+      class="btn btn-success btn-simple"
+      href="javascript:void(0) "
+      (click)="opendialog()"
+    >
+      Ajouter Collecteurs
+    </a>
+  </div>
+  <div class="card-body">
+    <table
+      id="datatables-buttons"
+      class="table table-striped"
+      style="width: 100%"
+    >
+      <thead>
+        <tr>
+          <th>Nom</th>
+          <th>Prenom</th>
+          <th>Phone</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let c of collectors">
+          <td>{{ c.nom }}</td>
+  
+          <td>{{ c.prenom }}</td>
+          <td>{{ c.telephone }}</td>
+          <td>
+            <button style="margin-left: 20px" class="btn btn-success">
+              rendre disponible
+            </button>
+            <button style="margin-left: 20px" class="btn btn-danger">
+              rendre indisponible
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <pagination
+      class="pagination-danger"
+      [totalItems]="collectors.length"
+      [itemsPerPage]="5"
+      (pageChanged)="pageChanged($event)"
+      previousText="&lsaquo;"
+      nextText="&rsaquo;"
+      firstText="&laquo;"
+      lastText="&raquo;"
+    ></pagination>
+  </div>
+  

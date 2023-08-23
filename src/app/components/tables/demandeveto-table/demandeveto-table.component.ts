@@ -36,10 +36,8 @@ export class DemandevetoTableComponent implements OnInit {
     this.authService.getcurrentuser(id,).subscribe((r:any)=>{
         this.currentUser=r;
         this.Id=r.centreId;
-        console.log(this.Id);
           this.demandeVetoService.getDemandeVetoByAntenna(this.Id).subscribe( (data:any) =>{
             this.DemandeVeto=data;
-              console.log(this.DemandeVeto);
           },
           (error:any) => console.log(error));  
       }, (error:any) => console.log(error));  }

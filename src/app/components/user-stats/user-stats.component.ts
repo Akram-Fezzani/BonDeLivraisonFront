@@ -5,11 +5,16 @@ import { Router } from '@angular/router';
 //import Chart from 'chart.js';
 
 import { UserService } from 'src/app/services/user/user.service';
+
 import {MatPaginator, MatPaginatorModule} from '@angular/material/paginator';
 import { CenterServiceService } from 'src/app/services/CenterService/center-service.service';
 import * as Chart from 'chart.js';
 import { UserStat } from 'src/app/models/UserStats';
 import { BuildingByCenter } from 'src/app/models/BuildingByCenter';
+
+
+import { StatsService } from 'src/app/services/StatsService/stats.service';
+import { CenterByAntenna } from 'src/app/models/CenterByAntenna';
 
 @Component({
   selector: 'app-user-stats',
@@ -39,7 +44,7 @@ export class UserStatsComponent implements OnInit {
   public clicked: boolean = true;
   public clicked1: boolean = false;
   public clicked2: boolean = false;
-  constructor(private us:UserService,private elementRef: ElementRef, private cs:CenterServiceService,private dialog: MatDialog,private _router:Router) { }
+  constructor(private us:UserService,private statsService:StatsService,private elementRef: ElementRef, private cs:CenterServiceService,private dialog: MatDialog,private _router:Router) { }
 
   ngAfterViewInit() {
     //this.elementRef.nativeElement.ownerDocument
@@ -411,7 +416,7 @@ this.ctx3 = this.canvas3.getContext("2d");
     gradientStroke.addColorStop(1, 'rgba(233,32,16,0.2)');
     gradientStroke.addColorStop(0.4, 'rgba(233,32,16,0.0)');
     gradientStroke.addColorStop(0, 'rgba(233,32,16,0)'); //red colors
-    this.us.getUserPostStats().subscribe((response:UserStat) =>{
+    this.statsService.getUserPostStats().subscribe((response:UserStat) =>{
       console.log(response);
 
     var data = {
@@ -447,7 +452,7 @@ this.ctx3 = this.canvas3.getContext("2d");
   },error => console.log(error));
 
 
-  this.cs.BuildingByCenter().subscribe((response:BuildingByCenter) =>{
+  this.statsService.BuildingByCenter().subscribe((response:BuildingByCenter) =>{
     console.log(response);
   var myChart = new Chart(this.ctx2, {
     type: 'bar',
@@ -479,11 +484,11 @@ gradientStroke.addColorStop(0.4, 'rgba(66,134,121,0.0)'); //green colors
 gradientStroke.addColorStop(0, 'rgba(66,134,121,0)'); //green colors
 
 
-this.us.getUserPostStats().subscribe((response:UserStat) =>{
+this.statsService.GetCenterByAntenna().subscribe((response:CenterByAntenna) =>{
   console.log(response);
 
 var data = {
-  labels: response.roles,
+  labels: response.antennas,
   datasets: [{
     label: "My First dataset",
     fill: true,
@@ -499,7 +504,7 @@ var data = {
     pointHoverRadius: 4,
     pointHoverBorderWidth: 15,
     pointRadius: 4,
-    data: response.users,
+    data: response.centers,
   }]
 };
 

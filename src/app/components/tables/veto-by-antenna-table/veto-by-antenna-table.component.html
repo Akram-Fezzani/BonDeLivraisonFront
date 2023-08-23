@@ -1,0 +1,62 @@
+<div class="card-header">
+    <h2 class="text-uppercase idle">Liste des Vetos</h2>
+  
+    <br />
+<div class="example-header">
+    <div style="width: 200px; margin-left: 85%; margin-top: -3%">
+
+    <mat-form-field>
+        <input matInput (keyup)="applyFilter($event)" placeholder="Search columns" #input>
+   
+    </mat-form-field>
+    </div>
+  </div>
+  
+  <div class="example-container mat-elevation-z8">
+  </div>
+    <mat-table [dataSource]="dataSource" matSort>
+  
+      <ng-container matColumnDef="username"  >
+        <mat-header-cell *matHeaderCellDef [style.background-color]="color" mat-sort-header class="idle"> username </mat-header-cell>
+        <mat-cell *matCellDef="let row" [style.background-color]="color" class="text-white"> {{row.username}} </mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="firstName"  >
+        <mat-header-cell *matHeaderCellDef [style.background-color]="color" mat-sort-header class="idle"> firstName </mat-header-cell>
+        <mat-cell *matCellDef="let row" [style.background-color]="color" class="text-white"> {{row.firstName}} </mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="lastName"  >
+        <mat-header-cell *matHeaderCellDef [style.background-color]="color" mat-sort-header class="idle"> lastName </mat-header-cell>
+        <mat-cell *matCellDef="let row" [style.background-color]="color" class="text-white"> {{row.lastName}} </mat-cell>
+      </ng-container>
+  
+      <ng-container matColumnDef="antennaId">
+        <mat-header-cell *matHeaderCellDef [style.background-color]="color" mat-sort-header class="idle"> antennaId </mat-header-cell>
+        <mat-cell *matCellDef="let row"[style.background-color]="color" class="text-white"> {{row.antennaId}} </mat-cell>
+      </ng-container>
+  
+      <ng-container matColumnDef="email">
+        <mat-header-cell *matHeaderCellDef [style.background-color]="color" mat-sort-header class="idle"> email </mat-header-cell>
+        <mat-cell *matCellDef="let row" [style.background-color]="color" class="text-white"> {{row.email}} </mat-cell>
+      </ng-container>
+  
+      <ng-container matColumnDef="phone">
+        <mat-header-cell *matHeaderCellDef [style.background-color]="color" mat-sort-header class="idle"> phone </mat-header-cell>
+        <mat-cell *matCellDef="let row" [style.background-color]="color" class="text-white"> {{row.phone}} </mat-cell>
+      </ng-container>
+
+       <ng-container matColumnDef="state">
+        <mat-header-cell *matHeaderCellDef [style.background-color]="color" mat-sort-header class="idle"> state </mat-header-cell>
+        <mat-cell *matCellDef="let row" [style.background-color]="color" class="text-white"> {{row.state}} </mat-cell>
+      </ng-container>
+  
+      <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+      <mat-row *matRowDef="let row; columns: displayedColumns;">
+      </mat-row>
+    </mat-table>
+  
+    <mat-paginator class="text-white" [pageSizeOptions]="[5, 10, 25, 100]"></mat-paginator>
+  </div>
+  
+  

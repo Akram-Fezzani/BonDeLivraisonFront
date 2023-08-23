@@ -14,6 +14,7 @@ import { ChefcenterService } from 'src/app/services/ChefCenterService/chefcenter
 import { AddDemandevetoComponent } from '../dialogs/add-demandeveto/add-demandeveto.component';
 import { UserStat } from 'src/app/models/UserStats';
 import * as Chart from 'chart.js';
+import { StatsService } from 'src/app/services/StatsService/stats.service';
 
 @Component({
   selector: 'app-center-stats',
@@ -45,7 +46,7 @@ export class CenterStatsComponent implements OnInit {
   public clicked1: boolean = false;
   public clicked2: boolean = false;
   
-  constructor(private us:UserService, private dialog: MatDialog,private _router:Router,private AntennaService:AntenneService,private authService: AuthService,private cs:CenterServiceService,private ts:TokenStorageService, private ChefService:ChefcenterService) { }
+  constructor(private us:UserService,private statsService:StatsService, private dialog: MatDialog,private _router:Router,private AntennaService:AntenneService,private authService: AuthService,private cs:CenterServiceService,private ts:TokenStorageService, private ChefService:ChefcenterService) { }
 
 
   vet(){
@@ -465,7 +466,7 @@ this.ctx3 = this.canvas3.getContext("2d");
     gradientStroke.addColorStop(1, 'rgba(233,32,16,0.2)');
     gradientStroke.addColorStop(0.4, 'rgba(233,32,16,0.0)');
     gradientStroke.addColorStop(0, 'rgba(233,32,16,0)'); //red colors
-    this.us.getUserPostStats().subscribe((response:UserStat) =>{
+    this.statsService.getUserPostStats().subscribe((response:UserStat) =>{
       console.log(response);
 
     var data = {

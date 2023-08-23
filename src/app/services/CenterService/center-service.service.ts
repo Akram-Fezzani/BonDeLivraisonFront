@@ -46,9 +46,9 @@ export class CenterServiceService {
   }
 
 
-  BuildingByCenter(): Observable<any> {
-    return this.http.get('https://localhost:44357/api/Building/GetBuildingsByCenter');
-  }
+ 
+
+ 
   getCollectorsByCenter(CenterId:String):Observable<any>{
 
     return this.http.get( 'https://localhost:44357/api/Collector/GetCollectorsByCenterId?IdCenter='+CenterId);

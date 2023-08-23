@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { CenterServiceService } from 'src/app/services/CenterService/center-service.service';
 import { UserService } from '../../services/user/user.service';
 import { AuthService } from 'src/app/services/authservice/auth.service';
+import { BuildingByCenter } from 'src/app/models/BuildingByCenter';
 
 
 import { TokenStorageService } from 'src/app/services/tokenstorageservice/token-storage.service';
@@ -14,6 +15,7 @@ import { ChefcenterService } from 'src/app/services/ChefCenterService/chefcenter
 import { AddDemandevetoComponent } from '../dialogs/add-demandeveto/add-demandeveto.component';
 import { UserStat } from 'src/app/models/UserStats';
 import * as Chart from 'chart.js';
+import { StatsService } from 'src/app/services/StatsService/stats.service';
 
 @Component({
   selector: 'app-antenna-stats',
@@ -45,7 +47,7 @@ export class AntennaStatsComponent implements OnInit {
   public clicked1: boolean = false;
   public clicked2: boolean = false;
   
-  constructor(private us:UserService, private dialog: MatDialog,private _router:Router,private AntennaService:AntenneService,private authService: AuthService,private cs:CenterServiceService,private ts:TokenStorageService, private ChefService:ChefcenterService) { }
+  constructor(private us:UserService,private statsService:StatsService, private dialog: MatDialog,private _router:Router,private AntennaService:AntenneService,private authService: AuthService,private cs:CenterServiceService,private ts:TokenStorageService, private ChefService:ChefcenterService) { }
 
 
   vet(){
@@ -65,29 +67,22 @@ export class AntennaStatsComponent implements OnInit {
     const id=this.ts.getId()+"";
     this.authService.getcurrentuser(id,).subscribe((r:any)=>{
      this.currentUser=r;
-     //console.log(r);
     this.Id=r.centreId;
-    console.log(this.Id);
 
     this.cs.getCenter(r.centreId).subscribe((x:any)=>{
       this.currentcenter=x;
-      console.log(this.currentcenter);
       this.rotationActuelle=this.currentcenter.rotationActuelle;
-      console.log(this.rotationActuelle);
       this.usefulSurface=this.currentcenter.usefulSurface;
 
       this.cs.getnumberofcollectors(r.centreId).subscribe( (data:any) =>{
         this.nbrcollectors=data;
-        console.log(data);
         this.cs.collectors().subscribe( (data:any) =>{
           this.collectors=data;
-          console.log(this.collectors);
 
           this.AntennaService.antenna(r.centreId).subscribe( (data:any) =>{
 
             this.antenna=data;
             this.antennaLabel=data.antennaLabel; 
-            console.log(this.antenna);
   
             },
             (error:any) => console.log(error)); 
@@ -116,7 +111,6 @@ export class AntennaStatsComponent implements OnInit {
     this.cs.getnumberofcollectors(id).subscribe( (data:any) =>{
       this.nbrActiveUsers = data;
       this.nbrcollectors=data;
-      console.log(data);
        },
       (error:any) => console.log(error)); }
 
@@ -137,7 +131,6 @@ export class AntennaStatsComponent implements OnInit {
         
         this.us.chefcenters().subscribe( (data:any) =>{
           this.users=data;
-          console.log(this.Contributors);
 
           },
           (error:any) => console.log(error));  }
@@ -465,8 +458,8 @@ this.ctx3 = this.canvas3.getContext("2d");
     gradientStroke.addColorStop(1, 'rgba(233,32,16,0.2)');
     gradientStroke.addColorStop(0.4, 'rgba(233,32,16,0.0)');
     gradientStroke.addColorStop(0, 'rgba(233,32,16,0)'); //red colors
-    this.us.getUserPostStats().subscribe((response:UserStat) =>{
-      console.log(response);
+    this.statsService.getUserPostStats().subscribe((response:UserStat) =>{
+      //console.log(response);
 
     var data = {
       labels: response.roles,
@@ -500,8 +493,35 @@ this.ctx3 = this.canvas3.getContext("2d");
 
   },error => console.log(error));
 
+  const id=this.ts.getId()+"";
+  this.authService.getcurrentuser(id,).subscribe((r:any)=>{
+   this.currentUser=r;
+  this.Id=r.centreId;
 
+  this.statsService.BuildingByCenterByAntennaId(this.Id).subscribe((response:BuildingByCenter) =>{
+    console.log(response);
+  var myChart = new Chart(this.ctx2, {
+    type: 'bar',
 
+    data: {
+      labels: response.centers,
+      datasets: [{
+        label: "Batiments Par Centre",
+        fill: true,
+        backgroundColor: gradientStroke,
+        hoverBackgroundColor: gradientStroke,
+        borderColor: '#1f8ef1',
+        borderWidth: 2,
+        borderDash: [],
+        borderDashOffset: 0.0,
+        data: response.buildings,
+      }]
+    },
+    options: gradientBarChartConfiguration
+  });
+
+},(error:any) => console.log(error));
+},(error:any) => console.log(error));
 
 
 
@@ -509,6 +529,41 @@ gradientStroke.addColorStop(1, 'rgba(66,134,121,0.15)');
 gradientStroke.addColorStop(0.4, 'rgba(66,134,121,0.0)'); //green colors
 gradientStroke.addColorStop(0, 'rgba(66,134,121,0)'); //green colors
 
+
+this.statsService.getUserPostStats().subscribe((response:UserStat) =>{
+ // console.log(response);
+
+var data = {
+  labels: response.roles,
+  datasets: [{
+    label: "My First dataset",
+    fill: true,
+    backgroundColor: gradientStroke,
+    borderColor: '#00d6b4',
+    borderWidth: 2,
+    borderDash: [],
+    borderDashOffset: 0.0,
+    pointBackgroundColor: '#00d6b4',
+    pointBorderColor: 'rgba(255,255,255,0)',
+    pointHoverBackgroundColor: '#00d6b4',
+    pointBorderWidth: 20,
+    pointHoverRadius: 4,
+    pointHoverBorderWidth: 15,
+    pointRadius: 4,
+    data: response.users,
+  }]
+};
+
+var myChart = new Chart(this.ctx3, {
+  type: 'line',
+  data: data,
+  options: gradientChartOptionsConfigurationWithTooltipGreen
+
+});
+
+
+var gradientStroke = this.ctx3.createLinearGradient(0, 230, 0, 50);
+},error => console.log(error));
 
 
 

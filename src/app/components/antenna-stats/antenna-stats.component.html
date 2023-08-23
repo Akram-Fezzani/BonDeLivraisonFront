@@ -147,9 +147,8 @@
   <div class="col-lg-4">
     <div class="card card-chart">
       <div class="card-header">
-        <h3 class="card-title">
-          <i class="tim-icons icon-send text-success"> </i>
-          Commands
+        <h3 class="card-title text-uppercase font-weight-bold ">
+          Batiments par centre
         </h3>
       </div>
       <div class="card-body">
@@ -194,7 +193,12 @@
           <mat-tab label="Buildings">
           <app-building-by-antenna-table></app-building-by-antenna-table>
         </mat-tab>
-
+        <mat-tab label="Vetos">
+        <app-veto-by-antenna-table></app-veto-by-antenna-table>
+      </mat-tab>
+      <mat-tab label="collectors">
+          <app-collectors-by-antenna-table></app-collectors-by-antenna-table>
+      </mat-tab>
         </mat-tab-group>
       </div>
     </div>

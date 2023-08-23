@@ -25,4 +25,11 @@ export class AntenneService {
   deleteAntenna(antennaId:string): Observable<any> {
     return this.http.delete( 'https://localhost:44357/api/Antenna/DeleteAntenna?Id='+antennaId);
   }
+
+
+  getCollectorsByAntenna(AntennaId:string):Observable<any>{
+
+    return this.http.get( 'https://localhost:44357/api/Antenna/GetCollectorsByAntennaId?IdAntenna='+AntennaId);
+
+  }
 }

@@ -23,7 +23,7 @@ import {MatTabsModule} from '@angular/material/tabs';
 import {MatButtonToggleModule} from '@angular/material/button-toggle';
 import {MatSortModule} from '@angular/material/sort';
 import { MatPaginatorModule} from '@angular/material/paginator';
-import {MatTableModule} from '@angular/material/table';
+import {MatTableDataSource, MatTableModule} from '@angular/material/table';
 import {MatInputModule} from '@angular/material/input';
 
 import { AntennaStatsComponent } from './components/antenna-stats/antenna-stats.component';
@@ -80,6 +80,8 @@ import {MatFormFieldModule} from '@angular/material/form-field';
 import { DemandevetobycenterTableComponent } from './components/tables/demandevetobycenter-table/demandevetobycenter-table.component';
 import { CentersbyantennaTableComponent } from './components/tables/centersbyantenna-table/centersbyantenna-table.component';
 import { BuildingByAntennaTableComponent } from './components/tables/building-by-antenna-table/building-by-antenna-table.component';
+import { VetoByAntennaTableComponent } from './components/tables/veto-by-antenna-table/veto-by-antenna-table.component';
+import { CollectorsByAntennaTableComponent } from './components/tables/collectors-by-antenna-table/collectors-by-antenna-table.component';
 
 
 @NgModule({
@@ -136,10 +138,14 @@ import { BuildingByAntennaTableComponent } from './components/tables/building-by
          DemandevetobycenterTableComponent,
          CentersbyantennaTableComponent,
          BuildingByAntennaTableComponent,
+         VetoByAntennaTableComponent,
+         CollectorsByAntennaTableComponent,
 
   ],
   imports: [
     BrowserModule,
+    MatPaginatorModule,
+
     AppRoutingModule,
     CollapseModule,
     MatBadgeModule,
@@ -156,7 +162,6 @@ import { BuildingByAntennaTableComponent } from './components/tables/building-by
     BsDatepickerModule.forRoot(),
     MatButtonModule,
     MatFormFieldModule,
-
     MatButtonToggleModule,
     MatDialogModule,
     MatTreeModule,
