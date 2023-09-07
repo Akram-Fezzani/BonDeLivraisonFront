@@ -60,7 +60,7 @@
             [routerLink]="['/login']"
             href="javascript:void(0)"
           >
-            <i class="fa-solid fa-right-to-bracket"></i>Sing in
+            <i class="fa-solid fa-right-to-bracket"></i>Connecter
           </a>
         </li>
 
@@ -188,6 +188,7 @@
         </li>
         <li *ngIf="currentUser != null" class="dropdown nav-item" dropdown>
           <a
+          
             class="dropdown-toggle nav-link dropdown-toggle"
             data-toggle="dropdown"
             dropdownToggle
@@ -199,38 +200,38 @@
               </a>
             </div>
           </a>
-          <div class="dropdown-menu dropdown-with-icons" *dropdownMenu>
+
+          <div 
+          style="background: rgb(36, 37, 38)"
+
+          class="dropdown-menu dropdown-with-icons" *dropdownMenu>
             <a
-              class="dropdown-item"
-              style="color: black"
+              class="dropdown-item text-white"
               [routerLink]="['/profile', currentUser.id]"
             >
               <i class="fa fa-user"></i> Profile
             </a>
 
             <a
-              class="dropdown-item"
-              style="color: black; cursor: pointer"
+              class="dropdown-item text-white"
+
+              style=" cursor: pointer"
+              
+
               (click)="signOut()"            >
               <i class="fa fa-sign-out" aria-hidden="true"></i> Sign out
             </a>
+            <hr stle="color:red">
+            <a class="dropdown-item  text-white"  (click)="changeDashboardColor('black-content')">
+              Dark Mode
+           </a>
+           <a class="dropdown-item text-white" (click)="changeDashboardColor('white-content')">
+            Light Mode
+           </a>
           </div>
         </li>
-        <li class="adjustments-line text-center color-change">
-          <button (click)="changeDashboardColor('white-content')">
-            LIGHT MODE
-          </button>
-          <button
-            [ngClass]="{ active: countsColor === 'green' }"
-            (click)="changecountsColor('green')"
-          >
-            table
-          </button>
-
-          <button (click)="changeDashboardColor('black-content')">
-            DARK MODE
-          </button>
-        </li>
+        
+      
       </ul>
     </div>
   </div>

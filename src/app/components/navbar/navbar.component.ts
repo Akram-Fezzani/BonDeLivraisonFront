@@ -11,6 +11,7 @@ import { NotificationForum } from "src/app/models/NotificationForum";
 import { NotificationService } from "src/app/services/notification/notification.service";
 import { ChatMessage } from "src/app/models/ChatMessage";
 import { WebsocketService } from "src/app/services/websocket/websocket.service";
+import { AuthService } from 'src/app/services/authservice/auth.service';
 
 @Component({
   selector: 'app-navbar',
@@ -24,6 +25,7 @@ export class NavbarComponent implements OnInit, OnDestroy {
     src: ['assets\\sounds\\notifSound.mp3']
   });
   isCollapsed = true;
+  Id:any;
   faCoffee = faCoffee;
   currentUser!:any;
   static instance: NavbarComponent;
@@ -38,7 +40,7 @@ export class NavbarComponent implements OnInit, OnDestroy {
   notifs: NotificationForum [] = [];
   public countsColor: string = "red";
 
-  constructor(private us: UserService,private router: Router,private tokenStorage:TokenStorageService,private websocketService:WebsocketService, private notificationService:NotificationService) {}
+  constructor(private us: UserService,private router: Router,private authService: AuthService,private tokenStorage:TokenStorageService,private websocketService:WebsocketService, private notificationService:NotificationService) {}
   scrollToDownload(element: any) {
     element.scrollIntoView({ behavior: "smooth" });
   }
@@ -50,20 +52,29 @@ export class NavbarComponent implements OnInit, OnDestroy {
     },);
   }
   ngOnInit() {
-    console.log(this.currentUser);
     NavbarComponent.instance = this;
-    this.currentUser = AppComponent.instance.getCurrentUser();
-    if(this.currentUser != null) {
-      this.notificationService.list(this.currentUser.id).subscribe((r:NotificationForum[]) => {
-        for(let not of r) {
-          if (!not.viewed) {
-            this.notViewdNotifs++;
-          }
+    const id=this.tokenStorage.getId()+"";
+    this.authService.getcurrentuser(id,).subscribe((r:any)=>{
+            this.currentUser=r;
+            this.Id=r.userId;
+
+            if(this.currentUser != null) {
+            this.notificationService.Notiflist(this.Id).subscribe((r:NotificationForum[]) => {
+            for(let not of r) {
+              if (!not.viewed) {
+                 this.notViewdNotifs++;
+              }
+            }
+          this.notifs = r;
+          },(error: any) => console.log(error));
         }
-        this.notifs = r;
-      },error => console.log(error));
-     
-    }
+    }, (error:any) => console.log(error));  
+
+      this.websocketService._connectForum(this.currentUser.id);
+      this.websocketService.navBarComp.subscribe((message:ChatMessage) => {
+        this.reloadFromWebSocket(message);
+      });
+    
   }
   ngOnDestroy() {
     var body = document.getElementsByTagName("body")[0];
@@ -80,7 +91,6 @@ export class NavbarComponent implements OnInit, OnDestroy {
   getUserByusername(){
 this.us.getUserByusername(this.form.search).subscribe((r:any)=>{
   this.result= r;
-  console.log(this.result);
 },(error:any) => console.log(error));
 
 }
@@ -112,7 +122,7 @@ this.us.getUserByusername(this.form.search).subscribe((r:any)=>{
 
   clearAllNotifications($event: MouseEvent) {
     for(let notif of this.notifs) {
-      this.notificationService.deleteNotif(notif.notifId).subscribe(()=>{
+      this.notificationService.deleteNotif(notif.notificationId).subscribe(()=>{
         this.notifs.splice(this.notifs.indexOf(notif),1);
       },error => console.log(error));
     }
@@ -126,9 +136,7 @@ this.us.getUserByusername(this.form.search).subscribe((r:any)=>{
   }
 
   deleteNotif(ntf: NotificationForum) {
-      this.notificationService.deleteNotif(ntf.notifId).subscribe(()=>{
-        this.notifs.splice(this.notifs.indexOf(ntf),1);
-      },error => console.log(error));
+     console.log (ntf)
   }
 
   changeDashboardColor(color: string){

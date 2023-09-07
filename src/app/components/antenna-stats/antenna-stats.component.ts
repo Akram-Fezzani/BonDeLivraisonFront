@@ -499,7 +499,6 @@ this.ctx3 = this.canvas3.getContext("2d");
   this.Id=r.centreId;
 
   this.statsService.BuildingByCenterByAntennaId(this.Id).subscribe((response:BuildingByCenter) =>{
-    console.log(response);
   var myChart = new Chart(this.ctx2, {
     type: 'bar',
 

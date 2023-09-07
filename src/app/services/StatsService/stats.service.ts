@@ -29,4 +29,19 @@ export class StatsService {
   BuildingByCenterByAntennaId(AntennaId:string): Observable<any> {
     return this.http.get('https://localhost:44357/api/Antenna/GetBuildingsByCenter?IdAntenna='+AntennaId);
   }
+
+
+  //CenterStats
+
+  GetBeByStateByCenter(CenterId:string): Observable<any> {
+    return this.http.get('https://localhost:44358/api/BE/GetBeByStateByCenter?centerId='+CenterId);
+  }
+
+  GetBlByStateByCenter(CenterId:string): Observable<any> {
+    return this.http.get('https://localhost:44358/api/BL/GetBeByStateByCenter?centerId='+CenterId);
+  }
+
+  GetCommandByClients(): Observable<any> {
+    return this.http.get('  https://localhost:44358/api/Client/GetCammandByClient');
+  }
 }

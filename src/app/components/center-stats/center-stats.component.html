@@ -4,10 +4,13 @@
       <div class="card-body">
         <div class="row">
           <div class="col">
-            <h3 class="card-title">Rotation Actuelle</h3>
-            <span class="h2 font-weight-bold mb-0">
+            <h3 class="text-uppercase font-weight-bold idle">
+                Rotation Actuelle
+            </h3>
+            <h3 class="h3 text-uppercase font-weight-bold mb-0">
+
               {{ rotationActuelle }}
-            </span>
+            </h3>
           </div>
         </div>
       </div>
@@ -18,10 +21,12 @@
       <div class="card-body">
         <div class="row">
           <div class="col">
-            <h3 class="card-title">Useful Surface</h3>
-            <span class="h2 font-weight-bold mb-0">
+            <h3 class="text-uppercase font-weight-bold idle">
+              Useful Surface
+            </h3>
+            <h3 class="h3 text-uppercase font-weight-bold mb-0">
               {{ usefulSurface }}
-            </span>
+            </h3>
           </div>
         </div>
       </div>
@@ -32,10 +37,11 @@
       <div class="card-body">
         <div class="row">
           <div class="col">
-            <h3 class="card-title">Collectors</h3>
-            <span class="h2 font-weight-bold mb-0">
-              {{ nbrActiveUsers }}
-            </span>
+            <h3 class="text-uppercase font-weight-bold idle">
+              Collectors</h3>
+              <h3 class="h3 text-uppercase font-weight-bold mb-0">
+                {{ nbrcollectors }}
+              </h3>  
           </div>
         </div>
       </div>
@@ -46,10 +52,11 @@
       <div class="card-body">
         <div class="row">
           <div class="col">
-            <h3 class="card-title">ANTENNE</h3>
-            <span class="h2 font-weight-bold mb-0">
-              {{ antennaLabel }}
-            </span>
+            <h3 class="text-uppercase font-weight-bold idle">
+              ANTENNE</h3>
+              <h3 class="h3 text-uppercase font-weight-bold mb-0">
+                {{ antennaLabel }}
+              </h3>
           </div>
         </div>
       </div>
@@ -62,7 +69,8 @@
     <div class="card card-chart">
       <div class="card-header">
         <h5 class="card-category"></h5>
-        <h3 class="card-title">Articles by Center</h3>
+        <h3 class="card-title text-uppercase font-weight-bold">
+          bon d'expedition par statue</h3>
       </div>
       <div class="card-body">
         <div class="chart-area">
@@ -90,7 +98,9 @@
     <div class="card card-chart">
       <div class="card-header">
         <h5 class="card-category"></h5>
-        <h3 class="card-title">by type</h3>
+        <h3 class="card-title text-uppercase font-weight-bold">
+          bon de livraison par statue
+        </h3>
       </div>
       <div class="card-body">
         <div class="chart-area">
@@ -118,7 +128,8 @@
     <div class="card card-chart">
       <div class="card-header">
         <h5 class="card-category"></h5>
-        <h3 class="card-title">Commands</h3>
+        <h3 class="card-title text-uppercase font-weight-bold">
+          Commandes Par client</h3>
       </div>
       <div class="card-body">
         <div class="chart-area">
@@ -153,9 +164,7 @@
     <div style="border-radius: 10px" class="card">
       <div class="card-body idle">
         <mat-tab-group animationDuration="2000ms" [backgroundColor]="'primary'">
-          <mat-tab label="Collectors">
-            <app-collectors-table></app-collectors-table>
-          </mat-tab>
+          
           <mat-tab label="Bons D'expedition">
             <app-be-table></app-be-table>
           </mat-tab>
@@ -165,12 +174,8 @@
           <mat-tab label="Articles">
             <app-product-table></app-product-table>
           </mat-tab>
-          <mat-tab label="Chauffeurs">
-            <app-chauffeur-table></app-chauffeur-table>
-          </mat-tab>
-          <mat-tab label="Vehicules">
-            <app-vehicule-table></app-vehicule-table>
-          </mat-tab>
+         
+          
           <mat-tab label="Buildings">
 
           <app-buildings-table></app-buildings-table>

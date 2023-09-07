@@ -15,6 +15,11 @@ import { AddDemandevetoComponent } from '../dialogs/add-demandeveto/add-demandev
 import { UserStat } from 'src/app/models/UserStats';
 import * as Chart from 'chart.js';
 import { StatsService } from 'src/app/services/StatsService/stats.service';
+import { BeByStateByCenter } from 'src/app/models/BeByStateByCenter';
+import { BlByStateByCenter } from 'src/app/models/BlByState';
+import { client } from 'stompjs';
+import { Client } from 'src/app/models/Client';
+import { CommandByClients } from 'src/app/models/CommandByClients';
 
 @Component({
   selector: 'app-center-stats',
@@ -66,29 +71,28 @@ export class CenterStatsComponent implements OnInit {
     const id=this.ts.getId()+"";
     this.authService.getcurrentuser(id,).subscribe((r:any)=>{
      this.currentUser=r;
-     //console.log(r);
     this.Id=r.centreId;
-    console.log(this.Id);
+    //console.log(this.Id);
 
     this.cs.getCenter(r.centreId).subscribe((x:any)=>{
       this.currentcenter=x;
-      console.log(this.currentcenter);
+      //console.log(this.currentcenter);
       this.rotationActuelle=this.currentcenter.rotationActuelle;
-      console.log(this.rotationActuelle);
+      //console.log(this.rotationActuelle);
       this.usefulSurface=this.currentcenter.usefulSurface;
 
       this.cs.getnumberofcollectors(r.centreId).subscribe( (data:any) =>{
         this.nbrcollectors=data;
-        console.log(data);
+       // console.log(data);
         this.cs.collectors().subscribe( (data:any) =>{
           this.collectors=data;
-          console.log(this.collectors);
+        //  console.log(this.collectors);
 
           this.AntennaService.antenna(r.centreId).subscribe( (data:any) =>{
 
             this.antenna=data;
             this.antennaLabel=data.antennaLabel; 
-            console.log(this.antenna);
+          //  console.log(this.antenna);
   
             },
             (error:any) => console.log(error)); 
@@ -117,7 +121,7 @@ export class CenterStatsComponent implements OnInit {
     this.cs.getnumberofcollectors(id).subscribe( (data:any) =>{
       this.nbrActiveUsers = data;
       this.nbrcollectors=data;
-      console.log(data);
+     // console.log(data);
        },
       (error:any) => console.log(error)); }
 
@@ -154,7 +158,6 @@ export class CenterStatsComponent implements OnInit {
     //this.chefcenters();
     //this.getcurrentcenter();
    
-
 
 
 
@@ -463,16 +466,43 @@ this.ctx3 = this.canvas3.getContext("2d");
 
     var gradientStroke = this.ctx1.createLinearGradient(0, 230, 0, 50);
 
+
     gradientStroke.addColorStop(1, 'rgba(233,32,16,0.2)');
     gradientStroke.addColorStop(0.4, 'rgba(233,32,16,0.0)');
     gradientStroke.addColorStop(0, 'rgba(233,32,16,0)'); //red colors
-    this.statsService.getUserPostStats().subscribe((response:UserStat) =>{
-      console.log(response);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    const id=this.ts.getId()+"";
+    this.authService.getcurrentuser(id,).subscribe((r:any)=>{
+     this.currentUser=r;
+    this.Id=r.centreId;
+    this.statsService.GetBeByStateByCenter(this.Id).subscribe((response:BeByStateByCenter) =>{
+      //console.log(response);
 
     var data = {
-      labels: response.roles,
+      labels: response.state,
       datasets: [{
-        label: "Users by role",
+        label: "BE par Statue",
         fill: true,
         backgroundColor: gradientStroke,
         borderColor: '#ec250d',
@@ -486,7 +516,7 @@ this.ctx3 = this.canvas3.getContext("2d");
         pointHoverRadius: 4,
         pointHoverBorderWidth: 15,
         pointRadius: 4,
-        data: response.users,
+        data: response.bes,
       }]
     };
 
@@ -499,25 +529,126 @@ this.ctx3 = this.canvas3.getContext("2d");
 
 
 
+    },(error:any) => console.log(error));
+    },(error:any) => console.log(error));
+
+    this.statsService.GetCommandByClients().subscribe((response:CommandByClients) =>{
+     // console.log(response);
+    var myChart = new Chart(this.ctx2, {
+      type: 'bar',
+  
+      data: {
+        labels: response.client,
+        datasets: [{
+          label: "Commande Par Client",
+          fill: true,
+          backgroundColor: gradientStroke,
+          hoverBackgroundColor: gradientStroke,
+          borderColor: '#1f8ef1',
+          borderWidth: 2,
+          borderDash: [],
+          borderDashOffset: 0.0,
+          data: response.nbr,
+        }]
+      },
+      options: gradientBarChartConfiguration
+    });
+  
   },error => console.log(error));
+  
+
+
+
+    gradientStroke.addColorStop(1, 'rgba(66,134,121,0.15)');
+    gradientStroke.addColorStop(0.4, 'rgba(66,134,121,0.0)'); //green colors
+    gradientStroke.addColorStop(0, 'rgba(66,134,121,0)'); //green colors
+    
+   
+   // const id=this.ts.getId()+"";
+    this.authService.getcurrentuser(id,).subscribe((r:any)=>{
+     this.currentUser=r;
+    this.Id=r.centreId;
+    this.statsService.GetBlByStateByCenter(this.Id).subscribe((response:BlByStateByCenter) =>{
+      //console.log(response);
+    
+    var data = {
+      labels: response.state,
+      datasets: [{
+        label: "BL par statue",
+        fill: true,
+        backgroundColor: gradientStroke,
+        borderColor: '#00d6b4',
+        borderWidth: 2,
+        borderDash: [],
+        borderDashOffset: 0.0,
+        pointBackgroundColor: '#00d6b4',
+        pointBorderColor: 'rgba(255,255,255,0)',
+        pointHoverBackgroundColor: '#00d6b4',
+        pointBorderWidth: 20,
+        pointHoverRadius: 4,
+        pointHoverBorderWidth: 15,
+        pointRadius: 4,
+        data: response.bls,
+      }]
+    };
+    
+    var myChart = new Chart(this.ctx3, {
+      type: 'line',
+      data: data,
+      options: gradientChartOptionsConfigurationWithTooltipGreen
+    
+    });
+    
+    
+    var gradientStroke = this.ctx3.createLinearGradient(0, 230, 0, 50);
+
+  },(error:any) => console.log(error));
+},(error:any) => console.log(error));    
+    
+
+
+      }
+    
 
 
 
 
 
 
-gradientStroke.addColorStop(1, 'rgba(66,134,121,0.15)');
-gradientStroke.addColorStop(0.4, 'rgba(66,134,121,0.0)'); //green colors
-gradientStroke.addColorStop(0, 'rgba(66,134,121,0)'); //green colors
+      
+    }
+    function UserPostStats(response: any, UserPostStats: any) {
+      throw new Error('Function not implemented.');
+    }
+    
+    
 
 
 
 
 
-  }
 
-}
-function UserPostStats(response: any, UserPostStats: any) {
-  throw new Error('Function not implemented.');
-}
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    

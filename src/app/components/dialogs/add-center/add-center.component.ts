@@ -38,7 +38,7 @@ export class AddCenterComponent implements OnInit {
   AddCenter(){
     this.disableButton = true;
     this.CentreService.AddCenter(this.center,).subscribe( (data:any) =>{
-      console.log(data);
+      //console.log(data);
       data.state=true;
       this.closeDialog()
       this.toastr.success("Un Centre a été Ajouter");

@@ -5,5 +5,6 @@ export class Client {
     Nom!: String;
     Prenom!:String;
     Telephone!:string;
+    CommandNbr!:Number
     BE!:BE[];
 }

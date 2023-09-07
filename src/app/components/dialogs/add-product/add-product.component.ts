@@ -30,7 +30,7 @@ export class AddProductComponent implements OnInit {
     //this.Article.BEId="3fa85f64-5717-4562-b3fc-2c963f66afa6"
     this.ProductService.AddProduct(this.Article).subscribe( (data:any) =>
     {
-          console.log(data);
+          //console.log(data);
           data.state=true;
           this.closeDialog();
           this.toastr.success("Un Article a était Ajouter");

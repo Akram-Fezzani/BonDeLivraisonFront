@@ -31,7 +31,7 @@ export class AddAntennaComponent implements OnInit {
   AddAntenna(){
     this.disableButton = true;
     this.AntenneService.AddAntenne(this.antenne).subscribe( (data:any) =>{
-      console.log(data);
+      //console.log(data);
       data.state=true;
       this.closeDialog();
       this.toastr.success("Une Antenne a été ajouter");

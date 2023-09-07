@@ -35,7 +35,7 @@ export class BuildingsTableComponent implements OnInit {
     this.authService.getcurrentuser(id,).subscribe((r:any)=>{
         this.currentUser=r;
         this.Id=r.centreId;
-        console.log(this.Id);
+       // console.log(this.Id);
     this.BuildingService.GetBuldingsByCenterId(this.Id).subscribe( (data:any) =>{
 
       this.Buildings=data;

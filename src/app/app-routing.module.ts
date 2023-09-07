@@ -23,6 +23,7 @@ const routes: Routes = [
   { path: "Changepassword", component: ChangepasswordComponent },
   { path: "command", component: AddCommandComponent },
 
+  
   { path: 'admin', component: AdminindexComponent ,
 
     children: [

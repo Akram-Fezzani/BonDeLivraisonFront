@@ -45,7 +45,7 @@ export class WebsocketService {
     if (this.stompClient != null) {
       this.stompClient.disconnect();
     }
-    console.log('Disconnected');
+   // console.log('Disconnected');
   }
 
   // on error, schedule a reconnection attempt
@@ -101,7 +101,7 @@ export class WebsocketService {
     if (this.stompClientForum != null) {
       this.stompClientForum.disconnect();
     }
-    console.log('Disconnected');
+  //  console.log('Disconnected');
   }
 
   onMessageReceivedForum(message: any) {

@@ -30,11 +30,11 @@ export class AddBuildingComponent implements OnInit {
     this.authService.getcurrentuser(id,).subscribe((r:any)=>{
       this.currentUser=r;
       this.Id=r.centreId;
-      console.log(this.Id);
+      //console.log(this.Id);
       this.Building.CenterId=this.Id
 
         this.BuildingService.AddBuilding(this.Building,).subscribe( (data:any) =>{
-            console.log(data);
+            //console.log(data);
             data.state=true;
             this.closeDialog()
             this.toastr.success("Un batiment a était Ajouter");
@@ -45,7 +45,7 @@ export class AddBuildingComponent implements OnInit {
   getAllTypes(){      
     this.TypeService.getTypes().subscribe( (data:any) =>{
       this.types=data;
-      console.log(this.types)
+      //console.log(this.types)
     },
   (error:any) => console.log(error));  }
 

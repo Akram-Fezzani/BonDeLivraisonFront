@@ -26,7 +26,7 @@ export class AddChauffeurComponent implements OnInit {
   AddChauffeur(){
     this.disableButton = true;
     this.ChauffeurService.AddChauffeur(this.chauffeur).subscribe( (data:any) =>{
-      console.log(data);
+      //console.log(data);
       data.state=true;
 
       this.closeDialog();

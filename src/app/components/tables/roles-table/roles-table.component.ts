@@ -28,7 +28,7 @@ export class RolesTableComponent implements OnInit {
     this.RoleService.getRoles().subscribe( (data:any) =>{
 
       this.roles=data;
-      console.log(this.roles)
+      //console.log(this.roles)
 
       },
       (error:any) => console.log(error));  }

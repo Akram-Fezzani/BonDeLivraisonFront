@@ -12,8 +12,8 @@ export class NotificationService {
 
   constructor(private http: HttpClient) { }
 
-  list(userId:number): Observable<any> {
-    return this.http.get(this.baseUrl + 'getNotificationsByUser/'+userId);
+  Notiflist(userId:String): Observable<any> {
+    return this.http.get('https://localhost:44317/api/Notification/GetNotificationByUser?Id='+userId);
   }
 
   getNotfiById(notifId: number): Observable<any> {
@@ -24,8 +24,8 @@ export class NotificationService {
     return this.http.post(this.baseUrl+'updateNotif',notif);
   }
 
-  deleteNotif(notifId: number) : Observable<any>{
-    return this.http.delete(this.baseUrl+'deleteNotif/'+notifId);
+  deleteNotif(notifId: String) : Observable<any>{
+    return this.http.delete('https://localhost:44317/api/Notification/DeleteNotification?Id='+notifId);
   }
 
 }

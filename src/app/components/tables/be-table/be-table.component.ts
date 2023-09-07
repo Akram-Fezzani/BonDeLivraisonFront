@@ -31,7 +31,7 @@ export class BeTableComponent implements OnInit {
     this.BEService.allBes().subscribe( (data:any) =>{
 
       this.Bes=data;
-      console.log(data)
+     // console.log(data)
 
       },
       (error:any) => console.log(error));  }

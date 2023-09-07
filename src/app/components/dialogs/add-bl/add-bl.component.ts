@@ -31,7 +31,7 @@ export class AddBlComponent implements OnInit {
     this.BE.Article=this.Article
     this.BL.BE=this.BE
     this.BLService.AddBL(this.BL,).subscribe( (data:any) =>{
-      console.log(data);
+      //console.log(data);
       data.state=true;
       this.closeDialog()
       this.toastr.success("Un bon de livraison a été Ajouter");

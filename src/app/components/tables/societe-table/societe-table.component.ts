@@ -31,7 +31,7 @@ export class SocieteTableComponent implements OnInit {
         this.SocieteService.getSocietes().subscribe( (data:any) =>{
 
           this.societes=data;
-          console.log(this.societes)
+          //console.log(this.societes)
 
           },
           (error:any) => console.log(error));  }

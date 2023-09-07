@@ -26,7 +26,7 @@ export class AddTypeComponent implements OnInit {
   AddType(){
     this.disableButton = true;
     this.TypeService.AddType(this.type).subscribe( (data:any) =>{
-      console.log(data);
+      //console.log(data);
       data.state=true;
       this.closeDialog();
       this.toastr.success("Un type a été ajouter");

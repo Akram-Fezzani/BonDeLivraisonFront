@@ -29,7 +29,7 @@ export class TypeTableComponent implements OnInit {
   getAllTypes(){      
   this.TypeService.getTypes().subscribe( (data:any) =>{
     this.type=data;
-    console.log(this.type)
+    //console.log(this.type)
   },
   (error:any) => console.log(error));  }
 

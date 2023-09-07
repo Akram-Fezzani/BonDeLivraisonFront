@@ -417,7 +417,7 @@ this.ctx3 = this.canvas3.getContext("2d");
     gradientStroke.addColorStop(0.4, 'rgba(233,32,16,0.0)');
     gradientStroke.addColorStop(0, 'rgba(233,32,16,0)'); //red colors
     this.statsService.getUserPostStats().subscribe((response:UserStat) =>{
-      console.log(response);
+      //console.log(response);
 
     var data = {
       labels: response.roles,
@@ -453,7 +453,7 @@ this.ctx3 = this.canvas3.getContext("2d");
 
 
   this.statsService.BuildingByCenter().subscribe((response:BuildingByCenter) =>{
-    console.log(response);
+//console.log(response);
   var myChart = new Chart(this.ctx2, {
     type: 'bar',
 
@@ -485,12 +485,12 @@ gradientStroke.addColorStop(0, 'rgba(66,134,121,0)'); //green colors
 
 
 this.statsService.GetCenterByAntenna().subscribe((response:CenterByAntenna) =>{
-  console.log(response);
+ // console.log(response);
 
 var data = {
   labels: response.antennas,
   datasets: [{
-    label: "My First dataset",
+    label: "centre par antenne ",
     fill: true,
     backgroundColor: gradientStroke,
     borderColor: '#00d6b4',

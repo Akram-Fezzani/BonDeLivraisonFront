@@ -35,7 +35,7 @@ export class AddDemandevetoComponent implements OnInit {
     this.authService.getcurrentuser(id,).subscribe((r:any)=>{
     this.currentUser=r;
     this.Id=r.centreId;
-    console.log(this.Id);
+    //console.log(this.Id);
     this.Building.CenterId=this.Id
     this.getAllBuildings()
     },
@@ -54,7 +54,7 @@ export class AddDemandevetoComponent implements OnInit {
   getAllBuildings(){      
     this.BuildingService.GetBuldingsByCenterId(this.Id,).subscribe( (data:any) =>{
       this.Buildings=data;
-      console.log(this.Buildings)
+      //console.log(this.Buildings)
     },
   (error:any) => console.log(error));  }
 

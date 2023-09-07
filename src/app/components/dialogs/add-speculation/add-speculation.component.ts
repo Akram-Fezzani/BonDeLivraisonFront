@@ -27,7 +27,7 @@ export class AddSpeculationComponent implements OnInit {
   AddSpeculation(){
     this.disableButton = true;
     this.SpeculationService.AddSpeculation(this.speculation).subscribe( (data:any) =>{
-      console.log(data);
+      //console.log(data);
       data.state=true;
       this.closeDialog();
       this.toastr.success("Une Speculation a été ajouter");

@@ -26,7 +26,7 @@ export class ProfilepageComponent implements OnInit {
 
   ngOnInit() {
     this.user={...AppComponent.instance.getCurrentUser()};
-    console.log(this.user);
+    //console.log(this.user);
     this.setUser() 
  
     if(AppComponent.instance.getCurrentUser() != null) {
@@ -41,10 +41,10 @@ export class ProfilepageComponent implements OnInit {
   setUser() {
       this.loading = true;
       const id=this.ts.getId()+"";
-      console.log(id)
+      //console.log(id)
       this.userService.getUserById(id).subscribe((r:User) => {
       this.currentUser = r ;
-      console.log(this.currentUser)
+     // console.log(this.currentUser)
       var body = document.getElementsByTagName("body")[0];
       body.classList.add("profile-page");
     

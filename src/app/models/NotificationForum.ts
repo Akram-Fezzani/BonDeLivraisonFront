@@ -1,7 +1,7 @@
 import {User} from "./User";
 
 export class NotificationForum {
-  notifId!:number;
+  notificationId!:String;
   content!:string;
   senderId!: User;
   sender!:User

@@ -33,7 +33,7 @@ login(){
           this.authService.getcurrentuser(id).subscribe((data:any) =>{
               this.currentUser = data;
           AppComponent.instance.setCurrentUser(this.currentUser)
-          console.log(this.currentUser)
+         // console.log(this.currentUser)
             this.router.navigate(['/']);
             this.toastr.success("welcome");
 if( this.authService.getRoles() == "ADMIN")
@@ -42,7 +42,7 @@ if( this.authService.getRoles() == "ADMIN")
 
 }
 else 
-if( this.authService.getRoles() == "CHEF_CENTER")
+if( this.authService.getRoles() == "CHEF_CENTRE")
 {
   this.router.navigate(['/centerstats']);
 
@@ -70,7 +70,7 @@ if( this.authService.getRoles() == "CHEF_CENTER")
 getcurrentuser(){
 const id=this.ts.getId()+"";
 this.authService.getcurrentuser(id,).subscribe((r:any)=>{
-  console.log(r);
+  //console.log(r);
 },(error:any) => console.log(error));
 
 }

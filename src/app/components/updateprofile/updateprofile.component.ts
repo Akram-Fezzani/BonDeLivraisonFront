@@ -18,11 +18,11 @@ export class UpdateprofileComponent implements OnInit {
 
   ngOnInit(): void {
     this.user={...AppComponent.instance.getCurrentUser()};
-    console.log(this.user);
+   // console.log(this.user);
   }
   updateuser(){
     this.as.updateuser(this.user).subscribe((r:any)=>{
-        console.log(r);
+       // console.log(r);
         this.toastr.success("votre compte est bien modifié ");
 
       },(error:any) =>{ console.log(error)

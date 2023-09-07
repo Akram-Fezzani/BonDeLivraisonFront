@@ -26,7 +26,7 @@ export class AddVehiculeComponent implements OnInit {
   AddVehicule(){
     this.disableButton = true;
     this.VehiculeService.AddVehicule(this.Vehicule).subscribe( (data:any) =>{
-      console.log(data);
+      //console.log(data);
       data.state=true;
 
       this.closeDialog();

@@ -25,7 +25,7 @@ export class AddCollectorComponent implements OnInit {
   AddCollector(){
     this.disableButton = true;
     this.us.addcollector(this.collector).subscribe( (data:any) =>{
-      console.log(data);
+      //console.log(data);
       data.state=true;
       //data.centreId=
       //data.center=  

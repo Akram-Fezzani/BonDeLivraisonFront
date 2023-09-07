@@ -30,7 +30,7 @@ export class SpeculationTableComponent implements OnInit {
         this.SpeculationService.getSpeculations().subscribe( (data:any) =>{
 
           this.speculation=data;
-          console.log(this.speculation)
+          //console.log(this.speculation)
 
           },
           (error:any) => console.log(error));  }

@@ -1,13 +1,31 @@
 <div style="position: fixed; margin-left: 48%; margin-top: 60px">
   <img src="../../../assets/images/Asset 3.png" width="200" />
 </div>
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;600&display=swap" rel="stylesheet">
+<!--Stylesheet-->
 <div style="position: fixed; margin-left: 45%; margin-top: 165px">
-  <img width="500" src="assets/images/Asset 1.png" width="1200" />
+  <img  src="assets/images/Asset 1.png" width="1200" />
 </div>
 <div class="container">
   <div class="row">
     <div class="col-lg-5 col-md-6 offset-lg-0 offset-md-3">
-      <div class="card card-register">
+      <div style= "margin-top: 50%" >
+      <div class="card card-register" style="  
+      margin-top: 10%;
+      height: 520px;
+      width: 400px;
+      background-color: rgba(255,255,255,0.13);
+      position: absolute;
+      transform: translate(-50%,-50%);
+      top: 80%;
+      left: 50%;
+      border-radius: 10px;
+      backdrop-filter: blur(10px);
+      border: 2px solid rgba(255,255,255,0.1);
+      box-shadow: 0 0 40px rgba(8,7,16,0.6);
+      ">
         <div class="card-header">
           <img
             alt="Card image"
@@ -22,9 +40,7 @@
         <div class="card-body">
           <form class="form">
             <div class="input-group">
-              <div class="input-group-prepend">
-                <div class="input-group-text"></div>
-              </div>
+             
               <input
                 class="form-control "
                 placeholder="Username"
@@ -37,9 +53,7 @@
             </div>
 
             <div class="input-group">
-              <div class="input-group-prepend">
-                <div class="input-group-text"></div>
-              </div>
+             
               <input
                 class="form-control"
                 name="password"
@@ -54,7 +68,7 @@
             <div class="card-footer">
               <div style="margin-left: 30%">
                 <a
-                  class="btn btn-danger btn-round btn-lg"
+                  class="btn btn-danger  btn-lg"
                   href="javascript:void(0)"
                   (click)="login()"
                 >
@@ -80,6 +94,7 @@
           </form>
         </div>
       </div>
+    </div>
     </div>
   </div>
 </div>

@@ -20,9 +20,9 @@ user:any;
 reset(){
   if(this.form.password == this.form.confirmpassword){
   const id=this.ts.getId()+"";
-  console.log(id);
+  //console.log(id);
     this.ResetService.reset(id,this.form.password).subscribe((r:any)=>{
-      console.log(r);
+      //console.log(r);
       this.toastr.success("votre mot de passe est bien modifié ");
 this.signOut();
     },(error:any) => {

@@ -28,7 +28,7 @@ export class AddDomainComponent implements OnInit {
   AddDomain(){
     this.disableButton = true;
     this.DomainService.AddDomain(this.domain).subscribe( (data:any) =>{
-      console.log(data);
+      //console.log(data);
       data.state=true;
       this.closeDialog();
       this.toastr.success("Un domaine a été ajouter");

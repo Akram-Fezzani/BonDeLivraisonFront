@@ -31,7 +31,7 @@ export class AddSocieteComponent implements OnInit {
   AddSociete(){
     this.disableButton = true;
     this.ss.addSociete(this.societe).subscribe( (data:any) =>{
-      console.log(data);
+      //console.log(data);
       this.toastr.success("Une Societe a été Ajouter");
 
 

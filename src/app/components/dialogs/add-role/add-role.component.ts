@@ -30,7 +30,7 @@ export class AddRoleComponent implements OnInit {
   AddRole(){
     this.disableButton = true;
     this.rs.AddRole(this.role).subscribe( (data:any) =>{
-      console.log(data);
+      //console.log(data);
       data.state=true;
       this.closeDialog();
       this.toastr.success("Un Role a été ajouter");
