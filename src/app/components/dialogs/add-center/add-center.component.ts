@@ -37,6 +37,7 @@ export class AddCenterComponent implements OnInit {
 
   AddCenter(){
     this.disableButton = true;
+    this.center.antennaId="3fa85f64-5717-4562-b3fc-2c963f66afa6"
     this.CentreService.AddCenter(this.center,).subscribe( (data:any) =>{
       //console.log(data);
       data.state=true;

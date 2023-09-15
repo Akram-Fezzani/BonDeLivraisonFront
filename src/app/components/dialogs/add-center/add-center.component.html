@@ -1,190 +1,150 @@
-<div class="container">
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;600&display=swap" rel="stylesheet">
+
+<div class="content">
   <div class="row">
-    <div class="col-lg-5 col-md-8 mx-auto">
-      <div class="card">
+    <div >
+      <div class="card " style="  
+      maegin-left:65%;
+      height: 520px;
+      width: 700px;
+      background-color: rgba(32, 36, 76, 0);
+      position: absolute;
+      transform: translate(-50%,-50%);
+      top: 50%;
+      left: 50%;
+      border-radius: 10px;
+      backdrop-filter: blur(10px);
+      border: 2px solid rgba(6, 203, 252, 0.655);
+      box-shadow: 0 0 40px rgba(57, 2, 255, 0.259);
+      ">  
+              <br />
         <div class="card-header">
-          <h1 class="card-title">Ajouter un Centre</h1>
+          <h1 class="title">Ajouter un centre</h1>
         </div>
-
         <div class="card-body">
-          <form class="form">
-            <div
-              class="input-group"
-              [ngClass]="{ 'input-group-focus': focus === true }"
-            >
-              <div class="input-group-prepend">
-                <div class="input-group-text"></div>
-              </div>
-              <input
-                class="form-control"
-                placeholder="Center Label"
-                [(ngModel)]="center.CenterLabel"
-                name="CenterLabel"
-                required
-                minlength="5"
-                type="text"
-                (focus)="focus = true"
-                (blur)="focus = false"
-              />
-            </div>
-            <div
-              class="input-group"
-              [ngClass]="{ 'input-group-focus': focus7 === true }"
-            >
-              <div class="input-group-prepend">
-                <div class="input-group-text"></div>
-              </div>
-              <input
-                class="form-control"
-                placeholder="Rotation Actuelle"
-                [(ngModel)]="center.rotationActuelle"
-                name="rotationActuelle"
-                required
-                minlength="5"
-                type="text"
-                (focus)="focus7 = true"
-                (blur)="focus7 = false"
-              />
-            </div>
+          <form>
+            <div class="row">
+              <div class="col-md-6 pr-md-1">
+                <div class="form-group">
+                  <input
+                    class="form-control"
+                    type="text"
+                    name="CenterLabel"
+                    placeholder="CenterLabel "
 
-            <div
-              class="input-group"
-              [ngClass]="{ 'input-group-focus': focus1 === true }"
-            >
-              <div class="input-group-prepend">
-                <div class="input-group-text"></div>
+                    [(ngModel)]="center.CenterLabel"
+                  />
+                </div>
               </div>
-              <input
-                class="form-control"
-                placeholder="Code Specification"
-                [(ngModel)]="center.CodeSpecification"
-                name="codeSpecification"
-                type="text"
-                required
-                minlength="5"
-                (focus)="focus1 = true"
-                (blur)="focus1 = false"
-              />
+              <div class="col-md-6 pl-md-1">
+                <div class="form-group">
+                  <input
+                  class="form-control"
+                  placeholder="CenterCode"
+                  name="CenterCode"
+                  [(ngModel)]="center.CenterCode"
+                  type="text"
+                />
+                </div>
+              </div>
             </div>
+            <div class="row">
+              <div class="col-md-6 pr-md-1">
+                <div class="form-group">
+                  <input
+                    class="form-control"
+                    type="text"
+                    name="blPrefixNumber"
+                    placeholder="blPrefixNumber "
 
-            <div
-              class="input-group"
-              [ngClass]="{ 'input-group-focus': focus2 === true }"
-            >
-              <div class="input-group-prepend">
-                <div class="input-group-text"></div>
+                    [(ngModel)]="center.blPrefixNumber"
+                  />
+                </div>
               </div>
-              <input
+              <div class="col-md-6 pl-md-1">
+                <div class="form-group">
+                  <input
+                    class="form-control"
+                    [(ngModel)]="center.SocialReason"
+                    name="SocialReason"
+                    placeholder="SocialReason "
+                    type="text"
+                  />
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-6 pr-md-1">
+                <div class="form-group">
+                  <input
+                    class="form-control"
+                    type="text"
+                    name="CodeSpecification"
+                    placeholder="CodeSpecification"
+                    [(ngModel)]="center.CodeSpecification"
+                   
+                  />
+                </div>
+              </div>
+              <div class="col-md-6 pl-md-1">
+                <div class="form-group">
+                  <input
+                  class="form-control"
+                  [(ngModel)]="center.rotationActuelle"
+                  name="rotationActuelle"
+                  placeholder="rotationActuelle "
+                  type="text"
+                />
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-6 pr-md-1">
+                <div class="form-group">
+                  <input
+                    class="form-control"
+                    name="BuildingNumber"
+                    [(ngModel)]="center.BuildingNumber"
+                    placeholder="BuildingNumber"
+                    type="text"
+                  />
+                </div>
+              </div>
+              <div class="col-md-6 pl-md-1">
+                <div class="form-group">
+                 
+                <input
                 class="form-control"
-                placeholder="Useful Surface"
-                required
-                type="text"
-                (focus)="focus2 = true"
-                [(ngModel)]="center.usefulSurface"
+                placeholder="usefulSurface"
                 name="usefulSurface"
-                (blur)="focus2 = false"
-              />
-            </div>
-
-            <div
-              class="input-group"
-              [ngClass]="{ 'input-group-focus': focus3 === true }"
-            >
-              <div class="input-group-prepend">
-                <div class="input-group-text"></div>
-              </div>
-              <input
-                class="form-control"
-                placeholder="building Number"
-                required
+                [(ngModel)]="center.usefulSurface"
                 type="text"
-                [(ngModel)]="center.BuildingNumber"
-                name="buildingNumber"
-                (focus)="focus3 = true"
-                (blur)="focus3 = false"
               />
-            </div>
-
-            <div
-              class="input-group"
-              [ngClass]="{ 'input-group-focus': focus4 === true }"
-            >
-              <div class="input-group-prepend">
-                <div class="input-group-text"></div>
+                </div>
               </div>
-              <input
-                class="form-control"
-                placeholder="center Code"
-                [(ngModel)]="center.CenterCode"
-                name="CenterCode"
-                required
-                minlength="5"
-                type="text"
-                (focus)="focus4 = true"
-                (blur)="focus4 = false"
-              />
-            </div>
-            <div
-              class="input-group"
-              [ngClass]="{ 'input-group-focus': focus5 === true }"
-            >
-              <div class="input-group-prepend">
-                <div class="input-group-text"></div>
-              </div>
-              <input
-                class="form-control"
-                placeholder="Social Reason"
-                required
-                type="text"
-                [(ngModel)]="center.SocialReason"
-                name="socialReason"
-                (focus)="focus5 = true"
-                (blur)="focus5 = false"
-              />
-            </div>
-
-            <div
-              class="input-group"
-              [ngClass]="{ 'input-group-focus': focus6 === true }"
-            >
-              <div class="input-group-prepend">
-                <div class="input-group-text"></div>
-              </div>
-              <input
-                class="form-control"
-                placeholder="Bl Prefix Number"
-                required
-                minlength="8"
-                maxlength="8"
-                type="text"
-                [(ngModel)]="center.blPrefixNumber"
-                name="blPrefixNumber"
-                (focus)="focus6 = true"
-                (blur)="focus6 = false"
-              />
-            </div>
-
-            <div class="card-footer">
-              <div class="text-center">
-                <a
-                  class="btn btn-danger"
-                  href="javascript:void(0)"
-                  (click)="AddCenter()"
-                >
-                  Ajouter
-                </a>
-<br>
-                <a
-                  class="btn btn-danger btn-simple"
-                  title="Annuler"
-                  (click)="closeDialog()"
-                  id="Annuler"
-                  >Annuler</a
-                >
-                <br />
-              </div>
+            
             </div>
           </form>
+        </div>
+        <div class="card-footer">
+            <div class="text-center" style="margin-top: -1cm;">
+              <a
+              class="btn btn-danger"
+              href="javascript:void(0)"
+              (click)="AddCenter()"
+            >
+              Ajouter
+            </a>
+            <a
+              class="btn btn-danger btn-simple"
+              title="Annuler"
+              (click)="closeDialog()"
+              id="Annuler"
+              >Annuler</a
+            >
+          </div>
         </div>
       </div>
     </div>

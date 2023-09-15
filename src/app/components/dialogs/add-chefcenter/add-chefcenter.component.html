@@ -1,163 +1,137 @@
-<div class="container">
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;600&display=swap" rel="stylesheet">
+
+<div class="content">
   <div class="row">
-    <div class="col-lg-5 col-md-8 mx-auto">
-      <div class="card">
+    <div >
+      <div class="card " style="  
+      maegin-left:65%;
+      height: 520px;
+      width: 700px;
+      background-color: rgba(32, 36, 76, 0);
+      position: absolute;
+      transform: translate(-50%,-50%);
+      top: 50%;
+      left: 50%;
+      border-radius: 10px;
+      backdrop-filter: blur(10px);
+      border: 2px solid rgba(6, 203, 252, 0.655);
+      box-shadow: 0 0 40px rgba(57, 2, 255, 0.259);
+      ">  
+              <br />
         <div class="card-header">
-          <h1 class="card-title">Ajouter Chef Centre</h1>
+          <h1 class="title">Ajouter un chef centre</h1>
         </div>
-
         <div class="card-body">
-          <form class="form">
-            <div class="input-group">
-              <div class="input-group-prepend">
-                <div class="input-group-text"></div>
+          <form>
+            <div class="row">
+              <div class="col-md-6 pr-md-1">
+                <div class="form-group">
+                  <input
+                    class="form-control"
+                    type="text"
+                    name="username"
+                    placeholder="username "
+                    [(ngModel)]="user.username"
+                    />
+                </div>
+              </div>
+              <div class="col-md-6 pl-md-1">
+                <div class="form-group">
+                  <input
+                  class="form-control"
+                  placeholder="firstName"
+                  name="firstName"
+                  [(ngModel)]="user.firstName"
+                  type="text"
+                />
+                </div>
               </div>
             </div>
-            <div
-              class="input-group"
-              [ngClass]="{ 'input-group-focus': focus === true }"
-            >
-              <div class="input-group-prepend">
-                <div class="input-group-text"></div>
-              </div>
-              <input
-                class="form-control form-control-danger"
-                placeholder="username"
-                [(ngModel)]="user.username"
-                name="username"
-                required
-                minlength="5"
-                type="text"
-                (focus)="focus = true"
-                (blur)="focus = false"
-              />
-            </div>
-            <div
-              class="input-group"
-              [ngClass]="{ 'input-group-focus': focus1 === true }"
-            >
-              <div class="input-group-prepend">
-                <div class="input-group-text"></div>
-              </div>
-              <input
-                class="form-control form-control-danger"
-                placeholder="First Name"
-                [(ngModel)]="user.firstName"
-                name="firstname"
-                required
-                minlength="5"
-                type="text"
-                (focus)="focus1 = true"
-                (blur)="focus1 = false"
-              />
-            </div>
+            <div class="row">
+              <div class="col-md-6 pr-md-1">
+                <div class="form-group">
+                  <input
+                    class="form-control"
+                    type="text"
+                    name="lastName"
+                    placeholder="lastName "
 
-            <div
-              class="input-group"
-              [ngClass]="{ 'input-group-focus': focus2 === true }"
-            >
-              <div class="input-group-prepend">
-                <div class="input-group-text"></div>
+                    [(ngModel)]="user.lastName"
+                  />
+                </div>
               </div>
-              <input
-                class="form-control"
-                placeholder="Last name"
-                [(ngModel)]="user.lastName"
-                name="lastname"
-                type="text"
-                required
-                minlength="5"
-                (focus)="focus2 = true"
-                (blur)="focus2 = false"
-              />
+              <div class="col-md-6 pl-md-1">
+                <div class="form-group">
+                  <input
+                    class="form-control"
+                    [(ngModel)]="user.email"
+                    name="email"
+                    placeholder="email "
+                    type="text"
+                  />
+                </div>
+              </div>
             </div>
-
-            <div
-              class="input-group"
-              [ngClass]="{ 'input-group-focus': focus3 === true }"
-            >
-              <div class="input-group-prepend">
-                <div class="input-group-text"></div>
+            <div class="row">
+              <div class="col-md-6 pr-md-1">
+                <div class="form-group">
+                  <input
+                    class="form-control"
+                    type="text"
+                    name="phone"
+                    placeholder="phone"
+                    [(ngModel)]="user.phone"                   
+                  />
+                </div>
               </div>
-              <input
-                class="form-control"
-                placeholder="Email"
-                required
-                type="text"
-                (focus)="focus3 = true"
-                [(ngModel)]="user.email"
-                name="email"
-                (blur)="focus3 = false"
-              />
+              <div class="col-md-6 pl-md-1">
+                <div class="form-group">
+                  <input
+                  class="form-control"
+                  name="password"
+                  placeholder="password"
+                  type="text"
+                  [(ngModel)]="user.password"
+                />
+                </div>
+              </div>
             </div>
-
-            <div
-              class="input-group"
-              [ngClass]="{ 'input-group-focus': focus4 === true }"
-            >
-              <div class="input-group-prepend">
-                <div class="input-group-text"></div>
+            <div class="row">
+             
+              <div class="col-md-6 pl-md-1">
+                <div class="form-group">
+                 
+                  <select [(ngModel)]="user.centreId" class="form-control">
+                    <option value="default">Centres</option>
+                    <option *ngFor="let center of centers" [value]="center">
+                      {{ center.centerLabel }}
+                    </option>
+                  </select>
+                </div>
               </div>
-              <input
-                class="form-control"
-                placeholder="Phone number"
-                required
-                minlength="8"
-                maxlength="8"
-                type="text"
-                [(ngModel)]="user.phone"
-                name="phone"
-                (focus)="focus4 = true"
-                (blur)="focus4 = false"
-              />
-            </div>
-
-            <div
-              class="input-group"
-              [ngClass]="{ 'input-group-focus': focus5 === true }"
-            >
-              <div class="input-group-prepend">
-                <div class="input-group-text"></div>
-              </div>
-              <input
-                class="form-control"
-                placeholder="Password"
-                [(ngModel)]="user.password"
-                name="password"
-                required
-                minlength="5"
-                type="password"
-                (focus)="focus5 = true"
-                (blur)="focus5 = false"
-              />
-            </div>
-            <select [(ngModel)]="user.centreId" class="form-control">
-              <option value="default">Centres</option>
-              <option *ngFor="let center of centers" [value]="center">
-                {{ center.centerLabel }}
-              </option>
-            </select>
-
-            <div class="card-footer">
-              <div class="text-center">
-                <a
-                  class="btn btn-danger"
-                  href="javascript:void(0)"
-                  (click)="AddChef()"
-                >
-                  Ajouter
-                </a>
-                <br />
-                <a
-                  class="btn btn-danger btn-simple"
-                  title="Annuler"
-                  (click)="closeDialog()"
-                  id="Annuler"
-                  >Annuler</a
-                >
-              </div>
+            
             </div>
           </form>
+        </div>
+        <div class="card-footer">
+            <div class="text-center" style="margin-top: -1cm;">
+              <a
+              class="btn btn-danger"
+              href="javascript:void(0)"
+              (click)="AddChef()"
+            >
+              Ajouter
+            </a>
+            <a
+              class="btn btn-danger btn-simple"
+              title="Annuler"
+              (click)="closeDialog()"
+              id="Annuler"
+              >Annuler</a
+            >
+          </div>
         </div>
       </div>
     </div>

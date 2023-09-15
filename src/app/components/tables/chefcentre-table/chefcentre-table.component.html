@@ -1,11 +1,13 @@
-<div class="card-header">
-  <h2 class="text-uppercase idle">Liste des Chef Centers</h2>
+<div class="card-header" style="">
+  <h2 class="text-uppercase font-weight-bold idle">Liste des Chef Centers</h2>
 
   <div style="width: 200px; margin-left: 85%; margin-top: -3%">
     <input
       class="form-control idle"
       placeholder="Chercher"
       type="text"
+      style=" border: 2px solid rgba(6, 203, 252, 0.655);
+      box-shadow: 0 0 40px rgba(57, 2, 255, 0.259);"
       [(ngModel)]="searchtext"
     />
   </div>
@@ -26,7 +28,7 @@
   (matSortChange)="sortData($event)"
   id="datatables-buttons"
   class="table table-striped"
-  style="width: 100%"
+  style="width: 100% "
 >
   <thead>
     <tr>

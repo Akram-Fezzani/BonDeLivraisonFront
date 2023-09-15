@@ -4,7 +4,7 @@
 
 ::ng-deep .mat-tab-list .mat-tab-labels .mat-tab-label-active {
   color: white;
-  background-color: #f33d46;
+  background-color: rgba(6, 203, 252, 0.655);
 }
 
 ::ng-deep .mat-tab-list .mat-tab-labels {
@@ -19,4 +19,8 @@
 :-ms-input-placeholder {
   /* Internet Explorer 10-11 */
   color: red;
+}
+
+.green{
+  color: #17c8af;
 }

@@ -9,7 +9,7 @@ export class Center {
     BuildingNumber!:number;
     CenterCode!:number;
     blPrefixNumber!:number;
-   
+    antennaId!:string;
 
 
 
