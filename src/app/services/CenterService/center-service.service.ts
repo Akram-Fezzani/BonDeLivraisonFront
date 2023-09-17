@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import {HttpClient} from "@angular/common/http";
-import { Observable } from 'rxjs';
+import { Observable,Subject } from 'rxjs';
 import { Center } from 'src/app/models/Center';
 
 @Injectable({
@@ -59,5 +59,13 @@ export class CenterServiceService {
 
     return this.http.get( 'https://localhost:44357/api/Antenna/GetCentersByAntennaId?IdAntenna='+AntennaId);
 
+  }
+
+  private _listners = new Subject<any>();
+  listen():Observable<any>{
+    return this._listners.asObservable();
+  }
+  filter(filterBy: string){
+    this._listners.next(filterBy);
   }
 }

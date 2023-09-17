@@ -59,6 +59,8 @@ export class TypeTableComponent implements OnInit {
   Delete(SpeculationId:string) {
     this.TypeService.deleteType(SpeculationId).subscribe( (data:any) =>{
           this.toastr.error("Un type a été effacer");
+          this.ngOnInit();
+
     },
   (error:any) => console.log(error));  }
 

@@ -57,6 +57,8 @@ export class ProductTableComponent implements OnInit {
       Delete(UserId:string) {
         this.ProductService.deleteArticle(UserId).subscribe( (data:any) =>{
           this.toastr.error("Un Article a été effacer");
+          this.ngOnInit();
+
         },
         (error:any) => console.log(error));  }
 

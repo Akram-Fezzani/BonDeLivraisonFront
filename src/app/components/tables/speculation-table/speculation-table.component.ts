@@ -65,6 +65,8 @@ export class SpeculationTableComponent implements OnInit {
       Delete(SpeculationId:string) {
         this.SpeculationService.deleteSpeculation(SpeculationId).subscribe( (data:any) =>{
           this.toastr.error("Une Speculation a été effacer");
+          this.ngOnInit();
+
         },
         (error:any) => console.log(error));  }
 

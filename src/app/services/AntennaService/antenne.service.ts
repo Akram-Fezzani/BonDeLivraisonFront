@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Observable,Subject } from 'rxjs';
 import { Antenne } from 'src/app/models/Antenne';
 
 @Injectable({
@@ -31,5 +31,12 @@ export class AntenneService {
 
     return this.http.get( 'https://localhost:44357/api/Antenna/GetCollectorsByAntennaId?IdAntenna='+AntennaId);
 
+  }
+  private _listners = new Subject<any>();
+  listen():Observable<any>{
+    return this._listners.asObservable();
+  }
+  filter(filterBy: string){
+    this._listners.next(filterBy);
   }
 }

@@ -64,6 +64,8 @@ export class DomainTableComponent implements OnInit {
       Delete(SpeculationId:string) {
         this.DomainService.deleteDomain(SpeculationId).subscribe( (data:any) =>{
           this.toastr.error("Un Domaine a été effacer");
+          this.ngOnInit();
+
         },
         (error:any) => console.log(error));  }
 

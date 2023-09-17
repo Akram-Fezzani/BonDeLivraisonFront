@@ -57,6 +57,8 @@ export class VehiculeTableComponent implements OnInit {
       Delete(ChauffeurId:string) {
         this.VehiculeService.deleteVehicule(ChauffeurId).subscribe( (data:any) =>{
           this.toastr.error("Une Vehicule a était éffacer");
+          this.ngOnInit();
+
         },
         (error:any) => console.log(error));  }
 

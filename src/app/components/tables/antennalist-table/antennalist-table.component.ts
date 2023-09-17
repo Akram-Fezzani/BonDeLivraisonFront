@@ -62,6 +62,9 @@ export class AntennalistTableComponent implements OnInit {
   Delete(antennaId:string) {
     this.AntennaService.deleteAntenna(antennaId).subscribe( (data:any) =>{
       this.toastr.error("Un Antenne a été effacer");
+      this.ngOnInit();
+
+
     },
     (error:any) => console.log(error));  }
 

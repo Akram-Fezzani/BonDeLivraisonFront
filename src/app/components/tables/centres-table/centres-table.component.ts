@@ -20,7 +20,14 @@ export class CentresTableComponent implements OnInit {
   returnedArray!: string[];
 
 
-  constructor(private us:UserService,private toastr: ToastrService, private cs:CenterServiceService,private dialog: MatDialog,private _router:Router) { }
+  constructor(private us:UserService,private toastr: ToastrService, private cs:CenterServiceService,private dialog: MatDialog,private _router:Router) 
+  { 
+    this.cs.listen().subscribe((m:any)=>{
+      console.log(m);
+      this.getallcenters();
+    }
+    )
+  }
 
   getallcenters(){
         

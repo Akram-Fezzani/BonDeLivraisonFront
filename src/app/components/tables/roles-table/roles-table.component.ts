@@ -61,6 +61,8 @@ export class RolesTableComponent implements OnInit {
       Delete(RoleId:string) {
         this.RoleService.deleteRole(RoleId).subscribe( (data:any) =>{
           this.toastr.error("Un Role a été effacer");
+          this.ngOnInit();
+
         },
         (error:any) => console.log(error));  }
 

@@ -57,6 +57,8 @@ export class ChauffeurTableComponent implements OnInit {
       Delete(ChauffeurId:string) {
         this.ChauffeurService.deleteChauffeur(ChauffeurId).subscribe( (data:any) =>{
           this.toastr.error("Un Chauffeur a été effacer");
+          this.ngOnInit();
+
         },
         (error:any) => console.log(error));  }
 

@@ -51,6 +51,7 @@ export class AddCenterComponent implements OnInit {
 
       closeDialog(){
         this.dialogRef.close();
+        this.CentreService.filter('Register click')
       }
       
 

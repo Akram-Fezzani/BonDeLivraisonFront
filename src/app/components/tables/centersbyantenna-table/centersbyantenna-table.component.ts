@@ -72,6 +72,8 @@ export class CentersbyantennaTableComponent implements OnInit {
       Delete(CenterId:string) {
         this.cs.deleteCenter(CenterId).subscribe( (data:any) =>{
           this.toastr.error("Un Centre a été effacer");
+          this.ngOnInit();
+
         },
         (error:any) => console.log(error));  }
 

@@ -68,6 +68,8 @@ export class SocieteTableComponent implements OnInit {
       Delete(societeId:string) {
         this.SocieteService.deleteSociete(societeId).subscribe( (data:any) =>{
           this.toastr.error("Une société a été effacer");
+          this.ngOnInit();
+
         },
         (error:any) => console.log(error));  }
   ngOnInit(): void {

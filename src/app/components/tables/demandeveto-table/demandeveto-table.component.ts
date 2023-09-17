@@ -50,6 +50,8 @@ export class DemandevetoTableComponent implements OnInit {
       Delete(BLId:string) {
         this.BuildingService.deleteBuilding(BLId).subscribe( (data:any) =>{
           this.toastr.error("Un bon de livraison a été effacer");
+          this.ngOnInit();
+
         },
         (error:any) => console.log(error));  }
 

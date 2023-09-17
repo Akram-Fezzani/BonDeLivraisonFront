@@ -58,6 +58,8 @@ export class ChefcentreTableComponent implements OnInit {
       Delete(UserId:string) {
         this.ChefCenterService.deleteChefCenter(UserId).subscribe( (data:any) =>{
           this.toastr.error("Un Chef Centre a été effacer");
+          this.ngOnInit();
+
         },
         (error:any) => console.log(error));  }
 
