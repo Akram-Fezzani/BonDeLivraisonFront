@@ -19,7 +19,14 @@ export class AntennalistTableComponent implements OnInit {
   searchtext='';
   returnedArray!: string[];
 
-  constructor(private us:UserService,private toastr: ToastrService, private AntennaService:AntenneService,private dialog: MatDialog,private _router:Router) { }
+  constructor(private us:UserService,private toastr: ToastrService, private AntennaService:AntenneService,private dialog: MatDialog,private _router:Router)
+  { 
+    this.AntennaService.listen().subscribe((m:any)=>{
+      console.log(m);
+      this.getallantennas();
+    }
+    )
+  }
 
   getallantennas(){
         

@@ -23,7 +23,14 @@ export class DomainTableComponent implements OnInit {
   returnedArray!: string[];
 
 
-  constructor(private us:UserService,private DomainService:DomainService,private toastr: ToastrService, private cs:CenterServiceService,private dialog: MatDialog,private _router:Router) { }
+  constructor(private us:UserService,private DomainService:DomainService,private toastr: ToastrService, private cs:CenterServiceService,private dialog: MatDialog,private _router:Router) 
+  { 
+    this.DomainService.listen().subscribe((m:any)=>{
+      console.log(m);
+      this.getDomains();
+    }
+    )
+  }
 
   getDomains(){
             

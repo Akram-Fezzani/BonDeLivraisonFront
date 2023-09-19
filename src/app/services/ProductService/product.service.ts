@@ -23,4 +23,12 @@ export class ProductService {
   deleteArticle(ArticleId:string): Observable<any> {
     return this.http.delete( 'https://localhost:44358/api/Article/DeleteArticle?Id='+ArticleId);
   }
+
+  private _listners = new Subject<any>();
+  listen():Observable<any>{
+    return this._listners.asObservable();
+  }
+  filter(filterBy: string){
+    this._listners.next(filterBy);
+  }
 }

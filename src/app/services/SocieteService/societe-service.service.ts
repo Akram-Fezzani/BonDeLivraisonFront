@@ -25,4 +25,12 @@ export class SocieteServiceService {
   deleteSociete(SocieteId:string): Observable<any> {
     return this.http.delete( 'https://localhost:44357/api/Society/DeleteSociete?Id='+SocieteId);
   }
+
+  private _listners = new Subject<any>();
+  listen():Observable<any>{
+    return this._listners.asObservable();
+  }
+  filter(filterBy: string){
+    this._listners.next(filterBy);
+  }
 }

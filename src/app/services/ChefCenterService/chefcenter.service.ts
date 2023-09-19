@@ -11,6 +11,9 @@ export class ChefcenterService {
 
   constructor(private _http:HttpClient) { }
 
+  chefcenters(): Observable<any> { 
+    return this._http.get('https://localhost:44317/api/ChefCenter/GetChefs' );
+  }
   AddChefCenter(user: User){
     return this._http.post<User>('https://localhost:44317/api/ChefCenter/AjoutChef',user);
 
@@ -24,5 +27,13 @@ export class ChefcenterService {
 
     return this._http.get( 'https://localhost:44317/api/ChefCenter/GetChef?Id='+id);
 
+  }
+
+  private _listners = new Subject<any>();
+  listen():Observable<any>{
+    return this._listners.asObservable();
+  }
+  filter(filterBy: string){
+    this._listners.next(filterBy);
   }
 }

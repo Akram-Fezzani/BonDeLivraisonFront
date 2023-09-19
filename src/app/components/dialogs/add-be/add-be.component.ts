@@ -32,6 +32,8 @@ export class AddBeComponent implements OnInit {
 
   closeDialog(){
     this.dialogRef.close();
+    this.BEService.filter('Register click')
+
   }
   ngOnInit(): void {
   }

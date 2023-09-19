@@ -42,8 +42,8 @@ export class AddBlComponent implements OnInit {
 
   closeDialog(){
     this.dialogRef.close();
-
-        }
+    this.BLService.filter('Register click')
+ }
   ngOnInit(): void {
     
   }

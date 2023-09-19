@@ -24,7 +24,14 @@ export class SocieteTableComponent implements OnInit {
   returnedArray!: string[];
 
 
-  constructor(private SocieteService:SocieteServiceService,private toastr: ToastrService,private dialog: MatDialog,private _router:Router) { }
+  constructor(private SocieteService:SocieteServiceService,private toastr: ToastrService,private dialog: MatDialog,private _router:Router) 
+  { 
+    this.SocieteService.listen().subscribe((m:any)=>{
+      console.log(m);
+      this.getAllSocietes();
+    }
+    )
+  }
 
       getAllSocietes(){
             

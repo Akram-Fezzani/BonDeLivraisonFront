@@ -20,7 +20,14 @@ export class ChefcentreTableComponent implements OnInit {
   searchtext='';
   returnedArray!: string[];
   
-  constructor(private us:UserService,private toastr: ToastrService, private ChefCenterService:ChefcenterService,private dialog: MatDialog,private _router:Router) { }
+  constructor(private us:UserService,private toastr: ToastrService, private ChefCenterService:ChefcenterService,private dialog: MatDialog,private _router:Router)
+  {
+    this.us.listen().subscribe((m:any)=>{
+      console.log(m);
+      this.chefcenters();
+    }
+    )
+  }
 
   pageChanged(event: PageChangedEvent): void {
     const startItem = (event.page - 1) * event.itemsPerPage;
@@ -29,7 +36,7 @@ export class ChefcentreTableComponent implements OnInit {
  }
   chefcenters(){
         
-    this.us.chefcenters().subscribe( (data:any) =>{
+    this.ChefCenterService.chefcenters().subscribe( (data:any) =>{
       this.users=data;
 
       },

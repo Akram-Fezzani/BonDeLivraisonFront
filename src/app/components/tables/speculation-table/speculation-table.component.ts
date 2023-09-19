@@ -23,9 +23,16 @@ export class SpeculationTableComponent implements OnInit {
   returnedArray!: string[];
 
 
-  constructor(private us:UserService,private SpeculationService:SpeculationService,private toastr: ToastrService, private cs:CenterServiceService,private dialog: MatDialog,private _router:Router) { }
+  constructor(private us:UserService,private SpeculationService:SpeculationService,private toastr: ToastrService, private cs:CenterServiceService,private dialog: MatDialog,private _router:Router) 
+  { 
+    this.SpeculationService.listen().subscribe((m:any)=>{
+      console.log(m);
+      this.getSpeculations();
+    }
+    )
+  }
 
-      getAllRoles(){
+  getSpeculations(){
             
         this.SpeculationService.getSpeculations().subscribe( (data:any) =>{
 
@@ -72,7 +79,7 @@ export class SpeculationTableComponent implements OnInit {
 
 
   ngOnInit(): void {
-    this.getAllRoles();
+    this.getSpeculations();
     this.returnedArray = this.speculation.slice(0, 5);
 
   }

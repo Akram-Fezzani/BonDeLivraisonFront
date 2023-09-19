@@ -34,7 +34,7 @@ export class AddSocieteComponent implements OnInit {
       //console.log(data);
       this.toastr.success("Une Societe a été Ajouter");
 
-
+this.closeDialog();
       },
       (error:any) => console.log(error));  }
 
@@ -42,6 +42,8 @@ export class AddSocieteComponent implements OnInit {
 
       closeDialog(){
         this.dialogRef.close();
+        this.ss.filter('Register click')
+
       }
       
 

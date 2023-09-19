@@ -56,6 +56,8 @@ export class AddChefcenterComponent implements OnInit {
 
       closeDialog(){
         this.dialogRef.close();
+        this.ChefCenterService.filter('Register click')
+
       }
       
 

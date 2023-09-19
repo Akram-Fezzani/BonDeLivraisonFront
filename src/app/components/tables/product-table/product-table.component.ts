@@ -19,7 +19,14 @@ export class ProductTableComponent implements OnInit {
   searchtext='';
   returnedArray!: string[];
   
-  constructor(private ProductService:ProductService,private toastr: ToastrService, private dialog: MatDialog,private _router:Router) { }
+  constructor(private ProductService:ProductService,private toastr: ToastrService, private dialog: MatDialog,private _router:Router) 
+  { 
+    this.ProductService.listen().subscribe((m:any)=>{
+      console.log(m);
+      this.allProducts();
+    }
+    )
+  }
 
   pageChanged(event: PageChangedEvent): void {
     const startItem = (event.page - 1) * event.itemsPerPage;

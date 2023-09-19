@@ -27,7 +27,14 @@ export class BuildingsTableComponent implements OnInit {
   Id:any;
 
 
-  constructor(private ts:TokenStorageService,private authService: AuthService,private us:UserService,private toastr: ToastrService, private BuildingService:BuildingService,private dialog: MatDialog,private _router:Router) { }
+  constructor(private ts:TokenStorageService,private authService: AuthService,private us:UserService,private toastr: ToastrService, private BuildingService:BuildingService,private dialog: MatDialog,private _router:Router) 
+  { 
+    this.BuildingService.listen().subscribe((m:any)=>{
+      console.log(m);
+      this.getallBuilgings();
+    }
+    )
+  }
 
   getallBuilgings(){
         

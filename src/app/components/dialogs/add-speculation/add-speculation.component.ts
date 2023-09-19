@@ -39,6 +39,8 @@ export class AddSpeculationComponent implements OnInit {
 
       closeDialog(){
         this.dialogRef.close();
+        this.SpeculationService.filter('Register click')
+
       }
 
 

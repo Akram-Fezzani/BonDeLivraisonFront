@@ -36,4 +36,12 @@ export class BuildingService {
     return this.http.get( 'https://localhost:44357/api/Antenna/GetBuildingsByAntennaId?IdAntenna='+AntennaId);
 
   }
+
+  private _listners = new Subject<any>();
+  listen():Observable<any>{
+    return this._listners.asObservable();
+  }
+  filter(filterBy: string){
+    this._listners.next(filterBy);
+  }
 }

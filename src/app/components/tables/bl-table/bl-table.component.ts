@@ -23,7 +23,14 @@ export class BlTableComponent implements OnInit {
   returnedArray!: any;
 
 
-  constructor(private us:UserService,private toastr: ToastrService, private BLService:BLService,private dialog: MatDialog,private _router:Router) { }
+  constructor(private us:UserService,private toastr: ToastrService, private BLService:BLService,private dialog: MatDialog,private _router:Router) 
+  { 
+    this.BLService.listen().subscribe((m:any)=>{
+      console.log(m);
+      this.getallBLs();
+    }
+    )
+  }
 
   getallBLs(){
         

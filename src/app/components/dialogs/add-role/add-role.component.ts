@@ -42,6 +42,8 @@ export class AddRoleComponent implements OnInit {
 
       closeDialog(){
         this.dialogRef.close();
+        this.rs.filter('Register click')
+
       }
 
 

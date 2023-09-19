@@ -129,7 +129,7 @@ export class AntennaStatsComponent implements OnInit {
 
       chefcenters(){
         
-        this.us.chefcenters().subscribe( (data:any) =>{
+        this.ChefService.chefcenters().subscribe( (data:any) =>{
           this.users=data;
 
           },

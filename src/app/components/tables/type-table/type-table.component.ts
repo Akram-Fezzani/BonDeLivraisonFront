@@ -24,7 +24,14 @@ export class TypeTableComponent implements OnInit {
   returnedArray!: string[];
 
 
-  constructor(private us:UserService,private TypeService:TypeService,private toastr: ToastrService, private cs:CenterServiceService,private dialog: MatDialog,private _router:Router) { }
+  constructor(private us:UserService,private TypeService:TypeService,private toastr: ToastrService, private cs:CenterServiceService,private dialog: MatDialog,private _router:Router) 
+  { 
+    this.TypeService.listen().subscribe((m:any)=>{
+      console.log(m);
+      this.getAllTypes();
+    }
+    )
+  }
 
   getAllTypes(){      
   this.TypeService.getTypes().subscribe( (data:any) =>{

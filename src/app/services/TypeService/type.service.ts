@@ -24,5 +24,11 @@ export class TypeService {
   deleteType(TypeId:string): Observable<any> {
     return this.http.delete( 'https://localhost:44357/api/Type/DeleteType?Id='+TypeId);
   }
-
+  private _listners = new Subject<any>();
+  listen():Observable<any>{
+    return this._listners.asObservable();
+  }
+  filter(filterBy: string){
+    this._listners.next(filterBy);
+  }
 }

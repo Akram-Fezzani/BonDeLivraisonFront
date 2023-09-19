@@ -10,7 +10,6 @@ import { collector } from 'src/app/models/collector';
 export class UserService {
 
   private baseUrl = '/https://localhost:44317/api/User/';
-  private chefcentersurl = 'https://localhost:44317/api/ChefCenter/GetChefs';
   private getCenterUrl =  'https://localhost:44357/api/Center'
 
 
@@ -25,9 +24,7 @@ export class UserService {
     return this.http.get(this.baseUrl + 'getUserByusername/'+username);
   }
 
-  chefcenters(): Observable<any> { 
-    return this.http.get(this.chefcentersurl );
-  }
+  
 
   getnumberofusers(): Observable<any> { 
     return this.http.get( 'https://localhost:44317/api/User/GetNumberOfUsers');
@@ -59,7 +56,13 @@ export class UserService {
 
   
 
-
+  private _listners = new Subject<any>();
+  listen():Observable<any>{
+    return this._listners.asObservable();
+  }
+  filter(filterBy: string){
+    this._listners.next(filterBy);
+  }
 
 
 

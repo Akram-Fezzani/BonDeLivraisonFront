@@ -40,6 +40,8 @@ export class AddAntennaComponent implements OnInit {
 
       closeDialog(){
         this.dialogRef.close();
+        this.AntenneService.filter('Register click')
+
       }
 
 

@@ -24,9 +24,16 @@ export class BeTableComponent implements OnInit {
   returnedArray!: any;
 
 
-  constructor(private us:UserService,private toastr: ToastrService, private BEService:BEService,private dialog: MatDialog,private _router:Router) { }
+  constructor(private us:UserService,private toastr: ToastrService, private BEService:BEService,private dialog: MatDialog,private _router:Router) 
+  { 
+    this.BEService.listen().subscribe((m:any)=>{
+      console.log(m);
+      this.getallBEs();
+    }
+    )
+  }
 
-  getallcenters(){
+  getallBEs(){
         
     this.BEService.allBes().subscribe( (data:any) =>{
 
@@ -72,7 +79,7 @@ export class BeTableComponent implements OnInit {
 
 
   ngOnInit(): void {
-    this.getallcenters();
+    this.getallBEs();
     this.returnedArray = this.Bes.slice(0, 5);
 
   }

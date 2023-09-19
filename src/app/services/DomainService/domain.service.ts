@@ -23,5 +23,11 @@ export class DomainService {
   deleteDomain(DomainId:string): Observable<any> {
     return this.http.delete( 'https://localhost:44357/api/Domaine/DeleteDomaine?Id='+DomainId);
   }
-
+  private _listners = new Subject<any>();
+  listen():Observable<any>{
+    return this._listners.asObservable();
+  }
+  filter(filterBy: string){
+    this._listners.next(filterBy);
+  }
 }

@@ -30,9 +30,9 @@ export class AddBuildingComponent implements OnInit {
     this.authService.getcurrentuser(id,).subscribe((r:any)=>{
       this.currentUser=r;
       this.Id=r.centreId;
-      //console.log(this.Id);
+      console.log(this.Id);
       this.Building.CenterId=this.Id
-
+this.Building.TypeId="3fa85f64-5717-4562-b3fc-2c963f66afa6"
         this.BuildingService.AddBuilding(this.Building,).subscribe( (data:any) =>{
             //console.log(data);
             data.state=true;
@@ -53,6 +53,8 @@ export class AddBuildingComponent implements OnInit {
 
   closeDialog(){
     this.dialogRef.close();
+    this.BuildingService.filter('Register click')
+
   }
  
  

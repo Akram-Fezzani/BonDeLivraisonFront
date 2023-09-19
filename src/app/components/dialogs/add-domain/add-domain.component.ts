@@ -40,6 +40,8 @@ export class AddDomainComponent implements OnInit {
 
       closeDialog(){
         this.dialogRef.close();
+        this.DomainService.filter('Register click')
+
       }
 
 

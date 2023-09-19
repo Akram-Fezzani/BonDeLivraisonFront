@@ -38,6 +38,8 @@ export class AddTypeComponent implements OnInit {
 
       closeDialog(){
         this.dialogRef.close();
+        this.TypeService.filter('Register click')
+
       }
 
 

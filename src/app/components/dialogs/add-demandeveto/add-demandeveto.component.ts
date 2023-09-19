@@ -44,8 +44,8 @@ export class AddDemandevetoComponent implements OnInit {
 
   closeDialog(){
     this.dialogRef.close();
-
-        }
+    //this.ProductService.filter('Register click')
+  }
   ngOnInit(): void {
     this.GetBuldingsByCenterId()
   }

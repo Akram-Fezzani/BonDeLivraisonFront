@@ -140,7 +140,7 @@ export class CenterStatsComponent implements OnInit {
 
       chefcenters(){
         
-        this.us.chefcenters().subscribe( (data:any) =>{
+        this.ChefService.chefcenters().subscribe( (data:any) =>{
           this.users=data;
           console.log(this.Contributors);
 
