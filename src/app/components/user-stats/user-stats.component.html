@@ -95,7 +95,92 @@
   </div>
 </div>
 
-<div style="margin-left: -15px; width: 100%">
+<button (click)="toggleusers()" class="button" style="vertical-align:middle"><span>Gestion Des Utilisateurs </span></button>
+
+<div [@openClose]="isOpenusers ? true : false" class="open-close-container">
+  
+<div style="margin-left: -15px; width: 102.3%">
+  <div class="col-12">
+    <div style="border-radius: 10px ; border: 2px solid rgba(6, 203, 252, 0.655);
+    box-shadow: 0 0 40px rgba(57, 2, 255, 0.259);" class="card">
+      <div class="card-body" >
+        <mat-tab-group animationDuration="2000ms" [backgroundColor]="'primary'">
+          <mat-tab label="Chef Centers">
+            <app-chefcentre-table></app-chefcentre-table>
+          </mat-tab>
+          <mat-tab label="Roles">
+            <app-roles-table></app-roles-table>
+          </mat-tab>
+          <mat-tab label="Admin">
+          </mat-tab>
+          <mat-tab label="Veto">
+          </mat-tab>
+          <mat-tab label="Directeur Antenne">
+          </mat-tab>
+          <mat-tab label="Proprietaire societe">
+          </mat-tab>
+        <mat-tab label="Client">
+        </mat-tab>
+        </mat-tab-group>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+
+<button (click)="togglecenters()" class="button" style="vertical-align:middle"><span>Gestion Des Centre </span></button>
+
+<div [@openClose]="isOpencenters ? true : false" class="open-close-container">
+  
+
+
+
+<div style="margin-left: -15px; width: 102.3%">
+  <div class="col-12">
+    <div style="border-radius: 10px ; border: 2px solid rgba(6, 203, 252, 0.655);
+    box-shadow: 0 0 40px rgba(57, 2, 255, 0.259);" class="card">
+      <div class="card-body" >
+        <mat-tab-group animationDuration="2000ms" [backgroundColor]="'primary'">
+          <mat-tab label="Chef Centers">
+            <app-chefcentre-table></app-chefcentre-table>
+          </mat-tab>
+          <mat-tab label="Centres">
+            <app-centres-table ></app-centres-table>
+          </mat-tab>
+
+          <mat-tab label="Antennes">
+            <app-antennalist-table></app-antennalist-table>
+          </mat-tab>
+        
+          <mat-tab label="societes">
+            <app-societe-table></app-societe-table>
+          </mat-tab>
+          <mat-tab label="Speculations">
+            <app-speculation-table></app-speculation-table>
+          </mat-tab>
+          <mat-tab label="Types">
+            <app-type-table></app-type-table>
+          </mat-tab>
+          <mat-tab label="Domaines">
+            <app-domain-table></app-domain-table>
+          </mat-tab>
+        </mat-tab-group>
+
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+
+<button (click)="toggleantenna()" class="button" style="vertical-align:middle" id="antennasbutton"><span>Gestion Des Antennes </span></button>
+
+
+<div [@openClose]="isOpenantenna ? true : false" class="open-close-container">
+  
+
+
+
+<div style="margin-left: -15px; width: 102.3%">
   <div class="col-12">
     <div style="border-radius: 10px ; border: 2px solid rgba(6, 203, 252, 0.655);
     box-shadow: 0 0 40px rgba(57, 2, 255, 0.259);" class="card">
@@ -127,7 +212,9 @@
             <app-domain-table></app-domain-table>
           </mat-tab>
         </mat-tab-group>
+
       </div>
     </div>
   </div>
+</div>
 </div>

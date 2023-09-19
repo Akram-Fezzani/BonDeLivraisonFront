@@ -25,15 +25,7 @@
         <br />
         <div class="card-body">
           <form class="form">
-            <div
-              class="input-group"
-              [ngClass]="{ 'input-group-focus': focus === true }"
-            >
-              <div class="input-group-prepend">
-                <div class="input-group-text">
-                  <i class="tim-icons icon-single-02"> </i>
-                </div>
-              </div>
+            <div class="form-group">
               <input
                 class="form-control"
                 placeholder="Nom Domaine"
@@ -42,19 +34,13 @@
                 required
                 minlength="5"
                 type="text"
-                (focus)="focus = true"
-                (blur)="focus = false"
+                
               />
             </div>
             <br />
-            <div
-              class="input-group"
-              [ngClass]="{ 'input-group-focus': focus1 === true }"
-            >
+            <div class="form-group">
               <div class="input-group-prepend">
-                <div class="input-group-text">
-                  <i class="tim-icons icon-single-02"> </i>
-                </div>
+               
               </div>
               <input
                 class="form-control"
@@ -62,48 +48,31 @@
                 [(ngModel)]="domain.CapitalSocial"
                 name="CapitalSocial"
                 type="text"
-                (focus)="focus1 = true"
-                (blur)="focus1 = false"
+              
               />
             </div>
             <br />
-            <div
-              class="input-group"
-              [ngClass]="{ 'input-group-focus': focus1 === true }"
-            >
-              <div class="input-group-prepend">
-                <div class="input-group-text">
-                  <i class="tim-icons icon-single-02"> </i>
-                </div>
-              </div>
+            <div class="form-group">
+            
               <input
                 class="form-control"
                 placeholder="Raison Social"
                 [(ngModel)]="domain.RaisonSocial"
                 name="RaisonSocial"
                 type="text"
-                (focus)="focus1 = true"
-                (blur)="focus1 = false"
+                
               />
             </div>
             <br />
-            <div
-              class="input-group"
-              [ngClass]="{ 'input-group-focus': focus1 === true }"
-            >
-              <div class="input-group-prepend">
-                <div class="input-group-text">
-                  <i class="tim-icons icon-single-02"> </i>
-                </div>
-              </div>
+            <div class="form-group">
+            
               <input
                 class="form-control"
                 placeholder="Code Domaine"
                 [(ngModel)]="domain.Code"
                 name="Code"
                 type="text"
-                (focus)="focus1 = true"
-                (blur)="focus1 = false"
+              
               />
             </div>
             <br />

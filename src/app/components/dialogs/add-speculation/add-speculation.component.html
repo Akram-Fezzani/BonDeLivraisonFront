@@ -26,15 +26,7 @@
         <br />
         <div class="card-body">
           <form class="form">
-            <div
-              class="input-group"
-              [ngClass]="{ 'input-group-focus': focus === true }"
-            >
-              <div class="input-group-prepend">
-                <div class="input-group-text">
-                  <i class="tim-icons icon-single-02"> </i>
-                </div>
-              </div>
+            <div class="form-group">
               <input
                 class="form-control"
                 placeholder="Label Speculation"
@@ -43,20 +35,12 @@
                 required
                 minlength="5"
                 type="text"
-                (focus)="focus = true"
-                (blur)="focus = false"
+              
               />
             </div>
             <br />
-            <div
-              class="input-group"
-              [ngClass]="{ 'input-group-focus': focus1 === true }"
-            >
-              <div class="input-group-prepend">
-                <div class="input-group-text">
-                  <i class="tim-icons icon-single-02"> </i>
-                </div>
-              </div>
+            <div class="form-group">
+          
               <input
                 class="form-control"
                 placeholder="Code Speculation"
@@ -65,8 +49,7 @@
                 required
                 minlength="5"
                 type="text"
-                (focus)="focus1 = true"
-                (blur)="focus1 = false"
+             
               />
             </div>
             <br />

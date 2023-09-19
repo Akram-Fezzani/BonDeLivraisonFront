@@ -25,13 +25,8 @@
           <form class="form">
             <label> Nom </label>
 
-            <div
-              class="input-group"
-              [ngClass]="{ 'input-group-focus': focus === true }"
-            >
-              <div class="input-group-prepend">
-                <div class="input-group-text"></div>
-              </div>
+            <div class="form-group">
+            
               <input
                 class="form-control"
                 placeholder="Nom"
@@ -40,20 +35,13 @@
                 required
                 minlength="5"
                 type="text"
-                (focus)="focus = true"
-                (blur)="focus = false"
+               
               />
             </div>
             <label> Prenom </label>
 
-            <div
-              class="input-group"
-              [ngClass]="{ 'input-group-focus': focus1 === true }"
-            >
-              <div class="input-group-prepend">
-                <div class="input-group-text"></div>
-              </div>
-
+            <div class="form-group">
+          
               <input
                 class="form-control"
                 placeholder="Prenom"
@@ -62,20 +50,13 @@
                 type="text"
                 required
                 minlength="5"
-                (focus)="focus1 = true"
-                (blur)="focus1 = false"
+               
               />
             </div>
             <label> Telephone </label>
 
-            <div
-              class="input-group"
-              [ngClass]="{ 'input-group-focus': focus1 === true }"
-            >
-              <div class="input-group-prepend">
-                <div class="input-group-text"></div>
-              </div>
-
+            <div class="form-group">
+           
               <input
                 class="form-control"
                 placeholder="Telephone"
@@ -85,20 +66,13 @@
                 type="text"
                 [(ngModel)]="chauffeur.Telephone"
                 name="Telephone"
-                (focus)="focus1 = true"
-                (blur)="focus1 = false"
+               
               />
             </div>
             <label> Email </label>
 
-            <div
-              class="input-group"
-              [ngClass]="{ 'input-group-focus': focus3 === true }"
-            >
-              <div class="input-group-prepend">
-                <div class="input-group-text"></div>
-              </div>
-
+            <div class="form-group">
+            
               <input
                 class="form-control"
                 placeholder="Email"
@@ -108,8 +82,7 @@
                 type="email"
                 [(ngModel)]="chauffeur.Email"
                 name="Email"
-                (focus)="focus3 = true"
-                (blur)="focus3 = false"
+                
               />
             </div>
             <div class="form-group">
@@ -126,10 +99,8 @@
               >
               </bSwitch>
             </div>
-            <div
-              class="input-group"
-              [ngClass]="{ 'input-group-focus': focus2 === true }"
-            ></div>
+            <div class="form-group">
+          </div>
             <div class="card-footer">
               <div class="text-center">
                 <a

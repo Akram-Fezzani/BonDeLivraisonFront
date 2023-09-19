@@ -23,15 +23,9 @@
         </div>
         <div class="card-body">
           <form class="form">
-            <div
-              class="input-group"
-              [ngClass]="{ 'input-group-focus': focus === true }"
-            >
-              <div class="input-group-prepend">
-                <div class="input-group-text">
-                  <i class="tim-icons icon-single-02"> </i>
-                </div>
-              </div>
+            <div class="form-group">
+          
+         
               <input
                 class="form-control"
                 placeholder="Neauveau Role"
@@ -40,15 +34,10 @@
                 required
                 minlength="5"
                 type="text"
-                (focus)="focus = true"
-                (blur)="focus = false"
+                
               />
             </div>
 
-            <div
-              class="input-group"
-              [ngClass]="{ 'input-group-focus': focus2 === true }"
-            ></div>
             <div class="card-footer">
               <div class="text-center">
                 <a

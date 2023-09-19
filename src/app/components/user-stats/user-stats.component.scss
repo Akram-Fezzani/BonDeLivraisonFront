@@ -24,3 +24,76 @@
 .green{
   color: #17c8af;
 }
+
+
+
+:host {
+  display: block;
+}
+
+.open-close-container {
+  border: 1px solid #181c4400;
+  color: #000000;
+  font-weight: bold;
+  background-color: #181c4400;
+  overflow: hidden;
+}
+
+p {
+  margin: 0;
+  padding: 20px;
+}
+
+
+.but{
+  width: 100% ;
+  border-radius: 10px; 
+  border: 2px solid rgba(6, 203, 252, 0.655);
+  box-shadow: 0 0 40px rgba(57, 2, 255, 0.259);
+  background-color: rgba(127, 255, 212, 0);
+  color:#ffffff;
+  font-size: 24px;
+}
+
+
+.button {
+  width: 100% ;
+
+  border-radius: 10px;
+  background-color: #f4501e00;
+  border: 2px solid rgba(6, 203, 252, 0.655);
+  color: #FFFFFF;
+  text-align: left;
+  font-size: 24px;
+  padding: 20px;
+  transition: all 0.5s;
+  cursor: pointer;
+}
+
+.button span {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+}
+
+.button span:after {
+  content: '\00bb';
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  right: -20px;
+  transition: 0.5s;
+}
+
+.button:hover span {
+  padding-right: 25px;
+}
+
+.button:hover span:after {
+  opacity: 1;
+  right: 0;
+}
+button:focus {
+  background-color:rgba(6, 203, 252, 0.655)
+}

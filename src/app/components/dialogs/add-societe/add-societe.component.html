@@ -24,13 +24,7 @@
 
         <div class="card-body">
           <form class="form">
-            <div
-              class="input-group"
-              [ngClass]="{ 'input-group-focus': focus === true }"
-            >
-              <div class="input-group-prepend">
-                <div class="input-group-text"></div>
-              </div>
+            <div class="form-group">
               <input
                 class="form-control"
                 placeholder="codeSociétés"
@@ -39,18 +33,12 @@
                 type="text"
                 required
                 minlength="5"
-                (focus)="focus = true"
-                (blur)="focus = false"
+               
               />
             </div>
 
-            <div
-              class="input-group"
-              [ngClass]="{ 'input-group-focus': focus1 === true }"
-            >
-              <div class="input-group-prepend">
-                <div class="input-group-text"></div>
-              </div>
+            <div class="form-group">
+            
               <input
                 class="form-control"
                 placeholder="Adresse"
@@ -59,18 +47,11 @@
                 required
                 minlength="5"
                 type="text"
-                (focus)="focus1 = true"
-                (blur)="focus1 = false"
+                
               />
             </div>
 
-            <div
-              class="input-group"
-              [ngClass]="{ 'input-group-focus': focus2 === true }"
-            >
-              <div class="input-group-prepend">
-                <div class="input-group-text"></div>
-              </div>
+            <div class="form-group">
               <input
                 class="form-control"
                 placeholder="Capital Social"
@@ -79,18 +60,12 @@
                 type="text"
                 required
                 minlength="5"
-                (focus)="focus2 = true"
-                (blur)="focus2 = false"
+                
               />
             </div>
 
-            <div
-              class="input-group"
-              [ngClass]="{ 'input-group-focus': focus3 === true }"
-            >
-              <div class="input-group-prepend">
-                <div class="input-group-text"></div>
-              </div>
+            <div class="form-group">
+              
               <input
                 class="form-control"
                 placeholder="Raison Social"
@@ -100,18 +75,11 @@
                 type="text"
                 [(ngModel)]="societe.RaisonSocial"
                 name="RaisonSocial"
-                (focus)="focus3 = true"
-                (blur)="focus3 = false"
+               
               />
             </div>
 
-            <div
-              class="input-group"
-              [ngClass]="{ 'input-group-focus': focus4 === true }"
-            >
-              <div class="input-group-prepend">
-                <div class="input-group-text"></div>
-              </div>
+            <div class="form-group">
               <input
                 class="form-control"
                 placeholder="Telephone"
@@ -120,8 +88,7 @@
                 required
                 minlength="5"
                 type="text"
-                (focus)="focus4 = true"
-                (blur)="focus4 = false"
+                
               />
             </div>
             <div class="card-footer">

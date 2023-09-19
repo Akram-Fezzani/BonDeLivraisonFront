@@ -11,6 +11,7 @@ import { CenterServiceService } from 'src/app/services/CenterService/center-serv
 import * as Chart from 'chart.js';
 import { UserStat } from 'src/app/models/UserStats';
 import { BuildingByCenter } from 'src/app/models/BuildingByCenter';
+import { animate, state, style, transition, trigger } from '@angular/animations';
 
 
 import { StatsService } from 'src/app/services/StatsService/stats.service';
@@ -19,7 +20,14 @@ import { CenterByAntenna } from 'src/app/models/CenterByAntenna';
 @Component({
   selector: 'app-user-stats',
   templateUrl: './user-stats.component.html',
-  styleUrls: ['./user-stats.component.scss']
+  styleUrls: ['./user-stats.component.scss'],
+  animations: [
+    trigger('openClose', [
+      state('true', style({ height: '*' })),
+      state('false', style({ height: '0px' })),
+      transition('false <=> true', [ animate(500) ])
+    ])
+  ]
 
 })
 export class UserStatsComponent implements OnInit {
@@ -49,6 +57,24 @@ export class UserStatsComponent implements OnInit {
   ngAfterViewInit() {
     //this.elementRef.nativeElement.ownerDocument
        // .body.style.backgroundColor = '#fdfd96';
+}
+
+
+isOpenusers = false;
+
+toggleusers() {
+  this.isOpenusers = !this.isOpenusers;
+}
+
+isOpencenters = false;
+
+togglecenters() {
+  this.isOpencenters = !this.isOpencenters;
+}
+isOpenantenna = false;
+
+toggleantenna() {
+  this.isOpenantenna = !this.isOpenantenna;
 }
 message = "ekhdmi";
  getnumberofusers(){
