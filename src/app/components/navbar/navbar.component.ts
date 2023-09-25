@@ -1,7 +1,6 @@
 import { Component, OnInit, OnDestroy } from "@angular/core";
 import noUiSlider from "nouislider";
 import { faCoffee } from '@fortawesome/free-solid-svg-icons';
-import {AppComponent} from "../../app.component";
 import {Router} from "@angular/router";
 import { User } from "src/app/models/User";
 import { Howl } from "howler";
@@ -12,6 +11,7 @@ import { NotificationService } from "src/app/services/notification/notification.
 import { ChatMessage } from "src/app/models/ChatMessage";
 import { WebsocketService } from "src/app/services/websocket/websocket.service";
 import { AuthService } from 'src/app/services/authservice/auth.service';
+import { interval } from "rxjs";
 
 @Component({
   selector: 'app-navbar',
@@ -39,6 +39,7 @@ export class NavbarComponent implements OnInit, OnDestroy {
   openedNotif: boolean = false;
   notifs: NotificationForum [] = [];
   public countsColor: string = "red";
+  nbrntf!:any;
 
   constructor(private us: UserService,private router: Router,private authService: AuthService,private tokenStorage:TokenStorageService,private websocketService:WebsocketService, private notificationService:NotificationService) {}
   scrollToDownload(element: any) {
@@ -52,30 +53,82 @@ export class NavbarComponent implements OnInit, OnDestroy {
     },);
   }
   ngOnInit() {
-    NavbarComponent.instance = this;
+   
+
+    
+    
+      const obs$ = interval(1000);
+      obs$.subscribe((d)=>{
+
+        this.notifications();
+
+      });
+
+      const ovs$ = interval(2000);
+      ovs$.subscribe((d)=>{
+
+        this.notificationss();
+      });
+      const oms$ = interval(2000);
+      oms$.subscribe((d)=>{
+      if((this.nbrntf- this.notViewdNotifs) >0)
+      {
+        this.notifSound.play();
+      }
+    });
+
+     
+  }
+ 
+   
+
+  notifications(){   
     const id=this.tokenStorage.getId()+"";
     this.authService.getcurrentuser(id,).subscribe((r:any)=>{
             this.currentUser=r;
             this.Id=r.userId;
-
             if(this.currentUser != null) {
             this.notificationService.Notiflist(this.Id).subscribe((r:NotificationForum[]) => {
+              //this.notifSound.play();
+
+              this.notViewdNotifs = 0;
+
             for(let not of r) {
               if (!not.viewed) {
                  this.notViewdNotifs++;
               }
             }
           this.notifs = r;
+
           },(error: any) => console.log(error));
         }
     }, (error:any) => console.log(error));  
-
-      this.websocketService._connectForum(this.currentUser.id);
-      this.websocketService.navBarComp.subscribe((message:ChatMessage) => {
-        this.reloadFromWebSocket(message);
-      });
-    
   }
+
+
+  notificationss(){   
+    const id=this.tokenStorage.getId()+"";
+    this.authService.getcurrentuser(id,).subscribe((r:any)=>{
+            this.currentUser=r;
+            this.Id=r.userId;
+            if(this.currentUser != null) {
+            this.notificationService.Notiflist(this.Id).subscribe((r:NotificationForum[]) => {
+              //this.notifSound.play();
+
+              this.nbrntf = 0;
+
+            for(let not of r) {
+              if (!not.viewed) {
+                 this.nbrntf++;
+              }
+            }
+          this.notifs = r;
+
+          },(error: any) => console.log(error));
+        }
+    }, (error:any) => console.log(error));  
+  }
+
   ngOnDestroy() {
     var body = document.getElementsByTagName("body")[0];
     body.classList.remove("index-page");
@@ -121,23 +174,25 @@ this.us.getUserByusername(this.form.search).subscribe((r:any)=>{
   }
 
   clearAllNotifications($event: MouseEvent) {
-    for(let notif of this.notifs) {
-      this.notificationService.deleteNotif(notif.notificationId).subscribe(()=>{
-        this.notifs.splice(this.notifs.indexOf(notif),1);
-      },error => console.log(error));
-    }
-  }
+    const id=this.tokenStorage.getId()+"";
+    this.authService.getcurrentuser(id,).subscribe((r:any)=>{
+            this.currentUser=r;
+            this.Id=r.userId;
+      this.notificationService.deleteAllNotif(this.Id).subscribe(()=>{
+        this.ngOnInit();
+      },(error: any) => console.log(error));
+}, (error:any) => console.log(error));  }
 
   viewOne(ntf: NotificationForum) {
     ntf.hovored = true;
     this.notificationService.updateNotif(ntf).subscribe(()=>{
-
     },error => console.log(error));
   }
 
-  deleteNotif(ntf: NotificationForum) {
-     console.log (ntf)
-  }
+  deleteNotif(ntf: String) {
+    this.notificationService.deleteNotif(ntf).subscribe((r:any)=>{
+    this.ngOnInit();
+    },(error: any) => console.log(error));  }
 
   changeDashboardColor(color: string){
     var body = document.getElementsByTagName('body')[0];
@@ -164,4 +219,3 @@ this.us.getUserByusername(this.form.search).subscribe((r:any)=>{
   }
 
 }
-

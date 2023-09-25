@@ -4,23 +4,24 @@
 
 <div class="content">
   <div class="row">
-    <div>
+    <div >
       <div class="card " style="  
       maegin-left:65%;
       height: 520px;
       width: 700px;
-      background-color: rgba(32, 36, 76, 0.445);
+      background-color: rgba(32, 36, 76, 0);
       position: absolute;
       transform: translate(-50%,-50%);
       top: 50%;
       left: 50%;
       border-radius: 10px;
       backdrop-filter: blur(10px);
-      border: 2px solid rgba(252, 6, 6, 0.655);
-      box-shadow: 0 0 40px rgba(244, 141, 141, 0.259);
-      ">          <br />
+      border: 2px solid rgba(6, 203, 252, 0.655);
+      box-shadow: 0 0 40px rgba(57, 2, 255, 0.259);
+      ">  
+              <br />
         <div class="card-header">
-          <h1 class="title">Ajout d'un bon de livraison</h1>
+          <h1 class="title">Modifier un centre</h1>
         </div>
         <div class="card-body">
           <form>
@@ -29,24 +30,23 @@
                 <div class="form-group">
                   <input
                     class="form-control"
-                    name="NumBL"
-
-                    [(ngModel)]="BL.numBL"
-                    placeholder="Numer BL "
                     type="text"
+                    name="CenterLabel"
+                    placeholder="CenterLabel "
+
+                    [(ngModel)]="center.centerLabel"
                   />
                 </div>
               </div>
-              <div class="col-md-6 pr-md-1">
+              <div class="col-md-6 pl-md-1">
                 <div class="form-group">
                   <input
-                    class="form-control"
-                    name="NumBE"
-
-                    [(ngModel)]="BL.numBE"
-                    placeholder="Numero BE"
-                    type="text"
-                  />
+                  class="form-control"
+                  placeholder="CenterCode"
+                  name="CenterCode"
+                  [(ngModel)]="center.centerCode"
+                  type="text"
+                />
                 </div>
               </div>
             </div>
@@ -55,10 +55,11 @@
                 <div class="form-group">
                   <input
                     class="form-control"
-                    name="DateBE"
+                    type="text"
+                    name="blPrefixNumber"
+                    placeholder="blPrefixNumber "
 
-                    type="date"
-                    [(ngModel)]="BL.dateBE"
+                    [(ngModel)]="center.blPrefixNumber"
                   />
                 </div>
               </div>
@@ -66,68 +67,75 @@
                 <div class="form-group">
                   <input
                     class="form-control"
-                    name="Chauffeur"
-
-                    [(ngModel)]="BL.chauffeur"
-                    placeholder="Chauffeur"
+                    [(ngModel)]="center.socialReason"
+                    name="SocialReason"
+                    placeholder="SocialReason "
                     type="text"
                   />
                 </div>
               </div>
             </div>
-
             <div class="row">
               <div class="col-md-6 pr-md-1">
                 <div class="form-group">
                   <input
                     class="form-control"
-                    name="TypeBL"
-
-                    placeholder="Type BL"
                     type="text"
-                    [(ngModel)]="BL.typeBL"
+                    name="CodeSpecification"
+                    placeholder="CodeSpecification"
+                    [(ngModel)]="center.codeSpecification"
+                   
                   />
                 </div>
               </div>
-
+              <div class="col-md-6 pl-md-1">
+                <div class="form-group">
+                  <input
+                  class="form-control"
+                  [(ngModel)]="center.rotationActuelle"
+                  name="rotationActuelle"
+                  placeholder="rotationActuelle "
+                  type="text"
+                />
+                </div>
+              </div>
+            </div>
+            <div class="row">
               <div class="col-md-6 pr-md-1">
                 <div class="form-group">
                   <input
                     class="form-control"
-                    name="DateLivraison"
-
-                    type="date"
-                    [(ngModel)]="BL.dateLivraison"
+                    name="BuildingNumber"
+                    [(ngModel)]="center.buildingNumber"
+                    placeholder="BuildingNumber"
+                    type="text"
                   />
                 </div>
               </div>
-              <div class="col-md-4 px-md-1">
+              <div class="col-md-6 pl-md-1">
                 <div class="form-group">
-                  <label> Status </label>
-                  <br />
-                  <bSwitch
-                    class="idle"
-                    name="Status"
-
-                    [(ngModel)]="BL.status"
-                    [switch-on-color]="'danger'"
-                    [switch-off-color]="'danger'"
-                    [switch-off-text]="'Non '"
-                    [switch-on-text]="'Oui '"
-                  >
-                  </bSwitch>
+                 
+                <input
+                class="form-control"
+                placeholder="usefulSurface"
+                name="usefulSurface"
+                [(ngModel)]="center.usefulSurface"
+                type="text"
+              />
                 </div>
               </div>
+            
             </div>
           </form>
         </div>
         <div class="card-footer">
-          <div class="text-center" style="margin-top: -1cm;">
-            <a
+            <div class="text-center" style="margin-top: -1cm;">
+              <a
               class="btn btn-danger"
-                (click)="AddBL()">
-              Ajouter
-          </a>
+              href="javascript:void(0)"
+            >
+            Modifier
+            </a>
             <a
               class="btn btn-danger btn-simple"
               title="Annuler"

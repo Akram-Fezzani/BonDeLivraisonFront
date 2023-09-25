@@ -1,15 +1,15 @@
 import { BE } from 'src/app/models/BE';
 
 export class BL {
-    BLId!: String;
-    NumBL!: number;
-    NumBE!: number;
-    DateBE!:Date;
-    Chauffeur!:string;
-    NumPlombage!:number;
-    TypeBL!:string;
-    Status!:boolean;
-    DateLivraison!:Date;
+    bLId!: String;
+    numBL!: number;
+    numBE!: number;
+    dateBE!:Date;
+    chauffeur!:string;
+    numPlombage!:number;
+    typeBL!:string;
+    status!:boolean;
+    dateLivraison!:Date;
     BE!:BE;
 
 }

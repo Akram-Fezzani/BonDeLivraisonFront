@@ -8,6 +8,7 @@ import { BEService } from 'src/app/services/BEService/be.service';
 import { UserService } from 'src/app/services/user/user.service';
 import { AddBeComponent } from '../../dialogs/add-be/add-be.component';
 import { AddBlComponent } from '../../dialogs/add-bl/add-bl.component';
+import { UpdateBeComponent } from '../../dialogs/update-be/update-be.component';
 
 @Component({
   selector: 'app-be-table',
@@ -60,6 +61,18 @@ export class BeTableComponent implements OnInit {
             height: '-4000px',
         width: '6000px',});
        }
+
+       openUpdateDialog(dataToUpdate: any) {
+        const dialogRef = this.dialog.open(UpdateBeComponent, {
+          width: '300px',
+          data:dataToUpdate,
+           
+          
+        });
+        dialogRef.afterClosed().subscribe((result: any) => {
+          // Handle the result if needed (e.g., update the table data)
+        });
+      }
 
        sortData(sort: Sort) {
         const data = this.Bes();

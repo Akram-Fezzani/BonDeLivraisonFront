@@ -7,6 +7,7 @@ import { Sort } from '@angular/material/sort';
 import { ToastrService } from 'ngx-toastr';
 import { PageChangedEvent } from 'ngx-bootstrap/pagination';
 import { AddCenterComponent } from '../../dialogs/add-center/add-center.component';
+import { UpdateCentreComponent } from '../../dialogs/update-centre/update-centre.component';
 
 @Component({
   selector: 'app-centres-table',
@@ -55,7 +56,17 @@ export class CentresTableComponent implements OnInit {
             height: '-4000px',
         width: '6000px',});
        }
-
+       openUpdateDialog(dataToUpdate: any) {
+        const dialogRef = this.dialog.open(UpdateCentreComponent, {
+          width: '300px',
+          data:dataToUpdate,
+           
+          
+        });
+        dialogRef.afterClosed().subscribe((result: any) => {
+          // Handle the result if needed (e.g., update the table data)
+        });
+      }
        sortData(sort: Sort) {
         const data = this.centers();
         if (!sort.active || sort.direction === '') {

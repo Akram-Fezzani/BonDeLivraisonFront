@@ -1,13 +1,13 @@
 export class Center {
-    CenterId!: string;
-    CenterLabel!: number;
+    centerId!: string;
+    centerLabel!: number;
     rotationActuelle!: number;
-    SocialReason!: string;
-    IsActive!:boolean;
-    CodeSpecification!:number;
+    socialReason!: string;
+    isActive!:boolean;
+    codeSpecification!:number;
     usefulSurface!:number;
-    BuildingNumber!:number;
-    CenterCode!:number;
+    buildingNumber!:number;
+    centerCode!:number;
     blPrefixNumber!:number;
     antennaId!:string;
 

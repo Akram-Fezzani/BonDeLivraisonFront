@@ -1,28 +1,25 @@
-import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
-import { MatDialogRef } from '@angular/material/dialog';
+import { Component, Inject, OnInit } from '@angular/core';
+import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { Center } from 'src/app/models/Center';
 import { NotificationForum} from 'src/app/models/NotificationForum';
-import { collector } from 'src/app/models/collector';
 import { CenterServiceService } from 'src/app/services/CenterService/center-service.service';
 import { NotificationService } from 'src/app/services/notification/notification.service';
 
-
 @Component({
-  selector: 'app-add-center',
-  templateUrl: './add-center.component.html',
-  styleUrls: ['./add-center.component.scss']
+  selector: 'app-update-centre',
+  templateUrl: './update-centre.component.html',
+  styleUrls: ['./update-centre.component.scss']
 })
-export class AddCenterComponent implements OnInit {
+export class UpdateCentreComponent implements OnInit {
+
   isCollapsed = true;
   notification!:Notification;
-  collector: collector=new collector();
   center: Center=new Center();
   notif: NotificationForum=new NotificationForum();
   disableButton: boolean = false;
-  constructor(private router:Router,private ns:NotificationService,private NotificationService:NotificationService,private CentreService:CenterServiceService,private toastr: ToastrService, private _router:Router,private dialogRef: MatDialogRef<AddCenterComponent>) { }
+  constructor(@Inject(MAT_DIALOG_DATA) public data: any,private ns:NotificationService,private NotificationService:NotificationService,private CentreService:CenterServiceService,private toastr: ToastrService, private _router:Router,private dialogRef: MatDialogRef<UpdateCentreComponent>) { }
   AddCenter(){
     this.disableButton = true;
     this.center.antennaId="3fa85f64-5717-4562-b3fc-2c963f66afa6"
@@ -30,7 +27,7 @@ export class AddCenterComponent implements OnInit {
       //console.log(data);
       data.state=true;
       this.closeDialog()
-this.AddNotif();
+      this.AddNotif();
       },
       (error:any) => console.log(error));  }
 
@@ -64,9 +61,7 @@ this.AddNotif();
 
 
   ngOnInit() {
-    var body = document.getElementsByTagName("body")[0];
-    body.classList.add("register-page");
-
+    this.center=this.data;
   }
   
 }

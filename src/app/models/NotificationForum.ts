@@ -1,11 +1,11 @@
-import {User} from "./User";
-
 export class NotificationForum {
   notificationId!:String;
   content!:string;
-  senderId!: User;
-  sender!:User
+  UseriD!: String;
+  senderId!:String;
   viewed!:boolean;
   hovored!:boolean;
+  MyProperty!:boolean;
   notifDate!:Date;
 }
+

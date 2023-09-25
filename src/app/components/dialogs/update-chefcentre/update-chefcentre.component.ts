@@ -1,21 +1,21 @@
-import { Component, OnInit } from '@angular/core';
-import { MatDialogRef } from '@angular/material/dialog';
+import { Component, Inject, OnInit } from '@angular/core';
+import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { ToastrService } from 'ngx-toastr';
 import { ChefCenter } from 'src/app/models/ChefCenter';
 import { CenterServiceService } from 'src/app/services/CenterService/center-service.service';
 import { ChefcenterService } from 'src/app/services/ChefCenterService/chefcenter.service';
 
 @Component({
-  selector: 'app-add-chefcenter',
-  templateUrl: './add-chefcenter.component.html',
-  styleUrls: ['./add-chefcenter.component.scss']
+  selector: 'app-update-chefcentre',
+  templateUrl: './update-chefcentre.component.html',
+  styleUrls: ['./update-chefcentre.component.scss']
 })
-export class AddChefcenterComponent implements OnInit {
+export class UpdateChefcentreComponent implements OnInit {
   chef: ChefCenter=new ChefCenter();
   centers:any;
   disableButton: boolean = false;
 
-  constructor(private cs:CenterServiceService,private ChefCenterService:ChefcenterService, private toastr: ToastrService,private dialogRef: MatDialogRef<AddChefcenterComponent>) { }
+  constructor(@Inject(MAT_DIALOG_DATA) public data: any,private cs:CenterServiceService,private ChefCenterService:ChefcenterService, private toastr: ToastrService,private dialogRef: MatDialogRef<UpdateChefcentreComponent>) { }
   
   getallcenters(){
         
@@ -53,5 +53,7 @@ export class AddChefcenterComponent implements OnInit {
 
   ngOnInit() {
   this.getallcenters()
+  this.chef=this.data;
+    console.log(this.data)
   }
 }

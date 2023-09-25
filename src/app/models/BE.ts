@@ -3,18 +3,18 @@ import { Article } from './Article';
 import { Client } from './Client';
 
 export class BE {
-    BEId!: String;
-    BLId!: String;
-    NumBE!: number;
-    DateBE!:Date;
-    Chauffeur!:string;
-    MatriculeVehicule!: String;
-    Status!:boolean;
-    NumPlombage!:string;
-    TypeBE!:string;
-    DateLivraison!:Date;
-    ClientId!:string;
-    Client!:Client;
-    Article!:Article;
+    bEId!: String;
+    bLId!: String;
+    numBE!: number;
+    dateBE!:Date;
+    chauffeurId!:string;
+    matriculeVehicule!: String;
+    status!:boolean;
+    numPlombage!:string;
+    typeBE!:string;
+    dateLivraison!:Date;
+    clientId!:string;
+    client!:Client;
+    article!:Article;
 
 }

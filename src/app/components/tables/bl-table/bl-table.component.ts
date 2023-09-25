@@ -7,6 +7,7 @@ import { ToastrService } from 'ngx-toastr';
 import { BLService } from 'src/app/services/BLService/bl.service';
 import { UserService } from 'src/app/services/user/user.service';
 import { AddBlComponent } from '../../dialogs/add-bl/add-bl.component';
+import { UpdateBlComponent } from '../../dialogs/update-bl/update-bl.component';
 
 @Component({
   selector: 'app-bl-table',
@@ -59,6 +60,18 @@ export class BlTableComponent implements OnInit {
         width: '6000px',});
        }
 
+       openUpdateDialog(dataToUpdate: any) {
+        console.log(dataToUpdate)
+        const dialogRef = this.dialog.open(UpdateBlComponent, {
+          width: '300px',
+          data:dataToUpdate,
+            
+          
+        });
+        dialogRef.afterClosed().subscribe((result: any) => {
+          // Handle the result if needed (e.g., update the table data)
+        });
+      }
        sortData(sort: Sort) {
         const data = this.BLs();
         if (!sort.active || sort.direction === '') {

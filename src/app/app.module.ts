@@ -82,6 +82,13 @@ import { CentersbyantennaTableComponent } from './components/tables/centersbyant
 import { BuildingByAntennaTableComponent } from './components/tables/building-by-antenna-table/building-by-antenna-table.component';
 import { VetoByAntennaTableComponent } from './components/tables/veto-by-antenna-table/veto-by-antenna-table.component';
 import { CollectorsByAntennaTableComponent } from './components/tables/collectors-by-antenna-table/collectors-by-antenna-table.component';
+import { AddNotificationComponent } from './components/dialogs/add-notification/add-notification.component';
+import { UpdateAntennaComponent } from './components/dialogs/update-antenna/update-antenna.component';
+import { UpdateBeComponent } from './components/dialogs/update-be/update-be.component';
+import { UpdateBlComponent } from './components/dialogs/update-bl/update-bl.component';
+import { UpdateChefcentreComponent } from './components/dialogs/update-chefcentre/update-chefcentre.component';
+import { UpdateCentreComponent } from './components/dialogs/update-centre/update-centre.component';
+
 
 
 @NgModule({
@@ -140,6 +147,12 @@ import { CollectorsByAntennaTableComponent } from './components/tables/collector
          BuildingByAntennaTableComponent,
          VetoByAntennaTableComponent,
          CollectorsByAntennaTableComponent,
+         AddNotificationComponent,
+         UpdateAntennaComponent,
+         UpdateBeComponent,
+         UpdateBlComponent,
+         UpdateChefcentreComponent,
+         UpdateCentreComponent,
 
   ],
   imports: [

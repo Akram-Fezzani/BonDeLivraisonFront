@@ -7,6 +7,7 @@ import { ChefcenterService } from 'src/app/services/ChefCenterService/chefcenter
 import { UserService } from 'src/app/services/user/user.service';
 import { PageChangedEvent } from 'ngx-bootstrap/pagination';
 import { AddChefcenterComponent } from '../../dialogs/add-chefcenter/add-chefcenter.component';
+import { UpdateChefcentreComponent } from '../../dialogs/update-chefcentre/update-chefcentre.component';
 
 @Component({
   selector: 'app-chefcentre-table',
@@ -53,7 +54,15 @@ export class ChefcentreTableComponent implements OnInit {
             height: '-4000px',
         width: '6000px',});
        }    
-
+       openUpdateDialog(dataToUpdate: any) {
+        const dialogRef = this.dialog.open(UpdateChefcentreComponent, {
+          width: '300px',
+          data:dataToUpdate,
+        });
+        dialogRef.afterClosed().subscribe((result: any) => {
+          // Handle the result if needed (e.g., update the table data)
+        });
+      }
   sortData(sort: Sort) {
         const data = this.chefcenters();
         if (!sort.active || sort.direction === '') {

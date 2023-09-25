@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { MatDialogRef } from '@angular/material/dialog';
+import { Component, Inject, OnInit } from '@angular/core';
+import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { ToastrService } from 'ngx-toastr';
 import { Article } from 'src/app/models/Article';
 import { BE } from 'src/app/models/BE';
@@ -7,13 +7,13 @@ import { BL } from 'src/app/models/BL';
 import { Client } from 'src/app/models/Client';
 
 import { BLService } from 'src/app/services/BLService/bl.service';
-
 @Component({
-  selector: 'app-add-bl',
-  templateUrl: './add-bl.component.html',
-  styleUrls: ['./add-bl.component.scss']
+  selector: 'app-update-bl',
+  templateUrl: './update-bl.component.html',
+  styleUrls: ['./update-bl.component.scss']
 })
-export class AddBlComponent implements OnInit {
+export class UpdateBlComponent implements OnInit {
+
   date = new Date();
   BL: BL=new BL();
   BE: BE=new BE();
@@ -21,7 +21,7 @@ export class AddBlComponent implements OnInit {
   Article:Article=new Article();
   disableButton: boolean = false;
 
-  constructor(private dialogRef: MatDialogRef<AddBlComponent>,private toastr: ToastrService,private BLService:BLService) { }
+  constructor(@Inject(MAT_DIALOG_DATA) public data: any,private dialogRef: MatDialogRef<UpdateBlComponent>,private toastr: ToastrService,private BLService:BLService) { }
 
   AddBL(){
     this.BE.bEId="3fa85f64-5717-4562-b3fc-2c963f66afa9"
@@ -45,7 +45,7 @@ export class AddBlComponent implements OnInit {
     this.BLService.filter('Register click')
  }
   ngOnInit(): void {
-    
+    this.BL=this.data;
   }
 
 }

@@ -1,0 +1,83 @@
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;600&display=swap" rel="stylesheet">
+
+<div class="container">
+  <div class="row">
+    <div style="margin-top: 4cm;" >
+  <div class="card " style="  
+      maegin-left:65%;
+      height: 420px;
+      width: 500px;
+      background-color: rgba(32, 36, 76, 0.445);
+      position: absolute;
+      transform: translate(-50%,-50%);
+      top: 50%;
+      left: 50%;
+      border-radius: 10px;
+      backdrop-filter: blur(10px);
+      border: 2px solid rgba(252, 6, 6, 0.655);
+      box-shadow: 0 0 40px rgba(244, 141, 141, 0.259);
+      ">      
+        <div class="card-header">
+          <h1 class="card-title"> {{title}}</h1>
+        </div>
+        <br />
+        <br />
+        <div class="card-body">
+          <form class="form">
+            <div class="form-group">
+           
+              <input
+                class="form-control"
+                placeholder="Code Antenne"
+                [(ngModel)]="antenne.antennaCode"
+                name="antennaCode"
+                required
+                minlength="5"
+                type="text"
+                
+              />
+            </div>
+            <br />
+            <div class="form-group">
+            
+              <input
+                class="form-control"
+                placeholder="Labelle Antenne"
+                [(ngModel)]="antenne.antennaLabel"
+                name="antennaLabel"
+                required
+                minlength="5"
+                type="text"
+                
+              />
+            </div>
+            <br />
+            <div class="card-footer">
+              <div class="text-center">
+                <a
+                  class="btn btn-danger"
+                  href="javascript:void(0)"
+                  (click)="UpdateAntenne()"
+                >
+                  Ajouter
+                </a>
+                <br />
+                <a
+                  class="btn btn-danger btn-simple"
+                  title="Annuler"
+                  (click)="closeDialog()"
+                  id="Annuler"
+                  >Annuler
+                </a>
+
+                <br />
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

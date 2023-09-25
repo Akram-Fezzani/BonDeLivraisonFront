@@ -58,13 +58,32 @@
       <td>{{ c.centerCode }}</td>
       <td>{{ c.socialReason }}</td>
       <td>{{ c.blPrefixNumber }}</td>
-      <td>
-        <button class="btn btn-danger" (click)="Delete(c.centerId)">
-          Delete
-        </button>
-      </td>
-      <td>
-        <button class="btn btn-success">Update</button>
+    
+      <td class="dropdown nav-item" dropdown>
+        <a
+            class="dropdown-toggle nav-link dropdown-toggle"
+            data-toggle="dropdown"
+            dropdownToggle
+            href="javascript:void(0)"
+          >
+        <a >
+           <i class="fa fa-ellipsis-v" aria-hidden="true"></i>
+        </a>
+        </a>
+        <div 
+          style="background: rgb(36, 37, 38)"
+          class="dropdown-menu dropdown-with-icons" *dropdownMenu>
+        <a
+              class="dropdown-item text-white"
+              (click)="openUpdateDialog(c)">
+              Update
+        </a>
+        <a
+              class="dropdown-item text-white"
+              (click)="Delete(c.centerId)">
+              Delete
+        </a>
+        </div>
       </td>
     </tr>
   </tbody>

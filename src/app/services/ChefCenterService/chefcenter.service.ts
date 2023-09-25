@@ -3,6 +3,7 @@ import { Observable,Subject } from 'rxjs';
 
 import {HttpClient, HttpHeaders} from '@angular/common/http';
 import { User } from 'src/app/models/User';
+import { ChefCenter } from 'src/app/models/ChefCenter';
 @Injectable({
   providedIn: 'root'
 })
@@ -14,8 +15,8 @@ export class ChefcenterService {
   chefcenters(): Observable<any> { 
     return this._http.get('https://localhost:44317/api/ChefCenter/GetChefs' );
   }
-  AddChefCenter(user: User){
-    return this._http.post<User>('https://localhost:44317/api/ChefCenter/AjoutChef',user);
+  AddChefCenter(chef: ChefCenter){
+    return this._http.post<User>('https://localhost:44317/api/ChefCenter/AjoutChef',chef);
 
   }
 

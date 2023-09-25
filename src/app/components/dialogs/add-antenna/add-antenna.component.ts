@@ -3,9 +3,7 @@ import { MatDialogRef } from '@angular/material/dialog';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { Antenne } from 'src/app/models/Antenne';
-import { collector } from 'src/app/models/collector';
 import { AntenneService } from 'src/app/services/AntennaService/antenne.service';
-import { UserService } from 'src/app/services/user/user.service';
 
 @Component({
   selector: 'app-add-antenna',
@@ -13,15 +11,10 @@ import { UserService } from 'src/app/services/user/user.service';
   styleUrls: ['./add-antenna.component.scss']
 })
 export class AddAntennaComponent implements OnInit {
-  isCollapsed = true;
-  focus!:any;
-  focus1!:any;
-  collector: collector=new collector();
+  isCollapsed = true;  
   antenne: Antenne=new Antenne();
-
   disableButton: boolean = false;
-
-  constructor(private router:Router,private AntenneService:AntenneService,private dialogRef: MatDialogRef<AddAntennaComponent>,private toastr: ToastrService,private us:UserService, private _router:Router) { }
+  constructor(private router:Router,private AntenneService:AntenneService,private dialogRef: MatDialogRef<AddAntennaComponent>,private toastr: ToastrService, private _router:Router) { }
   
 
 
@@ -32,7 +25,6 @@ export class AddAntennaComponent implements OnInit {
       data.state=true;
       this.closeDialog();
       this.toastr.success("Une Antenne a été ajouter");
-
       },
       (error:any) => console.log(error));  }
 

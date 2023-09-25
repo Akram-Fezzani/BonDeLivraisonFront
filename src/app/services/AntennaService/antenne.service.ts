@@ -18,6 +18,11 @@ export class AntenneService {
     return this._http.post<Antenne>('https://localhost:44357/api/Antenna/AjoutAntenna',antenne);
 
   }
+
+  UpdateAntenne(antenne: Antenne){
+    return this._http.put<Antenne>('https://localhost:44357/api/Antenna/UpdateAntenna',antenne);
+
+  }
   antenna(antennaId:string): Observable<any> { 
     return this.http.get('https://localhost:44357/api/Antenna/GetAntenna?Id='+antennaId );
   }

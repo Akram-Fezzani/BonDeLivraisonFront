@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { CenterServiceService } from 'src/app/services/CenterService/center-service.service';
 import { UserService } from 'src/app/services/user/user.service';
 import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 import { Sort } from '@angular/material/sort';
@@ -8,6 +7,10 @@ import { ToastrService } from 'ngx-toastr';
 import { AntenneService } from 'src/app/services/AntennaService/antenne.service';
 import { PageChangedEvent } from 'ngx-bootstrap/pagination';
 import { AddAntennaComponent } from '../../dialogs/add-antenna/add-antenna.component';
+import { AddNotificationComponent } from '../../dialogs/add-notification/add-notification.component';
+import { Antenne } from 'src/app/models/Antenne';
+import { UpdateAntennaComponent } from '../../dialogs/update-antenna/update-antenna.component';
+
 @Component({
   selector: 'app-antennalist-table',
   templateUrl: './antennalist-table.component.html',
@@ -46,16 +49,29 @@ export class AntennalistTableComponent implements OnInit {
 
       
   opendialog(){
-    const dialogConfig = new MatDialogConfig();
-  
-    dialogConfig.disableClose = true;
-    dialogConfig.autoFocus = true;
-  
-    this.dialog.open(AddAntennaComponent
-      ,{
-        height: '-4000px',
-    width: '6000px',});
+    const dialogRef = this.dialog.open(AddAntennaComponent, {
+      width: '300px',
+
+      
+    });
+    dialogRef.afterClosed().subscribe((result: any) => {
+    });
    }
+
+
+   openUpdateDialog(dataToUpdate: any) {
+    const dialogRef = this.dialog.open(UpdateAntennaComponent, {
+      width: '300px',
+      data:{
+        dataToUpdate,
+       
+      }  // Pass the item you want to update
+      
+    });
+    dialogRef.afterClosed().subscribe((result: any) => {
+      // Handle the result if needed (e.g., update the table data)
+    });
+  }
 
    sortData(sort: Sort) {
     const data = this.antennas();

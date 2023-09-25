@@ -12,6 +12,7 @@ import * as Chart from 'chart.js';
 import { UserStat } from 'src/app/models/UserStats';
 import { BuildingByCenter } from 'src/app/models/BuildingByCenter';
 import { animate, state, style, transition, trigger } from '@angular/animations';
+import { NotificationService } from 'src/app/services/notification/notification.service';
 
 
 import { StatsService } from 'src/app/services/StatsService/stats.service';
@@ -52,12 +53,19 @@ export class UserStatsComponent implements OnInit {
   public clicked: boolean = true;
   public clicked1: boolean = false;
   public clicked2: boolean = false;
-  constructor(private us:UserService,private statsService:StatsService,private elementRef: ElementRef, private cs:CenterServiceService,private dialog: MatDialog,private _router:Router) { }
+
+  notification!:any;
+
+  constructor(private us:UserService,private NotificationService:NotificationService,private statsService:StatsService,private elementRef: ElementRef, private cs:CenterServiceService,private dialog: MatDialog,private _router:Router) { }
 
   ngAfterViewInit() {
     //this.elementRef.nativeElement.ownerDocument
        // .body.style.backgroundColor = '#fdfd96';
 }
+
+    
+ 
+ 
 
 
 isOpenusers = false;
@@ -544,7 +552,6 @@ var myChart = new Chart(this.ctx3, {
 
 var gradientStroke = this.ctx3.createLinearGradient(0, 230, 0, 50);
 },error => console.log(error));
-
 
 
 
